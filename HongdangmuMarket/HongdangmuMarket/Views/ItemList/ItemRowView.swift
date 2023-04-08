@@ -9,25 +9,38 @@ import SwiftUI
 
 struct ItemRowView: View {
     
+    let item: Item
+    
+    private var date: String {
+        item.createdAt == item.issuedAt ? "\(item.createdAt)일 전" : "끌올 \(item.issuedAt)일 전"
+    }
+    
     var body: some View {
         HStack(alignment: .top, spacing: 16) {
-            Image(systemName: "photo")
-                .resizable()
-                .scaledToFit()
-                .frame(width: 120, height: 120)
-                .background(Color(UIColor.systemGray4))
-                .cornerRadius(8)
-
+            AsyncImage(url: URL(string: item.thumbnail)) { image in
+                image
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 120, height: 120)
+                    .background(Color(UIColor.systemGray4))
+                    .cornerRadius(8)
+            } placeholder: {
+                Rectangle()
+                    .fill(Color(UIColor.systemGray2))
+                    .frame(width: 120, height: 120)
+                    .cornerRadius(8)
+            }
+            
             VStack(alignment: .leading, spacing: 8) {
-                Text("상품 제목이 들어옵니다. 제목이 길면 최대 2줄까지만 보여줍니다. 그 이상은 ...처리되어 보이지 않습니다.")
+                Text(item.name)
                     .lineLimit(2)
                     .font(.title3)
-
-                Text("3일 전")
+                
+                Text(date)
                     .font(.subheadline)
                     .foregroundColor(Color(UIColor.systemGray2))
-
-                Text("100만원")
+                
+                Text("\(item.bargainPrice)원")
                     .font(.title3.bold())
             }
             .frame(maxWidth: .infinity, alignment: .leading)
@@ -38,8 +51,21 @@ struct ItemRowView: View {
 
 struct ItemRowView_Previews: PreviewProvider {
     
+    static let item = Item(
+        id: 1,
+        vendorID: 1,
+        name: "상품 이름",
+        thumbnail: "photo",
+        price: 50000,
+        bargainPrice: 30000,
+        discountedPrice: 20000,
+        stock: 100,
+        createdAt: "3",
+        issuedAt: "5"
+    )
+    
     static var previews: some View {
-        ItemRowView()
+        ItemRowView(item: item)
     }
     
 }
