@@ -27,6 +27,7 @@
 		FD8BA9DE29E1F2D100F18661 /* DTOProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8BA9DD29E1F2D100F18661 /* DTOProtocol.swift */; };
 		FD8BA9E029E1F8AE00F18661 /* DataToEntityConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8BA9DF29E1F8AE00F18661 /* DataToEntityConverter.swift */; };
 		FD8BA9E229E2135C00F18661 /* DateCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8BA9E129E2135C00F18661 /* DateCalculator.swift */; };
+		FD8BA9E729E235A100F18661 /* ItemDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8BA9E629E235A100F18661 /* ItemDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +52,7 @@
 		FD8BA9DD29E1F2D100F18661 /* DTOProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTOProtocol.swift; sourceTree = "<group>"; };
 		FD8BA9DF29E1F8AE00F18661 /* DataToEntityConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataToEntityConverter.swift; sourceTree = "<group>"; };
 		FD8BA9E129E2135C00F18661 /* DateCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCalculator.swift; sourceTree = "<group>"; };
+		FD8BA9E629E235A100F18661 /* ItemDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +109,7 @@
 			children = (
 				FD8BA9C029E1AE2400F18661 /* Common */,
 				FD8BA9C329E1AFFF00F18661 /* ItemList */,
+				FD8BA9E329E2232000F18661 /* ItemDetail */,
 			);
 			path = Features;
 			sourceTree = "<group>";
@@ -195,6 +198,14 @@
 			path = API;
 			sourceTree = "<group>";
 		};
+		FD8BA9E329E2232000F18661 /* ItemDetail */ = {
+			isa = PBXGroup;
+			children = (
+				FD8BA9E629E235A100F18661 /* ItemDetailView.swift */,
+			);
+			path = ItemDetail;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -265,6 +276,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FD8BA9E729E235A100F18661 /* ItemDetailView.swift in Sources */,
 				FD8BA9BB29E19F8C00F18661 /* ItemDTO.swift in Sources */,
 				FD8BA9C729E1B53B00F18661 /* Item.swift in Sources */,
 				FD8BA9CF29E1B95D00F18661 /* OpenMarketAPIRequestProtocol.swift in Sources */,
