@@ -20,6 +20,7 @@
 		FD8BA9CF29E1B95D00F18661 /* OpenMarketAPIRequestProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8BA9CE29E1B95D00F18661 /* OpenMarketAPIRequestProtocol.swift */; };
 		FD8BA9D329E1BAE700F18661 /* OpenMarketAPIRequestGetProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8BA9D229E1BAE700F18661 /* OpenMarketAPIRequestGetProtocol.swift */; };
 		FD8BA9D529E1BB4400F18661 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8BA9D429E1BB4400F18661 /* HTTPMethod.swift */; };
+		FD8BA9D729E1BC6C00F18661 /* API+LookUpItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8BA9D629E1BC6C00F18661 /* API+LookUpItems.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,7 @@
 		FD8BA9CE29E1B95D00F18661 /* OpenMarketAPIRequestProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenMarketAPIRequestProtocol.swift; sourceTree = "<group>"; };
 		FD8BA9D229E1BAE700F18661 /* OpenMarketAPIRequestGetProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenMarketAPIRequestGetProtocol.swift; sourceTree = "<group>"; };
 		FD8BA9D429E1BB4400F18661 /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
+		FD8BA9D629E1BC6C00F18661 /* API+LookUpItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "API+LookUpItems.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,8 +144,8 @@
 		FD8BA9CA29E1B83500F18661 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				FD8BA9CB29E1B84000F18661 /* API.swift */,
 				FD8BA9D429E1BB4400F18661 /* HTTPMethod.swift */,
+				FD8BA9D829E1CAE100F18661 /* API */,
 				FD8BA9CD29E1B94200F18661 /* OpenMarketAPIRequests */,
 			);
 			path = Networking;
@@ -156,6 +158,15 @@
 				FD8BA9D229E1BAE700F18661 /* OpenMarketAPIRequestGetProtocol.swift */,
 			);
 			path = OpenMarketAPIRequests;
+			sourceTree = "<group>";
+		};
+		FD8BA9D829E1CAE100F18661 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				FD8BA9CB29E1B84000F18661 /* API.swift */,
+				FD8BA9D629E1BC6C00F18661 /* API+LookUpItems.swift */,
+			);
+			path = API;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -239,6 +250,7 @@
 				FD8BA9D529E1BB4400F18661 /* HTTPMethod.swift in Sources */,
 				FD8BA9A529E19CAA00F18661 /* HongdangmuMarketApp.swift in Sources */,
 				FD8BA9D329E1BAE700F18661 /* OpenMarketAPIRequestGetProtocol.swift in Sources */,
+				FD8BA9D729E1BC6C00F18661 /* API+LookUpItems.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
