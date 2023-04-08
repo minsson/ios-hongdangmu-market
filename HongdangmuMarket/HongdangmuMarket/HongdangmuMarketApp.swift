@@ -12,7 +12,7 @@ struct HongdangmuMarketApp: App {
     
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MainContainerView()
         }
     }
     
