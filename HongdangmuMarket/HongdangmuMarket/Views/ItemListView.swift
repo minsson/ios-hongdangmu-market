@@ -22,6 +22,21 @@ struct ItemListView: View {
     }
 }
 
+private extension ItemListView {
+    var searchButton: some View {
+        Button {
+            // TODO: 기능 구현
+        } label: {
+            Image(systemName: "magnifyingglass")
+                .font(.title2)
+                .foregroundColor(.black)
+                .frame(maxWidth: .infinity, alignment: .trailing)
+                .padding(.vertical, 4)
+                .padding(.horizontal)
+        }
+    }
+}
+
 struct ItemListView_Previews: PreviewProvider {
     static var previews: some View {
         ItemListView()
