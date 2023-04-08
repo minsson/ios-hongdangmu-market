@@ -17,6 +17,7 @@ struct ItemListPageDTO: Decodable {
     let hasNext, hasPrevious: Bool
     
     private enum CodingKeys: String, CodingKey {
+        
         case pageNumber = "pageNo"
         case itemsPerPage = "itemsPerPage"
         case totalCount = "totalCount"
@@ -26,6 +27,30 @@ struct ItemListPageDTO: Decodable {
         case lastPage = "lastPage"
         case hasNext = "hasNext"
         case hasPrevious = "hasPrev"
+        
+    }
+    
+}
+
+extension ItemListPageDTO {
+    
+    func toEntity() -> ItemListPage {
+        var itemEntities: [Item] = []
+        items.forEach { itemDTO in
+            itemEntities.append(itemDTO.toEntity())
+        }
+        
+        return ItemListPage(
+            pageNumber: pageNumber,
+            itemsPerPage: itemsPerPage,
+            totalCount: totalCount,
+            offset: offset,
+            limit: limit,
+            items: itemEntities,
+            lastPage: lastPage,
+            hasNext: hasNext,
+            hasPrevious: hasPrevious
+        )
     }
     
 }
