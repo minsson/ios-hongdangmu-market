@@ -9,6 +9,8 @@ import SwiftUI
 
 struct ItemListView: View {
     
+    @StateObject private var viewModel = ItemListViewModel()
+    
     var body: some View {
         VStack {
             headerView
@@ -16,11 +18,8 @@ struct ItemListView: View {
             
             ScrollView {
                 LazyVStack {
-                    ForEach((1...10), id: \.self) { _ in
-                        ItemRowView()
-                        
-                        Divider()
-                            .padding(.bottom, 8)
+                    ForEach(viewModel.itemListPageData?.items ?? [], id: \.id) { item in
+                        ItemRowView(item: item)
                     }
                 }
             }
@@ -28,6 +27,16 @@ struct ItemListView: View {
             .overlay(alignment: .bottomTrailing) {
                 addButton
                     .offset(x: -30, y: -30)
+            }
+        }
+        .task {
+            Task {
+                do {
+                    try await viewModel.viewWillAppear()
+                } catch {
+                    // TODO: Alert 구현
+                    print(error.localizedDescription)
+                }
             }
         }
     }
