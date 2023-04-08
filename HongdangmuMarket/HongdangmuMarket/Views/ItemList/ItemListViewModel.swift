@@ -9,6 +9,22 @@ import Foundation
 
 final class ItemListViewModel: ObservableObject {
     
+    @Published var itemListPageData: ItemListPage?
+    
+    func viewWillAppear() async throws {
+        do {
+            let data: Data = try await requestItemListPageData()
+            let itemListPageDTO: ItemListPageDTO = try JSONDecoder().decode(ItemListPageDTO.self, from: data)
+            let itemListPage: ItemListPage = itemListPageDTO.toEntity()
+            
+            await MainActor.run {
+                itemListPageData = itemListPage
+            }
+        } catch {
+            throw error
+        }
+    }
+    
 }
 
 private extension ItemListViewModel {
