@@ -24,6 +24,10 @@ struct ItemListView: View {
                 }
             }
             .padding(.horizontal)
+            .overlay(alignment: .bottomTrailing) {
+                addButton
+                    .offset(x: -30, y: -30)
+            }
         }
     }
 }
@@ -47,6 +51,22 @@ private extension ItemListView {
                 .frame(maxWidth: .infinity, alignment: .trailing)
                 .padding(.vertical, 4)
                 .padding(.horizontal)
+        }
+    }
+    
+    var addButton: some View {
+        Button {
+            // TODO: 기능 구현
+        } label: {
+            Image(systemName: "plus")
+                .font(.title2)
+                .foregroundColor(.white)
+                .background {
+                    Circle()
+                        .fill(Color.orange)
+                        .frame(width: 55, height: 55)
+                        .shadow(radius: 5)
+                }
         }
     }
 }
