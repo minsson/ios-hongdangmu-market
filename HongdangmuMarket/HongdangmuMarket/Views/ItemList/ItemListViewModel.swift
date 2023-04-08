@@ -14,8 +14,7 @@ final class ItemListViewModel: ObservableObject {
     func viewWillAppear() async throws {
         do {
             let data: Data = try await requestItemListPageData()
-            let itemListPageDTO: ItemListPageDTO = try JSONDecoder().decode(ItemListPageDTO.self, from: data)
-            let itemListPage: ItemListPage = itemListPageDTO.toEntity()
+            let itemListPage = try DataToEntityConverter().convert(data: data, to: ItemListPageDTO.self) // works
             
             await MainActor.run {
                 itemListPageData = itemListPage
