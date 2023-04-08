@@ -22,7 +22,7 @@ struct MainContainerView: View {
                 }
                 .tag(0)
         }
-        .tint(.black)
+        .tint(Color(UIColor.darkGray))
     }
 }
 

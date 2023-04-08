@@ -47,7 +47,7 @@ private extension ItemListView {
         } label: {
             Image(systemName: "magnifyingglass")
                 .font(.title2)
-                .foregroundColor(.black)
+                .foregroundColor(Color(UIColor.darkGray))
                 .frame(maxWidth: .infinity, alignment: .trailing)
                 .padding(.vertical, 4)
                 .padding(.horizontal)
