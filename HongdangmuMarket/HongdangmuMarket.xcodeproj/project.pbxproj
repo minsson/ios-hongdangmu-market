@@ -14,6 +14,7 @@
 		FD8BA9B629E19EB600F18661 /* ItemListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8BA9B529E19EB600F18661 /* ItemListView.swift */; };
 		FD8BA9B829E19F2100F18661 /* ItemRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8BA9B729E19F2100F18661 /* ItemRowView.swift */; };
 		FD8BA9BB29E19F8C00F18661 /* ItemDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8BA9BA29E19F8C00F18661 /* ItemDTO.swift */; };
+		FD8BA9BF29E1A9F600F18661 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8BA9BE29E1A9F600F18661 /* NetworkManager.swift */; };
 		FD8BA9C229E1AE4800F18661 /* MainContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8BA9C129E1AE4800F18661 /* MainContainerView.swift */; };
 /* End PBXBuildFile section */
 
@@ -26,6 +27,7 @@
 		FD8BA9B529E19EB600F18661 /* ItemListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemListView.swift; sourceTree = "<group>"; };
 		FD8BA9B729E19F2100F18661 /* ItemRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemRowView.swift; sourceTree = "<group>"; };
 		FD8BA9BA29E19F8C00F18661 /* ItemDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDTO.swift; sourceTree = "<group>"; };
+		FD8BA9BE29E1A9F600F18661 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		FD8BA9C129E1AE4800F18661 /* MainContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainContainerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -63,6 +65,7 @@
 				FD8BA9A629E19CAA00F18661 /* ContentView.swift */,
 				FD8BA9C429E1B32500F18661 /* Models */,
 				FD8BA9B229E19E4200F18661 /* Views */,
+				FD8BA9C929E1B6A100F18661 /* Helpers */,
 				FD8BA9A829E19CAB00F18661 /* Assets.xcassets */,
 				FD8BA9AA29E19CAB00F18661 /* Preview Content */,
 			);
@@ -117,6 +120,14 @@
 				FD8BA9BA29E19F8C00F18661 /* ItemDTO.swift */,
 			);
 			path = DTOs;
+			sourceTree = "<group>";
+		};
+		FD8BA9C929E1B6A100F18661 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				FD8BA9BE29E1A9F600F18661 /* NetworkManager.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -191,6 +202,7 @@
 			files = (
 				FD8BA9BB29E19F8C00F18661 /* ItemDTO.swift in Sources */,
 				FD8BA9A729E19CAA00F18661 /* ContentView.swift in Sources */,
+				FD8BA9BF29E1A9F600F18661 /* NetworkManager.swift in Sources */,
 				FD8BA9B629E19EB600F18661 /* ItemListView.swift in Sources */,
 				FD8BA9C229E1AE4800F18661 /* MainContainerView.swift in Sources */,
 				FD8BA9B829E19F2100F18661 /* ItemRowView.swift in Sources */,
