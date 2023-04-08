@@ -39,9 +39,9 @@ extension ItemDTO {
             vendorID: vendorID,
             name: name,
             thumbnail: thumbnail,
-            price: price,
-            bargainPrice: bargainPrice,
-            discountedPrice: discountedPrice,
+            price: Int(price.rounded(.towardZero)),
+            bargainPrice: Int(bargainPrice.rounded(.towardZero)),
+            discountedPrice: Int(discountedPrice.rounded(.towardZero)),
             stock: stock,
             createdAt: createdAt,
             issuedAt: issuedAt
