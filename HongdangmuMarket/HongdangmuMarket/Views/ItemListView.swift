@@ -9,7 +9,16 @@ import SwiftUI
 
 struct ItemListView: View {
     var body: some View {
-        Text("")
+        ScrollView {
+            LazyVStack {
+                ForEach((1...10), id: \.self) { _ in
+                    ItemRowView()
+
+                    Divider()
+                        .padding(.bottom, 8)
+                }
+            }
+        }
     }
 }
 
