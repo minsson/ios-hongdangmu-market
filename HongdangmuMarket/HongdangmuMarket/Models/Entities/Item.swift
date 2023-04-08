@@ -16,4 +16,18 @@ struct Item {
     let stock: Int
     let createdAt, issuedAt: String
     
+    var dateDifferenceFromCreatedDate: Int {
+        let dateCalculator = DateCalculator()
+        let dateDifferenceFromCreatedDate = dateCalculator.dateDifferenceToToday(from: createdAt)
+        
+        return dateDifferenceFromCreatedDate
+    }
+    
+    var dateDifferenceFromModifiedDate: Int {
+        let dateCalculator = DateCalculator()
+        let dateDifferenceFromModifiedDate = dateCalculator.dateDifferenceToToday(from: issuedAt)
+        
+        return dateDifferenceFromModifiedDate
+    }
+    
 }
