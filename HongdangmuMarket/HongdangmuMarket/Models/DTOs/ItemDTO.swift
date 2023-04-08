@@ -28,3 +28,22 @@ struct ItemDTO: Decodable {
     }
     
 }
+
+extension ItemDTO {
+    
+    func toEntity() -> Item {
+        Item(
+            id: id,
+            vendorID: vendorID,
+            name: name,
+            thumbnail: thumbnail,
+            price: price,
+            bargainPrice: bargainPrice,
+            discountedPrice: discountedPrice,
+            stock: stock,
+            createdAt: createdAt,
+            issuedAt: issuedAt
+        )
+    }
+    
+}
