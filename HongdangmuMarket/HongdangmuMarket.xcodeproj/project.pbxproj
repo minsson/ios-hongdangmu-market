@@ -23,6 +23,7 @@
 		FD8BA9D329E1BAE700F18661 /* OpenMarketAPIRequestGetProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8BA9D229E1BAE700F18661 /* OpenMarketAPIRequestGetProtocol.swift */; };
 		FD8BA9D529E1BB4400F18661 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8BA9D429E1BB4400F18661 /* HTTPMethod.swift */; };
 		FD8BA9D729E1BC6C00F18661 /* API+LookUpItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8BA9D629E1BC6C00F18661 /* API+LookUpItems.swift */; };
+		FD8BA9DC29E1D10100F18661 /* ItemListPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8BA9DB29E1D10100F18661 /* ItemListPage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +44,7 @@
 		FD8BA9D229E1BAE700F18661 /* OpenMarketAPIRequestGetProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenMarketAPIRequestGetProtocol.swift; sourceTree = "<group>"; };
 		FD8BA9D429E1BB4400F18661 /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
 		FD8BA9D629E1BC6C00F18661 /* API+LookUpItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "API+LookUpItems.swift"; sourceTree = "<group>"; };
+		FD8BA9DB29E1D10100F18661 /* ItemListPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemListPage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +144,7 @@
 		FD8BA9C829E1B53F00F18661 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
+				FD8BA9DB29E1D10100F18661 /* ItemListPage.swift */,
 				FD8BA9C629E1B53B00F18661 /* Item.swift */,
 			);
 			path = Entities;
@@ -258,6 +261,7 @@
 				FD8BA9CF29E1B95D00F18661 /* OpenMarketAPIRequestProtocol.swift in Sources */,
 				FD8BA9BD29E1A13000F18661 /* ItemListPageDTO.swift in Sources */,
 				FD8BA9A729E19CAA00F18661 /* ContentView.swift in Sources */,
+				FD8BA9DC29E1D10100F18661 /* ItemListPage.swift in Sources */,
 				FD8BA9CC29E1B84000F18661 /* API.swift in Sources */,
 				FD8BA9BF29E1A9F600F18661 /* NetworkManager.swift in Sources */,
 				FD8BA9B629E19EB600F18661 /* ItemListView.swift in Sources */,
