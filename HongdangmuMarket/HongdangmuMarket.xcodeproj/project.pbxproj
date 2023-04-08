@@ -83,11 +83,11 @@
 		FD8BA9A329E19CAA00F18661 /* HongdangmuMarket */ = {
 			isa = PBXGroup;
 			children = (
-				FD8BA9CA29E1B83500F18661 /* Networking */,
 				FD8BA9A429E19CAA00F18661 /* HongdangmuMarketApp.swift */,
 				FD8BA9C429E1B32500F18661 /* Models */,
-				FD8BA9B229E19E4200F18661 /* Views */,
+				FD8BA9B229E19E4200F18661 /* Features */,
 				FD8BA9C929E1B6A100F18661 /* Helpers */,
+				FD8BA9CA29E1B83500F18661 /* Networking */,
 				FD8BA9A829E19CAB00F18661 /* Assets.xcassets */,
 				FD8BA9AA29E19CAB00F18661 /* Preview Content */,
 			);
@@ -102,13 +102,13 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		FD8BA9B229E19E4200F18661 /* Views */ = {
+		FD8BA9B229E19E4200F18661 /* Features */ = {
 			isa = PBXGroup;
 			children = (
 				FD8BA9C029E1AE2400F18661 /* Common */,
 				FD8BA9C329E1AFFF00F18661 /* ItemList */,
 			);
-			path = Views;
+			path = Features;
 			sourceTree = "<group>";
 		};
 		FD8BA9C029E1AE2400F18661 /* Common */ = {
