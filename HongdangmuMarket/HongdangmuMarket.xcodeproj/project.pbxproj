@@ -13,6 +13,7 @@
 		FD8BA9AC29E19CAB00F18661 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FD8BA9AB29E19CAB00F18661 /* Preview Assets.xcassets */; };
 		FD8BA9B629E19EB600F18661 /* ItemListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8BA9B529E19EB600F18661 /* ItemListView.swift */; };
 		FD8BA9B829E19F2100F18661 /* ItemRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8BA9B729E19F2100F18661 /* ItemRowView.swift */; };
+		FD8BA9C229E1AE4800F18661 /* MainContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8BA9C129E1AE4800F18661 /* MainContainerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		FD8BA9AB29E19CAB00F18661 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		FD8BA9B529E19EB600F18661 /* ItemListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemListView.swift; sourceTree = "<group>"; };
 		FD8BA9B729E19F2100F18661 /* ItemRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemRowView.swift; sourceTree = "<group>"; };
+		FD8BA9C129E1AE4800F18661 /* MainContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainContainerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,10 +77,19 @@
 		FD8BA9B229E19E4200F18661 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				FD8BA9C029E1AE2400F18661 /* Common */,
 				FD8BA9B529E19EB600F18661 /* ItemListView.swift */,
 				FD8BA9B729E19F2100F18661 /* ItemRowView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		FD8BA9C029E1AE2400F18661 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				FD8BA9C129E1AE4800F18661 /* MainContainerView.swift */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -153,6 +164,7 @@
 			files = (
 				FD8BA9A729E19CAA00F18661 /* ContentView.swift in Sources */,
 				FD8BA9B629E19EB600F18661 /* ItemListView.swift in Sources */,
+				FD8BA9C229E1AE4800F18661 /* MainContainerView.swift in Sources */,
 				FD8BA9B829E19F2100F18661 /* ItemRowView.swift in Sources */,
 				FD8BA9A529E19CAA00F18661 /* HongdangmuMarketApp.swift in Sources */,
 			);
