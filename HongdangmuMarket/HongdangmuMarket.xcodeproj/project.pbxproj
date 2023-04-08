@@ -11,6 +11,7 @@
 		FD8BA9A729E19CAA00F18661 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8BA9A629E19CAA00F18661 /* ContentView.swift */; };
 		FD8BA9A929E19CAB00F18661 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FD8BA9A829E19CAB00F18661 /* Assets.xcassets */; };
 		FD8BA9AC29E19CAB00F18661 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FD8BA9AB29E19CAB00F18661 /* Preview Assets.xcassets */; };
+		FD8BA9B629E19EB600F18661 /* ItemListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8BA9B529E19EB600F18661 /* ItemListView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +20,7 @@
 		FD8BA9A629E19CAA00F18661 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		FD8BA9A829E19CAB00F18661 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FD8BA9AB29E19CAB00F18661 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		FD8BA9B529E19EB600F18661 /* ItemListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +55,7 @@
 			children = (
 				FD8BA9A429E19CAA00F18661 /* HongdangmuMarketApp.swift */,
 				FD8BA9A629E19CAA00F18661 /* ContentView.swift */,
+				FD8BA9B229E19E4200F18661 /* Views */,
 				FD8BA9A829E19CAB00F18661 /* Assets.xcassets */,
 				FD8BA9AA29E19CAB00F18661 /* Preview Content */,
 			);
@@ -65,6 +68,14 @@
 				FD8BA9AB29E19CAB00F18661 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		FD8BA9B229E19E4200F18661 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				FD8BA9B529E19EB600F18661 /* ItemListView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,6 +149,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FD8BA9A729E19CAA00F18661 /* ContentView.swift in Sources */,
+				FD8BA9B629E19EB600F18661 /* ItemListView.swift in Sources */,
 				FD8BA9A529E19CAA00F18661 /* HongdangmuMarketApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
