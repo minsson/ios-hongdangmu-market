@@ -17,6 +17,7 @@
 		FD8BA9BF29E1A9F600F18661 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8BA9BE29E1A9F600F18661 /* NetworkManager.swift */; };
 		FD8BA9C229E1AE4800F18661 /* MainContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8BA9C129E1AE4800F18661 /* MainContainerView.swift */; };
 		FD8BA9CC29E1B84000F18661 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8BA9CB29E1B84000F18661 /* API.swift */; };
+		FD8BA9CF29E1B95D00F18661 /* OpenMarketAPIRequestProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8BA9CE29E1B95D00F18661 /* OpenMarketAPIRequestProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 		FD8BA9BE29E1A9F600F18661 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		FD8BA9C129E1AE4800F18661 /* MainContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainContainerView.swift; sourceTree = "<group>"; };
 		FD8BA9CB29E1B84000F18661 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		FD8BA9CE29E1B95D00F18661 /* OpenMarketAPIRequestProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenMarketAPIRequestProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,8 +139,17 @@
 			isa = PBXGroup;
 			children = (
 				FD8BA9CB29E1B84000F18661 /* API.swift */,
+				FD8BA9CD29E1B94200F18661 /* OpenMarketAPIRequests */,
 			);
 			path = Networking;
+			sourceTree = "<group>";
+		};
+		FD8BA9CD29E1B94200F18661 /* OpenMarketAPIRequests */ = {
+			isa = PBXGroup;
+			children = (
+				FD8BA9CE29E1B95D00F18661 /* OpenMarketAPIRequestProtocol.swift */,
+			);
+			path = OpenMarketAPIRequests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -212,6 +223,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FD8BA9BB29E19F8C00F18661 /* ItemDTO.swift in Sources */,
+				FD8BA9CF29E1B95D00F18661 /* OpenMarketAPIRequestProtocol.swift in Sources */,
 				FD8BA9A729E19CAA00F18661 /* ContentView.swift in Sources */,
 				FD8BA9CC29E1B84000F18661 /* API.swift in Sources */,
 				FD8BA9BF29E1A9F600F18661 /* NetworkManager.swift in Sources */,
