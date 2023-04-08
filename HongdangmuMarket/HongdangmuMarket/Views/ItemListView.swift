@@ -23,6 +23,7 @@ struct ItemListView: View {
                     }
                 }
             }
+            .padding(.horizontal)
         }
     }
 }
