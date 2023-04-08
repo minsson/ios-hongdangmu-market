@@ -9,13 +9,18 @@ import SwiftUI
 
 struct ItemListView: View {
     var body: some View {
-        ScrollView {
-            LazyVStack {
-                ForEach((1...10), id: \.self) { _ in
-                    ItemRowView()
-
-                    Divider()
-                        .padding(.bottom, 8)
+        VStack {
+            headerView
+                .padding(.bottom, 16)
+            
+            ScrollView {
+                LazyVStack {
+                    ForEach((1...10), id: \.self) { _ in
+                        ItemRowView()
+                        
+                        Divider()
+                            .padding(.bottom, 8)
+                    }
                 }
             }
         }
@@ -23,6 +28,14 @@ struct ItemListView: View {
 }
 
 private extension ItemListView {
+    var headerView: some View {
+        VStack {
+            searchButton
+            
+            Divider()
+        }
+    }
+    
     var searchButton: some View {
         Button {
             // TODO: 기능 구현
