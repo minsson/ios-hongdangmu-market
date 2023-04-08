@@ -27,6 +27,7 @@
 		FD8BA9DC29E1D10100F18661 /* ItemListPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8BA9DB29E1D10100F18661 /* ItemListPage.swift */; };
 		FD8BA9DE29E1F2D100F18661 /* DTOProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8BA9DD29E1F2D100F18661 /* DTOProtocol.swift */; };
 		FD8BA9E029E1F8AE00F18661 /* DataToEntityConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8BA9DF29E1F8AE00F18661 /* DataToEntityConverter.swift */; };
+		FD8BA9E229E2135C00F18661 /* DateCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8BA9E129E2135C00F18661 /* DateCalculator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +52,7 @@
 		FD8BA9DB29E1D10100F18661 /* ItemListPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemListPage.swift; sourceTree = "<group>"; };
 		FD8BA9DD29E1F2D100F18661 /* DTOProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTOProtocol.swift; sourceTree = "<group>"; };
 		FD8BA9DF29E1F8AE00F18661 /* DataToEntityConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataToEntityConverter.swift; sourceTree = "<group>"; };
+		FD8BA9E129E2135C00F18661 /* DateCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCalculator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,6 +165,7 @@
 			children = (
 				FD8BA9BE29E1A9F600F18661 /* NetworkManager.swift */,
 				FD8BA9DF29E1F8AE00F18661 /* DataToEntityConverter.swift */,
+				FD8BA9E129E2135C00F18661 /* DateCalculator.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -283,6 +286,7 @@
 				FD8BA9D329E1BAE700F18661 /* OpenMarketAPIRequestGetProtocol.swift in Sources */,
 				FD8BA9D729E1BC6C00F18661 /* API+LookUpItems.swift in Sources */,
 				FD8BA9E029E1F8AE00F18661 /* DataToEntityConverter.swift in Sources */,
+				FD8BA9E229E2135C00F18661 /* DateCalculator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
