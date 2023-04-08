@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ItemRowView: View {
+    
     var body: some View {
         HStack(alignment: .top, spacing: 16) {
             Image(systemName: "photo")
@@ -32,10 +33,13 @@ struct ItemRowView: View {
             .frame(maxWidth: .infinity, alignment: .leading)
         }
     }
+    
 }
 
 struct ItemRowView_Previews: PreviewProvider {
+    
     static var previews: some View {
         ItemRowView()
     }
+    
 }

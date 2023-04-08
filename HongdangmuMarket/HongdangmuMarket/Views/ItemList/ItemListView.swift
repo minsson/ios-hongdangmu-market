@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ItemListView: View {
+    
     var body: some View {
         VStack {
             headerView
@@ -30,9 +31,11 @@ struct ItemListView: View {
             }
         }
     }
+    
 }
 
 private extension ItemListView {
+    
     var headerView: some View {
         VStack {
             searchButton
@@ -69,10 +72,13 @@ private extension ItemListView {
                 }
         }
     }
+    
 }
 
 struct ItemListView_Previews: PreviewProvider {
+    
     static var previews: some View {
         ItemListView()
     }
+    
 }

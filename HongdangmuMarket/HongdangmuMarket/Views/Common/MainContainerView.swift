@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct MainContainerView: View {
+    
     @State private var selectedTagIndex: Int = 0
 
     init() {
@@ -24,10 +25,13 @@ struct MainContainerView: View {
         }
         .tint(Color(UIColor.darkGray))
     }
+    
 }
 
 struct MainContainerView_Previews: PreviewProvider {
+    
     static var previews: some View {
         MainContainerView()
     }
+    
 }
