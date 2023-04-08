@@ -5,7 +5,9 @@
 //  Created by minsson on 2023/04/09.
 //
 
-struct ItemListPageDTO: Decodable {
+struct ItemListPageDTO: DTOProtocol {
+    
+    typealias Entity = ItemListPage
     
     let pageNumber: Int
     let itemsPerPage: Int
@@ -34,7 +36,7 @@ struct ItemListPageDTO: Decodable {
 
 extension ItemListPageDTO {
     
-    func toEntity() -> ItemListPage {
+    func toEntity() -> Entity {
         var itemEntities: [Item] = []
         items.forEach { itemDTO in
             itemEntities.append(itemDTO.toEntity())

@@ -7,7 +7,9 @@
 
 import Foundation
 
-struct ItemDTO: Decodable {
+struct ItemDTO: DTOProtocol {
+    
+    typealias Entity = Item
     
     let id, vendorID: Int
     let name: String
@@ -31,8 +33,8 @@ struct ItemDTO: Decodable {
 
 extension ItemDTO {
     
-    func toEntity() -> Item {
-        Item(
+    func toEntity() -> Entity {
+        return Item(
             id: id,
             vendorID: vendorID,
             name: name,
