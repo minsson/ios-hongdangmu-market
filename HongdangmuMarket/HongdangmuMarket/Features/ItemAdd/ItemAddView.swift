@@ -10,6 +10,7 @@ import SwiftUI
 struct ItemAddView: View {
     
     @StateObject private var viewModel = ItemAddViewModel()
+    @Binding var shouldPresentItemAddView: Bool
     
     var body: some View {
         headerView
@@ -59,7 +60,7 @@ private extension ItemAddView {
     var headerView: some View {
         HStack() {
             Button {
-                
+                shouldPresentItemAddView.toggle()
             } label: {
                 Image(systemName: "xmark")
                     .foregroundColor(Color(UIColor.systemGray))
@@ -143,9 +144,9 @@ private extension ImagePickerView {
 }
 
 struct ItemAddView_Previews: PreviewProvider {
-    
+
     static var previews: some View {
-        ItemAddView()
+        ItemAddView(shouldPresentItemAddView: .constant(true))
     }
-    
+
 }

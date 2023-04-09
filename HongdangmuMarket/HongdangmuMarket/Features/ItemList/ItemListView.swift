@@ -47,7 +47,7 @@ struct ItemListView: View {
                 }
             }
             .sheet(isPresented: $viewModel.shouldPresentItemAddView) {
-                ItemAddView()
+                ItemAddView(shouldPresentItemAddView: $viewModel.shouldPresentItemAddView)
             }
     }
     
