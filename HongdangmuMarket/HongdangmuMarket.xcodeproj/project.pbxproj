@@ -32,6 +32,7 @@
 		FD8BA9EB29E24AB700F18661 /* API+LookUpItemDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8BA9EA29E24AB700F18661 /* API+LookUpItemDetail.swift */; };
 		FD8BA9ED29E2598900F18661 /* Vendor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8BA9EC29E2598900F18661 /* Vendor.swift */; };
 		FD8BA9EF29E259EE00F18661 /* ItemImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8BA9EE29E259EE00F18661 /* ItemImage.swift */; };
+		FD8BA9F229E299FE00F18661 /* ItemAddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8BA9F129E299FE00F18661 /* ItemAddView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,6 +62,7 @@
 		FD8BA9EA29E24AB700F18661 /* API+LookUpItemDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "API+LookUpItemDetail.swift"; sourceTree = "<group>"; };
 		FD8BA9EC29E2598900F18661 /* Vendor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vendor.swift; sourceTree = "<group>"; };
 		FD8BA9EE29E259EE00F18661 /* ItemImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemImage.swift; sourceTree = "<group>"; };
+		FD8BA9F129E299FE00F18661 /* ItemAddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemAddView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +120,7 @@
 				FD8BA9C029E1AE2400F18661 /* Common */,
 				FD8BA9C329E1AFFF00F18661 /* ItemList */,
 				FD8BA9E329E2232000F18661 /* ItemDetail */,
+				FD8BA9F029E299CF00F18661 /* ItemAdd */,
 			);
 			path = Features;
 			sourceTree = "<group>";
@@ -218,6 +221,14 @@
 			path = ItemDetail;
 			sourceTree = "<group>";
 		};
+		FD8BA9F029E299CF00F18661 /* ItemAdd */ = {
+			isa = PBXGroup;
+			children = (
+				FD8BA9F129E299FE00F18661 /* ItemAddView.swift */,
+			);
+			path = ItemAdd;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -311,6 +322,7 @@
 				FD8BA9E029E1F8AE00F18661 /* DataToEntityConverter.swift in Sources */,
 				FD8BA9E929E2494C00F18661 /* ItemDetailViewModel.swift in Sources */,
 				FD8BA9E229E2135C00F18661 /* DateCalculator.swift in Sources */,
+				FD8BA9F229E299FE00F18661 /* ItemAddView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
