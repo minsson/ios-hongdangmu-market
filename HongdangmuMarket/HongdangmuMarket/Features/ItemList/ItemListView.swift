@@ -55,7 +55,7 @@ struct ItemListView: View {
                 }
             }
         }
-        .sheet(isPresented: $viewModel.shouldPresentItemAddView) {
+        .fullScreenCover(isPresented: $viewModel.shouldPresentItemAddView) {
             ItemAddView(shouldPresentItemAddView: $viewModel.shouldPresentItemAddView)
         }
     }
