@@ -15,4 +15,24 @@ final class ItemAddViewModel: ObservableObject {
     @Published var title: String = ""
     @Published var price: String = ""
     @Published var description: String = ""
+
+private extension ItemAddViewModel {
+    
+    func processInputToData() -> Data {
+        guard let price = Double(price) else {
+            return Data()
+        }
+        
+        let addRequestItemDTO = AddRequestItemDTO(
+            name: title,
+            price: price,
+            discountedPrice: 0,
+            currency: "KRW",
+            stock: 1,
+            description: description
+        )
+        
+        return addRequestItemDTO.toData()
+    }
+
 }
