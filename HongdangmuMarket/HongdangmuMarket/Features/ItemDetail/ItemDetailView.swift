@@ -13,6 +13,8 @@ struct ItemDetailView: View {
     
     let deviceWidth = UIScreen.main.bounds.width
     
+    @StateObject private var viewModel = ItemDetailViewModel()
+    
     var body: some View {
         VStack {
             ScrollView {
@@ -36,6 +38,14 @@ struct ItemDetailView: View {
             
             purchaseView
                 .padding(.horizontal)
+        }
+        .task {
+            do {
+                viewModel.itemID = String(item.id)
+                try await viewModel.viewWillAppear()
+            } catch {
+                // TODO: 에러 처리
+            }
         }
     }
     
