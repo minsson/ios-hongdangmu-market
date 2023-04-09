@@ -12,41 +12,13 @@ struct ItemAddView: View {
     @StateObject private var viewModel = ItemAddViewModel()
     
     var body: some View {
-        ScrollView {
-            ImagePickerView(viewModel: viewModel)
-        }
-        .sheet(isPresented: $viewModel.shouldPresentImagePicker) {
-            ImagePicker(
-                selectedImages: $viewModel.selectedImages,
-                shouldPresentImagePicker: $viewModel.shouldPresentImagePicker
-            )
-        }
-    }
-    
-}
-
-fileprivate struct ImagePickerView: View {
-    
-    @ObservedObject var viewModel: ItemAddViewModel
-    
-    private let imageSize: CGFloat = 75
-    private let imageCornerRadius: CGFloat = 4
-    
-    var body: some View {
         headerView
             .padding()
         
         Divider()
         
         ScrollView {
-            ScrollView(.horizontal, showsIndicators: false) {
-                HStack(spacing: 20) {
-                    imageAddButton
-                    
-                    selectedImages
-                }
-                .padding(.bottom, 16)
-            }
+            ImagePickerView(viewModel: viewModel)
             
             Divider()
                 .padding(.bottom, 8)
@@ -72,11 +44,17 @@ fileprivate struct ImagePickerView: View {
             Divider()
         }
         .padding()
+        .sheet(isPresented: $viewModel.shouldPresentImagePicker) {
+            ImagePicker(
+                selectedImages: $viewModel.selectedImages,
+                shouldPresentImagePicker: $viewModel.shouldPresentImagePicker
+            )
+        }
     }
     
 }
 
-private extension ImagePickerView {
+private extension ItemAddView {
     
     var headerView: some View {
         HStack() {
@@ -99,6 +77,42 @@ private extension ImagePickerView {
                 .foregroundColor(.orange)
         }
     }
+    
+    var textEditorWithPlaceholder: some View {
+        ZStack(alignment: .leading) {
+            if viewModel.description == "" {
+                TextEditor(text: .constant("신림동에 올릴 게시글 내용을 작성해주세요. (판매 금지 물품은 게시가 제한될 수 있어요.)"))
+                    .foregroundColor(.gray)
+                    .disabled(true)
+            }
+            TextEditor(text: $viewModel.description)
+                .opacity(viewModel.description.isEmpty ? 0.25 : 1)
+        }
+    }
+    
+}
+
+fileprivate struct ImagePickerView: View {
+    
+    @ObservedObject var viewModel: ItemAddViewModel
+    
+    private let imageSize: CGFloat = 75
+    private let imageCornerRadius: CGFloat = 4
+    
+    var body: some View {
+        ScrollView(.horizontal, showsIndicators: false) {
+            HStack(spacing: 20) {
+                imageAddButton
+                
+                selectedImages
+            }
+            .padding(.bottom, 16)
+        }
+    }
+    
+}
+
+private extension ImagePickerView {
     
     var imageAddButton: some View {
         Button {
@@ -123,18 +137,6 @@ private extension ImagePickerView {
                 .aspectRatio(contentMode: .fill)
                 .frame(width: imageSize, height: imageSize)
                 .clipShape(RoundedRectangle(cornerRadius: imageCornerRadius))
-        }
-    }
-    
-    var textEditorWithPlaceholder: some View {
-        ZStack(alignment: .leading) {
-            if viewModel.description == "" {
-                TextEditor(text: .constant("신림동에 올릴 게시글 내용을 작성해주세요. (판매 금지 물품은 게시가 제한될 수 있어요.)"))
-                    .foregroundColor(.gray)
-                    .disabled(true)
-            }
-            TextEditor(text: $viewModel.description)
-                .opacity(viewModel.description.isEmpty ? 0.25 : 1)
         }
     }
     
