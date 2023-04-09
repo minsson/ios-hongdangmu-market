@@ -18,6 +18,17 @@ final class ItemListViewModel: ObservableObject {
     func viewWillAppear() async throws {
         try? await retrieveItems()
     }
+    
+    func listScrollIsAlmostOver() async throws {
+        try? await retrieveItems()
+    }
+    
+    func addButtonTapped() {
+        shouldPresentItemAddView = true
+    }
+    
+}
+
 private extension ItemListViewModel {
     func retrieveItems() async throws {
         do {
@@ -33,14 +44,6 @@ private extension ItemListViewModel {
             throw error
         }
     }
-    
-    func addButtonTapped() {
-        shouldPresentItemAddView = true
-    }
-    
-}
-
-private extension ItemListViewModel {
         
     func requestItemListPageData(pageNumber: Int) async throws -> Data {
         guard let request: URLRequest = API.LookUpItems(pageNumber: pageNumber, itemsPerPage: 100).urlRequest else {
