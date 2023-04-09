@@ -35,6 +35,7 @@
 		FD8BA9F229E299FE00F18661 /* ItemAddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8BA9F129E299FE00F18661 /* ItemAddView.swift */; };
 		FD8BAA1229E2A70A00F18661 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8BAA1129E2A70A00F18661 /* ImagePicker.swift */; };
 		FDA34D1829E2AFEF00CF96E3 /* ItemAddViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA34D1729E2AFEF00CF96E3 /* ItemAddViewModel.swift */; };
+		FDA34D1C29E2CF1500CF96E3 /* MultipartFormDataHandlingProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA34D1B29E2CF1500CF96E3 /* MultipartFormDataHandlingProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -67,6 +68,7 @@
 		FD8BA9F129E299FE00F18661 /* ItemAddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemAddView.swift; sourceTree = "<group>"; };
 		FD8BAA1129E2A70A00F18661 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		FDA34D1729E2AFEF00CF96E3 /* ItemAddViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemAddViewModel.swift; sourceTree = "<group>"; };
+		FDA34D1B29E2CF1500CF96E3 /* MultipartFormDataHandlingProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipartFormDataHandlingProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -192,6 +194,7 @@
 			isa = PBXGroup;
 			children = (
 				FD8BA9D429E1BB4400F18661 /* HTTPMethod.swift */,
+				FDA34D1D29E2CF5B00CF96E3 /* Common */,
 				FD8BA9D829E1CAE100F18661 /* API */,
 				FD8BA9CD29E1B94200F18661 /* OpenMarketAPIRequests */,
 			);
@@ -233,6 +236,14 @@
 				FDA34D1729E2AFEF00CF96E3 /* ItemAddViewModel.swift */,
 			);
 			path = ItemAdd;
+			sourceTree = "<group>";
+		};
+		FDA34D1D29E2CF5B00CF96E3 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				FDA34D1B29E2CF1500CF96E3 /* MultipartFormDataHandlingProtocol.swift */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -321,6 +332,7 @@
 				FD8BA9C229E1AE4800F18661 /* MainContainerView.swift in Sources */,
 				FD8BA9B829E19F2100F18661 /* ItemRowView.swift in Sources */,
 				FD8BA9DE29E1F2D100F18661 /* DTOProtocol.swift in Sources */,
+				FDA34D1C29E2CF1500CF96E3 /* MultipartFormDataHandlingProtocol.swift in Sources */,
 				FD8BA9D529E1BB4400F18661 /* HTTPMethod.swift in Sources */,
 				FD8BA9A529E19CAA00F18661 /* HongdangmuMarketApp.swift in Sources */,
 				FD8BA9D329E1BAE700F18661 /* OpenMarketAPIRequestGetProtocol.swift in Sources */,
