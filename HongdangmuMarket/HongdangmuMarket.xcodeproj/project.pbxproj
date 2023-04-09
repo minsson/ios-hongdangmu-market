@@ -33,6 +33,7 @@
 		FD8BA9ED29E2598900F18661 /* Vendor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8BA9EC29E2598900F18661 /* Vendor.swift */; };
 		FD8BA9EF29E259EE00F18661 /* ItemImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8BA9EE29E259EE00F18661 /* ItemImage.swift */; };
 		FD8BA9F229E299FE00F18661 /* ItemAddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8BA9F129E299FE00F18661 /* ItemAddView.swift */; };
+		FD8BAA1229E2A70A00F18661 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8BAA1129E2A70A00F18661 /* ImagePicker.swift */; };
 		FDA34D1829E2AFEF00CF96E3 /* ItemAddViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA34D1729E2AFEF00CF96E3 /* ItemAddViewModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -64,6 +65,7 @@
 		FD8BA9EC29E2598900F18661 /* Vendor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vendor.swift; sourceTree = "<group>"; };
 		FD8BA9EE29E259EE00F18661 /* ItemImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemImage.swift; sourceTree = "<group>"; };
 		FD8BA9F129E299FE00F18661 /* ItemAddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemAddView.swift; sourceTree = "<group>"; };
+		FD8BAA1129E2A70A00F18661 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		FDA34D1729E2AFEF00CF96E3 /* ItemAddViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemAddViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -181,6 +183,7 @@
 				FD8BA9BE29E1A9F600F18661 /* NetworkManager.swift */,
 				FD8BA9DF29E1F8AE00F18661 /* DataToEntityConverter.swift */,
 				FD8BA9E129E2135C00F18661 /* DateCalculator.swift */,
+				FD8BAA1129E2A70A00F18661 /* ImagePicker.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -304,6 +307,7 @@
 			files = (
 				FD8BA9E729E235A100F18661 /* ItemDetailView.swift in Sources */,
 				FD8BA9BB29E19F8C00F18661 /* ItemDTO.swift in Sources */,
+				FD8BAA1229E2A70A00F18661 /* ImagePicker.swift in Sources */,
 				FD8BA9C729E1B53B00F18661 /* Item.swift in Sources */,
 				FD8BA9CF29E1B95D00F18661 /* OpenMarketAPIRequestProtocol.swift in Sources */,
 				FD8BA9EF29E259EE00F18661 /* ItemImage.swift in Sources */,
