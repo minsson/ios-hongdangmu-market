@@ -38,6 +38,7 @@
 		FDA34D1C29E2CF1500CF96E3 /* MultipartFormDataHandlingProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA34D1B29E2CF1500CF96E3 /* MultipartFormDataHandlingProtocol.swift */; };
 		FDA34D1F29E2D05100CF96E3 /* OpenMarketAPIRequestPostProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA34D1E29E2D05100CF96E3 /* OpenMarketAPIRequestPostProtocol.swift */; };
 		FDA34D2129E2D16400CF96E3 /* API+AddItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA34D2029E2D16400CF96E3 /* API+AddItem.swift */; };
+		FDA34D2329E2D2CC00CF96E3 /* AddRequestItemDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA34D2229E2D2CC00CF96E3 /* AddRequestItemDTO.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -73,6 +74,7 @@
 		FDA34D1B29E2CF1500CF96E3 /* MultipartFormDataHandlingProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipartFormDataHandlingProtocol.swift; sourceTree = "<group>"; };
 		FDA34D1E29E2D05100CF96E3 /* OpenMarketAPIRequestPostProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenMarketAPIRequestPostProtocol.swift; sourceTree = "<group>"; };
 		FDA34D2029E2D16400CF96E3 /* API+AddItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "API+AddItem.swift"; sourceTree = "<group>"; };
+		FDA34D2229E2D2CC00CF96E3 /* AddRequestItemDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRequestItemDTO.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,6 +170,7 @@
 				FD8BA9DD29E1F2D100F18661 /* DTOProtocol.swift */,
 				FD8BA9BC29E1A13000F18661 /* ItemListPageDTO.swift */,
 				FD8BA9BA29E19F8C00F18661 /* ItemDTO.swift */,
+				FDA34D2229E2D2CC00CF96E3 /* AddRequestItemDTO.swift */,
 			);
 			path = DTOs;
 			sourceTree = "<group>";
@@ -340,6 +343,7 @@
 				FD8BA9B829E19F2100F18661 /* ItemRowView.swift in Sources */,
 				FD8BA9DE29E1F2D100F18661 /* DTOProtocol.swift in Sources */,
 				FDA34D1C29E2CF1500CF96E3 /* MultipartFormDataHandlingProtocol.swift in Sources */,
+				FDA34D2329E2D2CC00CF96E3 /* AddRequestItemDTO.swift in Sources */,
 				FD8BA9D529E1BB4400F18661 /* HTTPMethod.swift in Sources */,
 				FD8BA9A529E19CAA00F18661 /* HongdangmuMarketApp.swift in Sources */,
 				FD8BA9D329E1BAE700F18661 /* OpenMarketAPIRequestGetProtocol.swift in Sources */,
