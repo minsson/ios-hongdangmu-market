@@ -13,13 +13,15 @@ struct ItemAddView: View {
     
     var body: some View {
         ScrollView {
-            ImagePickerView()
+            ImagePickerView(viewModel: viewModel)
         }
     }
     
 }
 
 fileprivate struct ImagePickerView: View {
+    
+    @ObservedObject var viewModel: ItemAddViewModel
     
     var body: some View {
         imageAddButton
