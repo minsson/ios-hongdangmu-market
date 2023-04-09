@@ -36,6 +36,7 @@
 		FD8BAA1229E2A70A00F18661 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8BAA1129E2A70A00F18661 /* ImagePicker.swift */; };
 		FDA34D1829E2AFEF00CF96E3 /* ItemAddViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA34D1729E2AFEF00CF96E3 /* ItemAddViewModel.swift */; };
 		FDA34D1C29E2CF1500CF96E3 /* MultipartFormDataHandlingProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA34D1B29E2CF1500CF96E3 /* MultipartFormDataHandlingProtocol.swift */; };
+		FDA34D1F29E2D05100CF96E3 /* OpenMarketAPIRequestPostProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA34D1E29E2D05100CF96E3 /* OpenMarketAPIRequestPostProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -69,6 +70,7 @@
 		FD8BAA1129E2A70A00F18661 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		FDA34D1729E2AFEF00CF96E3 /* ItemAddViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemAddViewModel.swift; sourceTree = "<group>"; };
 		FDA34D1B29E2CF1500CF96E3 /* MultipartFormDataHandlingProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipartFormDataHandlingProtocol.swift; sourceTree = "<group>"; };
+		FDA34D1E29E2D05100CF96E3 /* OpenMarketAPIRequestPostProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenMarketAPIRequestPostProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -205,6 +207,7 @@
 			children = (
 				FD8BA9CE29E1B95D00F18661 /* OpenMarketAPIRequestProtocol.swift */,
 				FD8BA9D229E1BAE700F18661 /* OpenMarketAPIRequestGetProtocol.swift */,
+				FDA34D1E29E2D05100CF96E3 /* OpenMarketAPIRequestPostProtocol.swift */,
 			);
 			path = OpenMarketAPIRequests;
 			sourceTree = "<group>";
@@ -338,6 +341,7 @@
 				FD8BA9D329E1BAE700F18661 /* OpenMarketAPIRequestGetProtocol.swift in Sources */,
 				FD8BA9ED29E2598900F18661 /* Vendor.swift in Sources */,
 				FD8BA9D729E1BC6C00F18661 /* API+LookUpItems.swift in Sources */,
+				FDA34D1F29E2D05100CF96E3 /* OpenMarketAPIRequestPostProtocol.swift in Sources */,
 				FD8BA9EB29E24AB700F18661 /* API+LookUpItemDetail.swift in Sources */,
 				FD8BA9E029E1F8AE00F18661 /* DataToEntityConverter.swift in Sources */,
 				FD8BA9E929E2494C00F18661 /* ItemDetailViewModel.swift in Sources */,
