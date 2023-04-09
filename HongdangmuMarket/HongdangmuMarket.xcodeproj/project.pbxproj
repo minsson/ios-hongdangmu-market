@@ -30,6 +30,7 @@
 		FD8BA9E729E235A100F18661 /* ItemDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8BA9E629E235A100F18661 /* ItemDetailView.swift */; };
 		FD8BA9E929E2494C00F18661 /* ItemDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8BA9E829E2494C00F18661 /* ItemDetailViewModel.swift */; };
 		FD8BA9EB29E24AB700F18661 /* API+LookUpItemDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8BA9EA29E24AB700F18661 /* API+LookUpItemDetail.swift */; };
+		FD8BA9ED29E2598900F18661 /* Vendor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8BA9EC29E2598900F18661 /* Vendor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,6 +58,7 @@
 		FD8BA9E629E235A100F18661 /* ItemDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailView.swift; sourceTree = "<group>"; };
 		FD8BA9E829E2494C00F18661 /* ItemDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailViewModel.swift; sourceTree = "<group>"; };
 		FD8BA9EA29E24AB700F18661 /* API+LookUpItemDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "API+LookUpItemDetail.swift"; sourceTree = "<group>"; };
+		FD8BA9EC29E2598900F18661 /* Vendor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vendor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +162,7 @@
 			children = (
 				FD8BA9DB29E1D10100F18661 /* ItemListPage.swift */,
 				FD8BA9C629E1B53B00F18661 /* Item.swift */,
+				FD8BA9EC29E2598900F18661 /* Vendor.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -298,6 +301,7 @@
 				FD8BA9D529E1BB4400F18661 /* HTTPMethod.swift in Sources */,
 				FD8BA9A529E19CAA00F18661 /* HongdangmuMarketApp.swift in Sources */,
 				FD8BA9D329E1BAE700F18661 /* OpenMarketAPIRequestGetProtocol.swift in Sources */,
+				FD8BA9ED29E2598900F18661 /* Vendor.swift in Sources */,
 				FD8BA9D729E1BC6C00F18661 /* API+LookUpItems.swift in Sources */,
 				FD8BA9EB29E24AB700F18661 /* API+LookUpItemDetail.swift in Sources */,
 				FD8BA9E029E1F8AE00F18661 /* DataToEntityConverter.swift in Sources */,
