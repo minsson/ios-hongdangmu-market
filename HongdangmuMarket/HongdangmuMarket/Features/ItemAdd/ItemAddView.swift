@@ -15,6 +15,12 @@ struct ItemAddView: View {
         ScrollView {
             ImagePickerView(viewModel: viewModel)
         }
+        .sheet(isPresented: $viewModel.shouldPresentImagePicker) {
+            ImagePicker(
+                selectedImages: $viewModel.selectedImages,
+                shouldPresentImagePicker: $viewModel.shouldPresentImagePicker
+            )
+        }
     }
     
 }
@@ -33,7 +39,7 @@ private extension ImagePickerView {
     
     var imageAddButton: some View {
         Button {
-            
+            viewModel.shouldPresentImagePicker = true
         } label: {
             ZStack {
                 RoundedRectangle(cornerRadius: 4)
