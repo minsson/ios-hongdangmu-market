@@ -29,8 +29,18 @@ fileprivate struct ImagePickerView: View {
     
     @ObservedObject var viewModel: ItemAddViewModel
     
+    private let imageSize: CGFloat = 75
+    private let imageCornerRadius: CGFloat = 4
+    
     var body: some View {
-        imageAddButton
+        ScrollView(.horizontal, showsIndicators: false) {
+            HStack(spacing: 20) {
+                imageAddButton
+                
+                selectedImages
+            }
+        }
+        .padding()
     }
     
 }
@@ -42,14 +52,24 @@ private extension ImagePickerView {
             viewModel.shouldPresentImagePicker = true
         } label: {
             ZStack {
-                RoundedRectangle(cornerRadius: 4)
+                RoundedRectangle(cornerRadius: imageCornerRadius)
                     .stroke(Color(UIColor.systemGray4))
-                    .frame(width: 75, height: 75)
+                    .frame(width: imageSize, height: imageSize)
                 
                 Image(systemName: "camera.fill")
                     .foregroundColor(Color(UIColor.systemGray))
                     .font(.title3)
             }
+        }
+    }
+    
+    var selectedImages: some View {
+        ForEach(viewModel.selectedImages, id: \.self) { image in
+            Image(uiImage: image)
+                .resizable()
+                .aspectRatio(contentMode: .fill)
+                .frame(width: imageSize, height: imageSize)
+                .clipShape(RoundedRectangle(cornerRadius: imageCornerRadius))
         }
     }
     
