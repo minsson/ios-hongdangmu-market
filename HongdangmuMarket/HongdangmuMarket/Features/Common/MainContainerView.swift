@@ -16,14 +16,16 @@ struct MainContainerView: View {
     }
 
     var body: some View {
-        TabView(selection: $selectedTagIndex) {
-            ItemListView()
+        NavigationView {
+            TabView(selection: $selectedTagIndex) {
+                ItemListView()
                 .tabItem {
                     Label("홈", systemImage: "house.fill")
                 }
                 .tag(0)
+            }
+            .tint(Color(UIColor.darkGray))
         }
-        .tint(Color(UIColor.darkGray))
     }
     
 }
