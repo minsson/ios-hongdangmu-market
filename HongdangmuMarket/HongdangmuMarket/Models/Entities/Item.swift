@@ -19,19 +19,23 @@ struct Item: Hashable {
     let vendors: Vendor?
     let createdAt, issuedAt: String
     
-    var dateDifferenceFromCreatedDate: Int {
+    private var dateDifferenceFromCreatedDate: Int {
         let dateCalculator = DateCalculator()
         let dateDifferenceFromCreatedDate = dateCalculator.dateDifferenceToToday(from: createdAt)
         
         return dateDifferenceFromCreatedDate
     }
     
-    var dateDifferenceFromModifiedDate: Int {
+    private var dateDifferenceFromModifiedDate: Int {
         let dateCalculator = DateCalculator()
         let dateDifferenceFromModifiedDate = dateCalculator.dateDifferenceToToday(from: issuedAt)
         
         return dateDifferenceFromModifiedDate
     }
+    
+}
+
+extension Item {
     
     func calculatedDateString() -> String {
         if createdAt == issuedAt {
