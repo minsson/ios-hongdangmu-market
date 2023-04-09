@@ -33,12 +33,17 @@ fileprivate struct ImagePickerView: View {
     private let imageCornerRadius: CGFloat = 4
     
     var body: some View {
-        ScrollView(.horizontal, showsIndicators: false) {
-            HStack(spacing: 20) {
-                imageAddButton
-                
-                selectedImages
+        ScrollView {
+            ScrollView(.horizontal, showsIndicators: false) {
+                HStack(spacing: 20) {
+                    imageAddButton
+                    
+                    selectedImages
+                }
+                .padding(.bottom, 16)
             }
+            
+            Divider()
         }
         .padding()
     }
