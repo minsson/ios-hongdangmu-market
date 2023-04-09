@@ -12,30 +12,39 @@ struct ItemListView: View {
     @StateObject private var viewModel = ItemListViewModel()
     
     var body: some View {
-        VStack {
-            headerView
-                .padding(.bottom, 16)
-            
-            ScrollView {
-                LazyVStack {
-                    ForEach(viewModel.itemListPageData?.items ?? [], id: \.id) { item in
-                        ItemRowView(item: item)
+        NavigationView {
+            VStack {
+                headerView
+                    .padding(.bottom, 16)
+                
+                ScrollView {
+                    LazyVStack {
+                        ForEach(viewModel.itemListPageData?.items ?? [], id: \.id) { item in
+                            NavigationLink {
+                                ItemDetailView(item: item)
+                            } label: {
+                                ItemRowView(item: item)
+                                    .foregroundColor(.primary)
+                            }
+                            
+                            
+                        }
                     }
                 }
+                .padding(.horizontal)
+                .overlay(alignment: .bottomTrailing) {
+                    addButton
+                        .offset(x: -30, y: -30)
+                }
             }
-            .padding(.horizontal)
-            .overlay(alignment: .bottomTrailing) {
-                addButton
-                    .offset(x: -30, y: -30)
-            }
-        }
-        .task {
-            Task {
-                do {
-                    try await viewModel.viewWillAppear()
-                } catch {
-                    // TODO: Alert 구현
-                    print(error.localizedDescription)
+            .task {
+                Task {
+                    do {
+                        try await viewModel.viewWillAppear()
+                    } catch {
+                        // TODO: Alert 구현
+                        print(error.localizedDescription)
+                    }
                 }
             }
         }
