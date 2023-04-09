@@ -60,15 +60,7 @@ fileprivate struct ImagePickerView: View {
             
             Divider()
             
-            ZStack(alignment: .leading) {
-                if viewModel.description == "" {
-                    TextEditor(text: .constant("신림동에 올릴 게시글 내용을 작성해주세요. (판매 금지 물품은 게시가 제한될 수 있어요.)"))
-                        .foregroundColor(.gray)
-                        .disabled(true)
-                }
-                TextEditor(text: $viewModel.description)
-                    .opacity(viewModel.description.isEmpty ? 0.25 : 1)
-            }
+            textEditorWithPlaceholder
             .frame(minHeight: 160)
             
             Divider()
@@ -103,6 +95,18 @@ private extension ImagePickerView {
                 .aspectRatio(contentMode: .fill)
                 .frame(width: imageSize, height: imageSize)
                 .clipShape(RoundedRectangle(cornerRadius: imageCornerRadius))
+        }
+    }
+    
+    var textEditorWithPlaceholder: some View {
+        ZStack(alignment: .leading) {
+            if viewModel.description == "" {
+                TextEditor(text: .constant("신림동에 올릴 게시글 내용을 작성해주세요. (판매 금지 물품은 게시가 제한될 수 있어요.)"))
+                    .foregroundColor(.gray)
+                    .disabled(true)
+            }
+            TextEditor(text: $viewModel.description)
+                .opacity(viewModel.description.isEmpty ? 0.25 : 1)
         }
     }
     
