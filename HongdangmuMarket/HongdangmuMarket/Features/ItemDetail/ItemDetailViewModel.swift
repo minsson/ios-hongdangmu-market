@@ -12,6 +12,18 @@ final class ItemDetailViewModel: ObservableObject {
     @Published var item: Item?
     @Published var itemID: String?
         
+    func viewWillAppear() async throws {
+        do {
+            let data: Data = try await requestItemDetailData()
+            let item = try DataToEntityConverter().convert(data: data, to: ItemDTO.self)
+    
+            await MainActor.run {
+                self.item = item
+            }
+        } catch {
+            throw error
+        }
+    }
 }
 
 private extension ItemDetailViewModel {
