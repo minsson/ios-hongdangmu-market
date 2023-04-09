@@ -56,6 +56,7 @@ fileprivate struct ImagePickerView: View {
             TextField(text: $viewModel.price) {
                 Text("₩ 가격 (선택사항)")
             }
+            .keyboardType(.numberPad)
             .padding(.vertical, 8)
             
             Divider()
