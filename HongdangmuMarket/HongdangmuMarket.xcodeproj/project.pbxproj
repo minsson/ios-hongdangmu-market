@@ -28,6 +28,7 @@
 		FD8BA9E029E1F8AE00F18661 /* DataToEntityConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8BA9DF29E1F8AE00F18661 /* DataToEntityConverter.swift */; };
 		FD8BA9E229E2135C00F18661 /* DateCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8BA9E129E2135C00F18661 /* DateCalculator.swift */; };
 		FD8BA9E729E235A100F18661 /* ItemDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8BA9E629E235A100F18661 /* ItemDetailView.swift */; };
+		FD8BA9E929E2494C00F18661 /* ItemDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8BA9E829E2494C00F18661 /* ItemDetailViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +54,7 @@
 		FD8BA9DF29E1F8AE00F18661 /* DataToEntityConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataToEntityConverter.swift; sourceTree = "<group>"; };
 		FD8BA9E129E2135C00F18661 /* DateCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCalculator.swift; sourceTree = "<group>"; };
 		FD8BA9E629E235A100F18661 /* ItemDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailView.swift; sourceTree = "<group>"; };
+		FD8BA9E829E2494C00F18661 /* ItemDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -202,6 +204,7 @@
 			isa = PBXGroup;
 			children = (
 				FD8BA9E629E235A100F18661 /* ItemDetailView.swift */,
+				FD8BA9E829E2494C00F18661 /* ItemDetailViewModel.swift */,
 			);
 			path = ItemDetail;
 			sourceTree = "<group>";
@@ -294,6 +297,7 @@
 				FD8BA9D329E1BAE700F18661 /* OpenMarketAPIRequestGetProtocol.swift in Sources */,
 				FD8BA9D729E1BC6C00F18661 /* API+LookUpItems.swift in Sources */,
 				FD8BA9E029E1F8AE00F18661 /* DataToEntityConverter.swift in Sources */,
+				FD8BA9E929E2494C00F18661 /* ItemDetailViewModel.swift in Sources */,
 				FD8BA9E229E2135C00F18661 /* DateCalculator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
