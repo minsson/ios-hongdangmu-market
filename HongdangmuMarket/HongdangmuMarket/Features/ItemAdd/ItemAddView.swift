@@ -44,6 +44,34 @@ fileprivate struct ImagePickerView: View {
             }
             
             Divider()
+                .padding(.bottom, 8)
+            
+            TextField(text: $viewModel.title) {
+                Text("글 제목")
+            }
+            .padding(.vertical, 8)
+            
+            Divider()
+            
+            TextField(text: $viewModel.price) {
+                Text("₩ 가격 (선택사항)")
+            }
+            .padding(.vertical, 8)
+            
+            Divider()
+            
+            ZStack(alignment: .leading) {
+                if viewModel.description == "" {
+                    TextEditor(text: .constant("신림동에 올릴 게시글 내용을 작성해주세요. (판매 금지 물품은 게시가 제한될 수 있어요.)"))
+                        .foregroundColor(.gray)
+                        .disabled(true)
+                }
+                TextEditor(text: $viewModel.description)
+                    .opacity(viewModel.description.isEmpty ? 0.25 : 1)
+            }
+            .frame(minHeight: 160)
+            
+            Divider()
         }
         .padding()
     }

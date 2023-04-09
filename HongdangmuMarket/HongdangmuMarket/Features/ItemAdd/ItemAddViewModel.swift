@@ -12,4 +12,7 @@ final class ItemAddViewModel: ObservableObject {
     @Published var selectedImages: [UIImage] = []
     @Published var shouldPresentImagePicker = false
     
+    @Published var title: String = ""
+    @Published var price: String = ""
+    @Published var description: String = ""
 }
