@@ -11,25 +11,35 @@ struct ItemAddView: View {
     
     var body: some View {
         ScrollView {
-            VStack {
-                imageAddButton
-            }
+            ImagePickerView()
         }
     }
     
 }
 
-private extension ItemAddView {
+fileprivate struct ImagePickerView: View {
+    
+    var body: some View {
+        imageAddButton
+    }
+    
+}
+
+private extension ImagePickerView {
     
     var imageAddButton: some View {
-        ZStack {
-            RoundedRectangle(cornerRadius: 4)
-                .stroke(Color(UIColor.systemGray4))
-                .frame(width: 75, height: 75)
+        Button {
             
-            Image(systemName: "camera.fill")
-                .foregroundColor(Color(UIColor.systemGray))
-                .font(.title3)
+        } label: {
+            ZStack {
+                RoundedRectangle(cornerRadius: 4)
+                    .stroke(Color(UIColor.systemGray4))
+                    .frame(width: 75, height: 75)
+                
+                Image(systemName: "camera.fill")
+                    .foregroundColor(Color(UIColor.systemGray))
+                    .font(.title3)
+            }
         }
     }
     
