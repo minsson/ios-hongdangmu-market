@@ -9,16 +9,25 @@ import Foundation
 
 final class ItemListViewModel: ObservableObject {
     
-    @Published var itemListPageData: ItemListPage?
     @Published var shouldPresentItemAddView: Bool = false
+    @Published var items: [Item] = []
+    
+    private(set) var itemListPageData: ItemListPage?
+    private var pageCounter = 1
     
     func viewWillAppear() async throws {
+        try? await retrieveItems()
+    }
+private extension ItemListViewModel {
+    func retrieveItems() async throws {
         do {
             let data: Data = try await requestItemListPageData(pageNumber: pageCounter)
             let itemListPage = try DataToEntityConverter().convert(data: data, to: ItemListPageDTO.self)
+            pageCounter += 1
             
             await MainActor.run {
                 itemListPageData = itemListPage
+                items.append(contentsOf: itemListPage.items)
             }
         } catch {
             throw error
