@@ -45,18 +45,20 @@ struct ItemRowView: View {
     
 }
 
-    
 struct ItemRowView_Previews: PreviewProvider {
     
     static let item = Item(
         id: 1,
         vendorID: 1,
         name: "상품 이름",
+        description: "",
         thumbnail: "photo",
         price: 50000,
         bargainPrice: 30000,
         discountedPrice: 20000,
         stock: 100,
+        images: nil,
+        vendors: nil,
         createdAt: "3",
         issuedAt: "5"
     )
