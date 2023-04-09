@@ -14,8 +14,8 @@ final class ItemListViewModel: ObservableObject {
     
     func viewWillAppear() async throws {
         do {
-            let data: Data = try await requestItemListPageData()
-            let itemListPage = try DataToEntityConverter().convert(data: data, to: ItemListPageDTO.self) // works
+            let data: Data = try await requestItemListPageData(pageNumber: pageCounter)
+            let itemListPage = try DataToEntityConverter().convert(data: data, to: ItemListPageDTO.self)
             
             await MainActor.run {
                 itemListPageData = itemListPage
@@ -33,8 +33,8 @@ final class ItemListViewModel: ObservableObject {
 
 private extension ItemListViewModel {
         
-    func requestItemListPageData() async throws -> Data {
-        guard let request: URLRequest = API.LookUpItems(pageNumber: 1, itemsPerPage: 100).urlRequest else {
+    func requestItemListPageData(pageNumber: Int) async throws -> Data {
+        guard let request: URLRequest = API.LookUpItems(pageNumber: pageNumber, itemsPerPage: 100).urlRequest else {
             throw URLError(.badURL)
         }
         
