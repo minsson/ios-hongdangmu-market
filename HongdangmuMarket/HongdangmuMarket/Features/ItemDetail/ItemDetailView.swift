@@ -43,7 +43,7 @@ private extension ItemDetailView {
             Image(systemName: "command.square")
                 .resizable()
                 .aspectRatio(contentMode: .fill)
-                .frame(width: deviceWidth, height: deviceWidth + yOffset)
+                .frame(width: deviceWidth, height: deviceWidth + (yOffset > 0 ? yOffset : 0))
                 .offset(y: (yOffset > 0 ? -yOffset : 0))
         }
     }
