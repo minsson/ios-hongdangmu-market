@@ -11,10 +11,6 @@ struct ItemRowView: View {
     
     let item: Item
     
-    private var dateString: String {
-        return calculatedDateString()
-    }
-    
     var body: some View {
         HStack(alignment: .top, spacing: 16) {
             AsyncImage(url: URL(string: item.thumbnail)) { image in
@@ -36,7 +32,7 @@ struct ItemRowView: View {
                     .lineLimit(2)
                     .font(.title3)
                 
-                Text(dateString)
+                Text(item.calculatedDateString())
                     .font(.subheadline)
                     .foregroundColor(Color(UIColor.systemGray2))
                 
@@ -49,28 +45,7 @@ struct ItemRowView: View {
     
 }
 
-private extension ItemRowView {
     
-    func calculatedDateString() -> String {
-        if item.createdAt == item.issuedAt {
-            let dateDifferenceFromCreatedDate = item.dateDifferenceFromCreatedDate
-            if dateDifferenceFromCreatedDate == 0 {
-                return "오늘"
-            } else {
-                return "\(dateDifferenceFromCreatedDate)일 전"
-            }
-        } else {
-            let dateDifferenceFromModifiedDate = item.dateDifferenceFromModifiedDate
-            if dateDifferenceFromModifiedDate == 0 {
-                return "끌올 오늘"
-            } else {
-                return "끌올 \(dateDifferenceFromModifiedDate)일 전"
-            }
-        }
-    }
-    
-}
-
 struct ItemRowView_Previews: PreviewProvider {
     
     static let item = Item(

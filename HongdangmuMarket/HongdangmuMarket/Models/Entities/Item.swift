@@ -33,4 +33,22 @@ struct Item: Hashable {
         return dateDifferenceFromModifiedDate
     }
     
+    func calculatedDateString() -> String {
+        if createdAt == issuedAt {
+            let dateDifferenceFromCreatedDate = dateDifferenceFromCreatedDate
+            if dateDifferenceFromCreatedDate == 0 {
+                return "오늘"
+            } else {
+                return "\(dateDifferenceFromCreatedDate)일 전"
+            }
+        } else {
+            let dateDifferenceFromModifiedDate = dateDifferenceFromModifiedDate
+            if dateDifferenceFromModifiedDate == 0 {
+                return "끌올 오늘"
+            } else {
+                return "끌올 \(dateDifferenceFromModifiedDate)일 전"
+            }
+        }
+    }
+    
 }
