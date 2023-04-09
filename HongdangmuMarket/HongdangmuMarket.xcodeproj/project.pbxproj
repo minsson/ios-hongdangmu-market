@@ -31,6 +31,7 @@
 		FD8BA9E929E2494C00F18661 /* ItemDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8BA9E829E2494C00F18661 /* ItemDetailViewModel.swift */; };
 		FD8BA9EB29E24AB700F18661 /* API+LookUpItemDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8BA9EA29E24AB700F18661 /* API+LookUpItemDetail.swift */; };
 		FD8BA9ED29E2598900F18661 /* Vendor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8BA9EC29E2598900F18661 /* Vendor.swift */; };
+		FD8BA9EF29E259EE00F18661 /* ItemImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8BA9EE29E259EE00F18661 /* ItemImage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,6 +60,7 @@
 		FD8BA9E829E2494C00F18661 /* ItemDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailViewModel.swift; sourceTree = "<group>"; };
 		FD8BA9EA29E24AB700F18661 /* API+LookUpItemDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "API+LookUpItemDetail.swift"; sourceTree = "<group>"; };
 		FD8BA9EC29E2598900F18661 /* Vendor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vendor.swift; sourceTree = "<group>"; };
+		FD8BA9EE29E259EE00F18661 /* ItemImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemImage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,6 +165,7 @@
 				FD8BA9DB29E1D10100F18661 /* ItemListPage.swift */,
 				FD8BA9C629E1B53B00F18661 /* Item.swift */,
 				FD8BA9EC29E2598900F18661 /* Vendor.swift */,
+				FD8BA9EE29E259EE00F18661 /* ItemImage.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -289,6 +292,7 @@
 				FD8BA9BB29E19F8C00F18661 /* ItemDTO.swift in Sources */,
 				FD8BA9C729E1B53B00F18661 /* Item.swift in Sources */,
 				FD8BA9CF29E1B95D00F18661 /* OpenMarketAPIRequestProtocol.swift in Sources */,
+				FD8BA9EF29E259EE00F18661 /* ItemImage.swift in Sources */,
 				FD8BA9BD29E1A13000F18661 /* ItemListPageDTO.swift in Sources */,
 				FD8BA9DC29E1D10100F18661 /* ItemListPage.swift in Sources */,
 				FD8BA9CC29E1B84000F18661 /* API.swift in Sources */,
