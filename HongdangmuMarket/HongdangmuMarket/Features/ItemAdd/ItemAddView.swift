@@ -9,6 +9,8 @@ import SwiftUI
 
 struct ItemAddView: View {
     
+    @StateObject private var viewModel = ItemAddViewModel()
+    
     var body: some View {
         ScrollView {
             ImagePickerView()
