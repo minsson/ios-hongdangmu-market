@@ -33,6 +33,11 @@ fileprivate struct ImagePickerView: View {
     private let imageCornerRadius: CGFloat = 4
     
     var body: some View {
+        headerView
+            .padding()
+        
+        Divider()
+        
         ScrollView {
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 20) {
@@ -72,6 +77,28 @@ fileprivate struct ImagePickerView: View {
 }
 
 private extension ImagePickerView {
+    
+    var headerView: some View {
+        HStack() {
+            Button {
+                
+            } label: {
+                Image(systemName: "xmark")
+                    .foregroundColor(Color(UIColor.systemGray))
+                    .font(.title3)
+            }
+
+            Spacer()
+            
+            Text("내 물건 팔기")
+                .font(.body.bold())
+            
+            Spacer()
+            
+            Text("완료")
+                .foregroundColor(.orange)
+        }
+    }
     
     var imageAddButton: some View {
         Button {
