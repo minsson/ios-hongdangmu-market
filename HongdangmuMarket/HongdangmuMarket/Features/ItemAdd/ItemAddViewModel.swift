@@ -15,6 +15,12 @@ final class ItemAddViewModel: ObservableObject {
     @Published var title: String = ""
     @Published var price: String = ""
     @Published var description: String = ""
+    
+    func finishButtonTapped() {
+        requestPostToServer()
+    }
+    
+}
 
 private extension ItemAddViewModel {
     

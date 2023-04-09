@@ -74,8 +74,14 @@ private extension ItemAddView {
             
             Spacer()
             
-            Text("완료")
-                .foregroundColor(.orange)
+            Button {
+                viewModel.finishButtonTapped()
+                shouldPresentItemAddView.toggle()
+            } label: {
+                Text("완료")
+                    .foregroundColor(.orange)
+            }
+
         }
     }
     
