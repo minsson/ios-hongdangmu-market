@@ -10,7 +10,27 @@ import SwiftUI
 struct ItemAddView: View {
     
     var body: some View {
-        Text("")
+        ScrollView {
+            VStack {
+                imageAddButton
+            }
+        }
+    }
+    
+}
+
+private extension ItemAddView {
+    
+    var imageAddButton: some View {
+        ZStack {
+            RoundedRectangle(cornerRadius: 4)
+                .stroke(Color(UIColor.systemGray4))
+                .frame(width: 75, height: 75)
+            
+            Image(systemName: "camera.fill")
+                .foregroundColor(Color(UIColor.systemGray))
+                .font(.title3)
+        }
     }
     
 }
