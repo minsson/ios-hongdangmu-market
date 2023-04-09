@@ -26,6 +26,7 @@ struct MainContainerView: View {
             }
             .tint(Color(UIColor.darkGray))
         }
+        .tint(.white)
     }
     
 }
