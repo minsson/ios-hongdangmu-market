@@ -12,43 +12,52 @@ struct ItemListView: View {
     @StateObject private var viewModel = ItemListViewModel()
     
     var body: some View {
-            VStack {
-                headerView
-                    .padding(.bottom, 16)
-                
-                ScrollView {
-                    LazyVStack {
-                        ForEach(viewModel.itemListPageData?.items ?? [], id: \.id) { item in
-                            NavigationLink {
-                                ItemDetailView(item: item)
-                            } label: {
-                                ItemRowView(item: item)
-                                    .foregroundColor(.primary)
-                            }
-                            
-                            
+        VStack {
+            headerView
+                .padding(.bottom, 16)
+            
+            ScrollView {
+                LazyVStack {
+                    ForEach(viewModel.items, id: \.id) { item in
+                        NavigationLink {
+                            ItemDetailView(item: item)
+                        } label: {
+                            ItemRowView(item: item)
+                                .foregroundColor(.primary)
+                                .task {
+                                    guard let currentPageItems = viewModel.itemListPageData?.items else {
+                                        return
+                                    }
+                                    
+                                    if viewModel.itemListPageData?.hasNext == true,
+                                       item.id == currentPageItems[currentPageItems.count - 5].id {
+                                        
+                                        try? await viewModel.listScrollIsAlmostOver()
+                                    }
+                                }
                         }
                     }
                 }
-                .padding(.horizontal)
-                .overlay(alignment: .bottomTrailing) {
-                    addButton
-                        .offset(x: -30, y: -30)
+            }
+            .padding(.horizontal)
+            .overlay(alignment: .bottomTrailing) {
+                addButton
+                    .offset(x: -30, y: -30)
+            }
+        }
+        .task {
+            Task {
+                do {
+                    try await viewModel.viewWillAppear()
+                } catch {
+                    // TODO: Alert 구현
+                    print(error.localizedDescription)
                 }
             }
-            .task {
-                Task {
-                    do {
-                        try await viewModel.viewWillAppear()
-                    } catch {
-                        // TODO: Alert 구현
-                        print(error.localizedDescription)
-                    }
-                }
-            }
-            .sheet(isPresented: $viewModel.shouldPresentItemAddView) {
-                ItemAddView(shouldPresentItemAddView: $viewModel.shouldPresentItemAddView)
-            }
+        }
+        .sheet(isPresented: $viewModel.shouldPresentItemAddView) {
+            ItemAddView(shouldPresentItemAddView: $viewModel.shouldPresentItemAddView)
+        }
     }
     
 }
