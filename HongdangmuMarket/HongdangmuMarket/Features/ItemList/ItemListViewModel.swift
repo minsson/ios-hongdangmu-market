@@ -10,6 +10,7 @@ import Foundation
 final class ItemListViewModel: ObservableObject {
     
     @Published var itemListPageData: ItemListPage?
+    @Published var shouldPresentImagePicker: Bool = false
     
     func viewWillAppear() async throws {
         do {
@@ -22,6 +23,10 @@ final class ItemListViewModel: ObservableObject {
         } catch {
             throw error
         }
+    }
+    
+    func addButtonTapped() {
+        shouldPresentImagePicker = true
     }
     
 }

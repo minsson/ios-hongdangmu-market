@@ -46,6 +46,9 @@ struct ItemListView: View {
                     }
                 }
             }
+            .sheet(isPresented: $viewModel.shouldPresentImagePicker) {
+                ItemAddView()
+            }
     }
     
 }
@@ -75,7 +78,7 @@ private extension ItemListView {
     
     var addButton: some View {
         Button {
-            // TODO: 기능 구현
+            viewModel.addButtonTapped()
         } label: {
             Image(systemName: "plus")
                 .font(.title2)
