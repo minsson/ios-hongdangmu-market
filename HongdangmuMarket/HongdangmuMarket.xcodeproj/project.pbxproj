@@ -193,7 +193,6 @@
 		FD8BA9CA29E1B83500F18661 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				FD8BA9D429E1BB4400F18661 /* HTTPMethod.swift */,
 				FDA34D1D29E2CF5B00CF96E3 /* Common */,
 				FD8BA9D829E1CAE100F18661 /* API */,
 				FD8BA9CD29E1B94200F18661 /* OpenMarketAPIRequests */,
@@ -241,6 +240,7 @@
 		FDA34D1D29E2CF5B00CF96E3 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				FD8BA9D429E1BB4400F18661 /* HTTPMethod.swift */,
 				FDA34D1B29E2CF1500CF96E3 /* MultipartFormDataHandlingProtocol.swift */,
 			);
 			path = Common;
