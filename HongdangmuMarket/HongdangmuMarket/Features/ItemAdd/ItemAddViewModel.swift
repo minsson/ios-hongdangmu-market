@@ -41,17 +41,13 @@ private extension ItemAddViewModel {
     }
     
     func processInputToData() -> Data {
-        guard let price = Double(price) else {
-            return Data()
-        }
-        
         let addRequestItemDTO = AddRequestItemDTO(
-            name: title,
-            price: price,
+            name: title, //TODO: 3글자 미만 예외처리
+            price: Double(price) ?? 0,
             discountedPrice: 0,
             currency: "KRW",
             stock: 1,
-            description: description
+            description: description //TODO: 10글자 미만 예외처리
         )
         
         return addRequestItemDTO.toData()
