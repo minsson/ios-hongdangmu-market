@@ -12,7 +12,6 @@ struct ItemListView: View {
     @StateObject private var viewModel = ItemListViewModel()
     
     var body: some View {
-        NavigationView {
             VStack {
                 headerView
                     .padding(.bottom, 16)
@@ -47,7 +46,6 @@ struct ItemListView: View {
                     }
                 }
             }
-        }
     }
     
 }
