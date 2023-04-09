@@ -10,7 +10,7 @@ import Foundation
 protocol OpenMarketAPIRequestGetProtocol: OpenMarketAPIRequestProtocol {
 
     var queryItems: [String: String]? { get }
-    var productID: String? { get }
+    var itemID: String? { get }
 
 }
 
@@ -28,7 +28,7 @@ extension OpenMarketAPIRequestGetProtocol {
             URLQueryItem(name: $0.key, value: $0.value)
         }
 
-        let productID = productID ?? ""
+        let productID = itemID ?? ""
         urlComponents?.path += productID
 
         return urlComponents?.url

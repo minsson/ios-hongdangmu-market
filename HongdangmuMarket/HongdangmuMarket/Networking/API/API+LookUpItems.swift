@@ -12,7 +12,7 @@ extension API {
         let pageNumber: Int
         let itemsPerPage: Int
         
-        var productID: String?
+        var itemID: String?
         var queryItems: [String: String]? {
             [
                 "page_no": "\(pageNumber)",
