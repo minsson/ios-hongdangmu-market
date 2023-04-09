@@ -10,7 +10,7 @@ import Foundation
 final class ItemListViewModel: ObservableObject {
     
     @Published var itemListPageData: ItemListPage?
-    @Published var shouldPresentImagePicker: Bool = false
+    @Published var shouldPresentItemAddView: Bool = false
     
     func viewWillAppear() async throws {
         do {
@@ -26,7 +26,7 @@ final class ItemListViewModel: ObservableObject {
     }
     
     func addButtonTapped() {
-        shouldPresentImagePicker = true
+        shouldPresentItemAddView = true
     }
     
 }

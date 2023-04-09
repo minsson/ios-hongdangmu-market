@@ -46,7 +46,7 @@ struct ItemListView: View {
                     }
                 }
             }
-            .sheet(isPresented: $viewModel.shouldPresentImagePicker) {
+            .sheet(isPresented: $viewModel.shouldPresentItemAddView) {
                 ItemAddView()
             }
     }
