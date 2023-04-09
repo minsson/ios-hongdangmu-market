@@ -18,6 +18,22 @@ final class ItemAddViewModel: ObservableObject {
 
 private extension ItemAddViewModel {
     
+    func requestPostToServer() {
+        let data = processInputToData()
+        
+        guard let urlRequest = API.AddItem(jsonData: data, images: selectedImages).urlRequest else {
+            return
+        }
+        
+        URLSession.shared.dataTask(with: urlRequest) { Data, response, error in
+            if let error = error {
+                print(error)
+                return
+            }
+        }.resume()
+        
+    }
+    
     func processInputToData() -> Data {
         guard let price = Double(price) else {
             return Data()
