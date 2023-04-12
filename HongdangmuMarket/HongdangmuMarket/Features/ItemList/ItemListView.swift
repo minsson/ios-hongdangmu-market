@@ -17,24 +17,27 @@ struct ItemListView: View {
                 .padding(.bottom, 16)
             
             ScrollView {
-                LazyVStack {
+                LazyVStack(spacing: 16) {
                     ForEach(viewModel.items, id: \.id) { item in
                         NavigationLink {
                             ItemDetailView(item: item)
                         } label: {
-                            ItemRowView(item: item)
-                                .foregroundColor(.primary)
-                                .task {
-                                    guard let currentPageItems = viewModel.itemListPageData?.items else {
-                                        return
-                                    }
-                                    
-                                    if viewModel.itemListPageData?.hasNext == true,
-                                       item.id == currentPageItems[currentPageItems.count - 5].id {
+                            VStack(spacing: 16) {
+                                ItemRowView(item: item)
+                                    .foregroundColor(.primary)
+                                    .task {
+                                        guard let currentPageItems = viewModel.itemListPageData?.items else {
+                                            return
+                                        }
                                         
-                                        try? await viewModel.listScrollIsAlmostOver()
+                                        if viewModel.itemListPageData?.hasNext == true,
+                                           item.id == currentPageItems[currentPageItems.count - 5].id {
+                                            
+                                            try? await viewModel.listScrollIsAlmostOver()
+                                        }
                                     }
-                                }
+                                Divider()
+                            }
                         }
                     }
                 }
