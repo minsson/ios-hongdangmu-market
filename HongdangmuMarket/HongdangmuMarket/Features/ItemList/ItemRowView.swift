@@ -36,8 +36,22 @@ struct ItemRowView: View {
                     .font(.subheadline)
                     .foregroundColor(Color(UIColor.systemGray2))
                 
-                Text("\(item.bargainPrice)원")
-                    .font(.title3.bold())
+                HStack {
+                    if item.stock == 0 {
+                        Text("거래완료")
+                            .foregroundColor(.white)
+                            .font(.subheadline.bold())
+                            .padding(.vertical, 2)
+                            .padding(.horizontal, 4)
+                            .background {
+                                RoundedRectangle(cornerRadius: 4)
+                                    .fill(Color(UIColor.secondaryLabel))
+                            }
+                    }
+                    
+                    Text("\(item.bargainPrice)원")
+                        .font(.title3.bold())
+                }
             }
             .frame(maxWidth: .infinity, alignment: .leading)
         }
