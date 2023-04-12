@@ -141,15 +141,16 @@ private extension ItemDetailView {
                 // TODO: 기능 구현
             } label: {
                 ZStack {
-                    RoundedRectangle(cornerRadius: 8)
-                        .foregroundColor(.orange)
+                    RoundedRectangle(cornerRadius: 4)
+                        .foregroundColor(viewModel.item?.stock == 0 ? Color(UIColor.tertiarySystemFill) : .orange)
                         .frame(width: 100, height: 40)
                     
                     Text("구매하기")
-                        .foregroundColor(.white)
+                        .foregroundColor(viewModel.item?.stock == 0 ? .secondary : .white)
                         .font(.body.bold())
                 }
             }
+            .disabled(viewModel.item?.stock == 0)
         }
     }
     
