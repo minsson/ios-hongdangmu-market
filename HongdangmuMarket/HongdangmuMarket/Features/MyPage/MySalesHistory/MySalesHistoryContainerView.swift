@@ -9,9 +9,15 @@ import SwiftUI
 
 struct MySalesHistoryContainerView: View {
     
+    @State private var selectedSalesStatus: SalesStatus = .onSales
+    
     var body: some View {
-        profileView
-            .padding()
+        ScrollView {
+            profileView
+                .padding()
+            
+            MySalesStatusTabBarView(selectedTab: $selectedSalesStatus)
+        }
     }
     
 }
