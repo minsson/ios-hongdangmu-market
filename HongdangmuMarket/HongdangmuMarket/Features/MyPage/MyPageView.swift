@@ -11,14 +11,36 @@ struct MyPageView: View {
     
     var body: some View {
         VStack {
+            headerView
+            
             profileView
+            
             MyPageSectionsView()
+            
+            Spacer()
         }
     }
     
 }
 
 private extension MyPageView {
+    
+    var headerView: some View {
+        searchButton
+    }
+    
+    var searchButton: some View {
+        Button {
+            // TODO: 기능 구현
+        } label: {
+            Image(systemName: "gearshape")
+                .font(.title2)
+                .foregroundColor(Color(UIColor.darkGray))
+                .frame(maxWidth: .infinity, alignment: .trailing)
+                .padding(.vertical, 4)
+                .padding(.horizontal)
+        }
+    }
     
     var profileView: some View {
         HStack {
