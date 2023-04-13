@@ -24,15 +24,14 @@ struct MainContainerView: View {
                 }
                 .tag(0)
                 
-                Text("나의 홍당무 페이지로 교체")
+                MyPageView()
                 .tabItem {
                     Label("나의 홍당무", systemImage: "person")
                 }
                 .tag(1)
             }
-            .tint(Color(UIColor.darkGray))
+            .tint(.primary)
         }
-        .tint(.white)
     }
     
 }
