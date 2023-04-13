@@ -44,13 +44,8 @@ private extension MyPageView {
     
     var profileView: some View {
         HStack {
-            Image(systemName: "person")
-                .resizable()
-                .scaledToFit()
-                .foregroundColor(.gray)
+            CircleImageView(imageName: "person")
                 .frame(width: 38)
-                .background(Color(UIColor.systemGray5))
-                .clipShape(Circle())
                 .padding(.trailing, 8)
             
             Text("당근을따라한홍당무")

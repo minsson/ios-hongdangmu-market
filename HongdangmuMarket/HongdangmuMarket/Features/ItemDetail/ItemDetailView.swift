@@ -76,8 +76,7 @@ private extension ItemDetailView {
     
     var profileView: some View {
         HStack(spacing: 16) {
-            Circle()
-                .fill(Color(UIColor.systemGray2))
+            CircleImageView(imageName: "person")
                 .frame(width: 60)
             
             VStack(alignment: .leading, spacing: 8) {
