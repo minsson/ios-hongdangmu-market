@@ -10,7 +10,40 @@ import SwiftUI
 struct MySalesHistoryContainerView: View {
     
     var body: some View {
-        Text("")
+        profileView
+            .padding()
+    }
+    
+}
+
+private extension MySalesHistoryContainerView {
+    
+    var profileView: some View {
+        HStack {
+            VStack(alignment: .leading) {
+                Text("나의 판매내역")
+                    .font(.title2.bold())
+                
+                Button {
+                    // TODO: 기능 구현
+                } label: {
+                    Text("글쓰기")
+                        .bold()
+                        .foregroundColor(.primary)
+                        .padding(.vertical, 8)
+                        .padding(.horizontal, 12)
+                        .background {
+                            RoundedRectangle(cornerRadius: 4)
+                                .foregroundColor(Color(UIColor.systemGray6))
+                        }
+                }
+            }
+            
+            Spacer()
+            
+            CircleImageView(imageName: "defaultProfileImage")
+                .frame(width: 90)
+        }
     }
     
 }
