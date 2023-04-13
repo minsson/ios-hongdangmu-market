@@ -20,9 +20,15 @@ struct MainContainerView: View {
             TabView(selection: $selectedTagIndex) {
                 ItemListView()
                 .tabItem {
-                    Label("홈", systemImage: "house.fill")
+                    Label("홈", systemImage: "house")
                 }
                 .tag(0)
+                
+                Text("나의 홍당무 페이지로 교체")
+                .tabItem {
+                    Label("나의 홍당무", systemImage: "person")
+                }
+                .tag(1)
             }
             .tint(Color(UIColor.darkGray))
         }
