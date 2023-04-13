@@ -12,11 +12,10 @@ struct CircleImageView: View {
     let imageName: String
     
     var body: some View {
-        Image(systemName: imageName)
+        Image(imageName)
             .resizable()
             .scaledToFit()
             .foregroundColor(.gray)
-            .background(Color(UIColor.systemGray5))
             .clipShape(Circle())
     }
     
@@ -25,7 +24,7 @@ struct CircleImageView: View {
 struct ProfileImageView_Previews: PreviewProvider {
     
     static var previews: some View {
-        CircleImageView(imageName: "person")
+        CircleImageView(imageName: "defaultProfileImage")
     }
     
 }

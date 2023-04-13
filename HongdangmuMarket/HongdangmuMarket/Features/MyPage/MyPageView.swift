@@ -44,7 +44,7 @@ private extension MyPageView {
     
     var profileView: some View {
         HStack {
-            CircleImageView(imageName: "person")
+            CircleImageView(imageName: "defaultProfileImage")
                 .frame(width: 38)
                 .padding(.trailing, 8)
             

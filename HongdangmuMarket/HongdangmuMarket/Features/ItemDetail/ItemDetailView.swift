@@ -76,7 +76,7 @@ private extension ItemDetailView {
     
     var profileView: some View {
         HStack(spacing: 16) {
-            CircleImageView(imageName: "person")
+            CircleImageView(imageName: "defaultProfileImage")
                 .frame(width: 60)
             
             VStack(alignment: .leading, spacing: 8) {
