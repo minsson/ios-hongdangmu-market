@@ -10,6 +10,7 @@
 		FD2CD5B529E7297E00C695A2 /* MyPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD2CD5B429E7297E00C695A2 /* MyPageView.swift */; };
 		FD62C44629E84AE3001B83ED /* MySalesHistoryContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD62C44529E84AE3001B83ED /* MySalesHistoryContainerView.swift */; };
 		FD62C44829E857EB001B83ED /* CircleImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD62C44729E857EB001B83ED /* CircleImageView.swift */; };
+		FD62C44A29E862DE001B83ED /* MySalesStatusTabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD62C44929E862DE001B83ED /* MySalesStatusTabBarView.swift */; };
 		FD8BA9A529E19CAA00F18661 /* HongdangmuMarketApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8BA9A429E19CAA00F18661 /* HongdangmuMarketApp.swift */; };
 		FD8BA9A929E19CAB00F18661 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FD8BA9A829E19CAB00F18661 /* Assets.xcassets */; };
 		FD8BA9AC29E19CAB00F18661 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FD8BA9AB29E19CAB00F18661 /* Preview Assets.xcassets */; };
@@ -48,6 +49,7 @@
 		FD2CD5B429E7297E00C695A2 /* MyPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageView.swift; sourceTree = "<group>"; };
 		FD62C44529E84AE3001B83ED /* MySalesHistoryContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySalesHistoryContainerView.swift; sourceTree = "<group>"; };
 		FD62C44729E857EB001B83ED /* CircleImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleImageView.swift; sourceTree = "<group>"; };
+		FD62C44929E862DE001B83ED /* MySalesStatusTabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySalesStatusTabBarView.swift; sourceTree = "<group>"; };
 		FD8BA9A129E19CAA00F18661 /* HongdangmuMarket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HongdangmuMarket.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD8BA9A429E19CAA00F18661 /* HongdangmuMarketApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HongdangmuMarketApp.swift; sourceTree = "<group>"; };
 		FD8BA9A829E19CAB00F18661 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -107,6 +109,7 @@
 			isa = PBXGroup;
 			children = (
 				FD62C44529E84AE3001B83ED /* MySalesHistoryContainerView.swift */,
+				FD62C44929E862DE001B83ED /* MySalesStatusTabBarView.swift */,
 			);
 			path = MySalesHistory;
 			sourceTree = "<group>";
@@ -367,6 +370,7 @@
 				FD8BA9C229E1AE4800F18661 /* MainContainerView.swift in Sources */,
 				FD8BA9B829E19F2100F18661 /* ItemRowView.swift in Sources */,
 				FD8BA9DE29E1F2D100F18661 /* DTOProtocol.swift in Sources */,
+				FD62C44A29E862DE001B83ED /* MySalesStatusTabBarView.swift in Sources */,
 				FDA34D1C29E2CF1500CF96E3 /* MultipartFormDataHandlingProtocol.swift in Sources */,
 				FDA34D2329E2D2CC00CF96E3 /* AddRequestItemDTO.swift in Sources */,
 				FD8BA9D529E1BB4400F18661 /* HTTPMethod.swift in Sources */,
