@@ -81,7 +81,6 @@ fileprivate struct MyPageSectionsView: View {
             
             sectionRowView(iconString: "heart", title: "관심목록")
             sectionRowView(iconString: "note.text", title: "판매내역")
-                    
         }
         .frame(maxWidth: .infinity, alignment: .leading)
         .padding()
