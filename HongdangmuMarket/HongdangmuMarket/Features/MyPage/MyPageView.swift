@@ -12,6 +12,7 @@ struct MyPageView: View {
     var body: some View {
         VStack {
             profileView
+            MyPageSectionsView()
         }
     }
     
@@ -45,6 +46,36 @@ private extension MyPageView {
                 }
         }
         .padding()
+    }
+    
+}
+
+fileprivate struct MyPageSectionsView: View {
+    
+    var body: some View {
+        VStack(alignment: .leading, spacing: 24) {
+            Text("나의 거래")
+                .bold()
+            
+            sectionRowView(iconString: "heart", title: "관심목록")
+            sectionRowView(iconString: "note.text", title: "판매내역")
+                    
+        }
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .padding()
+    }
+    
+}
+
+private extension MyPageSectionsView {
+    
+    func sectionRowView(iconString: String, title: String) -> some View {
+        HStack(spacing: 12) {
+            Image(systemName: iconString)
+                .font(.title2)
+            
+            Text(title)
+        }
     }
     
 }
