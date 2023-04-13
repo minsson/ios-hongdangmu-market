@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		FD2CD5B529E7297E00C695A2 /* MyPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD2CD5B429E7297E00C695A2 /* MyPageView.swift */; };
+		FD62C44629E84AE3001B83ED /* MySalesHistoryContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD62C44529E84AE3001B83ED /* MySalesHistoryContainerView.swift */; };
 		FD8BA9A529E19CAA00F18661 /* HongdangmuMarketApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8BA9A429E19CAA00F18661 /* HongdangmuMarketApp.swift */; };
 		FD8BA9A929E19CAB00F18661 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FD8BA9A829E19CAB00F18661 /* Assets.xcassets */; };
 		FD8BA9AC29E19CAB00F18661 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FD8BA9AB29E19CAB00F18661 /* Preview Assets.xcassets */; };
@@ -44,6 +45,7 @@
 
 /* Begin PBXFileReference section */
 		FD2CD5B429E7297E00C695A2 /* MyPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageView.swift; sourceTree = "<group>"; };
+		FD62C44529E84AE3001B83ED /* MySalesHistoryContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySalesHistoryContainerView.swift; sourceTree = "<group>"; };
 		FD8BA9A129E19CAA00F18661 /* HongdangmuMarket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HongdangmuMarket.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD8BA9A429E19CAA00F18661 /* HongdangmuMarketApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HongdangmuMarketApp.swift; sourceTree = "<group>"; };
 		FD8BA9A829E19CAB00F18661 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -93,9 +95,18 @@
 		FD2CD5B129E7293300C695A2 /* MyPage */ = {
 			isa = PBXGroup;
 			children = (
+				FD62C44029E846D4001B83ED /* MySalesHistory */,
 				FD2CD5B429E7297E00C695A2 /* MyPageView.swift */,
 			);
 			path = MyPage;
+			sourceTree = "<group>";
+		};
+		FD62C44029E846D4001B83ED /* MySalesHistory */ = {
+			isa = PBXGroup;
+			children = (
+				FD62C44529E84AE3001B83ED /* MySalesHistoryContainerView.swift */,
+			);
+			path = MySalesHistory;
 			sourceTree = "<group>";
 		};
 		FD8BA99829E19CAA00F18661 = {
@@ -366,6 +377,7 @@
 				FD8BA9E029E1F8AE00F18661 /* DataToEntityConverter.swift in Sources */,
 				FD8BA9E929E2494C00F18661 /* ItemDetailViewModel.swift in Sources */,
 				FD8BA9E229E2135C00F18661 /* DateCalculator.swift in Sources */,
+				FD62C44629E84AE3001B83ED /* MySalesHistoryContainerView.swift in Sources */,
 				FD8BA9F229E299FE00F18661 /* ItemAddView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
