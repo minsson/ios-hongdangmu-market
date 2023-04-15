@@ -29,7 +29,13 @@ struct MyPageView: View {
 private extension MyPageView {
     
     var headerView: some View {
-        searchButton
+        HStack {
+            Spacer()
+            
+            searchButton
+        }
+        .padding(.vertical, 4)
+        .padding(.horizontal)
     }
     
     var searchButton: some View {
@@ -39,9 +45,6 @@ private extension MyPageView {
             Image(systemName: "gearshape")
                 .font(.title2)
                 .foregroundColor(Color(UIColor.darkGray))
-                .frame(maxWidth: .infinity, alignment: .trailing)
-                .padding(.vertical, 4)
-                .padding(.horizontal)
         }
     }
     
