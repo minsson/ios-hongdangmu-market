@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		FD2CD5B529E7297E00C695A2 /* MyPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD2CD5B429E7297E00C695A2 /* MyPageView.swift */; };
+		FD46E88429E9E67100A93D54 /* UserInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD46E88329E9E67100A93D54 /* UserInformation.swift */; };
 		FD62C44629E84AE3001B83ED /* MySalesHistoryContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD62C44529E84AE3001B83ED /* MySalesHistoryContainerView.swift */; };
 		FD62C44829E857EB001B83ED /* CircleImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD62C44729E857EB001B83ED /* CircleImageView.swift */; };
 		FD62C44A29E862DE001B83ED /* MySalesStatusTabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD62C44929E862DE001B83ED /* MySalesStatusTabBarView.swift */; };
@@ -48,6 +49,7 @@
 
 /* Begin PBXFileReference section */
 		FD2CD5B429E7297E00C695A2 /* MyPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageView.swift; sourceTree = "<group>"; };
+		FD46E88329E9E67100A93D54 /* UserInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInformation.swift; sourceTree = "<group>"; };
 		FD62C44529E84AE3001B83ED /* MySalesHistoryContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySalesHistoryContainerView.swift; sourceTree = "<group>"; };
 		FD62C44729E857EB001B83ED /* CircleImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleImageView.swift; sourceTree = "<group>"; };
 		FD62C44929E862DE001B83ED /* MySalesStatusTabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySalesStatusTabBarView.swift; sourceTree = "<group>"; };
@@ -232,6 +234,7 @@
 				FD8BA9DF29E1F8AE00F18661 /* DataToEntityConverter.swift */,
 				FD8BA9E129E2135C00F18661 /* DateCalculator.swift */,
 				FD8BAA1129E2A70A00F18661 /* ImagePicker.swift */,
+				FD46E88329E9E67100A93D54 /* UserInformation.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -387,6 +390,7 @@
 				FD8BA9D529E1BB4400F18661 /* HTTPMethod.swift in Sources */,
 				FD8BA9A529E19CAA00F18661 /* HongdangmuMarketApp.swift in Sources */,
 				FD8BA9D329E1BAE700F18661 /* OpenMarketAPIRequestGetProtocol.swift in Sources */,
+				FD46E88429E9E67100A93D54 /* UserInformation.swift in Sources */,
 				FD8BA9ED29E2598900F18661 /* Vendor.swift in Sources */,
 				FD2CD5B529E7297E00C695A2 /* MyPageView.swift in Sources */,
 				FD8BA9D729E1BC6C00F18661 /* API+LookUpItems.swift in Sources */,
