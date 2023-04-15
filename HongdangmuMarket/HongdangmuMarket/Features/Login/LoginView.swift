@@ -17,6 +17,15 @@ struct LoginView: View {
     
     var body: some View {
         VStack {
+            Spacer()
+            
+            Image("hongdangmu")
+                .resizable()
+                .scaledToFit()
+                .frame(width: UIScreen.main.bounds.width * 0.7)
+            
+            Spacer()
+            
             Text(notice)
                 .padding(.vertical)
             
@@ -26,6 +35,8 @@ struct LoginView: View {
             
             inputSecureField(input: $userInformation.identifier, title: "Identifier")
                 
+            Spacer()
+            
             loginButton
         }
         .padding()
