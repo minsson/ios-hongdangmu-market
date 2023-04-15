@@ -10,7 +10,7 @@ extension API {
     struct LookUpItemDetail: OpenMarketAPIRequestGetProtocol {
         
         var itemID: String?
-        var queryItems: [String: String]?
+        var queryItems: [String: String?]? = nil
         
         init(productID: String) {
             self.itemID = productID

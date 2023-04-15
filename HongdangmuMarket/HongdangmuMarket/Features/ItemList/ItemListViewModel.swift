@@ -46,7 +46,7 @@ private extension ItemListViewModel {
     }
         
     func requestItemListPageData(pageNumber: Int) async throws -> Data {
-        guard let request: URLRequest = API.LookUpItems(pageNumber: pageNumber, itemsPerPage: 100).urlRequest else {
+        guard let request: URLRequest = API.LookUpItems(pageNumber: pageNumber, itemsPerPage: 100, searchValue: nil).urlRequest else {
             throw URLError(.badURL)
         }
         

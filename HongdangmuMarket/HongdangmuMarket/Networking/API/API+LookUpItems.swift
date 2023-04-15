@@ -11,12 +11,14 @@ extension API {
         
         let pageNumber: Int
         let itemsPerPage: Int
+        let searchValue: String?
         
         var itemID: String?
-        var queryItems: [String: String]? {
+        var queryItems: [String: String?]? {
             [
                 "page_no": "\(pageNumber)",
-                "items_per_page": "\(itemsPerPage)"
+                "items_per_page": "\(itemsPerPage)",
+                "search_value": searchValue
             ]
         }
         

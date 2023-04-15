@@ -9,7 +9,7 @@ import Foundation
 
 protocol OpenMarketAPIRequestGetProtocol: OpenMarketAPIRequestProtocol {
 
-    var queryItems: [String: String]? { get }
+    var queryItems: [String: String?]? { get }
     var itemID: String? { get }
 
 }
