@@ -13,6 +13,7 @@ struct HongdangmuMarketApp: App {
     var body: some Scene {
         WindowGroup {
             MainContainerView()
+                .environmentObject(UserInformation())
         }
     }
     
