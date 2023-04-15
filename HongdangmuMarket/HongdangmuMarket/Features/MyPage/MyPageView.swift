@@ -16,7 +16,7 @@ struct MyPageView: View {
                 
                 profileView
                 
-                MyPageSectionsView()
+                myPageSectionsView
                 
                 Spacer()
             }
@@ -68,11 +68,7 @@ private extension MyPageView {
         .padding()
     }
     
-}
-
-fileprivate struct MyPageSectionsView: View {
-    
-    var body: some View {
+    var myPageSectionsView: some View {
         VStack(alignment: .leading, spacing: 24) {
             Text("나의 거래")
                 .bold()
@@ -94,10 +90,6 @@ fileprivate struct MyPageSectionsView: View {
         .frame(maxWidth: .infinity, alignment: .leading)
         .padding()
     }
-    
-}
-
-private extension MyPageSectionsView {
     
     func sectionRowView(iconString: String, title: String) -> some View {
         HStack(spacing: 12) {
