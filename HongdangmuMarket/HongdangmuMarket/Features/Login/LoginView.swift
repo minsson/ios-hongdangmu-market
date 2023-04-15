@@ -25,6 +25,8 @@ struct LoginView: View {
             inputSecureField(input: $userInformation.password, title: "비밀번호")
             
             inputSecureField(input: $userInformation.identifier, title: "Identifier")
+                
+            loginButton
         }
         .padding()
     }
@@ -73,6 +75,24 @@ private extension LoginView {
                 Divider()
             }
         }
+    }
+    
+    var loginButton: some View {
+        Button {
+            // TODO: 기능 구현
+        } label: {
+            ZStack {
+                RoundedRectangle(cornerRadius: 4)
+                    .fill(.orange)
+                
+                Text("로그인")
+                    .bold()
+                    .foregroundColor(.white)
+            }
+            .frame(height: 50)
+            .frame(maxWidth: .infinity)
+        }
+        .padding(.vertical)
     }
     
 }
