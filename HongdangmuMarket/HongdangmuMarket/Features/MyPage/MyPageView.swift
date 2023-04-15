@@ -10,14 +10,17 @@ import SwiftUI
 struct MyPageView: View {
     
     var body: some View {
-        VStack {
-            headerView
+        NavigationView {
+            VStack {
+                headerView
+                
+                profileView
+                
+                MyPageSectionsView()
+                
+                Spacer()
+            }
             
-            profileView
-            
-            MyPageSectionsView()
-            
-            Spacer()
         }
     }
     
@@ -74,8 +77,19 @@ fileprivate struct MyPageSectionsView: View {
             Text("나의 거래")
                 .bold()
             
-            sectionRowView(iconString: "heart", title: "관심목록")
-            sectionRowView(iconString: "note.text", title: "판매내역")
+            NavigationLink {
+                
+            } label: {
+                sectionRowView(iconString: "heart", title: "관심목록")
+            }
+            
+            NavigationLink {
+                
+            } label: {
+                sectionRowView(iconString: "note.text", title: "판매내역")
+            }
+            
+            Spacer()
         }
         .frame(maxWidth: .infinity, alignment: .leading)
         .padding()
