@@ -17,6 +17,15 @@ struct MySalesHistoryContainerView: View {
                 .padding()
             
             MySalesStatusTabBarView(selectedTab: $selectedSalesStatus)
+            
+            switch selectedSalesStatus {
+            case .onSales:
+                MyOnSalesItemsView()
+            case .soldOut:
+                Text("거래 완료 뷰 구현")
+            case .hidden:
+                Text("숨김 뷰 구현")
+            }
         }
     }
     
