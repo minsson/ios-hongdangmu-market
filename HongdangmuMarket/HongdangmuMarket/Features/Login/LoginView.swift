@@ -90,7 +90,9 @@ private extension LoginView {
     
     var loginButton: some View {
         Button {
-            // TODO: 기능 구현
+            // OpenMarketAPI에 유효한 ID/비밀번호인지 검증하는 기능이 없습니다.
+            // 우선 로그인 버튼을 누르면 무조건 로그인 되도록 구현했습니다.
+            userInformation.isLoggedIn = true
         } label: {
             ZStack {
                 RoundedRectangle(cornerRadius: 4)
