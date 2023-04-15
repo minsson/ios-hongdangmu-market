@@ -10,6 +10,7 @@ import SwiftUI
 struct ItemRowView: View {
     
     let item: Item
+    let isEditable: Bool
     
     var body: some View {
         HStack(alignment: .top, spacing: 16) {
@@ -28,9 +29,18 @@ struct ItemRowView: View {
             }
             
             VStack(alignment: .leading, spacing: 8) {
-                Text(item.name)
-                    .lineLimit(2)
+                HStack {
+                    Text(item.name)
+                        .lineLimit(2)
                     .font(.title3)
+                    
+                    Spacer()
+                    
+                    if isEditable {
+                        Image(systemName: "ellipsis")
+                            .rotationEffect(.degrees(90))
+                    }
+                }
                 
                 Text(item.calculatedDateString())
                     .font(.subheadline)
@@ -78,7 +88,7 @@ struct ItemRowView_Previews: PreviewProvider {
     )
     
     static var previews: some View {
-        ItemRowView(item: item)
+        ItemRowView(item: item, isEditable: true)
     }
     
 }

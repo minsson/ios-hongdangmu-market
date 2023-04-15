@@ -23,7 +23,7 @@ struct ItemListView: View {
                             ItemDetailView(item: item)
                         } label: {
                             VStack(spacing: 16) {
-                                ItemRowView(item: item)
+                                ItemRowView(item: item, isEditable: false)
                                     .foregroundColor(.primary)
                                     .task {
                                         guard let currentPageItems = viewModel.itemListPageData?.items else {
