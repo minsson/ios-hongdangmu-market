@@ -21,6 +21,10 @@ struct LoginView: View {
                 .padding(.vertical)
             
             inputTextField(input: $userInformation.nickname, title: "닉네임")
+            
+            inputSecureField(input: $userInformation.password, title: "비밀번호")
+            
+            inputSecureField(input: $userInformation.identifier, title: "Identifier")
         }
         .padding()
     }
@@ -49,6 +53,28 @@ private extension LoginView {
             }
         }
     }
+    
+    func inputSecureField(input: Binding<String>, title: String) -> some View {
+        HStack(alignment: .bottom) {
+            ZStack {
+                RoundedRectangle(cornerRadius: 4)
+                    .fill(Color(UIColor.systemGray5))
+                
+                Text(title)
+            }
+            .frame(width: 100, height: 50)
+               
+            VStack {
+                SecureField(text: input) {
+                    
+                }
+                .padding(.bottom, 4)
+                
+                Divider()
+            }
+        }
+    }
+    
 }
 
 struct LoginView_Previews: PreviewProvider {
