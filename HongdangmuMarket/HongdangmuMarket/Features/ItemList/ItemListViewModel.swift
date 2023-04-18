@@ -11,15 +11,15 @@ final class ItemListViewModel: ObservableObject {
     
     @Published var shouldPresentItemAddView: Bool = false
     @Published var items: [Item] = []
-    
-    private(set) var itemListPageData: ItemListPage?
+        
+    private var itemListPageData: ItemListPage?
     private var pageCounter = 1
     
-    func viewWillAppear() async throws {
-        try? await retrieveItems()
-    }
+}
+
+extension ItemListViewModel {
     
-    func listScrollIsAlmostOver() async throws {
+    func viewNeedsMoreContents() async throws {
         try? await retrieveItems()
     }
     
@@ -30,6 +30,7 @@ final class ItemListViewModel: ObservableObject {
 }
 
 private extension ItemListViewModel {
+    
     func retrieveItems() async throws {
         do {
             let data: Data = try await requestItemListPageData(pageNumber: pageCounter)

@@ -25,37 +25,26 @@ struct ItemListView: View {
                             VStack(spacing: 16) {
                                 ItemRowView(item: item, isEditable: false)
                                     .foregroundColor(.primary)
-                                    .task {
-                                        guard let currentPageItems = viewModel.itemListPageData?.items else {
-                                            return
-                                        }
-                                        
-                                        if viewModel.itemListPageData?.hasNext == true,
-                                           item.id == currentPageItems[currentPageItems.count - 5].id {
-                                            
-                                            try? await viewModel.listScrollIsAlmostOver()
-                                        }
-                                    }
                                 Divider()
                             }
                         }
                     }
+                    
+                    ProgressView()
+                        .task {
+                            do {
+                                try await viewModel.viewNeedsMoreContents()
+                            } catch {
+                                // TODO: Alert 구현
+                                print(error.localizedDescription)
+                            }
+                        }
                 }
             }
             .padding(.horizontal)
             .overlay(alignment: .bottomTrailing) {
                 addButton
                     .offset(x: -30, y: -30)
-            }
-        }
-        .task {
-            Task {
-                do {
-                    try await viewModel.viewWillAppear()
-                } catch {
-                    // TODO: Alert 구현
-                    print(error.localizedDescription)
-                }
             }
         }
         .fullScreenCover(isPresented: $viewModel.shouldPresentItemAddView) {
