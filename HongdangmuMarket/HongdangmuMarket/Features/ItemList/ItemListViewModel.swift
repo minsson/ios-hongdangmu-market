@@ -11,9 +11,9 @@ final class ItemListViewModel: ObservableObject {
     
     @Published var shouldPresentItemAddView: Bool = false
     @Published var items: [Item] = []
-    private var pageCounter = 1
     private(set) var hasMoreData = true
     
+    private var currentPage = 1
     
 }
 
@@ -33,9 +33,9 @@ private extension ItemListViewModel {
     
     func retrieveItems() async throws {
         do {
-            let data: Data = try await requestItemListPageData(pageNumber: pageCounter)
+            let data: Data = try await requestItemListPageData(pageNumber: currentPage)
             let itemListPage = try DataToEntityConverter().convert(data: data, to: ItemListPageDTO.self)
-            pageCounter += 1
+            currentPage += 1
             
             await MainActor.run {
                 hasMoreData = itemListPage.hasNext
