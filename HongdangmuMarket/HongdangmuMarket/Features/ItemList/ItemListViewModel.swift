@@ -11,13 +11,9 @@ final class ItemListViewModel: ObservableObject {
     
     @Published var shouldPresentItemAddView: Bool = false
     @Published var items: [Item] = []
-
-    var hasMoreData: Bool {
-        return itemListPageData?.hasNext ?? false
-    }
-
-    private var itemListPageData: ItemListPage?
     private var pageCounter = 1
+    private(set) var hasMoreData = true
+    
     
 }
 
@@ -42,7 +38,7 @@ private extension ItemListViewModel {
             pageCounter += 1
             
             await MainActor.run {
-                itemListPageData = itemListPage
+                hasMoreData = itemListPage.hasNext
                 items.append(contentsOf: itemListPage.items)
             }
         } catch {
