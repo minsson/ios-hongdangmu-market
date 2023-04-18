@@ -11,7 +11,11 @@ final class ItemListViewModel: ObservableObject {
     
     @Published var shouldPresentItemAddView: Bool = false
     @Published var items: [Item] = []
-        
+
+    var hasMoreData: Bool {
+        return itemListPageData?.hasNext ?? false
+    }
+
     private var itemListPageData: ItemListPage?
     private var pageCounter = 1
     

@@ -30,7 +30,7 @@ struct ItemListView: View {
                         }
                     }
                     
-                    ProgressView()
+                    progressView
                         .task {
                             do {
                                 try await viewModel.viewNeedsMoreContents()
@@ -90,6 +90,15 @@ private extension ItemListView {
                         .frame(width: 55, height: 55)
                         .shadow(radius: 5)
                 }
+        }
+    }
+    
+    @ViewBuilder
+    var progressView: some View {
+        if viewModel.hasMoreData {
+            ProgressView()
+        } else {
+            Text("모든 상품을 다 둘러봤어요 🙃")
         }
     }
     
