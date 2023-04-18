@@ -25,7 +25,7 @@ struct MySalesHistoryContainerView: View {
             
             switch selectedSalesStatus {
             case .onSales:
-                MyOnSalesItemsView()
+                MyOnSalesItemsView(viewModel: viewModel)
             case .soldOut:
                 Text("거래 완료 뷰 구현")
             case .hidden:
