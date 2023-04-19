@@ -11,7 +11,12 @@ final class MySalesHistoryContainerViewModel: ObservableObject {
     
     @Published var shouldPresentItemAddView: Bool = false
     @Published var items: [Item] = []
+    
     private(set) var hasMoreData = false
+    
+    var onSalesItems: [Item] {
+        return items.filter { $0.stock > 0 }
+    }
     
     private var currentPage = 1
     private let userInformation: UserInformation

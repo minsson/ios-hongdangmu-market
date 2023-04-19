@@ -14,7 +14,7 @@ struct MyOnSalesItemsView: View {
     var body: some View {
         ScrollView {
             LazyVStack(spacing: 16) {
-                ForEach(viewModel.items, id: \.id) { item in
+                ForEach(viewModel.onSalesItems, id: \.id) { item in
                     NavigationLink {
                         ItemDetailView(item: item)
                     } label: {
