@@ -12,41 +12,38 @@ struct MyOnSalesItemsView: View {
     @ObservedObject var viewModel: MySalesHistoryContainerViewModel
     
     var body: some View {
-        VStack {
-            ScrollView {
-                LazyVStack(spacing: 16) {
-                    ForEach(viewModel.items, id: \.id) { item in
-                        NavigationLink {
-                            ItemDetailView(item: item)
-                        } label: {
-                            VStack(spacing: 16) {
-                                ItemRowView(item: item, isEditable: false)
-                                    .foregroundColor(.primary)
-                                
-                                Divider()
-                            }
+        ScrollView {
+            LazyVStack(spacing: 16) {
+                ForEach(viewModel.items, id: \.id) { item in
+                    NavigationLink {
+                        ItemDetailView(item: item)
+                    } label: {
+                        VStack(spacing: 16) {
+                            ItemRowView(item: item, isEditable: false)
+                                .foregroundColor(.primary)
+                            
+                            Divider()
                         }
                     }
-                    
-                    progressView
-                        .task {
-                            do {
-                                try await viewModel.viewNeedsMoreContents()
-                            } catch {
-                                // TODO: Alert 구현
-                                print(error.localizedDescription)
-                            }
-                        }
                 }
+                
+                progressView
+                    .task {
+                        do {
+                            try await viewModel.viewNeedsMoreContents()
+                        } catch {
+                            // TODO: Alert 구현
+                            print(error.localizedDescription)
+                        }
+                    }
             }
-            .padding(.horizontal)
-
         }
+        .padding(.horizontal)
         .fullScreenCover(isPresented: $viewModel.shouldPresentItemAddView) {
             ItemAddView(shouldPresentItemAddView: $viewModel.shouldPresentItemAddView)
         }
     }
-
+    
 }
 
 private extension MyOnSalesItemsView {
