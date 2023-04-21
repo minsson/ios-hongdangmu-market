@@ -55,7 +55,7 @@ private extension MyPageView {
                 .frame(width: 38)
                 .padding(.trailing, 8)
             
-            Text("당근을따라한홍당무")
+            Text(userInformation.nickname)
                 .font(.title2.bold())
             
             Spacer()
