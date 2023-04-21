@@ -18,6 +18,10 @@ final class MySalesHistoryContainerViewModel: ObservableObject {
         return items.filter { $0.stock > 0 }
     }
     
+    var soldOutItems: [Item] {
+        return items.filter { $0.stock == 0 }
+    }
+    
     private var currentPage = 1
     private let userInformation: UserInformation
     

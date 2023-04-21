@@ -28,7 +28,7 @@ struct MySalesHistoryContainerView: View {
             case .onSales:
                 MyOnSalesItemsView(viewModel: viewModel)
             case .soldOut:
-                Text("거래 완료 뷰 구현")
+                MySoldOutItemsView(viewModel: viewModel)
             case .hidden:
                 Text("숨김 뷰 구현")
             }
