@@ -117,8 +117,8 @@
 		FD2CD5B129E7293300C695A2 /* MyPage */ = {
 			isa = PBXGroup;
 			children = (
-				FD62C44029E846D4001B83ED /* MySalesHistory */,
 				FD2CD5B429E7297E00C695A2 /* MyPageView.swift */,
+				FD62C44029E846D4001B83ED /* MySalesHistory */,
 			);
 			path = MyPage;
 			sourceTree = "<group>";
@@ -127,9 +127,9 @@
 			isa = PBXGroup;
 			children = (
 				FD62C44529E84AE3001B83ED /* MySalesHistoryContainerView.swift */,
+				FD46E88B29EAF24B00A93D54 /* MySalesHistoryContainerViewModel.swift */,
 				FD62C44929E862DE001B83ED /* MySalesStatusTabBarView.swift */,
 				FD46E88929EADF3400A93D54 /* MyOnSalesItemsView.swift */,
-				FD46E88B29EAF24B00A93D54 /* MySalesHistoryContainerViewModel.swift */,
 			);
 			path = MySalesHistory;
 			sourceTree = "<group>";
