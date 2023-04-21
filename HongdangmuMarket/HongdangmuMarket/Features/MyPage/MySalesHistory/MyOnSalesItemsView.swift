@@ -18,11 +18,20 @@ struct MyOnSalesItemsView: View {
                     NavigationLink {
                         ItemDetailView(item: item)
                     } label: {
-                        VStack(spacing: 16) {
+                        VStack(spacing: 0) {
                             ItemRowView(item: item, isEditable: false)
                                 .foregroundColor(.primary)
+                                .padding(.bottom, 16)
+                                .padding(.horizontal)
                             
                             Divider()
+                            
+                            actionButtons
+                                .frame(height: 50)
+                            
+                            Rectangle()
+                                .fill(Color(UIColor.secondarySystemBackground))
+                                .frame(height: 8)
                         }
                     }
                 }
@@ -38,7 +47,6 @@ struct MyOnSalesItemsView: View {
                     }
             }
         }
-        .padding(.horizontal)
         .fullScreenCover(isPresented: $viewModel.shouldPresentItemAddView) {
             ItemAddView(shouldPresentItemAddView: $viewModel.shouldPresentItemAddView)
         }
@@ -55,6 +63,32 @@ private extension MyOnSalesItemsView {
         } else {
             Text("더 많은 상품을 등록해보세요 🥕")
         }
+    }
+    
+    @ViewBuilder
+    var actionButtons: some View {
+        HStack(spacing: 0) {
+            Button("끌어올리기") {
+                // TODO: 기능 구현
+            }
+            .frame(maxWidth: .infinity)
+            
+            Divider()
+            
+            Button("예약중") {
+                // TODO: 기능 구현
+            }
+            .frame(maxWidth: .infinity)
+            
+            Divider()
+            
+            Button("거래완료") {
+                // TODO: 기능 구현
+            }
+            .frame(maxWidth: .infinity)
+        }
+        .foregroundColor(.primary)
+        .font(.body.bold())
     }
     
 }

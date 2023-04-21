@@ -22,6 +22,7 @@ struct MySalesHistoryContainerView: View {
                 .padding()
             
             MySalesStatusTabBarView(selectedTab: $selectedSalesStatus)
+                .padding(.bottom, 8)
             
             switch selectedSalesStatus {
             case .onSales:
