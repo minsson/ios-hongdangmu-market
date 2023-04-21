@@ -9,6 +9,8 @@ import SwiftUI
 
 struct MyPageView: View {
     
+    @EnvironmentObject private var userInformation: UserInformation
+    
     var body: some View {
         NavigationView {
             VStack {
@@ -20,7 +22,6 @@ struct MyPageView: View {
                 
                 Spacer()
             }
-            
         }
     }
     
@@ -83,7 +84,7 @@ private extension MyPageView {
             }
             
             NavigationLink {
-                
+                MySalesHistoryContainerView(userInformation: userInformation)
             } label: {
                 sectionRowView(iconString: "note.text", title: "판매내역")
             }
@@ -109,6 +110,7 @@ struct MyPageView_Previews: PreviewProvider {
     
     static var previews: some View {
         MyPageView()
+            .environmentObject(UserInformation())
     }
     
 }
