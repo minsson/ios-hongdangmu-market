@@ -9,7 +9,14 @@ import SwiftUI
 
 struct ItemAddView: View {
   @Environment(\.dismiss) private var dismiss
-  @StateObject private var viewModel = ItemAddViewModel()
+  @StateObject private var viewModel: ItemAddViewModel
+  
+  let itemAddCompletion: (() -> ())?
+  
+  init(itemAddCompletion: (() -> ())?) {
+    self.itemAddCompletion = itemAddCompletion
+    _viewModel = StateObject(wrappedValue: ItemAddViewModel(itemAddCompletion: itemAddCompletion))
+  }
   
   var body: some View {
     headerView
@@ -151,7 +158,9 @@ private extension ImagePickerView {
 struct ItemAddView_Previews: PreviewProvider {
   
   static var previews: some View {
-    ItemAddView()
+    ItemAddView() {
+      
+    }
   }
   
 }

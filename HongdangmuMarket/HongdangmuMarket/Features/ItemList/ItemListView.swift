@@ -48,7 +48,9 @@ struct ItemListView: View {
       }
     }
     .fullScreenCover(isPresented: $viewModel.shouldPresentItemAddView) {
-      ItemAddView()
+      ItemAddView() {
+        print("아이템 추가 완료되고 completion 호출됨")
+      }
     }
   }
   

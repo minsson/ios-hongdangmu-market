@@ -16,6 +16,12 @@ final class ItemAddViewModel: ObservableObject {
   @Published var price: String = ""
   @Published var description: String = ""
   
+  let itemAddCompletion: (() -> ())?
+  
+  init(itemAddCompletion: (() -> ())?) {
+    self.itemAddCompletion = itemAddCompletion
+  }
+  
   func finishButtonTapped() {
     Task {
       await requestPostToServer()
@@ -34,6 +40,8 @@ private extension ItemAddViewModel {
     
     do {
       let _ = try await NetworkManager().execute(urlRequest)
+      
+      itemAddCompletion?()
     } catch {
       print(error.localizedDescription)
     }
