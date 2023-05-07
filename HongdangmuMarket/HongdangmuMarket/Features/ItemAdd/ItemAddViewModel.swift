@@ -17,27 +17,26 @@ final class ItemAddViewModel: ObservableObject {
   @Published var description: String = ""
   
   func finishButtonTapped() {
-    requestPostToServer()
+    Task {
+      await requestPostToServer()
+    }
   }
   
 }
 
 private extension ItemAddViewModel {
   
-  func requestPostToServer() {
+  func requestPostToServer() async {
     let data = processInputToData()
-    
     guard let urlRequest = API.AddItem(jsonData: data, images: selectedImages).urlRequest else {
       return
     }
     
-    URLSession.shared.dataTask(with: urlRequest) { Data, response, error in
-      if let error = error {
-        print(error)
-        return
-      }
-    }.resume()
-    
+    do {
+      let _ = try await NetworkManager().execute(urlRequest)
+    } catch {
+      print(error.localizedDescription)
+    }
   }
   
   func processInputToData() -> Data {
