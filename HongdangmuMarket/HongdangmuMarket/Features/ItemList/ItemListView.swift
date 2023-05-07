@@ -20,7 +20,7 @@ struct ItemListView: View {
         LazyVStack(spacing: 16) {
           ForEach(viewModel.items, id: \.id) { item in
             NavigationLink {
-              ItemDetailView(item: item)
+              ItemDetailView(itemID: item.id)
             } label: {
               VStack(spacing: 16) {
                 ItemRowView(item: item, isEditable: false)

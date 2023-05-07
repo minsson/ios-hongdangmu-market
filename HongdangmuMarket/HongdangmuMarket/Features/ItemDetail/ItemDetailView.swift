@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ItemDetailView: View {
   
-  let item: Item
+  let itemID: Int?
   
   let deviceWidth = UIScreen.main.bounds.width
   
@@ -41,7 +41,10 @@ struct ItemDetailView: View {
     }
     .task {
       do {
-        viewModel.itemID = String(item.id)
+        guard let itemID else {
+          return
+        }
+        viewModel.itemID = String(itemID)
         try await viewModel.viewWillAppear()
       } catch {
         // TODO: 에러 처리
@@ -176,7 +179,7 @@ struct ItemDetailView_Previews: PreviewProvider {
   )
   
   static var previews: some View {
-    ItemDetailView(item: item)
+    ItemDetailView(itemID: item.id)
   }
   
 }
