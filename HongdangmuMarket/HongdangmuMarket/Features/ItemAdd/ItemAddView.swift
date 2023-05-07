@@ -8,9 +8,8 @@
 import SwiftUI
 
 struct ItemAddView: View {
-  
+  @Environment(\.dismiss) private var dismiss
   @StateObject private var viewModel = ItemAddViewModel()
-  @Binding var shouldPresentItemAddView: Bool
   
   var body: some View {
     headerView
@@ -60,7 +59,7 @@ private extension ItemAddView {
   var headerView: some View {
     HStack() {
       Button {
-        shouldPresentItemAddView.toggle()
+        dismiss()
       } label: {
         Image(systemName: "xmark")
           .foregroundColor(Color(UIColor.systemGray))
@@ -76,7 +75,7 @@ private extension ItemAddView {
       
       Button {
         viewModel.finishButtonTapped()
-        shouldPresentItemAddView.toggle()
+        dismiss()
       } label: {
         Text("완료")
           .foregroundColor(.orange)
@@ -152,7 +151,7 @@ private extension ImagePickerView {
 struct ItemAddView_Previews: PreviewProvider {
   
   static var previews: some View {
-    ItemAddView(shouldPresentItemAddView: .constant(true))
+    ItemAddView()
   }
   
 }
