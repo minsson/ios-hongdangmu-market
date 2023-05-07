@@ -51,9 +51,6 @@ struct MySoldOutItemsView: View {
           }
       }
     }
-    .fullScreenCover(isPresented: $viewModel.shouldPresentItemAddView) {
-      ItemAddView()
-    }
   }
   
 }

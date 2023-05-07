@@ -33,6 +33,9 @@ struct MySalesHistoryContainerView: View {
         Text("숨김 뷰 구현")
       }
     }
+    .fullScreenCover(isPresented: $viewModel.shouldPresentItemAddView) {
+      ItemAddView()
+    }
   }
   
 }
@@ -46,7 +49,7 @@ private extension MySalesHistoryContainerView {
           .font(.title2.bold())
         
         Button {
-          // TODO: 기능 구현
+          viewModel.shouldPresentItemAddView = true
         } label: {
           Text("글쓰기")
             .bold()

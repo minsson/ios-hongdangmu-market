@@ -47,9 +47,6 @@ struct MyOnSalesItemsView: View {
           }
       }
     }
-    .fullScreenCover(isPresented: $viewModel.shouldPresentItemAddView) {
-      ItemAddView()
-    }
   }
   
 }
