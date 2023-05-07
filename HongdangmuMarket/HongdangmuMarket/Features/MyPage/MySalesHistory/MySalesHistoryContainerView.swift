@@ -34,7 +34,7 @@ struct MySalesHistoryContainerView: View {
       }
     }
     .fullScreenCover(isPresented: $viewModel.shouldPresentItemAddView) {
-      ItemAddView() {
+      ItemAddView() { _ in
         
       }
     }

@@ -11,9 +11,9 @@ struct ItemAddView: View {
   @Environment(\.dismiss) private var dismiss
   @StateObject private var viewModel: ItemAddViewModel
   
-  let itemAddCompletion: (() -> ())?
+  let itemAddCompletion: ((Int) -> ())?
   
-  init(itemAddCompletion: (() -> ())?) {
+  init(itemAddCompletion: ((Int) -> ())?) {
     self.itemAddCompletion = itemAddCompletion
     _viewModel = StateObject(wrappedValue: ItemAddViewModel(itemAddCompletion: itemAddCompletion))
   }
@@ -158,7 +158,7 @@ private extension ImagePickerView {
 struct ItemAddView_Previews: PreviewProvider {
   
   static var previews: some View {
-    ItemAddView() {
+    ItemAddView() { _ in
       
     }
   }

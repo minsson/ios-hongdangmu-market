@@ -16,15 +16,21 @@ final class ItemAddViewModel: ObservableObject {
   @Published var price: String = ""
   @Published var description: String = ""
   
-  let itemAddCompletion: (() -> ())?
+  let itemAddCompletion: ((Int) -> ())?
   
-  init(itemAddCompletion: (() -> ())?) {
+  init(itemAddCompletion: ((Int) -> ())?) {
     self.itemAddCompletion = itemAddCompletion
   }
   
   func finishButtonTapped() {
     Task {
       await requestPostToServer()
+      
+      do {
+        try await requestRecentlyAddedItemID()
+      } catch {
+        print(error.localizedDescription)
+      }
     }
   }
   
@@ -40,8 +46,6 @@ private extension ItemAddViewModel {
     
     do {
       let _ = try await NetworkManager().execute(urlRequest)
-      
-      itemAddCompletion?()
     } catch {
       print(error.localizedDescription)
     }
@@ -58,6 +62,23 @@ private extension ItemAddViewModel {
     )
     
     return addRequestItemDTO.toData()
+  }
+  
+  func requestRecentlyAddedItemID() async throws {
+    guard let urlRequest = API.LookUpItems(pageNumber: 1, itemsPerPage: 1, searchValue: "sixthVendor").urlRequest else {
+      throw URLError(.badURL)
+    }
+    
+    print("🔥 아이디 기준으로 서버에 있는 첫번째 게시물 조회 시작")
+    let data: Data = try await NetworkManager().execute(urlRequest)
+    print("🔥 아이디 기준으로 서버에 있는 첫번째 게시물 조회 완료")
+    let itemListPage = try DataToEntityConverter().convert(data: data, to: ItemListPageDTO.self)
+    let items: [Item] = itemListPage.items
+    guard let item = items.first else {
+      throw URLError(.fileDoesNotExist)
+    }
+        
+    itemAddCompletion?(item.id)
   }
   
 }
