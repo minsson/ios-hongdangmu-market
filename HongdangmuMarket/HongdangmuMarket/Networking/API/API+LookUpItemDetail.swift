@@ -6,16 +6,16 @@
 //
 
 extension API {
+  
+  struct LookUpItemDetail: OpenMarketAPIRequestGetProtocol {
     
-    struct LookUpItemDetail: OpenMarketAPIRequestGetProtocol {
-        
-        var itemID: String?
-        var queryItems: [String: String?]? = nil
-        
-        init(productID: String) {
-            self.itemID = productID
-        }
-        
+    var itemID: String?
+    var queryItems: [String: String?]? = nil
+    
+    init(productID: String) {
+      self.itemID = productID
     }
     
+  }
+  
 }

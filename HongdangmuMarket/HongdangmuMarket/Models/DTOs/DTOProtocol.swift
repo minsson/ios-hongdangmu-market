@@ -8,9 +8,9 @@
 import Foundation
 
 protocol DTOProtocol: Decodable {
-    
-    associatedtype Entity
-    
-    func toEntity() -> Entity
-    
+  
+  associatedtype Entity
+  
+  func toEntity() -> Entity
+  
 }

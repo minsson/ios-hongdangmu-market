@@ -8,9 +8,9 @@
 import Foundation
 
 enum SalesStatus: String, CaseIterable {
-    
-    case onSales = "판매중"
-    case soldOut = "거래완료"
-    case hidden = "숨김"
-    
+  
+  case onSales = "판매중"
+  case soldOut = "거래완료"
+  case hidden = "숨김"
+  
 }

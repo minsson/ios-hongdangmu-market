@@ -8,109 +8,109 @@
 import SwiftUI
 
 struct MyPageView: View {
-    
-    @EnvironmentObject private var userInformation: UserInformation
-    
-    var body: some View {
-        NavigationView {
-            VStack {
-                headerView
-                
-                profileView
-                
-                myPageSectionsView
-                
-                Spacer()
-            }
-        }
+  
+  @EnvironmentObject private var userInformation: UserInformation
+  
+  var body: some View {
+    NavigationView {
+      VStack {
+        headerView
+        
+        profileView
+        
+        myPageSectionsView
+        
+        Spacer()
+      }
     }
-    
+  }
+  
 }
 
 private extension MyPageView {
-    
-    var headerView: some View {
-        HStack {
-            Spacer()
-            
-            searchButton
-        }
-        .padding(.vertical, 4)
-        .padding(.horizontal)
+  
+  var headerView: some View {
+    HStack {
+      Spacer()
+      
+      searchButton
     }
-    
-    var searchButton: some View {
-        Button {
-            // TODO: 기능 구현
-        } label: {
-            Image(systemName: "gearshape")
-                .font(.title2)
-                .foregroundColor(Color(UIColor.darkGray))
-        }
+    .padding(.vertical, 4)
+    .padding(.horizontal)
+  }
+  
+  var searchButton: some View {
+    Button {
+      // TODO: 기능 구현
+    } label: {
+      Image(systemName: "gearshape")
+        .font(.title2)
+        .foregroundColor(Color(UIColor.darkGray))
     }
-    
-    var profileView: some View {
-        HStack {
-            CircleImageView(imageName: "defaultProfileImage")
-                .frame(width: 38)
-                .padding(.trailing, 8)
-            
-            Text(userInformation.nickname)
-                .font(.title2.bold())
-            
-            Spacer()
-            
-            Text("프로필 보기")
-                .foregroundColor(.primary)
-                .font(.subheadline.bold())
-                .padding(6)
-                .background {
-                    RoundedRectangle(cornerRadius: 4)
-                        .fill(Color(UIColor.tertiarySystemFill))
-                }
-        }
-        .padding()
-    }
-    
-    var myPageSectionsView: some View {
-        VStack(alignment: .leading, spacing: 24) {
-            Text("나의 거래")
-                .bold()
-            
-            NavigationLink {
-                
-            } label: {
-                sectionRowView(iconString: "heart", title: "관심목록")
-            }
-            
-            NavigationLink {
-                MySalesHistoryContainerView(userInformation: userInformation)
-            } label: {
-                sectionRowView(iconString: "note.text", title: "판매내역")
-            }
-            
-            Spacer()
-        }
-        .frame(maxWidth: .infinity, alignment: .leading)
-        .padding()
-    }
-    
-    func sectionRowView(iconString: String, title: String) -> some View {
-        HStack(spacing: 12) {
-            Image(systemName: iconString)
-                .font(.title2)
-            
-            Text(title)
+  }
+  
+  var profileView: some View {
+    HStack {
+      CircleImageView(imageName: "defaultProfileImage")
+        .frame(width: 38)
+        .padding(.trailing, 8)
+      
+      Text(userInformation.nickname)
+        .font(.title2.bold())
+      
+      Spacer()
+      
+      Text("프로필 보기")
+        .foregroundColor(.primary)
+        .font(.subheadline.bold())
+        .padding(6)
+        .background {
+          RoundedRectangle(cornerRadius: 4)
+            .fill(Color(UIColor.tertiarySystemFill))
         }
     }
-    
+    .padding()
+  }
+  
+  var myPageSectionsView: some View {
+    VStack(alignment: .leading, spacing: 24) {
+      Text("나의 거래")
+        .bold()
+      
+      NavigationLink {
+        
+      } label: {
+        sectionRowView(iconString: "heart", title: "관심목록")
+      }
+      
+      NavigationLink {
+        MySalesHistoryContainerView(userInformation: userInformation)
+      } label: {
+        sectionRowView(iconString: "note.text", title: "판매내역")
+      }
+      
+      Spacer()
+    }
+    .frame(maxWidth: .infinity, alignment: .leading)
+    .padding()
+  }
+  
+  func sectionRowView(iconString: String, title: String) -> some View {
+    HStack(spacing: 12) {
+      Image(systemName: iconString)
+        .font(.title2)
+      
+      Text(title)
+    }
+  }
+  
 }
 
 struct MyPageView_Previews: PreviewProvider {
-    
-    static var previews: some View {
-        MyPageView()
-            .environmentObject(UserInformation())
-    }
-    
+  
+  static var previews: some View {
+    MyPageView()
+      .environmentObject(UserInformation())
+  }
+  
 }

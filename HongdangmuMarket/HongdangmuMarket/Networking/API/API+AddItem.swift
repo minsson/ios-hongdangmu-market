@@ -8,15 +8,15 @@
 import SwiftUI
 
 extension API {
+  
+  struct AddItem: OpenMarketAPIRequestPostProtocol {
     
-    struct AddItem: OpenMarketAPIRequestPostProtocol {
-        
-        var jsonData: Data?
-        var images: [UIImage]
-        
-        let boundary: String = UUID().uuidString
-        let httpMethod: String = HTTPMethod.post.rawValue
-        
-    }
+    var jsonData: Data?
+    var images: [UIImage]
     
+    let boundary: String = UUID().uuidString
+    let httpMethod: String = HTTPMethod.post.rawValue
+    
+  }
+  
 }

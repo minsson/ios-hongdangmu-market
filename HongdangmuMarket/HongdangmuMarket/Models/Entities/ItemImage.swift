@@ -8,19 +8,19 @@
 import Foundation
 
 struct ItemImage: Decodable, Hashable {
+  
+  let id: Int
+  let url: String
+  let thumbnailURL: String
+  let issuedAt: String
+  
+  private enum CodingKeys: String, CodingKey {
     
-    let id: Int
-    let url: String
-    let thumbnailURL: String
-    let issuedAt: String
+    case id
+    case url
+    case thumbnailURL = "thumbnail_url"
+    case issuedAt = "issued_at"
     
-    private enum CodingKeys: String, CodingKey {
-        
-        case id
-        case url
-        case thumbnailURL = "thumbnail_url"
-        case issuedAt = "issued_at"
-        
-    }
-    
+  }
+  
 }

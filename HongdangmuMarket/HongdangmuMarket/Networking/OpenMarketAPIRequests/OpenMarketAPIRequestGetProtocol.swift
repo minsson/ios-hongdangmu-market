@@ -8,39 +8,39 @@
 import Foundation
 
 protocol OpenMarketAPIRequestGetProtocol: OpenMarketAPIRequestProtocol {
-
-    var queryItems: [String: String?]? { get }
-    var itemID: String? { get }
-
+  
+  var queryItems: [String: String?]? { get }
+  var itemID: String? { get }
+  
 }
 
 extension OpenMarketAPIRequestGetProtocol {
-
-    var httpMethod: String {
-        return HTTPMethod.get.rawValue
+  
+  var httpMethod: String {
+    return HTTPMethod.get.rawValue
+  }
+  
+  var url: URL? {
+    var urlComponents = URLComponents(string: urlHost + urlPath)
+    
+    let queryItems = queryItems ?? [:]
+    urlComponents?.queryItems = queryItems.map {
+      URLQueryItem(name: $0.key, value: $0.value)
     }
-
-    var url: URL? {
-        var urlComponents = URLComponents(string: urlHost + urlPath)
-
-        let queryItems = queryItems ?? [:]
-        urlComponents?.queryItems = queryItems.map {
-            URLQueryItem(name: $0.key, value: $0.value)
-        }
-
-        let productID = itemID ?? ""
-        urlComponents?.path += productID
-
-        return urlComponents?.url
+    
+    let productID = itemID ?? ""
+    urlComponents?.path += productID
+    
+    return urlComponents?.url
+  }
+  
+  var urlRequest: URLRequest? {
+    guard let url else {
+      return nil
     }
-
-    var urlRequest: URLRequest? {
-        guard let url else {
-            return nil
-        }
-        let request = URLRequest(url: url)
-
-        return request
-    }
-
+    let request = URLRequest(url: url)
+    
+    return request
+  }
+  
 }
