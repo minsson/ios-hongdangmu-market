@@ -21,8 +21,8 @@ final class ItemListViewModel: ObservableObject {
 extension ItemListViewModel {
   
   func itemListRefreshed() async {
-    await MainActor.run {
-      items.removeAll()
+    await MainActor.run { [weak self] in
+      self?.items.removeAll()
     }
     currentPage = 1
     await retrieveItems()
@@ -36,9 +36,9 @@ extension ItemListViewModel {
     shouldPresentItemAddView = true
   }
   
-  func itemAddActionFinished(addedItemID: Int) {
+  func itemAddActionFinished(addedItemID: Int) async {
     recentlyAddedItem = addedItemID
-    DispatchQueue.main.async { [weak self] in
+    await MainActor.run { [weak self] in
       self?.shouldPresentRecentlyAddedItem = true
     }
   }

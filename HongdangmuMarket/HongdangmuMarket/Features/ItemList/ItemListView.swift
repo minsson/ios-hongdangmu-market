@@ -49,7 +49,10 @@ struct ItemListView: View {
     }
     .fullScreenCover(isPresented: $viewModel.shouldPresentItemAddView) {
       ItemAddView() { itemID in
-        viewModel.itemAddActionFinished(addedItemID: itemID)
+        Task {
+          await viewModel.itemAddActionFinished(addedItemID: itemID)
+          await viewModel.itemListRefreshed()
+        }
       }
     }
   }
