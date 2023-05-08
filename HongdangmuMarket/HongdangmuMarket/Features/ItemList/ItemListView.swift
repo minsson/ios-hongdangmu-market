@@ -13,6 +13,8 @@ struct ItemListView: View {
   
   var body: some View {
     VStack {
+      hiddenNavigationLinkToRecentlyAddedItem(for: viewModel.recentlyAddedItem)
+      
       headerView
         .padding(.bottom, 16)
       
@@ -48,8 +50,8 @@ struct ItemListView: View {
       }
     }
     .fullScreenCover(isPresented: $viewModel.shouldPresentItemAddView) {
-      ItemAddView() { id in
-        print(id)
+      ItemAddView() { itemID in
+        viewModel.itemAddActionFinished(addedItemID: itemID)
       }
     }
   }
@@ -57,6 +59,14 @@ struct ItemListView: View {
 }
 
 private extension ItemListView {
+  
+  func hiddenNavigationLinkToRecentlyAddedItem(for itemID: Int) -> some View {
+    NavigationLink(isActive: $viewModel.shouldPresentRecentlyAddedItem) {
+      ItemDetailView(itemID: itemID)
+    } label: {
+      EmptyView()
+    }
+  }
   
   var headerView: some View {
     VStack {

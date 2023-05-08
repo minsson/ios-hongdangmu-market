@@ -10,9 +10,10 @@ import Foundation
 final class ItemListViewModel: ObservableObject {
   
   @Published var shouldPresentItemAddView: Bool = false
+  @Published var shouldPresentRecentlyAddedItem: Bool = false
   @Published var items: [Item] = []
   private(set) var hasMoreData = true
-  
+  private(set) var recentlyAddedItem = 0
   private var currentPage = 1
   
 }
@@ -27,6 +28,12 @@ extension ItemListViewModel {
     shouldPresentItemAddView = true
   }
   
+  func itemAddActionFinished(addedItemID: Int) {
+    recentlyAddedItem = addedItemID
+    DispatchQueue.main.async { [weak self] in
+      self?.shouldPresentRecentlyAddedItem = true
+    }
+  }
 }
 
 private extension ItemListViewModel {
