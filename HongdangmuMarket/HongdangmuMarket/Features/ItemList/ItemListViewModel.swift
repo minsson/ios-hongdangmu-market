@@ -52,9 +52,9 @@ private extension ItemListViewModel {
       let itemListPage = try DataToEntityConverter().convert(data: data, to: ItemListPageDTO.self)
       currentPage += 1
       
-      await MainActor.run {
-        hasMoreData = itemListPage.hasNext
-        items.append(contentsOf: itemListPage.items)
+      await MainActor.run { [weak self] in
+        self?.hasMoreData = itemListPage.hasNext
+        self?.items.append(contentsOf: itemListPage.items)
       }
     } catch {
       print(error.localizedDescription)

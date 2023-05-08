@@ -17,8 +17,8 @@ final class ItemDetailViewModel: ObservableObject {
       let data: Data = try await requestItemDetailData()
       let item = try DataToEntityConverter().convert(data: data, to: ItemDTO.self)
       
-      await MainActor.run {
-        self.item = item
+      await MainActor.run { [weak self] in
+        self?.item = item
       }
     } catch {
       throw error

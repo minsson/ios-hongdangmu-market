@@ -23,11 +23,11 @@ final class ItemAddViewModel: ObservableObject {
   }
   
   func finishButtonTapped() {
-    Task {
-      await requestPostToServer()
+    Task { [weak self] in
+      await self?.requestPostToServer()
       
       do {
-        try await requestRecentlyAddedItemID()
+        try await self?.requestRecentlyAddedItemID()
       } catch {
         print(error.localizedDescription)
       }
