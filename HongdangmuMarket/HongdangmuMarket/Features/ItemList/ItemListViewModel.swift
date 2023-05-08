@@ -11,7 +11,8 @@ final class ItemListViewModel: ObservableObject {
   
   @Published var shouldPresentItemAddView: Bool = false
   @Published var shouldPresentRecentlyAddedItem: Bool = false
-  @Published var items: [Item] = []
+  @Published private(set) var items: [Item] = []
+  
   private(set) var hasMoreData = true
   private(set) var recentlyAddedItem = 0
   private var currentPage = 1

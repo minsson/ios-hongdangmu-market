@@ -9,8 +9,8 @@ import Foundation
 
 final class ItemDetailViewModel: ObservableObject {
   
-  @Published var item: Item?
   @Published var itemID: String?
+  @Published private(set) var item: Item?
   
   func viewWillAppear() async throws {
     do {

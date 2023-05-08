@@ -10,7 +10,7 @@ import Foundation
 final class MySalesHistoryContainerViewModel: ObservableObject {
   
   @Published var shouldPresentItemAddView: Bool = false
-  @Published var items: [Item] = []
+  @Published private(set) var items: [Item] = []
   
   private(set) var hasMoreData = false
   
