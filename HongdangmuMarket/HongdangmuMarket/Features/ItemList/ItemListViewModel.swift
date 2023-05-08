@@ -20,8 +20,16 @@ final class ItemListViewModel: ObservableObject {
 
 extension ItemListViewModel {
   
-  func viewNeedsMoreContents() async throws {
-    try? await retrieveItems()
+  func itemListRefreshed() async {
+    await MainActor.run {
+      items.removeAll()
+    }
+    currentPage = 1
+    await retrieveItems()
+  }
+  
+  func itemListNeedsMoreContents() async {
+    await retrieveItems()
   }
   
   func addButtonTapped() {
@@ -38,7 +46,7 @@ extension ItemListViewModel {
 
 private extension ItemListViewModel {
   
-  func retrieveItems() async throws {
+  func retrieveItems() async {
     do {
       let data: Data = try await requestItemListPageData(pageNumber: currentPage)
       let itemListPage = try DataToEntityConverter().convert(data: data, to: ItemListPageDTO.self)
@@ -49,7 +57,7 @@ private extension ItemListViewModel {
         items.append(contentsOf: itemListPage.items)
       }
     } catch {
-      throw error
+      print(error.localizedDescription)
     }
   }
   
@@ -58,13 +66,8 @@ private extension ItemListViewModel {
       throw URLError(.badURL)
     }
     
-    do {
-      let data = try await NetworkManager().execute(request)
-      return data
-    } catch {
-      print(error.localizedDescription)
-      throw error
-    }
+    let data = try await NetworkManager().execute(request)
+    return data
   }
   
 }

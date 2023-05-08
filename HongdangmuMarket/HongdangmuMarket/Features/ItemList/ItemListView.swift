@@ -34,12 +34,7 @@ struct ItemListView: View {
           
           progressView
             .task {
-              do {
-                try await viewModel.viewNeedsMoreContents()
-              } catch {
-                // TODO: Alert 구현
-                print(error.localizedDescription)
-              }
+              await viewModel.itemListNeedsMoreContents()
             }
         }
       }
@@ -47,6 +42,9 @@ struct ItemListView: View {
       .overlay(alignment: .bottomTrailing) {
         addButton
           .offset(x: -30, y: -30)
+      }
+      .refreshable {
+        await viewModel.itemListRefreshed()
       }
     }
     .fullScreenCover(isPresented: $viewModel.shouldPresentItemAddView) {
