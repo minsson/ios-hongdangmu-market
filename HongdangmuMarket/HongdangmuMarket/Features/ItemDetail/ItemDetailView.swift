@@ -50,11 +50,45 @@ struct ItemDetailView: View {
         // TODO: 에러 처리
       }
     }
+    .navigationBarBackButtonHidden()
+    .toolbar {
+      ToolbarItem(placement: .navigationBarLeading) {
+        leadingToolbarItems
+      }
+      
+      ToolbarItemGroup(placement: .navigationBarTrailing) {
+        trailingToolbarItems
+      }
+    }
   }
   
 }
 
 private extension ItemDetailView {
+  
+  private var leadingToolbarItems: some View {
+      HStack {
+        Button {
+          
+        } label: {
+          Image(systemName: "chevron.left")
+        }
+        .padding(.horizontal, 2)
+        
+        Image(systemName: "house")
+      }
+      .foregroundColor(.white)
+  }
+  
+  private var trailingToolbarItems: some View {
+      HStack {
+          Image(systemName: "square.and.arrow.up")
+              .padding(.horizontal, 2)
+          Image(systemName: "ellipsis")
+              .rotationEffect(.degrees(90))
+      }
+      .foregroundColor(.white)
+  }
   
   var stickyHeaderImage: some View {
     GeometryReader { geometry in
