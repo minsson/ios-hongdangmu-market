@@ -82,13 +82,18 @@ private extension ItemDetailView {
   }
   
   private var trailingToolbarItems: some View {
-      HStack {
-          Image(systemName: "square.and.arrow.up")
-              .padding(.horizontal, 2)
-          Image(systemName: "ellipsis")
-              .rotationEffect(.degrees(90))
+    HStack {
+      Button {
+        viewModel.shareButtonTapped()
+      } label: {
+        Image(systemName: "square.and.arrow.up")
+          .padding(.horizontal, 2)
       }
-      .foregroundColor(.white)
+      
+      Image(systemName: "ellipsis")
+        .rotationEffect(.degrees(90))
+    }
+    .foregroundColor(.white)
   }
   
   var stickyHeaderImage: some View {

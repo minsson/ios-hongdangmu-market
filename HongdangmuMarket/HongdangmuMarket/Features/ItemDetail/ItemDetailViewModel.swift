@@ -5,7 +5,7 @@
 //  Created by minsson on 2023/04/09.
 //
 
-import Foundation
+import UIKit
 
 final class ItemDetailViewModel: ObservableObject {
   
@@ -24,9 +24,26 @@ final class ItemDetailViewModel: ObservableObject {
       throw error
     }
   }
+  
+  func shareButtonTapped() {
+    let activityViewController = UIActivityViewController(activityItems: [shareMessage], applicationActivities: nil)
+    if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+       let window = windowScene.windows.first {
+        window.rootViewController?.present(activityViewController, animated: true, completion: nil)
+    }
+  }
+  
 }
 
 private extension ItemDetailViewModel {
+  
+  var shareMessage: String {
+    guard let itemName = item?.name,
+          let itemBargainPrice = item?.bargainPrice else {
+      return ""
+    }
+    return "홍당무 마켓에서는 \(itemName) 상품이 \(itemBargainPrice)원이에요!"
+  }
   
   func requestItemDetailData() async throws -> Data {
     guard let itemID else {
