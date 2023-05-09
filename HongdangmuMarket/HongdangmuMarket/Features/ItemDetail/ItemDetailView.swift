@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ItemDetailView: View {
   
+  @Environment(\.dismiss) private var dismiss
   let itemID: Int?
   
   let deviceWidth = UIScreen.main.bounds.width
@@ -69,7 +70,7 @@ private extension ItemDetailView {
   private var leadingToolbarItems: some View {
       HStack {
         Button {
-          
+          dismiss()
         } label: {
           Image(systemName: "chevron.left")
         }
