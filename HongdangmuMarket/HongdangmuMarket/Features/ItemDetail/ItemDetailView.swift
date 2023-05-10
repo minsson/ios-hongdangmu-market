@@ -10,11 +10,10 @@ import SwiftUI
 struct ItemDetailView: View {
   
   @Environment(\.dismiss) private var dismiss
-  let itemID: Int?
-  
-  let deviceWidth = UIScreen.main.bounds.width
-  
   @StateObject private var viewModel = ItemDetailViewModel()
+  
+  let itemID: Int?
+  let deviceWidth = UIScreen.main.bounds.width
   
   var body: some View {
     VStack {
@@ -68,17 +67,17 @@ struct ItemDetailView: View {
 private extension ItemDetailView {
   
   private var leadingToolbarItems: some View {
-      HStack {
-        Button {
-          dismiss()
-        } label: {
-          Image(systemName: "chevron.left")
-        }
-        .padding(.horizontal, 2)
-        
-        Image(systemName: "house")
+    HStack {
+      Button {
+        dismiss()
+      } label: {
+        Image(systemName: "chevron.left")
       }
-      .foregroundColor(.white)
+      .padding(.horizontal, 2)
+      
+      Image(systemName: "house")
+    }
+    .foregroundColor(.white)
   }
   
   private var trailingToolbarItems: some View {
