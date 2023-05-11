@@ -10,6 +10,7 @@ import UIKit
 final class ItemDetailViewModel: ObservableObject {
   
   @Published var itemID: String?
+  @Published var shouldPresentConfirmationDialog = false
   @Published private(set) var item: Item?
   
   func viewWillAppear() async throws {
@@ -31,6 +32,10 @@ final class ItemDetailViewModel: ObservableObject {
        let window = windowScene.windows.first {
         window.rootViewController?.present(activityViewController, animated: true, completion: nil)
     }
+  }
+  
+  func moreActionButtonTapped() {
+    shouldPresentConfirmationDialog = true
   }
   
   func checkItemOwner(userInformation: UserInformation) -> ItemOwner {

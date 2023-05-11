@@ -61,6 +61,9 @@ struct ItemDetailView: View {
         trailingToolbarItems
       }
     }
+    .confirmationDialog("", isPresented: $viewModel.shouldPresentConfirmationDialog) {
+      confirmationDialogButtons
+    }
   }
   
 }
@@ -90,8 +93,12 @@ private extension ItemDetailView {
           .padding(.horizontal, 2)
       }
       
-      Image(systemName: "ellipsis")
-        .rotationEffect(.degrees(90))
+      Button {
+        viewModel.moreActionButtonTapped()
+      } label: {
+        Image(systemName: "ellipsis")
+          .rotationEffect(.degrees(90))
+      }
     }
     .foregroundColor(.white)
   }
