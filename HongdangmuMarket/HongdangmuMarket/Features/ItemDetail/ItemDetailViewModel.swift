@@ -33,6 +33,10 @@ final class ItemDetailViewModel: ObservableObject {
     }
   }
   
+  func checkItemOwner(userInformation: UserInformation) -> ItemOwner {
+    return item?.vendors?.name == userInformation.nickname ? .myItem : .otherUsersItem
+  }
+  
 }
 
 private extension ItemDetailViewModel {
