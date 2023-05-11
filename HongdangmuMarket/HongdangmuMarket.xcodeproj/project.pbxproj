@@ -52,6 +52,7 @@
 		FDA34D2329E2D2CC00CF96E3 /* AddRequestItemDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA34D2229E2D2CC00CF96E3 /* AddRequestItemDTO.swift */; };
 		FDF1820A2A0C11CB004EF3AF /* ItemOwner.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF182092A0C11CB004EF3AF /* ItemOwner.swift */; };
 		FDF1820C2A0CD979004EF3AF /* OpenMarketAPIRequestPatchProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF1820B2A0CD979004EF3AF /* OpenMarketAPIRequestPatchProtocol.swift */; };
+		FDF1820E2A0CDB15004EF3AF /* API+EditItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF1820D2A0CDB15004EF3AF /* API+EditItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -101,6 +102,7 @@
 		FDA34D2229E2D2CC00CF96E3 /* AddRequestItemDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRequestItemDTO.swift; sourceTree = "<group>"; };
 		FDF182092A0C11CB004EF3AF /* ItemOwner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemOwner.swift; sourceTree = "<group>"; };
 		FDF1820B2A0CD979004EF3AF /* OpenMarketAPIRequestPatchProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenMarketAPIRequestPatchProtocol.swift; sourceTree = "<group>"; };
+		FDF1820D2A0CDB15004EF3AF /* API+EditItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "API+EditItem.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -295,6 +297,7 @@
 				FD8BA9D629E1BC6C00F18661 /* API+LookUpItems.swift */,
 				FD8BA9EA29E24AB700F18661 /* API+LookUpItemDetail.swift */,
 				FDA34D2029E2D16400CF96E3 /* API+AddItem.swift */,
+				FDF1820D2A0CDB15004EF3AF /* API+EditItem.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -435,6 +438,7 @@
 				FD62C44829E857EB001B83ED /* CircleImageView.swift in Sources */,
 				FD8BA9E029E1F8AE00F18661 /* DataToEntityConverter.swift in Sources */,
 				FD8BA9E929E2494C00F18661 /* ItemDetailViewModel.swift in Sources */,
+				FDF1820E2A0CDB15004EF3AF /* API+EditItem.swift in Sources */,
 				FD8BA9E229E2135C00F18661 /* DateCalculator.swift in Sources */,
 				FD62C44D29E864EC001B83ED /* SalesStatus.swift in Sources */,
 				FD62C44629E84AE3001B83ED /* MySalesHistoryContainerView.swift in Sources */,
