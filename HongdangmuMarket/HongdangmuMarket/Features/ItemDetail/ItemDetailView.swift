@@ -96,6 +96,28 @@ private extension ItemDetailView {
     .foregroundColor(.white)
   }
   
+  @ViewBuilder
+  var confirmationDialogButtons: some View {
+    switch viewModel.checkItemOwner(userInformation: userInformation) {
+    case .myItem:
+      Button("게시글 수정") {
+        
+      }
+      
+      Button("삭제", role: .destructive) {
+
+      }
+    case .otherUsersItem:
+      Button("신고") {
+        
+      }
+      
+      Button("이 사용자의 글 보지 않기") {
+
+      }
+    }
+  }
+  
   var stickyHeaderImage: some View {
     GeometryReader { geometry in
       let yOffset = geometry.frame(in: .global).minY
