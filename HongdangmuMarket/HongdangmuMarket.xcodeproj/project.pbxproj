@@ -50,6 +50,7 @@
 		FDA34D1F29E2D05100CF96E3 /* OpenMarketAPIRequestPostProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA34D1E29E2D05100CF96E3 /* OpenMarketAPIRequestPostProtocol.swift */; };
 		FDA34D2129E2D16400CF96E3 /* API+AddItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA34D2029E2D16400CF96E3 /* API+AddItem.swift */; };
 		FDA34D2329E2D2CC00CF96E3 /* AddRequestItemDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA34D2229E2D2CC00CF96E3 /* AddRequestItemDTO.swift */; };
+		FDF1820A2A0C11CB004EF3AF /* ItemOwner.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF182092A0C11CB004EF3AF /* ItemOwner.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -97,6 +98,7 @@
 		FDA34D1E29E2D05100CF96E3 /* OpenMarketAPIRequestPostProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenMarketAPIRequestPostProtocol.swift; sourceTree = "<group>"; };
 		FDA34D2029E2D16400CF96E3 /* API+AddItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "API+AddItem.swift"; sourceTree = "<group>"; };
 		FDA34D2229E2D2CC00CF96E3 /* AddRequestItemDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRequestItemDTO.swift; sourceTree = "<group>"; };
+		FDF182092A0C11CB004EF3AF /* ItemOwner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemOwner.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +145,7 @@
 			isa = PBXGroup;
 			children = (
 				FD62C44C29E864EC001B83ED /* SalesStatus.swift */,
+				FDF182092A0C11CB004EF3AF /* ItemOwner.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -390,6 +393,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FDF1820A2A0C11CB004EF3AF /* ItemOwner.swift in Sources */,
 				FD8BA9E729E235A100F18661 /* ItemDetailView.swift in Sources */,
 				FD8BA9BB29E19F8C00F18661 /* ItemDTO.swift in Sources */,
 				FD8BAA1229E2A70A00F18661 /* ImagePicker.swift in Sources */,
