@@ -10,6 +10,7 @@ import SwiftUI
 struct ItemDetailView: View {
   
   @Environment(\.dismiss) private var dismiss
+  @EnvironmentObject private var userInformation: UserInformation
   @StateObject private var viewModel = ItemDetailViewModel()
   
   let itemID: Int?
