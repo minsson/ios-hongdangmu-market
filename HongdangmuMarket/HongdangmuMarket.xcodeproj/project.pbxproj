@@ -54,6 +54,7 @@
 		FDF1820C2A0CD979004EF3AF /* OpenMarketAPIRequestPatchProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF1820B2A0CD979004EF3AF /* OpenMarketAPIRequestPatchProtocol.swift */; };
 		FDF1820E2A0CDB15004EF3AF /* API+EditItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF1820D2A0CDB15004EF3AF /* API+EditItem.swift */; };
 		FDF182162A0E4C78004EF3AF /* ItemAddEditViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF182152A0E4C78004EF3AF /* ItemAddEditViewProtocol.swift */; };
+		FDF1821A2A0EBA44004EF3AF /* ItemEditViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF182192A0EBA44004EF3AF /* ItemEditViewModel.swift */; };
 		FDF1821C2A0EBEEB004EF3AF /* ItemAddEditViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF1821B2A0EBEEB004EF3AF /* ItemAddEditViewModelProtocol.swift */; };
 /* End PBXBuildFile section */
 
@@ -106,6 +107,7 @@
 		FDF1820B2A0CD979004EF3AF /* OpenMarketAPIRequestPatchProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenMarketAPIRequestPatchProtocol.swift; sourceTree = "<group>"; };
 		FDF1820D2A0CDB15004EF3AF /* API+EditItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "API+EditItem.swift"; sourceTree = "<group>"; };
 		FDF182152A0E4C78004EF3AF /* ItemAddEditViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemAddEditViewProtocol.swift; sourceTree = "<group>"; };
+		FDF182192A0EBA44004EF3AF /* ItemEditViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemEditViewModel.swift; sourceTree = "<group>"; };
 		FDF1821B2A0EBEEB004EF3AF /* ItemAddEditViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemAddEditViewModelProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -321,6 +323,7 @@
 				FD8BA9F129E299FE00F18661 /* ItemAddView.swift */,
 				FDA34D1729E2AFEF00CF96E3 /* ItemAddViewModel.swift */,
 				FDF182152A0E4C78004EF3AF /* ItemAddEditViewProtocol.swift */,
+				FDF182192A0EBA44004EF3AF /* ItemEditViewModel.swift */,
 				FDF1821B2A0EBEEB004EF3AF /* ItemAddEditViewModelProtocol.swift */,
 			);
 			path = ItemAdd;
@@ -410,6 +413,7 @@
 				FD8BA9BB29E19F8C00F18661 /* ItemDTO.swift in Sources */,
 				FD8BAA1229E2A70A00F18661 /* ImagePicker.swift in Sources */,
 				FD8BA9C729E1B53B00F18661 /* Item.swift in Sources */,
+				FDF1821A2A0EBA44004EF3AF /* ItemEditViewModel.swift in Sources */,
 				FD8BA9CF29E1B95D00F18661 /* OpenMarketAPIRequestProtocol.swift in Sources */,
 				FD8BA9EF29E259EE00F18661 /* ItemImage.swift in Sources */,
 				FD8BA9BD29E1A13000F18661 /* ItemListPageDTO.swift in Sources */,
