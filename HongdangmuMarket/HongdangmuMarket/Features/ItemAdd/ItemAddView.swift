@@ -30,17 +30,12 @@ struct ItemAddView: View {
       Divider()
         .padding(.bottom, 8)
       
-      TextField(text: $viewModel.title) {
-        Text("글 제목")
-      }
+      titleTextField($viewModel.title)
       .padding(.vertical, 8)
       
       Divider()
       
-      TextField(text: $viewModel.price) {
-        Text("₩ 가격 (선택사항)")
-      }
-      .keyboardType(.numberPad)
+      priceTextField($viewModel.price)
       .padding(.vertical, 8)
       
       Divider()
@@ -88,6 +83,19 @@ private extension ItemAddView {
           .foregroundColor(.orange)
       }
     }
+  }
+  
+  func titleTextField(_ title: Binding<String>) -> some View {
+    TextField(text: title) {
+      Text("글 제목")
+    }
+  }
+  
+  func priceTextField(_ price: Binding<String>) -> some View {
+    TextField(text: price) {
+      Text("₩ 가격 (선택사항)")
+    }
+    .keyboardType(.numberPad)
   }
   
   func textEditorWithPlaceholder(for description: Binding<String>) -> some View {
