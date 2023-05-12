@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ItemAddView: View {
+struct ItemAddView: View, ItemAddEditViewProtocol {
   @Environment(\.dismiss) private var dismiss
   @StateObject private var viewModel: ItemAddViewModel
   
@@ -29,7 +29,10 @@ struct ItemAddView: View {
     Divider()
     
     ScrollView {
-      ImagePickerView(shouldPresentImagePicker: $viewModel.shouldPresentImagePicker, selectedImages: $viewModel.selectedImages)
+      ImagePickerView(
+        shouldPresentImagePicker: $viewModel.shouldPresentImagePicker,
+        selectedImages: $viewModel.selectedImages
+      )
       
       Divider()
         .padding(.bottom, 8)
