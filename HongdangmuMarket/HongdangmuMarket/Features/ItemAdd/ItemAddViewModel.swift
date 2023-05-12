@@ -9,9 +9,9 @@ import SwiftUI
 
 final class ItemAddViewModel: ObservableObject {
   
-  @Published var selectedImages: [UIImage] = []
-  @Published var shouldPresentImagePicker = false
+  @Published var shouldPresentImagePicker: Bool = false
   
+  @Published var selectedImages: [UIImage] = []
   @Published var title: String = ""
   @Published var price: String = ""
   @Published var description: String = ""
