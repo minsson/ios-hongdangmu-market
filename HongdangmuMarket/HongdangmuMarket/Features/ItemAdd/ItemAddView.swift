@@ -25,7 +25,7 @@ struct ItemAddView: View {
     Divider()
     
     ScrollView {
-      ImagePickerView(viewModel: viewModel)
+      ImagePickerView(shouldPresentImagePicker: $viewModel.shouldPresentImagePicker, selectedImages: $viewModel.selectedImages)
       
       Divider()
         .padding(.bottom, 8)
@@ -107,7 +107,8 @@ private extension ItemAddView {
 
 fileprivate struct ImagePickerView: View {
   
-  @ObservedObject var viewModel: ItemAddViewModel
+  @Binding var shouldPresentImagePicker: Bool
+  @Binding var selectedImages: [UIImage]
   
   private let imageSize: CGFloat = 75
   private let imageCornerRadius: CGFloat = 4
@@ -117,7 +118,7 @@ fileprivate struct ImagePickerView: View {
       HStack(spacing: 20) {
         imageAddButton
         
-        selectedImages
+        selectedImagesView
       }
       .padding(.bottom, 16)
     }
@@ -129,7 +130,7 @@ private extension ImagePickerView {
   
   var imageAddButton: some View {
     Button {
-      viewModel.shouldPresentImagePicker = true
+      shouldPresentImagePicker = true
     } label: {
       ZStack {
         RoundedRectangle(cornerRadius: imageCornerRadius)
@@ -143,8 +144,8 @@ private extension ImagePickerView {
     }
   }
   
-  var selectedImages: some View {
-    ForEach(viewModel.selectedImages, id: \.self) { image in
+  var selectedImagesView: some View {
+    ForEach(selectedImages, id: \.self) { image in
       Image(uiImage: image)
         .resizable()
         .aspectRatio(contentMode: .fill)
