@@ -19,7 +19,11 @@ struct ItemAddView: View {
   }
   
   var body: some View {
-    headerView(title: "내 물건 팔기")
+    headerView(
+      title: "내 물건 팔기",
+      dismiss: dismiss,
+      finishAction: viewModel.finishButtonTapped
+    )
       .padding()
     
     Divider()
@@ -58,7 +62,7 @@ struct ItemAddView: View {
 
 private extension ItemAddView {
   
-  func headerView(title: String) -> some View {
+  func headerView(title: String, dismiss: DismissAction, finishAction: @escaping () -> ()) -> some View {
     HStack() {
       Button {
         dismiss()
@@ -76,7 +80,7 @@ private extension ItemAddView {
       Spacer()
       
       Button {
-        viewModel.finishButtonTapped()
+        finishAction()
         dismiss()
       } label: {
         Text("완료")
