@@ -19,7 +19,7 @@ struct ItemAddView: View {
   }
   
   var body: some View {
-    headerView
+    headerView(title: "내 물건 팔기")
       .padding()
     
     Divider()
@@ -63,7 +63,7 @@ struct ItemAddView: View {
 
 private extension ItemAddView {
   
-  var headerView: some View {
+  func headerView(title: String) -> some View {
     HStack() {
       Button {
         dismiss()
@@ -75,7 +75,7 @@ private extension ItemAddView {
       
       Spacer()
       
-      Text("내 물건 팔기")
+      Text(title)
         .font(.body.bold())
       
       Spacer()
@@ -87,7 +87,6 @@ private extension ItemAddView {
         Text("완료")
           .foregroundColor(.orange)
       }
-      
     }
   }
   
