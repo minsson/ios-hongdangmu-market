@@ -53,6 +53,7 @@
 		FDF1820A2A0C11CB004EF3AF /* ItemOwner.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF182092A0C11CB004EF3AF /* ItemOwner.swift */; };
 		FDF1820C2A0CD979004EF3AF /* OpenMarketAPIRequestPatchProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF1820B2A0CD979004EF3AF /* OpenMarketAPIRequestPatchProtocol.swift */; };
 		FDF1820E2A0CDB15004EF3AF /* API+EditItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF1820D2A0CDB15004EF3AF /* API+EditItem.swift */; };
+		FDF182162A0E4C78004EF3AF /* ItemAddEditViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF182152A0E4C78004EF3AF /* ItemAddEditViewProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -103,6 +104,7 @@
 		FDF182092A0C11CB004EF3AF /* ItemOwner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemOwner.swift; sourceTree = "<group>"; };
 		FDF1820B2A0CD979004EF3AF /* OpenMarketAPIRequestPatchProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenMarketAPIRequestPatchProtocol.swift; sourceTree = "<group>"; };
 		FDF1820D2A0CDB15004EF3AF /* API+EditItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "API+EditItem.swift"; sourceTree = "<group>"; };
+		FDF182152A0E4C78004EF3AF /* ItemAddEditViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemAddEditViewProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -316,6 +318,7 @@
 			children = (
 				FD8BA9F129E299FE00F18661 /* ItemAddView.swift */,
 				FDA34D1729E2AFEF00CF96E3 /* ItemAddViewModel.swift */,
+				FDF182152A0E4C78004EF3AF /* ItemAddEditViewProtocol.swift */,
 			);
 			path = ItemAdd;
 			sourceTree = "<group>";
@@ -428,6 +431,7 @@
 				FD8BA9D529E1BB4400F18661 /* HTTPMethod.swift in Sources */,
 				FD823DED29F2D3D3006A4685 /* MySoldOutItemsView.swift in Sources */,
 				FD8BA9A529E19CAA00F18661 /* HongdangmuMarketApp.swift in Sources */,
+				FDF182162A0E4C78004EF3AF /* ItemAddEditViewProtocol.swift in Sources */,
 				FD8BA9D329E1BAE700F18661 /* OpenMarketAPIRequestGetProtocol.swift in Sources */,
 				FD46E88429E9E67100A93D54 /* UserInformation.swift in Sources */,
 				FD8BA9ED29E2598900F18661 /* Vendor.swift in Sources */,
