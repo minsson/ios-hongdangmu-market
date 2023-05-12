@@ -54,6 +54,7 @@
 		FDF1820C2A0CD979004EF3AF /* OpenMarketAPIRequestPatchProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF1820B2A0CD979004EF3AF /* OpenMarketAPIRequestPatchProtocol.swift */; };
 		FDF1820E2A0CDB15004EF3AF /* API+EditItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF1820D2A0CDB15004EF3AF /* API+EditItem.swift */; };
 		FDF182162A0E4C78004EF3AF /* ItemAddEditViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF182152A0E4C78004EF3AF /* ItemAddEditViewProtocol.swift */; };
+		FDF1821C2A0EBEEB004EF3AF /* ItemAddEditViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF1821B2A0EBEEB004EF3AF /* ItemAddEditViewModelProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -105,6 +106,7 @@
 		FDF1820B2A0CD979004EF3AF /* OpenMarketAPIRequestPatchProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenMarketAPIRequestPatchProtocol.swift; sourceTree = "<group>"; };
 		FDF1820D2A0CDB15004EF3AF /* API+EditItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "API+EditItem.swift"; sourceTree = "<group>"; };
 		FDF182152A0E4C78004EF3AF /* ItemAddEditViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemAddEditViewProtocol.swift; sourceTree = "<group>"; };
+		FDF1821B2A0EBEEB004EF3AF /* ItemAddEditViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemAddEditViewModelProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -319,6 +321,7 @@
 				FD8BA9F129E299FE00F18661 /* ItemAddView.swift */,
 				FDA34D1729E2AFEF00CF96E3 /* ItemAddViewModel.swift */,
 				FDF182152A0E4C78004EF3AF /* ItemAddEditViewProtocol.swift */,
+				FDF1821B2A0EBEEB004EF3AF /* ItemAddEditViewModelProtocol.swift */,
 			);
 			path = ItemAdd;
 			sourceTree = "<group>";
@@ -428,6 +431,7 @@
 				FD62C44A29E862DE001B83ED /* MySalesStatusTabBarView.swift in Sources */,
 				FDA34D1C29E2CF1500CF96E3 /* MultipartFormDataHandlingProtocol.swift in Sources */,
 				FDA34D2329E2D2CC00CF96E3 /* AddRequestItemDTO.swift in Sources */,
+				FDF1821C2A0EBEEB004EF3AF /* ItemAddEditViewModelProtocol.swift in Sources */,
 				FD8BA9D529E1BB4400F18661 /* HTTPMethod.swift in Sources */,
 				FD823DED29F2D3D3006A4685 /* MySoldOutItemsView.swift in Sources */,
 				FD8BA9A529E19CAA00F18661 /* HongdangmuMarketApp.swift in Sources */,

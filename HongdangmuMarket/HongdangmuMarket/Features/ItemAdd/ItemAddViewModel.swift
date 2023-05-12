@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-final class ItemAddViewModel: ObservableObject {
+final class ItemAddViewModel: ObservableObject, ItemAddEditViewModelProtocol {
   
   @Published var shouldPresentImagePicker: Bool = false
   
@@ -49,19 +49,6 @@ private extension ItemAddViewModel {
     } catch {
       print(error.localizedDescription)
     }
-  }
-  
-  func processInputToData() -> Data {
-    let addRequestItemDTO = AddRequestItemDTO(
-      name: title, //TODO: 3글자 미만 예외처리
-      price: Double(price) ?? 0,
-      discountedPrice: 0,
-      currency: "KRW",
-      stock: 1,
-      description: description //TODO: 10글자 미만 예외처리
-    )
-    
-    return addRequestItemDTO.toData()
   }
   
   func requestRecentlyAddedItemID() async throws {
