@@ -71,21 +71,7 @@ struct ItemRowView: View {
 
 struct ItemRowView_Previews: PreviewProvider {
   
-  static let item = Item(
-    id: "1",
-    vendorID: "1",
-    name: "상품 이름",
-    description: "",
-    thumbnail: "photo",
-    price: 50000,
-    bargainPrice: 30000,
-    discountedPrice: 20000,
-    stock: 100,
-    images: nil,
-    vendors: nil,
-    createdAt: Date(timeIntervalSinceNow: -86400),
-    issuedAt: Date.now
-  )
+  static let item = dummyItem
   
   static var previews: some View {
     ItemRowView(item: item, isEditable: true)
