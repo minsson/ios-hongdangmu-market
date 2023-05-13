@@ -17,18 +17,16 @@ struct Item: Hashable {
   let stock: Int
   let images: [ItemImage]?
   let vendors: Vendor?
-  let createdAt, issuedAt: String
+  let createdAt, issuedAt: Date
   
   private var dateDifferenceFromCreatedDate: Int {
-    let dateCalculator = DateCalculator()
-    let dateDifferenceFromCreatedDate = dateCalculator.dateDifferenceToToday(from: createdAt)
+    let dateDifferenceFromCreatedDate = DateCalculator().dateDifferenceToToday(from: createdAt)
     
     return dateDifferenceFromCreatedDate
   }
   
   private var dateDifferenceFromModifiedDate: Int {
-    let dateCalculator = DateCalculator()
-    let dateDifferenceFromModifiedDate = dateCalculator.dateDifferenceToToday(from: issuedAt)
+    let dateDifferenceFromModifiedDate = DateCalculator().dateDifferenceToToday(from: issuedAt)
     
     return dateDifferenceFromModifiedDate
   }

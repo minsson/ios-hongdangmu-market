@@ -11,15 +11,10 @@ struct DateCalculator {
   
   private let dateFormatter = DateFormatter()
   
-  func dateDifferenceToToday(from targetDateString: String) -> Int {
-    let targetDate = stringToDate(targetDateString, usingFormat: "yyyy-MM-dd'T'HH:mm:ss")
-    let dateDifference = dateDifference(fromDate: targetDate, toDate: Date())
+  func dateDifferenceToToday(from targetDate: Date) -> Int {
+    let dateDifference = dateDifference(fromDate: targetDate, toDate: Date.now)
     return dateDifference
   }
-  
-}
-
-private extension DateCalculator {
   
   func stringToDate(_ dateString: String, usingFormat formatString: String) -> Date {
     dateFormatter.timeZone = TimeZone.autoupdatingCurrent
@@ -30,6 +25,10 @@ private extension DateCalculator {
     }
     return date
   }
+  
+}
+
+private extension DateCalculator {
   
   func dateDifference(fromDate: Date, toDate: Date) -> Int {
     let calendar = Calendar.current

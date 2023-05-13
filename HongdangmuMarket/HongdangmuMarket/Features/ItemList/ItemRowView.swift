@@ -83,8 +83,8 @@ struct ItemRowView_Previews: PreviewProvider {
     stock: 100,
     images: nil,
     vendors: nil,
-    createdAt: "2023-04-10T00:00:00",
-    issuedAt: "2023-04-11T00:00:00"
+    createdAt: Date(timeIntervalSinceNow: -86400),
+    issuedAt: Date.now
   )
   
   static var previews: some View {

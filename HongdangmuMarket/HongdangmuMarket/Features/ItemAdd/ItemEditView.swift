@@ -79,8 +79,8 @@ struct ItemEditView_Previews: PreviewProvider {
     stock: 100,
     images: nil,
     vendors: nil,
-    createdAt: "3",
-    issuedAt: "5"
+    createdAt: Date(timeIntervalSinceNow: -86400),
+    issuedAt: Date.now
   )
   
   static var previews: some View {

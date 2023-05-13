@@ -40,6 +40,9 @@ struct ItemDTO: DTOProtocol {
 extension ItemDTO {
   
   func toEntity() -> Entity {
+    let dateCalculator = DateCalculator()
+    let serverDateFormat = "yyyy-MM-dd'T'HH:mm:ss"
+    
     return Item(
       id: String(id),
       vendorID: String(vendorID),
@@ -52,8 +55,8 @@ extension ItemDTO {
       stock: stock,
       images: images,
       vendors: vendors,
-      createdAt: createdAt,
-      issuedAt: issuedAt
+      createdAt: dateCalculator.stringToDate(createdAt, usingFormat: serverDateFormat),
+      issuedAt: dateCalculator.stringToDate(issuedAt, usingFormat: serverDateFormat)
     )
   }
   
