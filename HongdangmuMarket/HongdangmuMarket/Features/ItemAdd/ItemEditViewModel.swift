@@ -16,10 +16,13 @@ final class ItemEditViewModel: ObservableObject, ItemAddEditViewModelProtocol {
   @Published var price: String = ""
   @Published var description: String = ""
   
-  let itemID: String
+  let item: Item
   
-  init(itemID: String) {
-    self.itemID = itemID
+  init(item: Item) {
+    self.item = item
+    title = item.name
+    price = String(item.price)
+    description = item.description
   }
   
   func finishButtonTapped() {
@@ -38,7 +41,7 @@ private extension ItemEditViewModel {
   
   func editItem() async throws {
     let data = processInputToData()
-    guard let urlRequest = API.EditItem(productID: itemID, with: data).urlRequest else {
+    guard let urlRequest = API.EditItem(productID: item.id, with: data).urlRequest else {
       return
     }
     
