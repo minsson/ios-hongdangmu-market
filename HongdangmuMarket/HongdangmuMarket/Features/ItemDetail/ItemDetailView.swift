@@ -65,6 +65,11 @@ struct ItemDetailView: View {
     .confirmationDialog("", isPresented: $viewModel.shouldPresentConfirmationDialog) {
       confirmationDialogButtons
     }
+    .fullScreenCover(isPresented: $viewModel.shouldPresentItemEditView) {
+      ItemEditView(item: viewModel.item!) {
+        
+      }
+    }
   }
   
 }
@@ -109,7 +114,7 @@ private extension ItemDetailView {
     switch viewModel.checkItemOwner(userInformation: userInformation) {
     case .myItem:
       Button("게시글 수정") {
-        
+        viewModel.shouldPresentItemEditView = true
       }
       
       Button("삭제", role: .destructive) {

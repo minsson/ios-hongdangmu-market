@@ -11,6 +11,7 @@ final class ItemDetailViewModel: ObservableObject {
   
   @Published var itemID: String?
   @Published var shouldPresentConfirmationDialog = false
+  @Published var shouldPresentItemEditView = false
   @Published private(set) var item: Item?
   
   func viewWillAppear() async throws {
