@@ -12,11 +12,8 @@ struct ItemEditView: View, ItemAddEditViewProtocol {
   @Environment(\.dismiss) private var dismiss
   @StateObject private var viewModel: ItemEditViewModel
   
-  let itemEditCompletion: ((String) -> ())?
-  
-  init(item: Item, itemEditCompletion: ((String) -> ())?) {
-    self.itemEditCompletion = itemEditCompletion
-    _viewModel = StateObject(wrappedValue: ItemEditViewModel(item: item))
+  init(item: Item, itemEditCompletion: @escaping (() -> ())) {
+    _viewModel = StateObject(wrappedValue: ItemEditViewModel(item: item, itemEditCompletion: itemEditCompletion))
   }
   
   var body: some View {
@@ -87,7 +84,7 @@ struct ItemEditView_Previews: PreviewProvider {
   )
   
   static var previews: some View {
-    ItemEditView(item: item) { _ in
+    ItemEditView(item: item) {
 
     }
   }

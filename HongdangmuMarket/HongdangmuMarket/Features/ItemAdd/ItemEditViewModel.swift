@@ -17,9 +17,12 @@ final class ItemEditViewModel: ObservableObject, ItemAddEditViewModelProtocol {
   @Published var description: String = ""
   
   let item: Item
+  let itemEditCompletion: () -> ()
   
-  init(item: Item) {
+  init(item: Item, itemEditCompletion: @escaping () -> ()) {
     self.item = item
+    self.itemEditCompletion = itemEditCompletion
+    
     title = item.name
     price = String(item.price)
     description = item.description
@@ -46,6 +49,7 @@ private extension ItemEditViewModel {
     }
     
     let _ = try await NetworkManager().execute(urlRequest)
+    itemEditCompletion()
   }
   
 }
