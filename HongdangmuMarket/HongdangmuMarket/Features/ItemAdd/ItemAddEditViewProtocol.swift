@@ -11,11 +11,18 @@ protocol ItemAddEditViewProtocol { }
 
 extension ItemAddEditViewProtocol {
   
-  func imagePickerView(shouldPresentImagePicker: Binding<Bool>, selectedImages: Binding<[UIImage]>) -> some View {
-    ImagePickerView (
-      shouldPresentImagePicker: shouldPresentImagePicker,
-      selectedImages: selectedImages
-    )
+  func imagePickerButton(shouldPresentImagePicker: Binding<Bool>) -> some View {
+    ImagePickerButton (shouldPresentImagePicker: shouldPresentImagePicker)
+  }
+  
+  func selectedImagesView(images: [UIImage], size: CGFloat = 75, cornerRadius: CGFloat = 4) -> some View {
+    ForEach(images, id: \.self) { image in
+      Image(uiImage: image)
+        .resizable()
+        .aspectRatio(contentMode: .fill)
+        .frame(width: size, height: size)
+        .clipShape(RoundedRectangle(cornerRadius: cornerRadius))
+    }
   }
   
   func headerView(title: String, dismiss: DismissAction, finishAction: @escaping () -> ()) -> some View {
@@ -73,52 +80,34 @@ extension ItemAddEditViewProtocol {
   
 }
 
-fileprivate struct ImagePickerView: View {
+fileprivate struct ImagePickerButton: View {
   
   @Binding var shouldPresentImagePicker: Bool
-  @Binding var selectedImages: [UIImage]
   
-  private let imageSize: CGFloat = 75
-  private let imageCornerRadius: CGFloat = 4
+  private let width: CGFloat = 75
+  private let cornerRadius: CGFloat = 4
   
   var body: some View {
-    ScrollView(.horizontal, showsIndicators: false) {
-      HStack(spacing: 20) {
-        imageAddButton
-        
-        selectedImagesView
-      }
-      .padding(.bottom, 16)
-    }
+    imageAddButton
   }
   
 }
 
-private extension ImagePickerView {
+private extension ImagePickerButton {
   
   var imageAddButton: some View {
     Button {
       shouldPresentImagePicker = true
     } label: {
       ZStack {
-        RoundedRectangle(cornerRadius: imageCornerRadius)
+        RoundedRectangle(cornerRadius: cornerRadius)
           .stroke(Color(UIColor.systemGray4))
-          .frame(width: imageSize, height: imageSize)
+          .frame(width: width, height: width)
         
         Image(systemName: "camera.fill")
           .foregroundColor(Color(UIColor.systemGray))
           .font(.title3)
       }
-    }
-  }
-  
-  var selectedImagesView: some View {
-    ForEach(selectedImages, id: \.self) { image in
-      Image(uiImage: image)
-        .resizable()
-        .aspectRatio(contentMode: .fill)
-        .frame(width: imageSize, height: imageSize)
-        .clipShape(RoundedRectangle(cornerRadius: imageCornerRadius))
     }
   }
   

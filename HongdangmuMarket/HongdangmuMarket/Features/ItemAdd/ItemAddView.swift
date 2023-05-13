@@ -26,10 +26,13 @@ struct ItemAddView: View, ItemAddEditViewProtocol {
     Divider()
     
     ScrollView {
-      imagePickerView(
-        shouldPresentImagePicker: $viewModel.shouldPresentImagePicker,
-        selectedImages: $viewModel.selectedImages
-      )
+      ScrollView(.horizontal, showsIndicators: false) {
+        HStack(spacing: 20) {
+          imagePickerButton(shouldPresentImagePicker: $viewModel.shouldPresentImagePicker)
+          selectedImagesView(images: viewModel.selectedImages)
+        }
+        .padding(.bottom, 16)
+      }
       
       Divider()
         .padding(.bottom, 8)
