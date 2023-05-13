@@ -56,6 +56,7 @@
 		FDF182162A0E4C78004EF3AF /* ItemAddEditViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF182152A0E4C78004EF3AF /* ItemAddEditViewProtocol.swift */; };
 		FDF1821A2A0EBA44004EF3AF /* ItemEditViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF182192A0EBA44004EF3AF /* ItemEditViewModel.swift */; };
 		FDF1821C2A0EBEEB004EF3AF /* ItemAddEditViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF1821B2A0EBEEB004EF3AF /* ItemAddEditViewModelProtocol.swift */; };
+		FDF1821E2A0F8F99004EF3AF /* ItemEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF1821D2A0F8F99004EF3AF /* ItemEditView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -109,6 +110,7 @@
 		FDF182152A0E4C78004EF3AF /* ItemAddEditViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemAddEditViewProtocol.swift; sourceTree = "<group>"; };
 		FDF182192A0EBA44004EF3AF /* ItemEditViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemEditViewModel.swift; sourceTree = "<group>"; };
 		FDF1821B2A0EBEEB004EF3AF /* ItemAddEditViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemAddEditViewModelProtocol.swift; sourceTree = "<group>"; };
+		FDF1821D2A0F8F99004EF3AF /* ItemEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemEditView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -325,6 +327,7 @@
 				FDF182152A0E4C78004EF3AF /* ItemAddEditViewProtocol.swift */,
 				FDF182192A0EBA44004EF3AF /* ItemEditViewModel.swift */,
 				FDF1821B2A0EBEEB004EF3AF /* ItemAddEditViewModelProtocol.swift */,
+				FDF1821D2A0F8F99004EF3AF /* ItemEditView.swift */,
 			);
 			path = ItemAdd;
 			sourceTree = "<group>";
@@ -437,6 +440,7 @@
 				FDA34D2329E2D2CC00CF96E3 /* AddRequestItemDTO.swift in Sources */,
 				FDF1821C2A0EBEEB004EF3AF /* ItemAddEditViewModelProtocol.swift in Sources */,
 				FD8BA9D529E1BB4400F18661 /* HTTPMethod.swift in Sources */,
+				FDF1821E2A0F8F99004EF3AF /* ItemEditView.swift in Sources */,
 				FD823DED29F2D3D3006A4685 /* MySoldOutItemsView.swift in Sources */,
 				FD8BA9A529E19CAA00F18661 /* HongdangmuMarketApp.swift in Sources */,
 				FDF182162A0E4C78004EF3AF /* ItemAddEditViewProtocol.swift in Sources */,
