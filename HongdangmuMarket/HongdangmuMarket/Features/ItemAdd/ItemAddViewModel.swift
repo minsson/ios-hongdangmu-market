@@ -56,9 +56,7 @@ private extension ItemAddViewModel {
       throw URLError(.badURL)
     }
     
-    print("🔥 아이디 기준으로 서버에 있는 첫번째 게시물 조회 시작")
     let data: Data = try await NetworkManager().execute(urlRequest)
-    print("🔥 아이디 기준으로 서버에 있는 첫번째 게시물 조회 완료")
     let itemListPage = try DataToEntityConverter().convert(data: data, to: ItemListPageDTO.self)
     let items: [Item] = itemListPage.items
     guard let item = items.first else {
