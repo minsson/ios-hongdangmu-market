@@ -16,8 +16,33 @@ final class ItemEditViewModel: ObservableObject, ItemAddEditViewModelProtocol {
   @Published var price: String = ""
   @Published var description: String = ""
   
+  let itemID: String
+  
+  init(itemID: String) {
+    self.itemID = itemID
+  }
+  
   func finishButtonTapped() {
+    Task { [weak self] in
+      do {
+        try await self?.editItem()
+      } catch {
+        print(error.localizedDescription)
+      }
+    }
+  }
+  
+}
+
+private extension ItemEditViewModel {
+  
+  func editItem() async throws {
+    let data = processInputToData()
+    guard let urlRequest = API.EditItem(productID: itemID, with: data).urlRequest else {
+      return
+    }
     
+    let _ = try await NetworkManager().execute(urlRequest)
   }
   
 }
