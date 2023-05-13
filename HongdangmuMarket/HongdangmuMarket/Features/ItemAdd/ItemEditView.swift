@@ -12,9 +12,9 @@ struct ItemEditView: View, ItemAddEditViewProtocol {
   @Environment(\.dismiss) private var dismiss
   @StateObject private var viewModel: ItemEditViewModel
   
-  let itemEditCompletion: ((Int) -> ())?
+  let itemEditCompletion: ((String) -> ())?
   
-  init(itemID: String, itemEditCompletion: ((Int) -> ())?) {
+  init(itemID: String, itemEditCompletion: ((String) -> ())?) {
     self.itemEditCompletion = itemEditCompletion
     _viewModel = StateObject(wrappedValue: ItemEditViewModel(itemID: itemID))
   }

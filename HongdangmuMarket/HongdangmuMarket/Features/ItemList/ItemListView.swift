@@ -61,7 +61,7 @@ struct ItemListView: View {
 
 private extension ItemListView {
   
-  func hiddenNavigationLinkToRecentlyAddedItem(for itemID: Int) -> some View {
+  func hiddenNavigationLinkToRecentlyAddedItem(for itemID: String) -> some View {
     NavigationLink(isActive: $viewModel.shouldPresentRecentlyAddedItem) {
       ItemDetailView(itemID: itemID)
     } label: {

@@ -9,7 +9,7 @@ import Foundation
 
 struct Item: Hashable {
   
-  let id, vendorID: Int
+  let id, vendorID: String
   let name: String
   let description: String
   let thumbnail: String

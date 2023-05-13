@@ -14,7 +14,7 @@ final class ItemListViewModel: ObservableObject {
   @Published private(set) var items: [Item] = []
   
   private(set) var hasMoreData = true
-  private(set) var recentlyAddedItem = 0
+  private(set) var recentlyAddedItem: String = ""
   private var currentPage = 1
   
 }
@@ -37,7 +37,7 @@ extension ItemListViewModel {
     shouldPresentItemAddView = true
   }
   
-  func itemAddActionFinished(addedItemID: Int) async {
+  func itemAddActionFinished(addedItemID: String) async {
     recentlyAddedItem = addedItemID
     await MainActor.run { [weak self] in
       self?.shouldPresentRecentlyAddedItem = true

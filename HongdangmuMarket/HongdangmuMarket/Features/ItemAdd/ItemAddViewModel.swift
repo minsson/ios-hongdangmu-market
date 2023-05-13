@@ -16,9 +16,9 @@ final class ItemAddViewModel: ObservableObject, ItemAddEditViewModelProtocol {
   @Published var price: String = ""
   @Published var description: String = ""
   
-  let itemAddCompletion: ((Int) -> ())?
+  let itemAddCompletion: ((String) -> ())?
   
-  init(itemAddCompletion: ((Int) -> ())?) {
+  init(itemAddCompletion: ((String) -> ())?) {
     self.itemAddCompletion = itemAddCompletion
   }
   

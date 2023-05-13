@@ -41,8 +41,8 @@ extension ItemDTO {
   
   func toEntity() -> Entity {
     return Item(
-      id: id,
-      vendorID: vendorID,
+      id: String(id),
+      vendorID: String(vendorID),
       name: name,
       description: description,
       thumbnail: thumbnail,
