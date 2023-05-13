@@ -9,10 +9,14 @@ import UIKit
 
 final class ItemDetailViewModel: ObservableObject {
   
-  @Published var itemID: String?
+  @Published var itemID: String
   @Published var shouldPresentConfirmationDialog = false
   @Published var shouldPresentItemEditView = false
-  @Published private(set) var item: Item?
+  @Published private(set) var item: Item = Item(id: "", vendorID: "", name: "", description: "", thumbnail: "", price: 0, bargainPrice: 0, discountedPrice: 0, stock: 0, images: nil, vendors: nil, createdAt: Date.now, issuedAt: Date.now)
+  
+  init(itemID: String) {
+    self.itemID = itemID
+  }
   
   func viewWillAppear() async throws {
     do {
@@ -40,7 +44,7 @@ final class ItemDetailViewModel: ObservableObject {
   }
   
   func checkItemOwner(userInformation: UserInformation) -> ItemOwner {
-    return item?.vendors?.name == userInformation.nickname ? .myItem : .otherUsersItem
+    return item.vendors?.name == userInformation.nickname ? .myItem : .otherUsersItem
   }
   
 }
@@ -48,19 +52,10 @@ final class ItemDetailViewModel: ObservableObject {
 private extension ItemDetailViewModel {
   
   var shareMessage: String {
-    guard let itemName = item?.name,
-          let itemBargainPrice = item?.bargainPrice else {
-      return ""
-    }
-    return "홍당무 마켓에서는 \(itemName) 상품이 \(itemBargainPrice)원이에요!"
+    return "홍당무 마켓에서는 \(item.name) 상품이 \(item.bargainPrice)원이에요!"
   }
   
   func requestItemDetailData() async throws -> Data {
-    guard let itemID else {
-      // TODO: 에러 처리
-      fatalError()
-    }
-    
     guard let request: URLRequest = API.LookUpItemDetail(productID: String(itemID)).urlRequest else {
       throw URLError(.badURL)
     }

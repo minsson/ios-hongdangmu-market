@@ -11,13 +11,14 @@ struct ItemDetailView: View {
   
   @Environment(\.dismiss) private var dismiss
   @EnvironmentObject private var userInformation: UserInformation
-  @StateObject private var viewModel = ItemDetailViewModel()
+  @StateObject private var viewModel: ItemDetailViewModel
   
   let itemID: String
   let deviceWidth = UIScreen.main.bounds.width
   
   init(itemID: String) {
     self.itemID = itemID
+    _viewModel = StateObject(wrappedValue: ItemDetailViewModel(itemID: itemID))
   }
   
   var body: some View {
@@ -46,7 +47,6 @@ struct ItemDetailView: View {
     }
     .task {
       do {
-        viewModel.itemID = itemID
         try await viewModel.viewWillAppear()
       } catch {
         // TODO: 에러 처리
@@ -66,7 +66,14 @@ struct ItemDetailView: View {
       confirmationDialogButtons
     }
     .fullScreenCover(isPresented: $viewModel.shouldPresentItemEditView) {
-      ItemEditView(item: viewModel.item!) {
+      ItemEditView(item: viewModel.item) {
+        Task {
+          do {
+            try await viewModel.viewWillAppear()
+            print("ㅎㅎㅎ")
+            // 컴플리션 실행을 안 하고 있어서 DetailView에서 업데이트가 안 되고 잇음
+          }
+        }
         
       }
     }
@@ -136,7 +143,7 @@ private extension ItemDetailView {
       let yOffset = geometry.frame(in: .global).minY
       let deviceWidth = geometry.size.width
       
-      AsyncImage(url: URL(string: viewModel.item?.images?[0].url ?? "")) { image in
+      AsyncImage(url: URL(string: viewModel.item.images?[0].url ?? "")) { image in
         image
           .resizable()
           .aspectRatio(contentMode: .fill)
@@ -158,10 +165,10 @@ private extension ItemDetailView {
         .frame(width: 60)
       
       VStack(alignment: .leading, spacing: 8) {
-        Text(String(viewModel.item?.vendors?.name ?? ""))
+        Text(String(viewModel.item.vendors?.name ?? ""))
           .font(.body.bold())
         
-        Text(String(viewModel.item?.vendors?.id ?? 0))
+        Text(String(viewModel.item.vendors?.id ?? 0))
           .font(.subheadline)
           .foregroundColor(Color(UIColor.systemGray))
       }
@@ -172,22 +179,22 @@ private extension ItemDetailView {
   var itemInformationView: some View {
     VStack() {
       HStack(spacing: 0) {
-        Text(viewModel.item?.stock == 0 ? "거래완료 " : "")
+        Text(viewModel.item.stock == 0 ? "거래완료 " : "")
           .foregroundColor(Color(UIColor.systemGray))
         
-        Text(viewModel.item?.name ?? "")
+        Text(viewModel.item.name)
       }
       .font(.title2.bold())
       .frame(maxWidth: .infinity, alignment: .leading)
       .padding(.bottom, 4)
       
-      Text(viewModel.item?.calculatedDateString() ?? "")
+      Text(viewModel.item.calculatedDateString())
         .font(.subheadline)
         .foregroundColor(Color(UIColor.systemGray2))
         .frame(maxWidth: .infinity, alignment: .leading)
         .padding(.bottom, 16)
       
-      Text(viewModel.item?.description ?? "")
+      Text(viewModel.item.description)
         .frame(maxWidth: .infinity, alignment: .leading)
     }
   }
@@ -205,7 +212,7 @@ private extension ItemDetailView {
         .padding(.horizontal, 8)
       
       VStack(alignment: .leading) {
-        Text("\(viewModel.item?.bargainPrice ?? 0)원")
+        Text("\(viewModel.item.bargainPrice)원")
           .font(.title3.bold())
         Text("가격 제안 불가")
           .foregroundColor(Color.secondary)
@@ -219,15 +226,15 @@ private extension ItemDetailView {
       } label: {
         ZStack {
           RoundedRectangle(cornerRadius: 4)
-            .foregroundColor(viewModel.item?.stock == 0 ? Color(UIColor.tertiarySystemFill) : .orange)
+            .foregroundColor(viewModel.item.stock == 0 ? Color(UIColor.tertiarySystemFill) : .orange)
             .frame(width: 100, height: 40)
           
           Text("구매하기")
-            .foregroundColor(viewModel.item?.stock == 0 ? .secondary : .white)
+            .foregroundColor(viewModel.item.stock == 0 ? .secondary : .white)
             .font(.body.bold())
         }
       }
-      .disabled(viewModel.item?.stock == 0)
+      .disabled(viewModel.item.stock == 0)
     }
   }
   
