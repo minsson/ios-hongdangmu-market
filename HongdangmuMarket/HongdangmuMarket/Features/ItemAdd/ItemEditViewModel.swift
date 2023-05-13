@@ -16,4 +16,8 @@ final class ItemEditViewModel: ObservableObject, ItemAddEditViewModelProtocol {
   @Published var price: String = ""
   @Published var description: String = ""
   
+  func finishButtonTapped() {
+    
+  }
+  
 }

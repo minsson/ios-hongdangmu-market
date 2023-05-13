@@ -16,6 +16,7 @@ protocol ItemAddEditViewModelProtocol {
   var price: String { get set }
   var description: String { get set }
   
+  func finishButtonTapped()
 }
 
 extension ItemAddEditViewModelProtocol {
