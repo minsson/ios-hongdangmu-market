@@ -5,7 +5,7 @@
 //  Created by minsson on 2023/04/09.
 //
 
-import UIKit
+import SwiftUI
 
 final class ItemDetailViewModel: ObservableObject {
   
@@ -13,6 +13,7 @@ final class ItemDetailViewModel: ObservableObject {
   @Published var shouldPresentConfirmationDialog = false
   @Published var shouldPresentItemEditView = false
   @Published private(set) var item: Item = Item(id: "", vendorID: "", name: "", description: "", thumbnail: "", price: 0, bargainPrice: 0, discountedPrice: 0, stock: 0, images: nil, vendors: nil, createdAt: Date.now, issuedAt: Date.now)
+  @Published private(set) var images: [ItemDetailImage] = []
   
   init(itemID: String) {
     self.itemID = itemID
@@ -22,6 +23,7 @@ final class ItemDetailViewModel: ObservableObject {
     do {
       let data: Data = try await requestItemDetailData()
       let item = try DataToEntityConverter().convert(data: data, to: ItemDTO.self)
+      try await requestImages(for: item)
       
       await MainActor.run { [weak self] in
         self?.item = item
@@ -66,6 +68,34 @@ private extension ItemDetailViewModel {
     } catch {
       print(error.localizedDescription)
       throw error
+    }
+  }
+  
+  func requestImages(for item: Item) async throws {
+    self.images.removeAll()
+    
+    await withThrowingTaskGroup(of: Void.self) { group -> Void in
+      item.images?.forEach { itemImage in
+        group.addTask {
+          guard let url = URL(string: itemImage.url) else {
+            throw URLError(.badURL)
+          }
+          
+          let urlRequest = URLRequest(url: url)
+          let data: Data = try await NetworkManager().execute(urlRequest)
+          
+          guard let uiImage = UIImage(data: data) else {
+            throw URLError(.badServerResponse)
+          }
+
+          let image = Image(uiImage: uiImage)
+          let detailImage = ItemDetailImage(id: itemImage.id, image: image)
+          
+          await MainActor.run { [weak self] in
+            self?.images.append(detailImage)
+          }
+        }
+      }
     }
   }
   

@@ -45,6 +45,7 @@ struct ItemDetailView: View {
       purchaseView
         .padding(.horizontal)
     }
+    .ignoresSafeArea(edges: .top)
     .task {
       do {
         try await viewModel.viewWillAppear()
@@ -143,19 +144,17 @@ private extension ItemDetailView {
       let yOffset = geometry.frame(in: .global).minY
       let deviceWidth = geometry.size.width
       
-      AsyncImage(url: URL(string: viewModel.item.images?[0].url ?? "")) { image in
-        image
-          .resizable()
-          .aspectRatio(contentMode: .fill)
-          .frame(width: deviceWidth, height: deviceWidth + (yOffset > 0 ? yOffset : 0))
-          .offset(y: (yOffset > 0 ? -yOffset : 0))
-      } placeholder: {
-        Rectangle()
-          .fill(Color(UIColor.systemGray6))
-          .aspectRatio(contentMode: .fill)
-          .frame(width: deviceWidth, height: deviceWidth + (yOffset > 0 ? yOffset : 0))
-          .offset(y: (yOffset > 0 ? -yOffset : 0))
+      TabView {
+        ForEach(viewModel.images, id: \.id) { image in
+          image.image
+            .resizable()
+            .aspectRatio(contentMode: .fill)
+        }
       }
+      .background { Color.secondary }
+      .tabViewStyle(.page)
+      .frame(width: deviceWidth, height: deviceWidth + (yOffset > 0 ? yOffset : 0))
+      .offset(y: (yOffset > 0 ? -yOffset : 0))
     }
   }
   
