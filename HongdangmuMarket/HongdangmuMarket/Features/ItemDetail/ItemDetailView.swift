@@ -69,13 +69,8 @@ struct ItemDetailView: View {
     .fullScreenCover(isPresented: $viewModel.shouldPresentItemEditView) {
       ItemEditView(item: viewModel.item) {
         Task {
-          do {
-            try await viewModel.viewWillAppear()
-            print("ㅎㅎㅎ")
-            // 컴플리션 실행을 안 하고 있어서 DetailView에서 업데이트가 안 되고 잇음
-          }
+          try await viewModel.viewWillAppear()
         }
-        
       }
     }
   }
@@ -84,7 +79,7 @@ struct ItemDetailView: View {
 
 private extension ItemDetailView {
   
-  private var leadingToolbarItems: some View {
+  var leadingToolbarItems: some View {
     HStack {
       Button {
         dismiss()
@@ -98,7 +93,7 @@ private extension ItemDetailView {
     .foregroundColor(.white)
   }
   
-  private var trailingToolbarItems: some View {
+  var trailingToolbarItems: some View {
     HStack {
       Button {
         viewModel.shareButtonTapped()
