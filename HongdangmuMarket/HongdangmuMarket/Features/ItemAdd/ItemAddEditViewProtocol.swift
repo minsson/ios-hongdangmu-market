@@ -15,16 +15,6 @@ extension ItemAddEditViewProtocol {
     ImagePickerButton (shouldPresentImagePicker: shouldPresentImagePicker)
   }
   
-  func selectedImagesView(images: [UIImage], size: CGFloat = 75, cornerRadius: CGFloat = 4) -> some View {
-    ForEach(images, id: \.self) { image in
-      Image(uiImage: image)
-        .resizable()
-        .aspectRatio(contentMode: .fill)
-        .frame(width: size, height: size)
-        .clipShape(RoundedRectangle(cornerRadius: cornerRadius))
-    }
-  }
-  
   func headerView(title: String, dismiss: DismissAction, finishAction: @escaping () -> ()) -> some View {
     HStack() {
       Button {

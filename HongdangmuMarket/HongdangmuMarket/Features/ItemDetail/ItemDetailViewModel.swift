@@ -72,9 +72,11 @@ private extension ItemDetailViewModel {
   }
   
   func requestImages(for item: Item) async throws {
-    self.images.removeAll()
+    await MainActor.run { [weak self] in
+      self?.images.removeAll()
+    }
     
-    await withThrowingTaskGroup(of: Void.self) { group -> Void in
+    await withThrowingTaskGroup(of: Void.self) { group in
       item.images?.forEach { itemImage in
         group.addTask {
           guard let url = URL(string: itemImage.url) else {

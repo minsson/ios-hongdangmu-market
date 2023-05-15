@@ -11,7 +11,7 @@ final class ItemEditViewModel: ObservableObject, ItemAddEditViewModelProtocol {
   
   @Published var shouldPresentImagePicker: Bool = false
   
-  @Published var selectedImages: [UIImage] = []
+  @Published var selectedImages: [ItemDetailImage]
   @Published var title: String = ""
   @Published var price: String = ""
   @Published var description: String = ""
@@ -19,8 +19,9 @@ final class ItemEditViewModel: ObservableObject, ItemAddEditViewModelProtocol {
   let item: Item
   let itemEditCompletion: () -> ()
   
-  init(item: Item, itemEditCompletion: @escaping () -> ()) {
+  init(item: Item, selectedImages: [ItemDetailImage], itemEditCompletion: @escaping () -> ()) {
     self.item = item
+    self.selectedImages = selectedImages
     self.itemEditCompletion = itemEditCompletion
     
     title = item.name
