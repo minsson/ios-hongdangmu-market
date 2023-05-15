@@ -54,12 +54,10 @@ struct ItemEditView: View, ItemAddEditViewProtocol {
         Divider()
       }
       .padding()
-      .sheet(isPresented: $viewModel.shouldPresentImagePicker) {
-        ImagePicker(
-          selectedImages: $viewModel.selectedImages,
-          shouldPresentImagePicker: $viewModel.shouldPresentImagePicker
-        )
-      }
+    }
+  }
+  
+}
     }
   }
   
