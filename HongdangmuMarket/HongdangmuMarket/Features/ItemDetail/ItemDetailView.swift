@@ -121,6 +121,7 @@ private extension ItemDetailView {
       }
       
       Button("삭제", role: .destructive) {
+        
 
       }
     case .otherUsersItem:
