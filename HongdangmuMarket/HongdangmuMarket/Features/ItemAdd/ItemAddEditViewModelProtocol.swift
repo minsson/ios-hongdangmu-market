@@ -11,7 +11,6 @@ protocol ItemAddEditViewModelProtocol {
   
   var shouldPresentImagePicker: Bool { get set }
   
-  var selectedImages: [UIImage] { get set }
   var title: String { get set }
   var price: String { get set }
   var description: String { get set }
