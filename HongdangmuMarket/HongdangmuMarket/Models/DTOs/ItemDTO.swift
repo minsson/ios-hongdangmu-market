@@ -17,7 +17,7 @@ struct ItemDTO: DTOProtocol {
   let thumbnail: String
   let price, bargainPrice, discountedPrice: Double
   let stock: Int
-  let images: [ItemImage]?
+  let images: [ItemImageData]?
   let vendors: Vendor?
   let createdAt, issuedAt: String
   
