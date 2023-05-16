@@ -10,5 +10,10 @@ import Foundation
 final class MainContainerViewModel: ObservableObject {
   
   @Published var selectedTagIndex: Int = 0
+  @Published var isLoggedIn: Bool = false
+  
+  func loginCompletionExecuted() {
+    isLoggedIn = true
+  }
   
 }

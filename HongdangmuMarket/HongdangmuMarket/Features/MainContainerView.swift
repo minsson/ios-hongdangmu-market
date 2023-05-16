@@ -9,7 +9,6 @@ import SwiftUI
 
 struct MainContainerView: View {
   
-  @EnvironmentObject private var userInformation: UserInformation
   @StateObject private var viewModel = MainContainerViewModel()
   
   init() {
@@ -17,7 +16,7 @@ struct MainContainerView: View {
   }
   
   var body: some View {
-    if userInformation.isLoggedIn {
+    if viewModel.isLoggedIn {
       NavigationView {
         TabView(selection: $viewModel.selectedTagIndex) {
           ItemListView()
@@ -35,7 +34,9 @@ struct MainContainerView: View {
         .tint(.primary)
       }
     } else {
-      LoginView()
+      LoginView() {
+        viewModel.loginCompletionExecuted()
+      }
     }
   }
   
