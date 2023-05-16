@@ -10,7 +10,7 @@ import SwiftUI
 struct MainContainerView: View {
   
   @EnvironmentObject private var userInformation: UserInformation
-  @State private var selectedTagIndex: Int = 0
+  @StateObject private var viewModel = MainContainerViewModel()
   
   init() {
     UITabBar.appearance().backgroundColor = UIColor.white
@@ -19,7 +19,7 @@ struct MainContainerView: View {
   var body: some View {
     if userInformation.isLoggedIn {
       NavigationView {
-        TabView(selection: $selectedTagIndex) {
+        TabView(selection: $viewModel.selectedTagIndex) {
           ItemListView()
             .tabItem {
               Label("홈", systemImage: "house")

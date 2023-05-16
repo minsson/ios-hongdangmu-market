@@ -52,6 +52,7 @@
 		FDA34D2329E2D2CC00CF96E3 /* AddRequestItemDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA34D2229E2D2CC00CF96E3 /* AddRequestItemDTO.swift */; };
 		FDDA463B2A1001CB003D279E /* MockCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDDA463A2A1001CB003D279E /* MockCenter.swift */; };
 		FDDA46442A1224AF003D279E /* ItemDetailImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDDA46432A1224AF003D279E /* ItemDetailImage.swift */; };
+		FDDA46522A13C405003D279E /* MainContainerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDDA46512A13C405003D279E /* MainContainerViewModel.swift */; };
 		FDF1820A2A0C11CB004EF3AF /* ItemOwner.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF182092A0C11CB004EF3AF /* ItemOwner.swift */; };
 		FDF1820C2A0CD979004EF3AF /* OpenMarketAPIRequestPatchProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF1820B2A0CD979004EF3AF /* OpenMarketAPIRequestPatchProtocol.swift */; };
 		FDF1820E2A0CDB15004EF3AF /* API+EditItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF1820D2A0CDB15004EF3AF /* API+EditItem.swift */; };
@@ -108,6 +109,7 @@
 		FDA34D2229E2D2CC00CF96E3 /* AddRequestItemDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRequestItemDTO.swift; sourceTree = "<group>"; };
 		FDDA463A2A1001CB003D279E /* MockCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCenter.swift; sourceTree = "<group>"; };
 		FDDA46432A1224AF003D279E /* ItemDetailImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailImage.swift; sourceTree = "<group>"; };
+		FDDA46512A13C405003D279E /* MainContainerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainContainerViewModel.swift; sourceTree = "<group>"; };
 		FDF182092A0C11CB004EF3AF /* ItemOwner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemOwner.swift; sourceTree = "<group>"; };
 		FDF1820B2A0CD979004EF3AF /* OpenMarketAPIRequestPatchProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenMarketAPIRequestPatchProtocol.swift; sourceTree = "<group>"; };
 		FDF1820D2A0CDB15004EF3AF /* API+EditItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "API+EditItem.swift"; sourceTree = "<group>"; };
@@ -209,6 +211,7 @@
 			isa = PBXGroup;
 			children = (
 				FD8BA9C129E1AE4800F18661 /* MainContainerView.swift */,
+				FDDA46512A13C405003D279E /* MainContainerViewModel.swift */,
 				FD8BA9C029E1AE2400F18661 /* Common */,
 				FD2A1FA529E9463700A8C946 /* Login */,
 				FD8BA9C329E1AFFF00F18661 /* ItemList */,
@@ -438,6 +441,7 @@
 				FD8BA9BB29E19F8C00F18661 /* ItemDTO.swift in Sources */,
 				FDDA463B2A1001CB003D279E /* MockCenter.swift in Sources */,
 				FD8BAA1229E2A70A00F18661 /* ImagePicker.swift in Sources */,
+				FDDA46522A13C405003D279E /* MainContainerViewModel.swift in Sources */,
 				FD8BA9C729E1B53B00F18661 /* Item.swift in Sources */,
 				FDF1821A2A0EBA44004EF3AF /* ItemEditViewModel.swift in Sources */,
 				FD8BA9CF29E1B95D00F18661 /* OpenMarketAPIRequestProtocol.swift in Sources */,
