@@ -54,6 +54,7 @@
 		FDDA46442A1224AF003D279E /* ItemDetailImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDDA46432A1224AF003D279E /* ItemDetailImage.swift */; };
 		FDDA46522A13C405003D279E /* MainContainerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDDA46512A13C405003D279E /* MainContainerViewModel.swift */; };
 		FDDA46542A13C503003D279E /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDDA46532A13C503003D279E /* LoginViewModel.swift */; };
+		FDDA46582A13F001003D279E /* LoginData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDDA46572A13F001003D279E /* LoginData.swift */; };
 		FDF1820A2A0C11CB004EF3AF /* ItemOwner.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF182092A0C11CB004EF3AF /* ItemOwner.swift */; };
 		FDF1820C2A0CD979004EF3AF /* OpenMarketAPIRequestPatchProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF1820B2A0CD979004EF3AF /* OpenMarketAPIRequestPatchProtocol.swift */; };
 		FDF1820E2A0CDB15004EF3AF /* API+EditItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF1820D2A0CDB15004EF3AF /* API+EditItem.swift */; };
@@ -112,6 +113,7 @@
 		FDDA46432A1224AF003D279E /* ItemDetailImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailImage.swift; sourceTree = "<group>"; };
 		FDDA46512A13C405003D279E /* MainContainerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainContainerViewModel.swift; sourceTree = "<group>"; };
 		FDDA46532A13C503003D279E /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		FDDA46572A13F001003D279E /* LoginData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginData.swift; sourceTree = "<group>"; };
 		FDF182092A0C11CB004EF3AF /* ItemOwner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemOwner.swift; sourceTree = "<group>"; };
 		FDF1820B2A0CD979004EF3AF /* OpenMarketAPIRequestPatchProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenMarketAPIRequestPatchProtocol.swift; sourceTree = "<group>"; };
 		FDF1820D2A0CDB15004EF3AF /* API+EditItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "API+EditItem.swift"; sourceTree = "<group>"; };
@@ -284,6 +286,7 @@
 				FD8BAA1129E2A70A00F18661 /* ImagePicker.swift */,
 				FD8BA9BE29E1A9F600F18661 /* NetworkManager.swift */,
 				FD46E88329E9E67100A93D54 /* UserInformation.swift */,
+				FDDA46572A13F001003D279E /* LoginData.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -469,6 +472,7 @@
 				FD8BA9DE29E1F2D100F18661 /* DTOProtocol.swift in Sources */,
 				FD62C44A29E862DE001B83ED /* MySalesStatusTabBarView.swift in Sources */,
 				FDA34D1C29E2CF1500CF96E3 /* MultipartFormDataHandlingProtocol.swift in Sources */,
+				FDDA46582A13F001003D279E /* LoginData.swift in Sources */,
 				FDA34D2329E2D2CC00CF96E3 /* AddRequestItemDTO.swift in Sources */,
 				FDF1821C2A0EBEEB004EF3AF /* ItemAddEditViewModelProtocol.swift in Sources */,
 				FD8BA9D529E1BB4400F18661 /* HTTPMethod.swift in Sources */,
