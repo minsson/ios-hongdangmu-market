@@ -5,7 +5,7 @@
 //  Created by minsson on 2023/05/18.
 //
 
-import Foundation
+import UIKit.UIImage
 
 struct OpenMarketAPIService {
   
@@ -69,3 +69,27 @@ extension OpenMarketAPIService {
   }
   
 }
+
+// MARK: - ItemAddViewModel
+
+extension OpenMarketAPIService {
+  
+  func addItem(data: Data, images: [UIImage]) async throws {
+    guard let request: URLRequest = API.AddItem(jsonData: data, images: images).urlRequest else {
+      throw URLError(.badURL)
+    }
+    
+    let _ = try await execute(request)
+  }
+  
+  func retrieveRecentlyAddedItem() async throws -> Data {
+    guard let request: URLRequest = API.LookUpItems(pageNumber: 1, itemsPerPage: 1, searchValue: "sixthVendor").urlRequest else {
+      throw URLError(.badURL)
+    }
+    
+    let data = try await execute(request)
+    return data
+  }
+  
+}
+

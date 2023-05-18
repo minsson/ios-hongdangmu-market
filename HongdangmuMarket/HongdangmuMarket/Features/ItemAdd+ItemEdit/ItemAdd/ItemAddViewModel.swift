@@ -18,15 +18,16 @@ final class ItemAddViewModel: ObservableObject, ItemAddEditViewModelProtocol {
   
   let itemAddCompletion: ((String) -> ())?
   
+  private let openMarketAPIService = OpenMarketAPIService()
+  
   init(itemAddCompletion: ((String) -> ())?) {
     self.itemAddCompletion = itemAddCompletion
   }
   
   func finishButtonTapped() {
     Task { [weak self] in
-      await self?.requestPostToServer()
-      
       do {
+        try await self?.requestPostToServer()
         try await self?.requestRecentlyAddedItemID()
       } catch {
         print(error.localizedDescription)
@@ -38,25 +39,13 @@ final class ItemAddViewModel: ObservableObject, ItemAddEditViewModelProtocol {
 
 private extension ItemAddViewModel {
   
-  func requestPostToServer() async {
-    let data = processInputToData()
-    guard let urlRequest = API.AddItem(jsonData: data, images: selectedImages).urlRequest else {
-      return
-    }
-    
-    do {
-      let _ = try await NetworkManager().execute(urlRequest)
-    } catch {
-      print(error.localizedDescription)
-    }
+  func requestPostToServer() async throws {
+    let itemData = processInputToData()
+    try await openMarketAPIService.addItem(data: itemData, images: selectedImages)
   }
   
   func requestRecentlyAddedItemID() async throws {
-    guard let urlRequest = API.LookUpItems(pageNumber: 1, itemsPerPage: 1, searchValue: "sixthVendor").urlRequest else {
-      throw URLError(.badURL)
-    }
-    
-    let data: Data = try await NetworkManager().execute(urlRequest)
+    let data: Data = try await openMarketAPIService.retrieveRecentlyAddedItem()
     let itemListPage = try DataToEntityConverter().convert(data: data, to: ItemListPageDTO.self)
     let items: [Item] = itemListPage.items
     guard let item = items.first else {
