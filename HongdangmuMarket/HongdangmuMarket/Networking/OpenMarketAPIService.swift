@@ -19,3 +19,24 @@ struct OpenMarketAPIService {
     }
   
 }
+
+// MARK: - ItemDetailViewModel
+
+extension OpenMarketAPIService {
+  
+  func itemDetailData(itemID: String) async throws -> Data {
+      guard let request: URLRequest = API.LookUpItemDetail(productID: String(itemID)).urlRequest else {
+          throw URLError(.badURL)
+      }
+      return try await execute(request)
+  }
+  
+  func itemDetailImageData(for url: String) async throws -> Data {
+      guard let url = URL(string: url) else {
+          throw URLError(.badURL)
+      }
+      let request = URLRequest(url: url)
+      return try await execute(request)
+  }
+  
+}
