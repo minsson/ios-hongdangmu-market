@@ -9,6 +9,8 @@ final class LoginData {
   
   static let shared = LoginData()
   
+  private init() { }
+  
   private(set) var nickname: String = ""
   private(set) var password: String = ""
   private(set) var identifier: String = ""

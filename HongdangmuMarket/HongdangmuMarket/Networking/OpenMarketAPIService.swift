@@ -20,6 +20,16 @@ struct OpenMarketAPIService {
   
 }
 
+// MARK: - LoginViewModel
+
+extension OpenMarketAPIService {
+  
+  func login(nickname: String, password: String, identifier: String) {
+    LoginData.shared.save(nickname: nickname, password: password, identifier: identifier)
+  }
+  
+}
+
 // MARK: - ItemDetailViewModel
 
 extension OpenMarketAPIService {
