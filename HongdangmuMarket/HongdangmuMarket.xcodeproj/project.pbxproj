@@ -55,6 +55,7 @@
 		FDDA46542A13C503003D279E /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDDA46532A13C503003D279E /* LoginViewModel.swift */; };
 		FDDA46582A13F001003D279E /* LoginData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDDA46572A13F001003D279E /* LoginData.swift */; };
 		FDDA465A2A154574003D279E /* OpenMarketAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDDA46592A154574003D279E /* OpenMarketAPIService.swift */; };
+		FDDA465E2A16362F003D279E /* API+DeleteItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDDA465D2A16362F003D279E /* API+DeleteItem.swift */; };
 		FDF1820A2A0C11CB004EF3AF /* ItemOwner.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF182092A0C11CB004EF3AF /* ItemOwner.swift */; };
 		FDF1820C2A0CD979004EF3AF /* OpenMarketAPIRequestPatchProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF1820B2A0CD979004EF3AF /* OpenMarketAPIRequestPatchProtocol.swift */; };
 		FDF1820E2A0CDB15004EF3AF /* API+EditItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF1820D2A0CDB15004EF3AF /* API+EditItem.swift */; };
@@ -114,6 +115,7 @@
 		FDDA46532A13C503003D279E /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		FDDA46572A13F001003D279E /* LoginData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginData.swift; sourceTree = "<group>"; };
 		FDDA46592A154574003D279E /* OpenMarketAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenMarketAPIService.swift; sourceTree = "<group>"; };
+		FDDA465D2A16362F003D279E /* API+DeleteItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "API+DeleteItem.swift"; sourceTree = "<group>"; };
 		FDF182092A0C11CB004EF3AF /* ItemOwner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemOwner.swift; sourceTree = "<group>"; };
 		FDF1820B2A0CD979004EF3AF /* OpenMarketAPIRequestPatchProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenMarketAPIRequestPatchProtocol.swift; sourceTree = "<group>"; };
 		FDF1820D2A0CDB15004EF3AF /* API+EditItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "API+EditItem.swift"; sourceTree = "<group>"; };
@@ -321,6 +323,7 @@
 				FDF1820D2A0CDB15004EF3AF /* API+EditItem.swift */,
 				FD8BA9EA29E24AB700F18661 /* API+LookUpItemDetail.swift */,
 				FD8BA9D629E1BC6C00F18661 /* API+LookUpItems.swift */,
+				FDDA465D2A16362F003D279E /* API+DeleteItem.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -446,6 +449,7 @@
 				FD8BA9E729E235A100F18661 /* ItemDetailView.swift in Sources */,
 				FD8BA9BB29E19F8C00F18661 /* ItemDTO.swift in Sources */,
 				FDDA463B2A1001CB003D279E /* MockCenter.swift in Sources */,
+				FDDA465E2A16362F003D279E /* API+DeleteItem.swift in Sources */,
 				FD8BAA1229E2A70A00F18661 /* ImagePicker.swift in Sources */,
 				FDDA46522A13C405003D279E /* MainContainerViewModel.swift in Sources */,
 				FD8BA9C729E1B53B00F18661 /* Item.swift in Sources */,
