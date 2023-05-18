@@ -60,7 +60,7 @@ struct ItemEditView: View, ItemAddEditViewProtocol {
 }
 
 private extension ItemEditView {
-    
+  
   var selectedImagesView: some View {
     ForEach(viewModel.selectedImages, id: \.id) { imageData in
       imageData.image
@@ -74,13 +74,13 @@ private extension ItemEditView {
 }
 
 struct ItemEditView_Previews: PreviewProvider {
-
+  
   static let item = dummyItem
   
   static var previews: some View {
     ItemEditView(item: item, selectedImages: []) {
-
+      
     }
   }
-
+  
 }

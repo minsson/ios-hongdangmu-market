@@ -8,19 +8,19 @@
 import Foundation
 
 extension API {
+  
+  struct EditItem: OpenMarketAPIRequestPatchProtocol {
     
-    struct EditItem: OpenMarketAPIRequestPatchProtocol {
-        
-        var productID: String?
-        var jsonData: Data?
-        
-        let httpMethod: String = HTTPMethod.patch.rawValue
-        
-        init(productID: String, with jsonData: Data?) {
-            self.productID = productID
-            self.jsonData = jsonData
-        }
-        
+    var productID: String?
+    var jsonData: Data?
+    
+    let httpMethod: String = HTTPMethod.patch.rawValue
+    
+    init(productID: String, with jsonData: Data?) {
+      self.productID = productID
+      self.jsonData = jsonData
     }
     
+  }
+  
 }
