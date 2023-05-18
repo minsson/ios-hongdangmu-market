@@ -8,15 +8,15 @@
 import Foundation
 
 struct OpenMarketAPIService {
-    
-    func execute(_ request: URLRequest) async throws -> Data {
-        do {
-            let data = try await NetworkManager().execute(request)
-            return data
-        } catch {
-            throw error
-        }
+  
+  func execute(_ request: URLRequest) async throws -> Data {
+    do {
+      let data = try await NetworkManager().execute(request)
+      return data
+    } catch {
+      throw error
     }
+  }
   
 }
 
@@ -26,6 +26,21 @@ extension OpenMarketAPIService {
   
   func login(nickname: String, password: String, identifier: String) {
     LoginData.shared.save(nickname: nickname, password: password, identifier: identifier)
+  }
+  
+}
+
+// MARK: - ItemListViewModel
+
+extension OpenMarketAPIService {
+  
+  func itemListPageData(pageNumber: Int) async throws -> Data {
+    guard let request: URLRequest = API.LookUpItems(pageNumber: pageNumber, itemsPerPage: 100, searchValue: nil).urlRequest else {
+      throw URLError(.badURL)
+    }
+    
+    let data = try await execute(request)
+    return data
   }
   
 }

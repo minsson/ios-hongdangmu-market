@@ -16,6 +16,7 @@ final class ItemListViewModel: ObservableObject {
   private(set) var hasMoreData = true
   private(set) var recentlyAddedItem: String = ""
   private var currentPage = 1
+  private let openMarketAPIService = OpenMarketAPIService()
   
 }
 
@@ -49,8 +50,8 @@ private extension ItemListViewModel {
   
   func retrieveItems() async {
     do {
-      let data: Data = try await requestItemListPageData(pageNumber: currentPage)
-      let itemListPage = try DataToEntityConverter().convert(data: data, to: ItemListPageDTO.self)
+      let data: Data = try await openMarketAPIService.itemListPageData(pageNumber: currentPage)
+      let itemListPage: ItemListPage = try DataToEntityConverter().convert(data: data, to: ItemListPageDTO.self)
       currentPage += 1
       
       await MainActor.run { [weak self] in
@@ -60,15 +61,6 @@ private extension ItemListViewModel {
     } catch {
       print(error.localizedDescription)
     }
-  }
-  
-  func requestItemListPageData(pageNumber: Int) async throws -> Data {
-    guard let request: URLRequest = API.LookUpItems(pageNumber: pageNumber, itemsPerPage: 100, searchValue: nil).urlRequest else {
-      throw URLError(.badURL)
-    }
-    
-    let data = try await NetworkManager().execute(request)
-    return data
   }
   
 }
