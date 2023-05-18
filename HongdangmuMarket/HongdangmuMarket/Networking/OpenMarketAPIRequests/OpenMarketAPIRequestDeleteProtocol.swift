@@ -10,15 +10,14 @@ import Foundation
 protocol OpenMarketAPIRequestDeleteProtocol: OpenMarketAPIRequestProtocol {
   
   var itemID: String { get }
-  var httpMethodForSearchingURI: String { get }
-  var deletionTargetItemURI: String { get }
+  var uriSearchHTTPMethod: String { get }
+  var deletionItemURI: String { get }
   
 }
 
 extension OpenMarketAPIRequestDeleteProtocol {
   
-  var urlForRetrievingURI: URL? {
-    
+  var uriSearchURL: URL? {
     var urlComponents = URLComponents(string: urlHost + urlPath)
     
     let itemID = itemID
@@ -28,14 +27,14 @@ extension OpenMarketAPIRequestDeleteProtocol {
     return urlComponents?.url
   }
   
-  var urlRequestForRetrievingURI: URLRequest? {
-    guard let url = urlForRetrievingURI else {
+  var uriRetrievingURLRequest: URLRequest? {
+    guard let url = uriSearchURL else {
       return nil
     }
     
     var request = URLRequest(url: url)
-    request.httpMethod = httpMethodForSearchingURI
     request.setValue("7184295e-4aa1-11ed-a200-354cb82ae52e", forHTTPHeaderField: "identifier")
+    request.httpMethod = uriSearchHTTPMethod
     request.setValue("application/json", forHTTPHeaderField: "Content-type")
     
     let body: [String: Any] = ["secret": "ebs12345"]
@@ -46,9 +45,8 @@ extension OpenMarketAPIRequestDeleteProtocol {
   }
   
   var url: URL? {
-    
     var urlComponents = URLComponents(string: urlHost)
-    urlComponents?.path += deletionTargetItemURI
+    urlComponents?.path += deletionItemURI
     
     return urlComponents?.url
   }
