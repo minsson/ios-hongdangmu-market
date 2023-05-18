@@ -9,7 +9,7 @@ import Foundation
 
 protocol OpenMarketAPIRequestDeleteProtocol: OpenMarketAPIRequestProtocol {
   
-  var productID: String { get }
+  var itemID: String { get }
   var httpMethodForSearchingURI: String { get }
   var deletionTargetItemURI: String { get }
   
@@ -21,8 +21,8 @@ extension OpenMarketAPIRequestDeleteProtocol {
     
     var urlComponents = URLComponents(string: urlHost + urlPath)
     
-    let productID = productID
-    urlComponents?.path += "\(String(describing: productID))/"
+    let itemID = itemID
+    urlComponents?.path += "\(String(describing: itemID))/"
     urlComponents?.path += "archived"
     
     return urlComponents?.url

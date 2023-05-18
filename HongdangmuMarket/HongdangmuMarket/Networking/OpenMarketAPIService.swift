@@ -50,7 +50,7 @@ extension OpenMarketAPIService {
 extension OpenMarketAPIService {
   
   func itemDetailData(itemID: String) async throws -> Data {
-    guard let request: URLRequest = API.LookUpItemDetail(productID: String(itemID)).urlRequest else {
+    guard let request: URLRequest = API.LookUpItemDetail(itemID: String(itemID)).urlRequest else {
       throw URLError(.badURL)
     }
     
@@ -98,7 +98,7 @@ extension OpenMarketAPIService {
 extension OpenMarketAPIService {
   
   func editItem(id: String, with data: Data) async throws {
-    guard let request: URLRequest = API.EditItem(productID: id, with: data).urlRequest else {
+    guard let request: URLRequest = API.EditItem(itemID: id, with: data).urlRequest else {
       return
     }
     

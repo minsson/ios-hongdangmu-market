@@ -9,7 +9,7 @@ extension API {
   
   struct DeleteItem: OpenMarketAPIRequestDeleteProtocol {
     
-    var productID: String
+    var itemID: String
     var deletionTargetItemURI: String
     var httpMethodForSearchingURI = HTTPMethod.post.rawValue
     let httpMethod: String = HTTPMethod.delete.rawValue

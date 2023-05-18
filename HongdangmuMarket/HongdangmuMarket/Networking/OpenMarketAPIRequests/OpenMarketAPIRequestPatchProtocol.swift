@@ -9,7 +9,7 @@ import Foundation
 
 protocol OpenMarketAPIRequestPatchProtocol: OpenMarketAPIRequestProtocol {
   
-  var productID: String? { get }
+  var itemID: String? { get }
   var jsonData: Data? { get }
   
 }
@@ -20,8 +20,8 @@ extension OpenMarketAPIRequestPatchProtocol {
     
     var urlComponents = URLComponents(string: urlHost + urlPath)
     
-    let productID = productID ?? ""
-    urlComponents?.path += productID
+    let itemID = itemID ?? ""
+    urlComponents?.path += itemID
     
     return urlComponents?.url
   }

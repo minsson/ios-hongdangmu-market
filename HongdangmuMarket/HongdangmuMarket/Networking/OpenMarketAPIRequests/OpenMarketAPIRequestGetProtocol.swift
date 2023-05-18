@@ -28,8 +28,8 @@ extension OpenMarketAPIRequestGetProtocol {
       URLQueryItem(name: $0.key, value: $0.value)
     }
     
-    let productID = itemID ?? ""
-    urlComponents?.path += productID
+    let itemID = itemID ?? ""
+    urlComponents?.path += itemID
     
     return urlComponents?.url
   }

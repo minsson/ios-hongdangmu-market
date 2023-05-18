@@ -11,13 +11,13 @@ extension API {
   
   struct EditItem: OpenMarketAPIRequestPatchProtocol {
     
-    var productID: String?
+    var itemID: String?
     var jsonData: Data?
     
     let httpMethod: String = HTTPMethod.patch.rawValue
     
-    init(productID: String, with jsonData: Data?) {
-      self.productID = productID
+    init(itemID: String, with jsonData: Data?) {
+      self.itemID = itemID
       self.jsonData = jsonData
     }
     

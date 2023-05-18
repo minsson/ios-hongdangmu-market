@@ -12,8 +12,8 @@ extension API {
     var itemID: String?
     var queryItems: [String: String?]? = nil
     
-    init(productID: String) {
-      self.itemID = productID
+    init(itemID: String) {
+      self.itemID = itemID
     }
     
   }
