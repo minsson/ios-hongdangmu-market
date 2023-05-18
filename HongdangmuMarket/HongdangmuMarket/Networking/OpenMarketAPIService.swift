@@ -50,18 +50,22 @@ extension OpenMarketAPIService {
 extension OpenMarketAPIService {
   
   func itemDetailData(itemID: String) async throws -> Data {
-      guard let request: URLRequest = API.LookUpItemDetail(productID: String(itemID)).urlRequest else {
-          throw URLError(.badURL)
-      }
-      return try await execute(request)
+    guard let request: URLRequest = API.LookUpItemDetail(productID: String(itemID)).urlRequest else {
+      throw URLError(.badURL)
+    }
+    
+    let data = try await execute(request)
+    return data
   }
   
   func itemDetailImageData(for url: String) async throws -> Data {
-      guard let url = URL(string: url) else {
-          throw URLError(.badURL)
-      }
-      let request = URLRequest(url: url)
-      return try await execute(request)
+    guard let url = URL(string: url) else {
+      throw URLError(.badURL)
+    }
+    
+    let request = URLRequest(url: url)
+    let data = try await execute(request)
+    return data
   }
   
 }
