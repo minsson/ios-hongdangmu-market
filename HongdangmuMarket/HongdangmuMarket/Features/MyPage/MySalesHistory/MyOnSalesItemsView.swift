@@ -93,7 +93,7 @@ private extension MyOnSalesItemsView {
 struct MyOnSalesItemsView_Previews: PreviewProvider {
   
   static var previews: some View {
-    MyOnSalesItemsView(viewModel: MySalesHistoryContainerViewModel(userInformation: UserInformation()))
+    MyOnSalesItemsView(viewModel: MySalesHistoryContainerViewModel())
   }
   
 }

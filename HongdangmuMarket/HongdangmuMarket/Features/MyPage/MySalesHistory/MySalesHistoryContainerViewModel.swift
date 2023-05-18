@@ -23,11 +23,6 @@ final class MySalesHistoryContainerViewModel: ObservableObject {
   }
   
   private var currentPage = 1
-  private let userInformation: UserInformation
-  
-  init(userInformation: UserInformation) {
-    self.userInformation = userInformation
-  }
   
 }
 
@@ -57,7 +52,7 @@ private extension MySalesHistoryContainerViewModel {
   }
   
   func requestItemListPageData(pageNumber: Int) async throws -> Data {
-    guard let request: URLRequest = API.LookUpItems(pageNumber: pageNumber, itemsPerPage: 100, searchValue: userInformation.nickname).urlRequest else {
+    guard let request: URLRequest = API.LookUpItems(pageNumber: pageNumber, itemsPerPage: 100, searchValue: LoginData.shared.nickname).urlRequest else {
       throw URLError(.badURL)
     }
     

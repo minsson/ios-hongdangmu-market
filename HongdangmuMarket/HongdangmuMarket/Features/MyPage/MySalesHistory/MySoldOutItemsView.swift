@@ -71,7 +71,7 @@ private extension MySoldOutItemsView {
 struct MySoldOutItemsView_Previews: PreviewProvider {
   
   static var previews: some View {
-    MySoldOutItemsView(viewModel: MySalesHistoryContainerViewModel(userInformation: UserInformation()))
+    MySoldOutItemsView(viewModel: MySalesHistoryContainerViewModel())
   }
   
 }

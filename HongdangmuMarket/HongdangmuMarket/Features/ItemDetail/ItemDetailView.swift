@@ -10,7 +10,6 @@ import SwiftUI
 struct ItemDetailView: View {
   
   @Environment(\.dismiss) private var dismiss
-  @EnvironmentObject private var userInformation: UserInformation
   @StateObject private var viewModel: ItemDetailViewModel
   
   let itemID: String
@@ -114,7 +113,8 @@ private extension ItemDetailView {
   
   @ViewBuilder
   var confirmationDialogButtons: some View {
-    switch viewModel.checkItemOwner(userInformation: userInformation) {
+    let itemOwner: ItemOwner = viewModel.checkItemOwner()
+    switch itemOwner {
     case .myItem:
       Button("게시글 수정") {
         viewModel.shouldPresentItemEditView = true

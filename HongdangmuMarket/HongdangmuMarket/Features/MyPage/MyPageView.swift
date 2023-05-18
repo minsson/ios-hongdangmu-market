@@ -9,8 +9,6 @@ import SwiftUI
 
 struct MyPageView: View {
   
-  @EnvironmentObject private var userInformation: UserInformation
-  
   var body: some View {
     NavigationView {
       VStack {
@@ -55,7 +53,7 @@ private extension MyPageView {
         .frame(width: 38)
         .padding(.trailing, 8)
       
-      Text(userInformation.nickname)
+      Text(LoginData.shared.nickname)
         .font(.title2.bold())
       
       Spacer()
@@ -84,7 +82,7 @@ private extension MyPageView {
       }
       
       NavigationLink {
-        MySalesHistoryContainerView(userInformation: userInformation)
+        MySalesHistoryContainerView()
       } label: {
         sectionRowView(iconString: "note.text", title: "판매내역")
       }
@@ -110,7 +108,6 @@ struct MyPageView_Previews: PreviewProvider {
   
   static var previews: some View {
     MyPageView()
-      .environmentObject(UserInformation())
   }
   
 }

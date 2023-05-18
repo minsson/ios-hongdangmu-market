@@ -9,12 +9,8 @@ import SwiftUI
 
 struct MySalesHistoryContainerView: View {
   
-  @StateObject private var viewModel: MySalesHistoryContainerViewModel
+  @StateObject private var viewModel = MySalesHistoryContainerViewModel()
   @State private var selectedSalesStatus: SalesStatus = .onSales
-  
-  init(userInformation: UserInformation) {
-    _viewModel = StateObject(wrappedValue: MySalesHistoryContainerViewModel(userInformation: userInformation))
-  }
   
   var body: some View {
     ScrollView {
@@ -77,7 +73,7 @@ private extension MySalesHistoryContainerView {
 struct MySalesHistoryContainerView_Previews: PreviewProvider {
   
   static var previews: some View {
-    MySalesHistoryContainerView(userInformation: UserInformation())
+    MySalesHistoryContainerView()
   }
   
 }

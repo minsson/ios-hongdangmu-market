@@ -47,8 +47,8 @@ final class ItemDetailViewModel: ObservableObject {
     shouldPresentConfirmationDialog = true
   }
   
-  func checkItemOwner(userInformation: UserInformation) -> ItemOwner {
-    return item.vendors?.name == userInformation.nickname ? .myItem : .otherUsersItem
+  func checkItemOwner() -> ItemOwner {
+    return item.vendors?.name == LoginData.shared.nickname ? .myItem : .otherUsersItem
   }
   
 }
