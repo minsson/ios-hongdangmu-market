@@ -93,3 +93,16 @@ extension OpenMarketAPIService {
   
 }
 
+// MARK: ItemEditViewModel
+
+extension OpenMarketAPIService {
+  
+  func editItem(id: String, with data: Data) async throws {
+    guard let request: URLRequest = API.EditItem(productID: id, with: data).urlRequest else {
+      return
+    }
+    
+    let _ = try await execute(request)
+  }
+  
+}

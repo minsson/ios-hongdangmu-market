@@ -19,6 +19,8 @@ final class ItemEditViewModel: ObservableObject, ItemAddEditViewModelProtocol {
   let item: Item
   let itemEditCompletion: () -> ()
   
+  private let openMarketAPIService = OpenMarketAPIService()
+  
   init(item: Item, selectedImages: [ItemDetailImage], itemEditCompletion: @escaping () -> ()) {
     self.item = item
     self.selectedImages = selectedImages
@@ -45,11 +47,8 @@ private extension ItemEditViewModel {
   
   func editItem() async throws {
     let data = processInputToData()
-    guard let urlRequest = API.EditItem(productID: item.id, with: data).urlRequest else {
-      return
-    }
+    try await openMarketAPIService.editItem(id: item.id, with: data)
     
-    let _ = try await NetworkManager().execute(urlRequest)
     itemEditCompletion()
   }
   
