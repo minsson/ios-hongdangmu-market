@@ -15,9 +15,9 @@ struct ItemDetailView: View {
   let itemID: String
   let deviceWidth = UIScreen.main.bounds.width
   
-  init(itemID: String) {
+  init(itemID: String, itemDeletionCompletion: @escaping () -> Void) {
     self.itemID = itemID
-    _viewModel = StateObject(wrappedValue: ItemDetailViewModel(itemID: itemID))
+    _viewModel = StateObject(wrappedValue: ItemDetailViewModel(itemID: itemID, itemDeletionCompletion: itemDeletionCompletion))
   }
   
   var body: some View {
@@ -240,7 +240,9 @@ struct ItemDetailView_Previews: PreviewProvider {
   static let item = dummyItem
   
   static var previews: some View {
-    ItemDetailView(itemID: item.id)
+    ItemDetailView(itemID: item.id) {
+      
+    }
   }
   
 }

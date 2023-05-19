@@ -16,7 +16,9 @@ struct MySoldOutItemsView: View {
       LazyVStack(spacing: 16) {
         ForEach(viewModel.soldOutItems, id: \.id) { item in
           NavigationLink {
-            ItemDetailView(itemID: item.id)
+            ItemDetailView(itemID: item.id) {
+              
+            }
           } label: {
             VStack(spacing: 0) {
               ItemRowView(item: item, isEditable: false)

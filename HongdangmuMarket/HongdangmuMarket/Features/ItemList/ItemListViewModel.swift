@@ -44,6 +44,18 @@ extension ItemListViewModel {
       self?.shouldPresentRecentlyAddedItem = true
     }
   }
+  
+  func itemDeletionCompletionExecuted(deletedItemID: String) {
+    guard let deletionIndex = items.firstIndex(where: { $0.id == deletedItemID }) else {
+      return
+    }
+    
+    Task {
+      await MainActor.run { [weak self] in
+        self?.items.remove(at: deletionIndex)
+      }
+    }
+  }
 }
 
 private extension ItemListViewModel {

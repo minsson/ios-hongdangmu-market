@@ -22,7 +22,9 @@ struct ItemListView: View {
         LazyVStack(spacing: 16) {
           ForEach(viewModel.items, id: \.id) { item in
             NavigationLink {
-              ItemDetailView(itemID: item.id)
+              ItemDetailView(itemID: item.id) {
+                viewModel.itemDeletionCompletionExecuted(deletedItemID: item.id)
+              }
             } label: {
               VStack(spacing: 16) {
                 ItemRowView(item: item, isEditable: false)
@@ -63,7 +65,9 @@ private extension ItemListView {
   
   func hiddenNavigationLinkToRecentlyAddedItem(for itemID: String) -> some View {
     NavigationLink(isActive: $viewModel.shouldPresentRecentlyAddedItem) {
-      ItemDetailView(itemID: itemID)
+      ItemDetailView(itemID: itemID) {
+ 
+      }
     } label: {
       EmptyView()
     }
