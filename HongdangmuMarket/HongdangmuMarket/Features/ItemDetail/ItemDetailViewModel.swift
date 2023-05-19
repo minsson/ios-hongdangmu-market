@@ -43,6 +43,16 @@ final class ItemDetailViewModel: ObservableObject {
     }
   }
   
+  func deleteButtonTapped() {
+    Task {
+      do {
+        let _ = try await openMarketAPIService.deleteItem(id: itemID)
+      } catch {
+        print(error.localizedDescription)
+      }
+    }
+  }
+  
   func moreActionButtonTapped() {
     shouldPresentConfirmationDialog = true
   }

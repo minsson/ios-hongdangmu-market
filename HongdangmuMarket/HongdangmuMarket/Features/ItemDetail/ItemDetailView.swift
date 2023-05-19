@@ -121,8 +121,8 @@ private extension ItemDetailView {
       }
       
       Button("삭제", role: .destructive) {
-        
-
+        viewModel.deleteButtonTapped()
+        dismiss()
       }
     case .otherUsersItem:
       Button("신고") {

@@ -68,6 +68,28 @@ extension OpenMarketAPIService {
     return data
   }
   
+  func deleteItem(id: String) async throws -> Data {
+    let uriData: Data = try await deletionItemURI(id: id)
+    let uriString = String(data: uriData, encoding: .utf8)!
+    
+    guard let request: URLRequest = API.DeleteItem(itemID: id, deletionItemURI: uriString).urlRequest else {
+      throw URLError(.badURL)
+    }
+    
+    let data: Data = try await execute(request)
+    return data
+  }
+  
+  private func deletionItemURI(id: String) async throws -> Data {
+    guard let request: URLRequest = API.DeleteItem(itemID: id, deletionItemURI: "").uriRetrievingURLRequest else {
+      throw URLError(.badURL)
+    }
+    
+    let data: Data = try await execute(request)
+    return data
+  }
+  
+  
 }
 
 // MARK: - ItemAddViewModel
