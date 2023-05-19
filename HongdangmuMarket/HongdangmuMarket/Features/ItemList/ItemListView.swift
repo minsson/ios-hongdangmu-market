@@ -82,8 +82,8 @@ private extension ItemListView {
   }
   
   var searchButton: some View {
-    Button {
-      // TODO: 기능 구현
+    NavigationLink {
+      ItemSearchView()
     } label: {
       Image(systemName: "magnifyingglass")
         .font(.title2)
