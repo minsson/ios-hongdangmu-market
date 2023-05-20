@@ -12,14 +12,21 @@ struct ItemSearchView: View {
   @Environment(\.dismiss) private var dismiss
   @StateObject private var viewModel = ItemSearchViewModel()
   
+  private let gridColumns: [GridItem] = [
+    GridItem(.flexible(), spacing: 32),
+    GridItem(.flexible())
+  ]
+  
   var body: some View {
-    ZStack {
-      Color(.systemBackground)
-      
+    VStack {
       navigationBar
         .padding()
-        .navigationBarBackButtonHidden()
+      
+      recentSearchWords
+      
+      Spacer()
     }
+    .navigationBarBackButtonHidden()
   }
   
 }
@@ -62,6 +69,50 @@ private extension ItemSearchView {
     .padding(.vertical, 8)
     .background { Color(.secondarySystemBackground) }
     .cornerRadius(8)
+  }
+  
+  var recentSearchWords: some View {
+    VStack {
+      HStack {
+        Text("최근 검색어")
+          .bold()
+        
+        Spacer()
+        
+        Button("모두 지우기") {
+          viewModel.deleteRecentSearchWordsButtonTapped()
+        }
+        .foregroundColor(Color(UIColor.secondaryLabel))
+      }
+      .padding(.vertical)
+      
+      LazyVGrid(columns: gridColumns) {
+        ForEach(viewModel.recentSearchWords, id: \.self) { word in
+          recentSearchWord(word)
+        }
+      }
+      
+    }
+    .padding(.horizontal)
+  }
+  
+  func recentSearchWord(_ word: String) -> some View {
+    VStack {
+      HStack {
+        Text(word)
+          .lineLimit(1)
+        
+        Spacer()
+        
+        Image(systemName: "xmark")
+          .foregroundColor(.secondary)
+      }
+      .padding(.vertical, 8)
+      
+      Rectangle()
+        .frame(height: 1)
+        .foregroundColor(Color(UIColor.tertiarySystemFill))
+    }
   }
   
 }
