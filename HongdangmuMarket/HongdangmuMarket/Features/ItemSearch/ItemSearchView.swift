@@ -9,6 +9,8 @@ import SwiftUI
 
 struct ItemSearchView: View {
   
+  @StateObject private var viewModel = ItemSearchViewModel()
+  
   var body: some View {
     Text("")
   }
