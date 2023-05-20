@@ -11,4 +11,12 @@ final class ItemSearchViewModel: ObservableObject {
   
   @Published var searchBarText: String = ""
   
+  var shouldPresentTextDeletionButton: Bool {
+    searchBarText.isEmpty ? false : true
+  }
+  
+  func textDeletionButtonTapped() {
+    searchBarText = ""
+  }
+  
 }
