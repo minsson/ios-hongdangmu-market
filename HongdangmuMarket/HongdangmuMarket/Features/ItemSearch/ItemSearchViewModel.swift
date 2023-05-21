@@ -32,4 +32,9 @@ final class ItemSearchViewModel: ObservableObject {
     recentSearchWords.remove(at: index)
   }
 
+  func searchWordWasSubmitted(_ word: String) {
+    deleteOneSearchWordButtonTapped(word)
+    recentSearchWords.insert(word, at: 0)
+  }
+  
 }

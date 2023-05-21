@@ -55,6 +55,9 @@ private extension ItemSearchView {
     HStack {
       TextField("신림동 근처에서 검색", text: $viewModel.searchBarText)
         .foregroundColor(.primary)
+        .onSubmit {
+          viewModel.searchWordWasSubmitted(viewModel.searchBarText)
+        }
       
       if viewModel.shouldPresentTextDeletionButton {
         Button {
