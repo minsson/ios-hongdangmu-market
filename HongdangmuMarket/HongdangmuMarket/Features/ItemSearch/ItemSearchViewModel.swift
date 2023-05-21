@@ -24,4 +24,12 @@ final class ItemSearchViewModel: ObservableObject {
     recentSearchWords.removeAll()
   }
   
+  func deleteOneSearchWordButtonTapped(_ word: String) {
+    guard let index = recentSearchWords.firstIndex(where: { $0 == word }) else {
+      return
+    }
+    
+    recentSearchWords.remove(at: index)
+  }
+
 }

@@ -104,8 +104,12 @@ private extension ItemSearchView {
         
         Spacer()
         
-        Image(systemName: "xmark")
-          .foregroundColor(.secondary)
+        Button {
+          viewModel.deleteOneSearchWordButtonTapped(word)
+        } label: {
+          Image(systemName: "xmark")
+            .foregroundColor(.secondary)
+        }
       }
       .padding(.vertical, 8)
       
