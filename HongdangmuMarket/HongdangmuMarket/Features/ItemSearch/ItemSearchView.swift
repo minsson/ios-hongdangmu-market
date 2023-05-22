@@ -20,7 +20,7 @@ struct ItemSearchView: View {
   var body: some View {
     VStack {
       navigationBar
-        .padding()
+        .padding(.bottom)
       
       if viewModel.hasSearchBarText {
         
@@ -30,6 +30,7 @@ struct ItemSearchView: View {
       
       Spacer()
     }
+    .padding()
     .navigationBarBackButtonHidden()
   }
   
@@ -40,6 +41,7 @@ private extension ItemSearchView {
   var navigationBar: some View {
     HStack {
       backButton
+        .padding(.trailing, 6)
       
       searchBar
         .frame(maxWidth: .infinity)
@@ -98,9 +100,7 @@ private extension ItemSearchView {
           recentSearchWord(word)
         }
       }
-      
     }
-    .padding(.horizontal)
   }
   
   func recentSearchWord(_ word: String) -> some View {
