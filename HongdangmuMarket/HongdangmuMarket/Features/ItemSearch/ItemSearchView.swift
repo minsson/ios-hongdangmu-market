@@ -22,7 +22,11 @@ struct ItemSearchView: View {
       navigationBar
         .padding()
       
-      recentSearchWords
+      if viewModel.hasSearchBarText {
+        
+      } else {
+        recentSearchWords
+      }
       
       Spacer()
     }
@@ -59,7 +63,7 @@ private extension ItemSearchView {
           viewModel.searchWordWasSubmitted(viewModel.searchBarText)
         }
       
-      if viewModel.shouldPresentTextDeletionButton {
+      if viewModel.hasSearchBarText {
         Button {
           viewModel.textDeletionButtonTapped()
         } label: {
