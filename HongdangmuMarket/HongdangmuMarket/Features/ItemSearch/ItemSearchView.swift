@@ -23,7 +23,7 @@ struct ItemSearchView: View {
         .padding(.bottom)
       
       if viewModel.hasSearchBarText {
-        suggestionWord("Temp")
+        suggestionWordsContainer
         
       } else {
         recentSearchWords
@@ -124,6 +124,15 @@ private extension ItemSearchView {
       Rectangle()
         .frame(height: 1)
         .foregroundColor(Color(UIColor.tertiarySystemFill))
+    }
+  }
+  
+  var suggestionWordsContainer: some View {
+    VStack {
+      ForEach(viewModel.suggestionWords, id: \.self) { word in
+        suggestionWord(word)
+          .padding(.bottom)
+      }
     }
   }
   

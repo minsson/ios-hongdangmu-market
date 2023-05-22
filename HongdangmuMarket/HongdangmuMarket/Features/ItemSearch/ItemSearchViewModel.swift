@@ -11,6 +11,7 @@ final class ItemSearchViewModel: ObservableObject {
   
   @Published var searchBarText: String = ""
   @Published var recentSearchWords: [String] = ["Temp  1", "Temp 2", "Temp 3"]
+  @Published var suggestionWords: [String] = ["Temp 1", "Temp 2", "Temp 3"]
   
   var hasSearchBarText: Bool {
     searchBarText.isEmpty ? false : true
