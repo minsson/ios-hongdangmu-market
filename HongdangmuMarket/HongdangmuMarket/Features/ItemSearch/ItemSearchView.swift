@@ -23,6 +23,7 @@ struct ItemSearchView: View {
         .padding(.bottom)
       
       if viewModel.hasSearchBarText {
+        suggestionWord("Temp")
         
       } else {
         recentSearchWords
@@ -124,6 +125,17 @@ private extension ItemSearchView {
         .frame(height: 1)
         .foregroundColor(Color(UIColor.tertiarySystemFill))
     }
+  }
+  
+  func suggestionWord(_ word: String) -> some View {
+    HStack {
+      Image(systemName: "magnifyingglass")
+        .font(.callout)
+        .padding(.trailing, 6)
+      
+      Text(word)
+    }
+    .frame(maxWidth: .infinity, alignment: .leading)
   }
   
 }
