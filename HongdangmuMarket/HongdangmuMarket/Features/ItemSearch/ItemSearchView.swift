@@ -140,14 +140,19 @@ private extension ItemSearchView {
   }
   
   func suggestionWord(_ word: String) -> some View {
-    HStack {
-      Image(systemName: "magnifyingglass")
-        .font(.callout)
-        .padding(.trailing, 6)
-      
-      Text(word)
+    Button {
+      viewModel.suggestionWordTapped(word)
+    } label: {
+      HStack {
+        Image(systemName: "magnifyingglass")
+          .font(.callout)
+          .padding(.trailing, 6)
+        
+        Text(word)
+      }
+      .foregroundColor(.primary)
+      .frame(maxWidth: .infinity, alignment: .leading)
     }
-    .frame(maxWidth: .infinity, alignment: .leading)
   }
   
 }

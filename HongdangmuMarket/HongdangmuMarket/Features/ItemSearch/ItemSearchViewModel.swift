@@ -50,6 +50,10 @@ final class ItemSearchViewModel: ObservableObject {
     }
   }
 
+  func suggestionWordTapped(_ word: String) {
+    searchBarText = word
+  }
+  
 }
 
 private extension ItemSearchViewModel {
