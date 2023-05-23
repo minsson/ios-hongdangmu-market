@@ -49,10 +49,6 @@ final class ItemSearchViewModel: ObservableObject {
       await retrieveSuggestionWords(for: newText)
     }
   }
-
-  func suggestionWordTapped(_ word: String) {
-    searchBarText = word
-  }
   
 }
 
