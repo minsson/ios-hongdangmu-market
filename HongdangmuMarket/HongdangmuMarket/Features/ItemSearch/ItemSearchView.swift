@@ -33,6 +33,9 @@ struct ItemSearchView: View {
     }
     .padding()
     .navigationBarBackButtonHidden()
+    .onChange(of: viewModel.searchBarText) { newText in
+      viewModel.searchBarTextWasChanged(newText: newText)
+    }
   }
   
 }

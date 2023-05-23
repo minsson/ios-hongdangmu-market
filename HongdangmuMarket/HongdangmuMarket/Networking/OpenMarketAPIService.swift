@@ -128,3 +128,33 @@ extension OpenMarketAPIService {
   }
   
 }
+
+// MARK: ItemSearchViewModel
+
+extension OpenMarketAPIService {
+  
+  /// OpenMarketAPI에는 자주 쓰이는 검색어 DB가 없습니다. 검색어 제안 기능을 구현하기 위해 가짜 네트워킹 메서드를 구현했습니다.
+  func suggestionWords(for text: String) async -> Data {
+    let dummyServerResponse: Data = serverFiltersSuggestionWords(for: text)
+    try? await Task.sleep(nanoseconds: 100_000_000)
+    
+    return dummyServerResponse
+  }
+  
+  /// 서버 쪽에서 작업해줄 것으로 예상하지만, 현재 사용중인 OpenMarketAPI에서 제공하지 않는 기능이므로 임시로 서버의 response를 구현했습니다.
+  private func serverFiltersSuggestionWords(for text: String) -> Data {
+    let dummyServerDatabase: [String] = ["애플", "아이폰", "Apple", "아이패드", "노트북", "맥북"]
+    var response: [String] = []
+    
+    if text.isEmpty {
+      response = []
+    } else {
+      response = dummyServerDatabase.filter { $0.hasPrefix(text) }
+    }
+    
+    let data: Data = try! JSONEncoder().encode(response)
+    
+    return data
+  }
+  
+}

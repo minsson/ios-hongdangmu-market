@@ -11,8 +11,10 @@ final class ItemSearchViewModel: ObservableObject {
   
   @Published var searchBarText: String = ""
   @Published var recentSearchWords: [String] = ["Temp  1", "Temp 2", "Temp 3"]
-  @Published var suggestionWords: [String] = ["Temp 1", "Temp 2", "Temp 3"]
-  
+  @Published var suggestionWords: [String] = []
+
+  private let openMarketAPIService = OpenMarketAPIService()
+
   var hasSearchBarText: Bool {
     searchBarText.isEmpty ? false : true
   }
@@ -36,6 +38,32 @@ final class ItemSearchViewModel: ObservableObject {
   func searchWordWasSubmitted(_ word: String) {
     deleteOneSearchWordButtonTapped(word)
     recentSearchWords.insert(word, at: 0)
+  }
+  
+  func searchBarTextWasChanged(newText: String) {
+    Task {
+      await MainActor.run { [weak self] in
+        self?.suggestionWords.removeAll()
+      }
+      
+      await retrieveSuggestionWords(for: newText)
+    }
+  }
+
+}
+
+private extension ItemSearchViewModel {
+  
+  func retrieveSuggestionWords(for text: String) async {
+    let data = await openMarketAPIService.suggestionWords(for: text)
+    
+    guard let words = try? JSONDecoder().decode([String].self, from: data) else {
+      return
+    }
+    
+    await MainActor.run {
+      suggestionWords = words
+    }
   }
   
 }
