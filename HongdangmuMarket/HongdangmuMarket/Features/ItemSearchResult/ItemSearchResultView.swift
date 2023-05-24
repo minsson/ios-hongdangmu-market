@@ -9,12 +9,10 @@ import SwiftUI
 
 struct ItemSearchResultView: View {
   
-  init(by searchKeyword: String) {
-    print(searchKeyword)
-  }
+  var searchValue: String
   
   var body: some View {
-    Text("")
+    ItemListView(viewModel: ItemListViewModel(searchValue: searchValue))
   }
   
 }
@@ -22,7 +20,7 @@ struct ItemSearchResultView: View {
 struct ItemSearchResultView_Previews: PreviewProvider {
   
   static var previews: some View {
-    ItemSearchResultView(by: "애플")
+    ItemSearchResultView(searchValue: "애플")
   }
   
 }

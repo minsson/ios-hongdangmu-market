@@ -141,7 +141,7 @@ private extension ItemSearchView {
   
   func suggestionWord(_ word: String) -> some View {
     NavigationLink {
-      ItemSearchResultView(by: word)
+      ItemSearchResultView(searchValue: word)
     } label: {
       HStack {
         Image(systemName: "magnifyingglass")
