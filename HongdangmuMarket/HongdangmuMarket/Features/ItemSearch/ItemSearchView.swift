@@ -112,9 +112,14 @@ private extension ItemSearchView {
   func recentSearchWord(_ word: String) -> some View {
     VStack {
       HStack {
-        Text(word)
-          .lineLimit(1)
-        
+        Button {
+          viewModel.searchBarText = word
+          viewModel.searchPhase = .listBySearchValue
+        } label: {
+          Text(word)
+            .lineLimit(1)
+        }
+
         Spacer()
         
         Button {
