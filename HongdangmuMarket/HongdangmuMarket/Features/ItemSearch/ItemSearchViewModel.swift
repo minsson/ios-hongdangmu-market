@@ -14,6 +14,7 @@ final class ItemSearchViewModel: ObservableObject {
   @Published var suggestionWords: [String] = []
   @Published var searchPhase: SearchPhase = .recentSearchWords
   
+  private var isRecentSearchWordTapped: Bool = false
   private let openMarketAPIService = OpenMarketAPIService()
   
   var hasSearchBarText: Bool {
@@ -46,14 +47,15 @@ final class ItemSearchViewModel: ObservableObject {
     switchPresentedView(by: .listBySearchValue)
   }
   
-  func searchBarTextWasChanged(newText: String) {
-    if newText == "" {
+  func searchBarTextWasChanged() {
+    if searchBarText == "" {
       switchPresentedView(by: .recentSearchWords)
       return
     }
     
-    if newText.count - searchBarText.count != 1 {
+    if isRecentSearchWordTapped {
       switchPresentedView(by: .listBySearchValue)
+      isRecentSearchWordTapped = false
       return
     }
     
@@ -64,13 +66,13 @@ final class ItemSearchViewModel: ObservableObject {
         self?.suggestionWords.removeAll()
       }
       
-      await retrieveSuggestionWords(for: newText)
+      await retrieveSuggestionWords(for: searchBarText)
     }
   }
   
   func recentSearchWordTapped(word: String) {
     searchBarText = word
-    switchPresentedView(by: .listBySearchValue)
+    isRecentSearchWordTapped = true
   }
   
   func suggestionWordTapped() {

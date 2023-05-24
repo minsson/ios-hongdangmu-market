@@ -35,9 +35,6 @@ struct ItemSearchView: View {
     }
     .padding()
     .navigationBarBackButtonHidden()
-    .onChange(of: viewModel.searchBarText) { newText in
-      viewModel.searchBarTextWasChanged(newText: newText)
-    }
   }
   
 }
@@ -70,8 +67,8 @@ private extension ItemSearchView {
         .onSubmit {
           viewModel.searchWordWasSubmitted(viewModel.searchBarText)
         }
-        .onChange(of: viewModel.searchBarText) { newText in
-          viewModel.searchBarTextWasChanged(newText: newText)
+        .onChange(of: viewModel.searchBarText) { _ in
+          viewModel.searchBarTextWasChanged()
         }
       
       if viewModel.hasSearchBarText {
