@@ -24,7 +24,7 @@ final class ItemSearchViewModel: ObservableObject {
   func textDeletionButtonTapped() {
     searchBarText = ""
     
-    switchPresentedView(by: .recentSearchWords)
+    switchPresentedView(to: .recentSearchWords)
   }
   
   func deleteRecentSearchWordsButtonTapped() {
@@ -42,22 +42,22 @@ final class ItemSearchViewModel: ObservableObject {
   func searchWordWasSubmitted(_ word: String) {
     updateRecentWordsOrder(of: word)
     
-    switchPresentedView(by: .listBySearchValue)
+    switchPresentedView(to: .listBySearchValue)
   }
   
   func searchBarTextWasChanged() {
     if searchBarText == "" {
-      switchPresentedView(by: .recentSearchWords)
+      switchPresentedView(to: .recentSearchWords)
       return
     }
     
     if isRecentSearchWordTapped {
-      switchPresentedView(by: .listBySearchValue)
+      switchPresentedView(to: .listBySearchValue)
       isRecentSearchWordTapped = false
       return
     }
     
-    switchPresentedView(by: .suggestionWords)
+    switchPresentedView(to: .suggestionWords)
     
     updateSuggestionWords()
   }
@@ -69,7 +69,7 @@ final class ItemSearchViewModel: ObservableObject {
   }
   
   func suggestionWordTapped() {
-    switchPresentedView(by: .listBySearchValue)
+    switchPresentedView(to: .listBySearchValue)
   }
   
 }
@@ -98,7 +98,7 @@ private extension ItemSearchViewModel {
     }
   }
   
-  func switchPresentedView(by searchPhase: SearchPhase) {
+  func switchPresentedView(to searchPhase: SearchPhase) {
     switch searchPhase {
     case .recentSearchWords:
       self.searchPhase = .recentSearchWords
