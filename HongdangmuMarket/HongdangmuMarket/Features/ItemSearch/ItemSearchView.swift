@@ -150,7 +150,7 @@ private extension ItemSearchView {
   
   func suggestionWord(_ word: String) -> some View {
     Button {
-      viewModel.switchPresentedView(by: .listBySearchValue)
+      viewModel.suggestionWordTapped()      
     } label: {
       HStack {
         Image(systemName: "magnifyingglass")

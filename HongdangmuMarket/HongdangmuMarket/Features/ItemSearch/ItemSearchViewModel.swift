@@ -84,6 +84,10 @@ final class ItemSearchViewModel: ObservableObject {
     switchPresentedView(by: .listBySearchValue)
   }
   
+  func suggestionWordTapped() {
+    switchPresentedView(by: .listBySearchValue)
+  }
+  
 }
 
 private extension ItemSearchViewModel {
