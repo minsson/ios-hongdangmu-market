@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FD0E3A262A1E0091007748C6 /* SearchPhase.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0E3A252A1E0091007748C6 /* SearchPhase.swift */; };
 		FD2CD5B529E7297E00C695A2 /* MyPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD2CD5B429E7297E00C695A2 /* MyPageView.swift */; };
 		FD46E88829EACA6100A93D54 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD46E88729EACA6100A93D54 /* LoginView.swift */; };
 		FD46E88A29EADF3400A93D54 /* MyOnSalesItemsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD46E88929EADF3400A93D54 /* MyOnSalesItemsView.swift */; };
@@ -71,6 +72,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FD0E3A252A1E0091007748C6 /* SearchPhase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPhase.swift; sourceTree = "<group>"; };
 		FD2CD5B429E7297E00C695A2 /* MyPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageView.swift; sourceTree = "<group>"; };
 		FD46E88729EACA6100A93D54 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		FD46E88929EADF3400A93D54 /* MyOnSalesItemsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyOnSalesItemsView.swift; sourceTree = "<group>"; };
@@ -394,6 +396,7 @@
 			children = (
 				FDEFB4362A1792B30051BBF1 /* ItemSearchView.swift */,
 				FDEFB4382A18CD230051BBF1 /* ItemSearchViewModel.swift */,
+				FD0E3A252A1E0091007748C6 /* SearchPhase.swift */,
 			);
 			path = ItemSearch;
 			sourceTree = "<group>";
@@ -523,6 +526,7 @@
 				FD8BA9ED29E2598900F18661 /* Vendor.swift in Sources */,
 				FD2CD5B529E7297E00C695A2 /* MyPageView.swift in Sources */,
 				FD8BA9D729E1BC6C00F18661 /* API+LookUpItems.swift in Sources */,
+				FD0E3A262A1E0091007748C6 /* SearchPhase.swift in Sources */,
 				FDA34D1F29E2D05100CF96E3 /* OpenMarketAPIRequestPostProtocol.swift in Sources */,
 				FD8BA9EB29E24AB700F18661 /* API+LookUpItemDetail.swift in Sources */,
 				FD62C44829E857EB001B83ED /* CircleImageView.swift in Sources */,

@@ -22,11 +22,13 @@ struct ItemSearchView: View {
       navigationBar
         .padding(.bottom)
       
-      if viewModel.hasSearchBarText {
-        suggestionWordsContainer
-        
-      } else {
+      switch viewModel.searchPhase {
+      case .recentSearchWords:
         recentSearchWords
+      case .suggestionWords:
+        suggestionWordsContainer
+      case .listBySearchValue:
+        ItemSearchResultView(searchValue: viewModel.searchBarText)
       }
       
       Spacer()
