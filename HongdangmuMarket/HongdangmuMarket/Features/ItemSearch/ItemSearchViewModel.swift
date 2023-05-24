@@ -21,6 +21,10 @@ final class ItemSearchViewModel: ObservableObject {
     searchBarText.isEmpty ? false : true
   }
   
+}
+
+extension ItemSearchViewModel {
+  
   func textDeletionButtonTapped() {
     searchBarText = ""
     
@@ -45,6 +49,16 @@ final class ItemSearchViewModel: ObservableObject {
     switchPresentedView(to: .listBySearchValue)
   }
   
+  func recentSearchWordTapped(word: String) {
+    searchBarText = word
+    isRecentSearchWordTapped = true
+    updateRecentWordsOrder(of: word)
+  }
+  
+  func suggestionWordTapped() {
+    switchPresentedView(to: .listBySearchValue)
+  }
+  
   func searchBarTextWasChanged() {
     if searchBarText == "" {
       switchPresentedView(to: .recentSearchWords)
@@ -60,16 +74,6 @@ final class ItemSearchViewModel: ObservableObject {
     switchPresentedView(to: .suggestionWords)
     
     updateSuggestionWords()
-  }
-  
-  func recentSearchWordTapped(word: String) {
-    searchBarText = word
-    isRecentSearchWordTapped = true
-    updateRecentWordsOrder(of: word)
-  }
-  
-  func suggestionWordTapped() {
-    switchPresentedView(to: .listBySearchValue)
   }
   
 }
