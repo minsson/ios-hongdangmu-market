@@ -40,9 +40,7 @@ final class ItemSearchViewModel: ObservableObject {
   }
   
   func searchWordWasSubmitted(_ word: String) {
-    // 최근검색어목록에서 위치 바꾸기
-    deleteOneSearchWordButtonTapped(word)
-    recentSearchWords.insert(word, at: 0)
+    updateRecentWordsOrder(of: word)
     
     switchPresentedView(by: .listBySearchValue)
   }
@@ -104,6 +102,11 @@ private extension ItemSearchViewModel {
     case .listBySearchValue:
       self.searchPhase = .listBySearchValue
     }
+  }
+  
+  func updateRecentWordsOrder(of word: String) {
+    deleteOneSearchWordButtonTapped(word)
+    recentSearchWords.insert(word, at: 0)
   }
   
 }
