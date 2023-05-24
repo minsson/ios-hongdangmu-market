@@ -59,13 +59,7 @@ final class ItemSearchViewModel: ObservableObject {
     
     switchPresentedView(by: .suggestionWords)
     
-    Task {
-      await MainActor.run { [weak self] in
-        self?.suggestionWords.removeAll()
-      }
-      
-      await retrieveSuggestionWords(for: searchBarText)
-    }
+    updateSuggestionWords()
   }
   
   func recentSearchWordTapped(word: String) {
@@ -81,6 +75,16 @@ final class ItemSearchViewModel: ObservableObject {
 }
 
 private extension ItemSearchViewModel {
+  
+  func updateSuggestionWords() {
+    Task {
+      await MainActor.run { [weak self] in
+        self?.suggestionWords.removeAll()
+      }
+      
+      await retrieveSuggestionWords(for: searchBarText)
+    }
+  }
   
   func retrieveSuggestionWords(for text: String) async {
     let data = await openMarketAPIService.suggestionWords(for: text)
