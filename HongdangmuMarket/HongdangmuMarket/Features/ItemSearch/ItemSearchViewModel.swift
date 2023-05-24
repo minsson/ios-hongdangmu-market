@@ -45,6 +45,18 @@ final class ItemSearchViewModel: ObservableObject {
   }
   
   func searchBarTextWasChanged(newText: String) {
+    if newText == "" {
+      searchPhase = .recentSearchWords
+      return
+    }
+    
+    if newText.count - searchBarText.count != 1 {
+      searchPhase = .listBySearchValue
+      return
+    }
+     
+    searchPhase = .suggestionWords
+    
     Task {
       await MainActor.run { [weak self] in
         self?.suggestionWords.removeAll()

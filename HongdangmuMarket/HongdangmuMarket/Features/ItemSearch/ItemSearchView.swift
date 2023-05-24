@@ -70,6 +70,9 @@ private extension ItemSearchView {
         .onSubmit {
           viewModel.searchWordWasSubmitted(viewModel.searchBarText)
         }
+        .onChange(of: viewModel.searchBarText) { newText in
+          viewModel.searchBarTextWasChanged(newText: newText)
+        }
       
       if viewModel.hasSearchBarText {
         Button {
