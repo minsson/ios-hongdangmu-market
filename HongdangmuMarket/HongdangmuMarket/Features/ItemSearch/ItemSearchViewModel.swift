@@ -10,19 +10,20 @@ import Foundation
 final class ItemSearchViewModel: ObservableObject {
   
   @Published var searchBarText: String = ""
-  @Published var recentSearchWords: [String] = ["Temp  1", "Temp 2", "Temp 3"]
+  @Published var recentSearchWords: [String] = ["Temp  1", "Temp 2", "Temp 3", "Apple"]
   @Published var suggestionWords: [String] = []
   @Published var searchPhase: SearchPhase = .recentSearchWords
-
+  
   private let openMarketAPIService = OpenMarketAPIService()
-
+  
   var hasSearchBarText: Bool {
     searchBarText.isEmpty ? false : true
   }
   
   func textDeletionButtonTapped() {
     searchBarText = ""
-    searchPhase = .recentSearchWords
+    
+    switchPresentedView(by: .recentSearchWords)
   }
   
   func deleteRecentSearchWordsButtonTapped() {
@@ -36,26 +37,27 @@ final class ItemSearchViewModel: ObservableObject {
     
     recentSearchWords.remove(at: index)
   }
-
+  
   func searchWordWasSubmitted(_ word: String) {
+    // 최근검색어목록에서 위치 바꾸기
     deleteOneSearchWordButtonTapped(word)
     recentSearchWords.insert(word, at: 0)
     
-    searchPhase = .listBySearchValue
+    switchPresentedView(by: .listBySearchValue)
   }
   
   func searchBarTextWasChanged(newText: String) {
     if newText == "" {
-      searchPhase = .recentSearchWords
+      switchPresentedView(by: .recentSearchWords)
       return
     }
     
     if newText.count - searchBarText.count != 1 {
-      searchPhase = .listBySearchValue
+      switchPresentedView(by: .listBySearchValue)
       return
     }
-     
-    searchPhase = .suggestionWords
+    
+    switchPresentedView(by: .suggestionWords)
     
     Task {
       await MainActor.run { [weak self] in
@@ -63,6 +65,17 @@ final class ItemSearchViewModel: ObservableObject {
       }
       
       await retrieveSuggestionWords(for: newText)
+    }
+  }
+  
+  func switchPresentedView(by searchPhase: SearchPhase) {
+    switch searchPhase {
+    case .recentSearchWords:
+      self.searchPhase = .recentSearchWords
+    case .suggestionWords:
+      self.searchPhase = .suggestionWords
+    case .listBySearchValue:
+      self.searchPhase = .listBySearchValue
     }
   }
   

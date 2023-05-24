@@ -117,7 +117,7 @@ private extension ItemSearchView {
       HStack {
         Button {
           viewModel.searchBarText = word
-          viewModel.searchPhase = .listBySearchValue
+          viewModel.switchPresentedView(by: .listBySearchValue)
         } label: {
           Text(word)
             .lineLimit(1)
@@ -151,7 +151,7 @@ private extension ItemSearchView {
   
   func suggestionWord(_ word: String) -> some View {
     Button {
-      viewModel.searchPhase = .listBySearchValue
+      viewModel.switchPresentedView(by: .listBySearchValue)
     } label: {
       HStack {
         Image(systemName: "magnifyingglass")
