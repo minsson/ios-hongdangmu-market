@@ -39,6 +39,8 @@ final class ItemSearchViewModel: ObservableObject {
   func searchWordWasSubmitted(_ word: String) {
     deleteOneSearchWordButtonTapped(word)
     recentSearchWords.insert(word, at: 0)
+    
+    searchPhase = .listBySearchValue
   }
   
   func searchBarTextWasChanged(newText: String) {
