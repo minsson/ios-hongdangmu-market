@@ -68,17 +68,6 @@ final class ItemSearchViewModel: ObservableObject {
     }
   }
   
-  func switchPresentedView(by searchPhase: SearchPhase) {
-    switch searchPhase {
-    case .recentSearchWords:
-      self.searchPhase = .recentSearchWords
-    case .suggestionWords:
-      self.searchPhase = .suggestionWords
-    case .listBySearchValue:
-      self.searchPhase = .listBySearchValue
-    }
-  }
-  
   func recentSearchWordTapped(word: String) {
     searchBarText = word
     switchPresentedView(by: .listBySearchValue)
@@ -101,6 +90,17 @@ private extension ItemSearchViewModel {
     
     await MainActor.run {
       suggestionWords = words
+    }
+  }
+  
+  func switchPresentedView(by searchPhase: SearchPhase) {
+    switch searchPhase {
+    case .recentSearchWords:
+      self.searchPhase = .recentSearchWords
+    case .suggestionWords:
+      self.searchPhase = .suggestionWords
+    case .listBySearchValue:
+      self.searchPhase = .listBySearchValue
     }
   }
   
