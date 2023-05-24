@@ -71,6 +71,7 @@ final class ItemSearchViewModel: ObservableObject {
   func recentSearchWordTapped(word: String) {
     searchBarText = word
     isRecentSearchWordTapped = true
+    updateRecentWordsOrder(of: word)
   }
   
   func suggestionWordTapped() {
