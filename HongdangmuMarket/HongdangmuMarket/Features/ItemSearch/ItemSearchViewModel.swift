@@ -22,6 +22,7 @@ final class ItemSearchViewModel: ObservableObject {
   
   func textDeletionButtonTapped() {
     searchBarText = ""
+    searchPhase = .recentSearchWords
   }
   
   func deleteRecentSearchWordsButtonTapped() {
