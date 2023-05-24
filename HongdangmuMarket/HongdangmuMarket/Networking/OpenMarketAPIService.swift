@@ -34,8 +34,8 @@ extension OpenMarketAPIService {
 
 extension OpenMarketAPIService {
   
-  func itemListPageData(pageNumber: Int) async throws -> Data {
-    guard let request: URLRequest = API.LookUpItems(pageNumber: pageNumber, itemsPerPage: 100, searchValue: nil).urlRequest else {
+  func itemListPageData(pageNumber: Int, searchValue: String?) async throws -> Data {
+    guard let request: URLRequest = API.LookUpItems(pageNumber: pageNumber, itemsPerPage: 100, searchValue: searchValue ?? nil).urlRequest else {
       throw URLError(.badURL)
     }
     

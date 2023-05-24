@@ -9,11 +9,16 @@ import Foundation
 
 final class ItemListViewModel: ObservableObject {
   
+  let searchValue: String?
   @Published private(set) var items: [Item] = []
   
   private(set) var hasMoreData = true
   private var currentPage = 1
   private let openMarketAPIService = OpenMarketAPIService()
+  
+  init(searchValue: String? = nil) {
+    self.searchValue = searchValue
+  }
   
 }
 
@@ -49,7 +54,7 @@ private extension ItemListViewModel {
   
   func retrieveItems() async {
     do {
-      let data: Data = try await openMarketAPIService.itemListPageData(pageNumber: currentPage)
+      let data: Data = try await openMarketAPIService.itemListPageData(pageNumber: currentPage, searchValue: searchValue ?? "")
       let itemListPage: ItemListPage = try DataToEntityConverter().convert(data: data, to: ItemListPageDTO.self)
       currentPage += 1
       
