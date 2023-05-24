@@ -116,8 +116,7 @@ private extension ItemSearchView {
     VStack {
       HStack {
         Button {
-          viewModel.searchBarText = word
-          viewModel.switchPresentedView(by: .listBySearchValue)
+          viewModel.recentSearchWordTapped(word: word)
         } label: {
           Text(word)
             .lineLimit(1)

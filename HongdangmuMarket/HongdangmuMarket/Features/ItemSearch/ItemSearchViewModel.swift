@@ -79,6 +79,11 @@ final class ItemSearchViewModel: ObservableObject {
     }
   }
   
+  func recentSearchWordTapped(word: String) {
+    searchBarText = word
+    switchPresentedView(by: .listBySearchValue)
+  }
+  
 }
 
 private extension ItemSearchViewModel {
