@@ -116,6 +116,7 @@ private extension ItemSearchView {
           viewModel.recentSearchWordTapped(word: word)
         } label: {
           Text(word)
+            .foregroundColor(.primary)
             .lineLimit(1)
         }
 
