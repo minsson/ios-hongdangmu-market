@@ -9,12 +9,9 @@ import Foundation
 
 final class ItemListViewModel: ObservableObject {
   
-  @Published var shouldPresentItemAddView: Bool = false
-  @Published var shouldPresentRecentlyAddedItem: Bool = false
   @Published private(set) var items: [Item] = []
   
   private(set) var hasMoreData = true
-  private(set) var recentlyAddedItem: String = ""
   private var currentPage = 1
   private let openMarketAPIService = OpenMarketAPIService()
   
@@ -34,17 +31,6 @@ extension ItemListViewModel {
     await retrieveItems()
   }
   
-  func addButtonTapped() {
-    shouldPresentItemAddView = true
-  }
-  
-  func itemAddActionFinished(addedItemID: String) async {
-    recentlyAddedItem = addedItemID
-    await MainActor.run { [weak self] in
-      self?.shouldPresentRecentlyAddedItem = true
-    }
-  }
-  
   func itemDeletionCompletionExecuted(deletedItemID: String) {
     guard let deletionIndex = items.firstIndex(where: { $0.id == deletedItemID }) else {
       return
@@ -56,6 +42,7 @@ extension ItemListViewModel {
       }
     }
   }
+  
 }
 
 private extension ItemListViewModel {

@@ -19,7 +19,7 @@ struct MainContainerView: View {
     if viewModel.isLoggedIn {
       NavigationView {
         TabView(selection: $viewModel.selectedTagIndex) {
-          ItemListView()
+          ItemListContainerView()
             .tabItem {
               Label("홈", systemImage: "house")
             }
