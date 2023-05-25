@@ -14,7 +14,7 @@ struct AddRequestItemDTO: Encodable {
   let currency: String
   let stock: Int
   let description: String
-  let secret: String = "ebs12345"
+  let secret: String = LoginData.shared.password
   let thumbnailID: Int? = nil
   
   private enum CodingKeys: String, CodingKey {

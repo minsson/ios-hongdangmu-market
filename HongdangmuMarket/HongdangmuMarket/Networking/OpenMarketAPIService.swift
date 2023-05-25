@@ -105,7 +105,7 @@ extension OpenMarketAPIService {
   }
   
   func retrieveRecentlyAddedItem() async throws -> Data {
-    guard let request: URLRequest = API.LookUpItems(pageNumber: 1, itemsPerPage: 1, searchValue: "sixthVendor").urlRequest else {
+    guard let request: URLRequest = API.LookUpItems(pageNumber: 1, itemsPerPage: 1, searchValue: LoginData.shared.nickname).urlRequest else {
       throw URLError(.badURL)
     }
     

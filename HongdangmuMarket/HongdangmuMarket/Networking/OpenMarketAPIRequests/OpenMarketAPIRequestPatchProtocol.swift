@@ -33,7 +33,7 @@ extension OpenMarketAPIRequestPatchProtocol {
     
     var request = URLRequest(url: url)
     request.httpMethod = httpMethod
-    request.setValue("7184295e-4aa1-11ed-a200-354cb82ae52e", forHTTPHeaderField: "identifier")
+    request.setValue(LoginData.shared.identifier, forHTTPHeaderField: "identifier")
     request.setValue("application/json", forHTTPHeaderField: "Content-type")
     request.httpBody = jsonData
     
