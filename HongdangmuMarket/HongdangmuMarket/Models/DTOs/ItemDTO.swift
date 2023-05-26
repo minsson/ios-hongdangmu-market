@@ -60,4 +60,15 @@ extension ItemDTO {
     )
   }
   
+  func toAddRequestItemDTO() -> AddRequestItemDTO {
+    return AddRequestItemDTO(
+      name: name,
+      price: price,
+      discountedPrice: discountedPrice,
+      currency: "KRW",
+      stock: stock,
+      description: description
+    )
+  }
+  
 }
