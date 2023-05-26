@@ -26,6 +26,13 @@ struct DateCalculator {
     return date
   }
   
+  func dateToString(_ date: Date, usingFormat formatString: String) -> String {
+    dateFormatter.timeZone = TimeZone.autoupdatingCurrent
+    dateFormatter.dateFormat = formatString
+    let dateString = dateFormatter.string(from: date)
+    return dateString
+  }
+  
 }
 
 private extension DateCalculator {
