@@ -158,3 +158,20 @@ extension OpenMarketAPIService {
   }
   
 }
+
+// MARK: - MySalesHistoryContainerViewModel
+
+extension OpenMarketAPIService {
+  
+  func update(stock: Int, of item: Item) async throws {
+    let addRequestItemDTO = item.toDTO().toAddRequestItemDTO()
+    let data = try? JSONEncoder().encode(addRequestItemDTO)
+    
+    guard let request = API.EditItem(itemID: item.id, with: data).urlRequest else {
+      return
+    }
+    
+    let _ = try await execute(request)
+  }
+  
+}
