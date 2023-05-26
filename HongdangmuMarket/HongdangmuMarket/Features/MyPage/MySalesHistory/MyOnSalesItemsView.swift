@@ -28,7 +28,7 @@ struct MyOnSalesItemsView: View {
               
               Divider()
               
-              actionButtons
+              actionButtons(with: item)
                 .frame(height: 50)
               
               Rectangle()
@@ -65,7 +65,7 @@ private extension MyOnSalesItemsView {
   }
   
   @ViewBuilder
-  var actionButtons: some View {
+  func actionButtons(with item: Item) -> some View {
     HStack(spacing: 0) {
       Button("끌어올리기") {
         // TODO: 기능 구현
@@ -82,7 +82,7 @@ private extension MyOnSalesItemsView {
       Divider()
       
       Button("거래완료") {
-        // TODO: 기능 구현
+        viewModel.sellingCompletedButtonTapped(item: item)
       }
       .frame(maxWidth: .infinity)
     }
