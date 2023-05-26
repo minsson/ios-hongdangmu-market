@@ -13,6 +13,7 @@ final class MySalesHistoryContainerViewModel: ObservableObject {
   @Published private(set) var items: [Item] = []
   
   private(set) var hasMoreData = false
+  private let openMarketAPIService = OpenMarketAPIService()
   
   var onSalesItems: [Item] {
     return items.filter { $0.stock > 0 }
@@ -30,6 +31,14 @@ extension MySalesHistoryContainerViewModel {
   
   func viewNeedsMoreContents() async throws {
     try? await retrieveItems()
+  }
+  
+  func sellingCompletedButtonTapped(item: Item) {
+    Task {
+      var updatedItem = item
+      updatedItem.stock = 0
+      try await openMarketAPIService.update(stock: 0, of: updatedItem)
+    }
   }
   
 }
