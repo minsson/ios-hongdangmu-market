@@ -35,9 +35,6 @@ struct ItemDetailView: View {
         stickyHeaderImage
           .frame(height: deviceWidth)
           .padding(.bottom, 6)
-          .overlay {
-            gradientOnImage
-          }
         
         profileView
           .padding(.horizontal)
@@ -157,6 +154,9 @@ private extension ItemDetailView {
           image.image
             .resizable()
             .aspectRatio(contentMode: .fill)
+            .overlay {
+              gradientOnImage
+            }
         }
       }
       .background { Color.secondary }
