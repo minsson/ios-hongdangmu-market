@@ -50,5 +50,26 @@ extension Item {
       }
     }
   }
+ 
+  func toDTO() -> ItemDTO {
+    let dateCalculator = DateCalculator()
+    let serverDateFormat = "yyyy-MM-dd'T'HH:mm:ss"
+    
+    return ItemDTO(
+      id: Int(id) ?? 0,
+      vendorID: Int(vendorID) ?? 0,
+      name: name,
+      description: description,
+      thumbnail: thumbnail,
+      price: Double(price),
+      bargainPrice: Double(bargainPrice),
+      discountedPrice: Double(discountedPrice),
+      stock: stock,
+      images: images,
+      vendors: vendors,
+      createdAt: dateCalculator.dateToString(createdAt, usingFormat: serverDateFormat),
+      issuedAt: dateCalculator.dateToString(issuedAt, usingFormat: serverDateFormat)
+    )
+  }
   
 }
