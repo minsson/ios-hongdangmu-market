@@ -15,6 +15,15 @@ struct ItemDetailView: View {
   let itemID: String
   let deviceWidth = UIScreen.main.bounds.width
   
+  private let gradientOnImage = LinearGradient(
+    gradient: Gradient(stops: [
+      .init(color: .gray, location: 0),
+      .init(color: .clear, location: 0.25),
+    ]),
+    startPoint: .top,
+    endPoint: .bottom
+  )
+  
   init(itemID: String, itemDeletionCompletion: @escaping () -> Void) {
     self.itemID = itemID
     _viewModel = StateObject(wrappedValue: ItemDetailViewModel(itemID: itemID, itemDeletionCompletion: itemDeletionCompletion))
@@ -26,6 +35,9 @@ struct ItemDetailView: View {
         stickyHeaderImage
           .frame(height: deviceWidth)
           .padding(.bottom, 6)
+          .overlay {
+            gradientOnImage
+          }
         
         profileView
           .padding(.horizontal)
