@@ -10,6 +10,7 @@
 		FD0E3A262A1E0091007748C6 /* SearchPhase.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0E3A252A1E0091007748C6 /* SearchPhase.swift */; };
 		FD2CD5B529E7297E00C695A2 /* MyPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD2CD5B429E7297E00C695A2 /* MyPageView.swift */; };
 		FD33045B2A249E530053C9FF /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD33045A2A249E530053C9FF /* View+Extension.swift */; };
+		FD33045D2A249FE60053C9FF /* HTTPStatusCodeError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD33045C2A249FE60053C9FF /* HTTPStatusCodeError.swift */; };
 		FD46E88829EACA6100A93D54 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD46E88729EACA6100A93D54 /* LoginView.swift */; };
 		FD46E88A29EADF3400A93D54 /* MyOnSalesItemsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD46E88929EADF3400A93D54 /* MyOnSalesItemsView.swift */; };
 		FD46E88C29EAF24B00A93D54 /* MySalesHistoryContainerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD46E88B29EAF24B00A93D54 /* MySalesHistoryContainerViewModel.swift */; };
@@ -77,6 +78,7 @@
 		FD0E3A252A1E0091007748C6 /* SearchPhase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPhase.swift; sourceTree = "<group>"; };
 		FD2CD5B429E7297E00C695A2 /* MyPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageView.swift; sourceTree = "<group>"; };
 		FD33045A2A249E530053C9FF /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
+		FD33045C2A249FE60053C9FF /* HTTPStatusCodeError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPStatusCodeError.swift; sourceTree = "<group>"; };
 		FD46E88729EACA6100A93D54 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		FD46E88929EADF3400A93D54 /* MyOnSalesItemsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyOnSalesItemsView.swift; sourceTree = "<group>"; };
 		FD46E88B29EAF24B00A93D54 /* MySalesHistoryContainerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySalesHistoryContainerViewModel.swift; sourceTree = "<group>"; };
@@ -178,6 +180,14 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
+		FD33045E2A249FEB0053C9FF /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				FD33045C2A249FE60053C9FF /* HTTPStatusCodeError.swift */,
+			);
+			path = Error;
+			sourceTree = "<group>";
+		};
 		FD62C44029E846D4001B83ED /* MySalesHistory */ = {
 			isa = PBXGroup;
 			children = (
@@ -258,6 +268,7 @@
 		FD8BA9C029E1AE2400F18661 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				FD33045E2A249FEB0053C9FF /* Error */,
 				FD3304592A249E420053C9FF /* Extension */,
 				FD62C44729E857EB001B83ED /* CircleImageView.swift */,
 			);
@@ -524,6 +535,7 @@
 				FD46E88829EACA6100A93D54 /* LoginView.swift in Sources */,
 				FD8BA9B829E19F2100F18661 /* ItemRowView.swift in Sources */,
 				FD8BA9DE29E1F2D100F18661 /* DTOProtocol.swift in Sources */,
+				FD33045D2A249FE60053C9FF /* HTTPStatusCodeError.swift in Sources */,
 				FD62C44A29E862DE001B83ED /* MySalesStatusTabBarView.swift in Sources */,
 				FDA34D1C29E2CF1500CF96E3 /* MultipartFormDataHandlingProtocol.swift in Sources */,
 				FDDA46582A13F001003D279E /* LoginData.swift in Sources */,
