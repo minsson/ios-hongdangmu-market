@@ -12,6 +12,7 @@
 		FD33045B2A249E530053C9FF /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD33045A2A249E530053C9FF /* View+Extension.swift */; };
 		FD33045D2A249FE60053C9FF /* HTTPStatusCodeError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD33045C2A249FE60053C9FF /* HTTPStatusCodeError.swift */; };
 		FD3304732A24FAD20053C9FF /* OpenMarketAPIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD3304722A24FAD20053C9FF /* OpenMarketAPIError.swift */; };
+		FD3304752A2500970053C9FF /* HondangmuError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD3304742A2500970053C9FF /* HondangmuError.swift */; };
 		FD3304772A25064A0053C9FF /* BusinessLogicError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD3304762A25064A0053C9FF /* BusinessLogicError.swift */; };
 		FD46E88829EACA6100A93D54 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD46E88729EACA6100A93D54 /* LoginView.swift */; };
 		FD46E88A29EADF3400A93D54 /* MyOnSalesItemsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD46E88929EADF3400A93D54 /* MyOnSalesItemsView.swift */; };
@@ -82,6 +83,7 @@
 		FD33045A2A249E530053C9FF /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
 		FD33045C2A249FE60053C9FF /* HTTPStatusCodeError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPStatusCodeError.swift; sourceTree = "<group>"; };
 		FD3304722A24FAD20053C9FF /* OpenMarketAPIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenMarketAPIError.swift; sourceTree = "<group>"; };
+		FD3304742A2500970053C9FF /* HondangmuError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HondangmuError.swift; sourceTree = "<group>"; };
 		FD3304762A25064A0053C9FF /* BusinessLogicError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessLogicError.swift; sourceTree = "<group>"; };
 		FD46E88729EACA6100A93D54 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		FD46E88929EADF3400A93D54 /* MyOnSalesItemsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyOnSalesItemsView.swift; sourceTree = "<group>"; };
@@ -189,6 +191,7 @@
 			children = (
 				FD33045C2A249FE60053C9FF /* HTTPStatusCodeError.swift */,
 				FD3304722A24FAD20053C9FF /* OpenMarketAPIError.swift */,
+				FD3304742A2500970053C9FF /* HondangmuError.swift */,
 				FD3304762A25064A0053C9FF /* BusinessLogicError.swift */,
 			);
 			path = Error;
@@ -569,6 +572,7 @@
 				FDCE20392A1D1338008CBF42 /* ItemListContainerViewModel.swift in Sources */,
 				FDCE203D2A1DAD93008CBF42 /* ItemListContainerView.swift in Sources */,
 				FDF1820E2A0CDB15004EF3AF /* API+EditItem.swift in Sources */,
+				FD3304752A2500970053C9FF /* HondangmuError.swift in Sources */,
 				FD8BA9E229E2135C00F18661 /* DateCalculator.swift in Sources */,
 				FDAC09F02A226BC300DBDDDF /* ImageManager.swift in Sources */,
 				FD62C44D29E864EC001B83ED /* SalesStatus.swift in Sources */,
