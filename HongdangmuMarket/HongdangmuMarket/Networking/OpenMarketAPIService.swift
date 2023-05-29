@@ -10,12 +10,8 @@ import UIKit.UIImage
 struct OpenMarketAPIService {
   
   func execute(_ request: URLRequest) async throws -> Data {
-    do {
-      let data = try await NetworkManager().execute(request)
-      return data
-    } catch {
-      throw error
-    }
+    let data = try await NetworkManager().execute(request)
+    return data
   }
   
 }
@@ -36,7 +32,7 @@ extension OpenMarketAPIService {
   
   func itemListPageData(pageNumber: Int, searchValue: String?) async throws -> Data {
     guard let request: URLRequest = API.LookUpItems(pageNumber: pageNumber, itemsPerPage: 100, searchValue: searchValue ?? nil).urlRequest else {
-      throw URLError(.badURL)
+      throw OpenMarketAPIError.invalidURLRequest
     }
     
     let data = try await execute(request)
@@ -51,7 +47,7 @@ extension OpenMarketAPIService {
   
   func itemDetailData(itemID: String) async throws -> Data {
     guard let request: URLRequest = API.LookUpItemDetail(itemID: String(itemID)).urlRequest else {
-      throw URLError(.badURL)
+      throw OpenMarketAPIError.invalidURLRequest
     }
     
     let data = try await execute(request)
@@ -60,7 +56,7 @@ extension OpenMarketAPIService {
   
   func itemDetailImageData(for url: String) async throws -> Data {
     guard let url = URL(string: url) else {
-      throw URLError(.badURL)
+      throw OpenMarketAPIError.invalidURLRequest
     }
     
     let request = URLRequest(url: url)
@@ -73,7 +69,7 @@ extension OpenMarketAPIService {
     let uriString = String(data: uriData, encoding: .utf8)!
     
     guard let request: URLRequest = API.DeleteItem(itemID: id, deletionItemURI: uriString).urlRequest else {
-      throw URLError(.badURL)
+      throw OpenMarketAPIError.invalidURLRequest
     }
     
     let data: Data = try await execute(request)
@@ -82,7 +78,7 @@ extension OpenMarketAPIService {
   
   private func deletionItemURI(id: String) async throws -> Data {
     guard let request: URLRequest = API.DeleteItem(itemID: id, deletionItemURI: "").uriRetrievingURLRequest else {
-      throw URLError(.badURL)
+      throw OpenMarketAPIError.invalidURLRequest
     }
     
     let data: Data = try await execute(request)
@@ -100,7 +96,7 @@ extension OpenMarketAPIService {
     let resizedImages = ImageManager().resize(images: images)
     
     guard let request: URLRequest = API.AddItem(jsonData: data, images: resizedImages).urlRequest else {
-      throw URLError(.badURL)
+      throw OpenMarketAPIError.invalidURLRequest
     }
     
     let _ = try await execute(request)
@@ -108,7 +104,7 @@ extension OpenMarketAPIService {
   
   func retrieveRecentlyAddedItem() async throws -> Data {
     guard let request: URLRequest = API.LookUpItems(pageNumber: 1, itemsPerPage: 1, searchValue: LoginData.shared.nickname).urlRequest else {
-      throw URLError(.badURL)
+      throw OpenMarketAPIError.invalidURLRequest
     }
     
     let data = try await execute(request)
@@ -123,7 +119,7 @@ extension OpenMarketAPIService {
   
   func editItem(id: String, with data: Data) async throws {
     guard let request: URLRequest = API.EditItem(itemID: id, with: data).urlRequest else {
-      return
+      throw OpenMarketAPIError.invalidURLRequest
     }
     
     let _ = try await execute(request)
@@ -170,7 +166,7 @@ extension OpenMarketAPIService {
     let data = try? JSONEncoder().encode(addRequestItemDTO)
     
     guard let request = API.EditItem(itemID: item.id, with: data).urlRequest else {
-      return
+      throw OpenMarketAPIError.invalidURLRequest
     }
     
     let _ = try await execute(request)
