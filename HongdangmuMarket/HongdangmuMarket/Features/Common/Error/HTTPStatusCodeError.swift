@@ -13,7 +13,7 @@ enum HTTPStatusCodeError: LocalizedError {
   case redirection
   case clientError(code: Int)
   case serverError(code: Int)
-  case unknown(code: Int)
+  case unknown(code: Int?)
   
   var failureReason: String? {
     switch self {

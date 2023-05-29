@@ -22,7 +22,7 @@ private extension NetworkManager {
   
   func validate(urlResponse: URLResponse) throws {
     guard let httpResponseCode = urlResponse.httpResponseCode() else {
-      return
+      throw HTTPStatusCodeError.unknown(code: urlResponse.httpResponseCode())
     }
     
     switch httpResponseCode {
