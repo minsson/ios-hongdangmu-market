@@ -11,6 +11,7 @@ final class ItemListViewModel: ObservableObject {
   
   let searchValue: String?
   @Published private(set) var items: [Item] = []
+  @Published var error: HongdangmuError?
   
   private(set) var hasMoreData = true
   private var currentPage = 1
@@ -62,8 +63,12 @@ private extension ItemListViewModel {
         self?.hasMoreData = itemListPage.hasNext
         self?.items.append(contentsOf: itemListPage.items)
       }
+    } catch let error as OpenMarketAPIError {
+      self.error = HongdangmuError.openMarketAPIServiceError(error)
+    } catch let error as BusinessLogicError {
+      self.error = HongdangmuError.businessLogicError(error)
     } catch {
-      print(error.localizedDescription)
+      self.error = HongdangmuError.unknownError
     }
   }
   
