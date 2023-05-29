@@ -10,29 +10,46 @@ import Foundation
 struct NetworkManager {
   
   func execute(_ urlRequest: URLRequest) async throws -> Data {
-    do {
-      let (data, response) = try await URLSession.shared.data(for: urlRequest)
-      
-      guard isValidResponse(response) else {
-        throw URLError(.badServerResponse)
-      }
-      return data
-    } catch {
-      throw error
-    }
+    let (data, response) = try await URLSession.shared.data(for: urlRequest)
+    try validate(urlResponse: response)
+    
+    return data
   }
   
 }
 
 private extension NetworkManager {
   
-  func isValidResponse(_ response: URLResponse?) -> Bool {
-    guard let httpResponse = response as? HTTPURLResponse,
-          (200...299).contains(httpResponse.statusCode) else {
-      return false
+  func validate(urlResponse: URLResponse) throws {
+    guard let httpResponseCode = urlResponse.httpResponseCode() else {
+      return
     }
     
-    return true
+    switch httpResponseCode {
+    case 100...199:
+      throw HTTPStatusCodeError.informational
+    case 200...299:
+      return
+    case 300...399:
+      throw HTTPStatusCodeError.redirection
+    case 400...499:
+      throw HTTPStatusCodeError.clientError(code: httpResponseCode)
+    case 500...599:
+      throw HTTPStatusCodeError.serverError(code: httpResponseCode)
+    default:
+      throw HTTPStatusCodeError.unknown(code: httpResponseCode)
+    }
+  }
+  
+}
+
+fileprivate extension URLResponse {
+  
+  func httpResponseCode() -> Int? {
+    let httpResponse = self as? HTTPURLResponse
+    let httpResponseCode = httpResponse?.statusCode
+    
+    return httpResponseCode
   }
   
 }
