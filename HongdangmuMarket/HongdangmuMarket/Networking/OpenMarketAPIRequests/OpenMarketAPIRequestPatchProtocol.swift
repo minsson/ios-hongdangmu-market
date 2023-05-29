@@ -17,7 +17,6 @@ protocol OpenMarketAPIRequestPatchProtocol: OpenMarketAPIRequestProtocol {
 extension OpenMarketAPIRequestPatchProtocol {
   
   var url: URL? {
-    
     var urlComponents = URLComponents(string: urlHost + urlPath)
     
     let itemID = itemID ?? ""
@@ -27,7 +26,7 @@ extension OpenMarketAPIRequestPatchProtocol {
   }
   
   var urlRequest: URLRequest? {
-    guard let url = url else {
+    guard let url else {
       return nil
     }
     
