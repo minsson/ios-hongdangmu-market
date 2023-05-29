@@ -34,7 +34,12 @@ extension MultipartFormDataHandlingProtocol {
       body.append("--\(boundary + lineBreak)")
       body.append("Content-Disposition: form-data; name=\"images\"; filename=\"\(UUID().uuidString).jpg\"\(lineBreak)")
       body.append("Content-Type: image/jpeg\(lineBreak + lineBreak)")
-      body.append(image.jpegData(compressionQuality: 0.1)!)
+      
+      guard let imageData = image.jpegData(compressionQuality: 0.5) else {
+        return
+      }
+      
+      body.append(imageData)
       body.append(lineBreak)
     }
     
