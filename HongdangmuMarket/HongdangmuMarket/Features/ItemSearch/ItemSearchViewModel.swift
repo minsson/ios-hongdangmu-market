@@ -13,6 +13,7 @@ final class ItemSearchViewModel: ObservableObject {
   @Published var recentSearchWords: [String] = ["Temp  1", "Temp 2", "Temp 3", "Apple"]
   @Published var suggestionWords: [String] = []
   @Published var searchPhase: SearchPhase = .recentSearchWords
+  @Published var error: HongdangmuError?
   
   private var isRecentSearchWordTapped: Bool = false
   private let openMarketAPIService = OpenMarketAPIService()
@@ -86,15 +87,21 @@ private extension ItemSearchViewModel {
         self?.suggestionWords.removeAll()
       }
       
-      await retrieveSuggestionWords(for: searchBarText)
+      do {
+        try await self?.retrieveSuggestionWords(for: self?.searchBarText ?? "")
+      } catch let error as BusinessLogicError {
+        self?.error = HongdangmuError.businessLogicError(error)
+      } catch {
+        self?.error = HongdangmuError.unknownError
+      }
     }
   }
   
-  func retrieveSuggestionWords(for text: String) async {
+  func retrieveSuggestionWords(for text: String) async throws {
     let data = await openMarketAPIService.suggestionWords(for: text)
     
     guard let words = try? JSONDecoder().decode([String].self, from: data) else {
-      return
+      throw HongdangmuError.businessLogicError(.invalidParsing)
     }
     
     await MainActor.run {
