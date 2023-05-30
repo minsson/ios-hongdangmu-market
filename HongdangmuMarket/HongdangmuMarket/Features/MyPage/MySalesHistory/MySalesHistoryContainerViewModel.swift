@@ -43,17 +43,17 @@ extension MySalesHistoryContainerViewModel {
   }
   
   func sellingCompletedButtonTapped(item: Item) {
-    Task {
+    Task { [weak self] in
       do {
         var updatedItem = item
         updatedItem.stock = 0
-        try await openMarketAPIService.update(stock: 0, of: updatedItem)
+        try await self?.openMarketAPIService.update(stock: 0, of: updatedItem)
       } catch let error as OpenMarketAPIError {
-        self.error = HongdangmuError.openMarketAPIServiceError(error)
+        self?.error = HongdangmuError.openMarketAPIServiceError(error)
       } catch let error as BusinessLogicError {
-        self.error = HongdangmuError.businessLogicError(error)
+        self?.error = HongdangmuError.businessLogicError(error)
       } catch {
-        self.error = HongdangmuError.unknownError
+        self?.error = HongdangmuError.unknownError
       }
     }
   }
