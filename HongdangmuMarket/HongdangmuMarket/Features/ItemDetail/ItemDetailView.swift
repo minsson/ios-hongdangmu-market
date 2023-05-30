@@ -77,6 +77,7 @@ struct ItemDetailView: View {
         }
       }
     }
+    .errorAlert(error: $viewModel.error)
   }
   
 }
