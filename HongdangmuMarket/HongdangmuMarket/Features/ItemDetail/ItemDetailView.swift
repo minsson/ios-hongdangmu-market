@@ -12,8 +12,8 @@ struct ItemDetailView: View {
   @Environment(\.dismiss) private var dismiss
   @StateObject private var viewModel: ItemDetailViewModel
   
-  let itemID: String
-  let deviceWidth = UIScreen.main.bounds.width
+  private let itemID: String
+  private let deviceWidth = UIScreen.main.bounds.width
   
   private let gradientOnImage = LinearGradient(
     gradient: Gradient(stops: [
