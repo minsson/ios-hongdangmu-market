@@ -10,6 +10,7 @@ import SwiftUI
 final class ItemAddViewModel: ObservableObject, ItemAddEditViewModelProtocol {
   
   @Published var shouldPresentImagePicker: Bool = false
+  @Published var error: HongdangmuError?
   
   @Published var selectedImages: [UIImage] = []
   @Published var title: String = ""
@@ -29,8 +30,12 @@ final class ItemAddViewModel: ObservableObject, ItemAddEditViewModelProtocol {
       do {
         try await self?.requestPostToServer()
         try await self?.requestRecentlyAddedItemID()
+      } catch let error as OpenMarketAPIError {
+        self?.error = HongdangmuError.openMarketAPIServiceError(error)
+      } catch let error as BusinessLogicError {
+        self?.error = HongdangmuError.businessLogicError(error)
       } catch {
-        print(error.localizedDescription)
+        self?.error = HongdangmuError.unknownError
       }
     }
   }
@@ -49,7 +54,7 @@ private extension ItemAddViewModel {
     let itemListPage = try DataToEntityConverter().convert(data: data, to: ItemListPageDTO.self)
     let items: [Item] = itemListPage.items
     guard let item = items.first else {
-      throw URLError(.fileDoesNotExist)
+      throw HongdangmuError.openMarketAPIServiceError(.invalidDataReceived)
     }
         
     itemAddCompletion?(item.id)
