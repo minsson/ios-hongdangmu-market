@@ -10,6 +10,7 @@ import UIKit.UIImage
 final class ItemEditViewModel: ObservableObject, ItemAddEditViewModelProtocol {
   
   @Published var shouldPresentImagePicker: Bool = false
+  @Published var error: HongdangmuError?
   
   @Published var selectedImages: [ItemDetailImage]
   @Published var title: String = ""
@@ -35,8 +36,10 @@ final class ItemEditViewModel: ObservableObject, ItemAddEditViewModelProtocol {
     Task { [weak self] in
       do {
         try await self?.editItem()
+      } catch let error as OpenMarketAPIError {
+        self?.error = HongdangmuError.openMarketAPIServiceError(error)
       } catch {
-        print(error.localizedDescription)
+        self?.error = HongdangmuError.unknownError
       }
     }
   }
