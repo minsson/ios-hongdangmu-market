@@ -55,11 +55,7 @@ struct ItemDetailView: View {
     }
     .ignoresSafeArea(edges: .top)
     .task {
-      do {
-        try await viewModel.viewWillAppear()
-      } catch {
-        // TODO: 에러 처리
-      }
+      await viewModel.viewWillAppear()
     }
     .navigationBarBackButtonHidden()
     .toolbar {
@@ -77,7 +73,7 @@ struct ItemDetailView: View {
     .fullScreenCover(isPresented: $viewModel.shouldPresentItemEditView) {
       ItemEditView(item: viewModel.item, selectedImages: viewModel.images) {
         Task {
-          try await viewModel.viewWillAppear()
+          await viewModel.viewWillAppear()
         }
       }
     }

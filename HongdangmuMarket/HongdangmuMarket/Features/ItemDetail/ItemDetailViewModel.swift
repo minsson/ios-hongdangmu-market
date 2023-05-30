@@ -25,17 +25,21 @@ final class ItemDetailViewModel: ObservableObject {
     self.itemDeletionCompletion = itemDeletionCompletion
   }
   
-  func viewWillAppear() async throws {
+  func viewWillAppear() async {
     do {
       let data: Data = try await openMarketAPIService.itemDetailData(itemID: itemID)
       let item = try DataToEntityConverter().convert(data: data, to: ItemDTO.self)
-      try await requestImages(for: item)
+      await requestImages(for: item)
       
       await MainActor.run { [weak self] in
         self?.item = item
       }
+    } catch let error as OpenMarketAPIError {
+      self.error = HongdangmuError.openMarketAPIServiceError(error)
+    } catch let error as BusinessLogicError {
+      self.error = HongdangmuError.businessLogicError(error)
     } catch {
-      throw error
+      self.error = HongdangmuError.unknownError
     }
   }
   
