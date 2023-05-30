@@ -7,13 +7,28 @@
 
 import Foundation
 
-enum HTTPStatusCodeError: LocalizedError {
+enum HTTPStatusCodeError: HongdangmuErrorProtocol {
   
   case informational
   case redirection
   case clientError(code: Int)
   case serverError(code: Int)
   case unknown(code: Int?)
+  
+  var code: String {
+      switch self {
+      case .informational:
+          return "SL100"
+      case .redirection:
+        return "SL300"
+      case .clientError(let code):
+        return String(code)
+      case .serverError(let code):
+        return String(code)
+      case .unknown(_):
+        return "SL900"
+      }
+  }
   
   var failureReason: String? {
     switch self {
@@ -26,7 +41,7 @@ enum HTTPStatusCodeError: LocalizedError {
     case .serverError(let code):
       return "서버 에러 (500번대 - httpStatusCode: \(code))"
     case .unknown(code: let code):
-      return "알 수 없는 에러 (httpStatusCode: \(code)"
+      return "알 수 없는 에러 (httpStatusCode: \(code ?? 0)"
     }
   }
   
