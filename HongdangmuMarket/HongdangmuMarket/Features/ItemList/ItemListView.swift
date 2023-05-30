@@ -41,6 +41,7 @@ struct ItemListView: View {
         await viewModel.itemListRefreshed()
       }
     }
+    .errorAlert(error: $viewModel.error)
   }
   
 }
