@@ -40,15 +40,11 @@ struct MyOnSalesItemsView: View {
         
         progressView
           .task {
-            do {
-              try await viewModel.viewNeedsMoreContents()
-            } catch {
-              // TODO: Alert 구현
-              print(error.localizedDescription)
-            }
+            await viewModel.viewNeedsMoreContents()
           }
       }
     }
+    .errorAlert(error: $viewModel.error)
   }
   
 }
