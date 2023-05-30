@@ -55,6 +55,7 @@ struct ItemEditView: View, ItemAddEditViewProtocol {
       }
       .padding()
     }
+    .errorAlert(error: $viewModel.error)
   }
   
 }
