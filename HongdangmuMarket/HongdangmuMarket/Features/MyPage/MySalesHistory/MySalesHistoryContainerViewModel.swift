@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class MySalesHistoryContainerViewModel: ObservableObject {
+final class MySalesHistoryContainerViewModel: ObservableObject, ViewModelErrorHandlingProtocol {
   
   @Published var shouldPresentItemAddView: Bool = false
   @Published private(set) var items: [Item] = []
@@ -30,29 +30,17 @@ final class MySalesHistoryContainerViewModel: ObservableObject {
 extension MySalesHistoryContainerViewModel {
   
   func viewNeedsMoreContents() async {
-    do {
+    await self.handleError {
       try await retrieveItems()
-    } catch let error as OpenMarketAPIError {
-      self.error = HongdangmuError.openMarketAPIServiceError(error)
-    } catch let error as BusinessLogicError {
-      self.error = HongdangmuError.businessLogicError(error)
-    } catch {
-      self.error = HongdangmuError.unknownError
     }
   }
   
   func sellingCompletedButtonTapped(item: Item) {
     Task { [weak self] in
-      do {
+      await self?.handleError {
         var updatedItem = item
         updatedItem.stock = 0
         try await self?.openMarketAPIService.update(stock: 0, of: updatedItem)
-      } catch let error as OpenMarketAPIError {
-        self?.error = HongdangmuError.openMarketAPIServiceError(error)
-      } catch let error as BusinessLogicError {
-        self?.error = HongdangmuError.businessLogicError(error)
-      } catch {
-        self?.error = HongdangmuError.unknownError
       }
     }
   }

@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-final class ItemAddViewModel: ObservableObject, ItemAddEditViewModelProtocol {
+final class ItemAddViewModel: ObservableObject, ItemAddEditViewModelProtocol, ViewModelErrorHandlingProtocol {
   
   @Published var shouldPresentImagePicker: Bool = false
   @Published var error: HongdangmuError?
@@ -26,15 +26,9 @@ final class ItemAddViewModel: ObservableObject, ItemAddEditViewModelProtocol {
   
   func finishButtonTapped() {
     Task { [weak self] in
-      do {
+      await self?.handleError { [weak self] in
         try await self?.requestPostToServer()
         try await self?.requestRecentlyAddedItemID()
-      } catch let error as OpenMarketAPIError {
-        self?.error = HongdangmuError.openMarketAPIServiceError(error)
-      } catch let error as BusinessLogicError {
-        self?.error = HongdangmuError.businessLogicError(error)
-      } catch {
-        self?.error = HongdangmuError.unknownError
       }
     }
   }

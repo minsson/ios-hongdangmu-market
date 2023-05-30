@@ -7,7 +7,7 @@
 
 import UIKit.UIImage
 
-final class ItemEditViewModel: ObservableObject, ItemAddEditViewModelProtocol {
+final class ItemEditViewModel: ObservableObject, ItemAddEditViewModelProtocol, ViewModelErrorHandlingProtocol {
   
   @Published var shouldPresentImagePicker: Bool = false
   @Published var error: HongdangmuError?
@@ -34,12 +34,8 @@ final class ItemEditViewModel: ObservableObject, ItemAddEditViewModelProtocol {
   
   func finishButtonTapped() {
     Task { [weak self] in
-      do {
+      await self?.handleError {
         try await self?.editItem()
-      } catch let error as OpenMarketAPIError {
-        self?.error = HongdangmuError.openMarketAPIServiceError(error)
-      } catch {
-        self?.error = HongdangmuError.unknownError
       }
     }
   }

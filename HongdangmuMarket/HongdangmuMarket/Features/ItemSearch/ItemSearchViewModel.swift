@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class ItemSearchViewModel: ObservableObject {
+final class ItemSearchViewModel: ObservableObject, ViewModelErrorHandlingProtocol {
   
   @Published var searchBarText: String = ""
   @Published var recentSearchWords: [String] = ["Temp  1", "Temp 2", "Temp 3", "Apple"]
@@ -87,12 +87,8 @@ private extension ItemSearchViewModel {
         self?.suggestionWords.removeAll()
       }
       
-      do {
+      await self?.handleError {
         try await self?.retrieveSuggestionWords(for: self?.searchBarText ?? "")
-      } catch let error as BusinessLogicError {
-        self?.error = HongdangmuError.businessLogicError(error)
-      } catch {
-        self?.error = HongdangmuError.unknownError
       }
     }
   }

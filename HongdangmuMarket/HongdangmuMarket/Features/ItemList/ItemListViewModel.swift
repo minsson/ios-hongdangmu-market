@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class ItemListViewModel: ObservableObject {
+final class ItemListViewModel: ObservableObject, ViewModelErrorHandlingProtocol {
   
   @Published private(set) var items: [Item] = []
   @Published var error: HongdangmuError?
@@ -54,7 +54,7 @@ extension ItemListViewModel {
 private extension ItemListViewModel {
   
   func retrieveItems() async {
-    do {
+    await handleError {
       let data: Data = try await openMarketAPIService.itemListPageData(pageNumber: currentPage, searchValue: searchValue ?? "")
       let itemListPage: ItemListPage = try DataToEntityConverter().convert(data: data, to: ItemListPageDTO.self)
       currentPage += 1
@@ -63,12 +63,6 @@ private extension ItemListViewModel {
         self?.hasMoreData = itemListPage.hasNext
         self?.items.append(contentsOf: itemListPage.items)
       }
-    } catch let error as OpenMarketAPIError {
-      self.error = HongdangmuError.openMarketAPIServiceError(error)
-    } catch let error as BusinessLogicError {
-      self.error = HongdangmuError.businessLogicError(error)
-    } catch {
-      self.error = HongdangmuError.unknownError
     }
   }
   
