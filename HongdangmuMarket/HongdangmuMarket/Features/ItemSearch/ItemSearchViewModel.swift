@@ -82,7 +82,7 @@ extension ItemSearchViewModel {
 private extension ItemSearchViewModel {
   
   func updateSuggestionWords() {
-    Task {
+    Task { [weak self] in
       await MainActor.run { [weak self] in
         self?.suggestionWords.removeAll()
       }
@@ -104,8 +104,8 @@ private extension ItemSearchViewModel {
       throw HongdangmuError.businessLogicError(.invalidParsing)
     }
     
-    await MainActor.run {
-      suggestionWords = words
+    await MainActor.run { [weak self] in
+      self?.suggestionWords = words
     }
   }
   
