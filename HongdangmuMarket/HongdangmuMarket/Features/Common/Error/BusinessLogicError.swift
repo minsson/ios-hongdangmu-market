@@ -7,8 +7,22 @@
 
 import Foundation
 
-enum BusinessLogicError: LocalizedError {
+enum BusinessLogicError: HongdangmuErrorProtocol {
   
   case invalidParsing
+
+  var code: String {
+      switch self {
+      case .invalidParsing:
+          return "BL100"
+      }
+  }
+  
+  var failureReason: String? {
+      switch self {
+      case .invalidParsing:
+          return "JSON 파싱 실패"
+      }
+  }
   
 }
