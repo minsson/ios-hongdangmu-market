@@ -34,6 +34,7 @@ struct MySalesHistoryContainerView: View {
         
       }
     }
+    .errorAlert(error: $viewModel.error)
   }
   
 }
