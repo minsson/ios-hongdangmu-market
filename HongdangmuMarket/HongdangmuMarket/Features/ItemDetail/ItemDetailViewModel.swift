@@ -12,6 +12,7 @@ final class ItemDetailViewModel: ObservableObject {
   @Published var itemID: String
   @Published var shouldPresentConfirmationDialog = false
   @Published var shouldPresentItemEditView = false
+  @Published var error: HongdangmuError?
   @Published private(set) var item: Item = Item(id: "", vendorID: "", name: "", description: "", thumbnail: "", price: 0, bargainPrice: 0, discountedPrice: 0, stock: 0, images: nil, vendors: nil, createdAt: Date.now, issuedAt: Date.now)
   @Published private(set) var images: [ItemDetailImage] = []
   
@@ -42,7 +43,7 @@ final class ItemDetailViewModel: ObservableObject {
     let activityViewController = UIActivityViewController(activityItems: [shareMessage], applicationActivities: nil)
     if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
        let window = windowScene.windows.first {
-        window.rootViewController?.present(activityViewController, animated: true, completion: nil)
+      window.rootViewController?.present(activityViewController, animated: true, completion: nil)
     }
   }
   
@@ -51,8 +52,10 @@ final class ItemDetailViewModel: ObservableObject {
       do {
         itemDeletionCompletion()
         let _ = try await openMarketAPIService.deleteItem(id: itemID)
+      } catch let error as OpenMarketAPIError {
+        self.error = HongdangmuError.openMarketAPIServiceError(error)
       } catch {
-        print(error.localizedDescription)
+        self.error = HongdangmuError.unknownError
       }
     }
   }
@@ -73,7 +76,7 @@ private extension ItemDetailViewModel {
     return "홍당무 마켓에서는 \(item.name) 상품이 \(item.bargainPrice)원이에요!"
   }
   
-  func requestImages(for item: Item) async throws {
+  func requestImages(for item: Item) async {
     await MainActor.run { [weak self] in
       self?.images.removeAll()
     }
@@ -82,13 +85,15 @@ private extension ItemDetailViewModel {
       item.images?.forEach { itemImage in
         group.addTask { [weak self] in
           guard let data = try await self?.openMarketAPIService.itemDetailImageData(for: itemImage.url) else {
-            throw URLError(.badURL)
+            self?.error = HongdangmuError.openMarketAPIServiceError(.invalidDataReceived)
+            return
           }
           
           guard let uiImage = UIImage(data: data) else {
-            throw URLError(.badServerResponse)
+            self?.error = HongdangmuError.openMarketAPIServiceError(.invalidDataReceived)
+            return
           }
-
+          
           let image = Image(uiImage: uiImage)
           let detailImage = ItemDetailImage(id: itemImage.id, image: image)
           
