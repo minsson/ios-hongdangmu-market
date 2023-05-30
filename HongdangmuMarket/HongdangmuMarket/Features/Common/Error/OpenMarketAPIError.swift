@@ -9,19 +9,22 @@ import Foundation
 
 enum OpenMarketAPIError: HongdangmuErrorProtocol {
   
-  case httpStatusCodeError(HTTPStatusCodeError)
   case invalidURLRequest
+  case invalidDataReceived
+  case httpStatusCodeError(HTTPStatusCodeError)
   case custom
   
   var code: String {
-      switch self {
-      case .invalidURLRequest:
-        return "OM100"
-      case .httpStatusCodeError(let error):
-          return error.code
-      case .custom:
-          return "OM999"
-      }
+    switch self {
+    case .invalidURLRequest:
+      return "OM100"
+    case .invalidDataReceived:
+      return "OM200"
+    case .httpStatusCodeError(let error):
+      return error.code
+    case .custom:
+      return "OM999"
+    }
   }
   
 }
