@@ -35,6 +35,7 @@ struct ItemSearchView: View {
     }
     .padding()
     .navigationBarBackButtonHidden()
+    .errorAlert(error: $viewModel.error)
   }
   
 }
