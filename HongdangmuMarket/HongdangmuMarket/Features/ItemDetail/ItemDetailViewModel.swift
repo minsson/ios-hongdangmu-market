@@ -16,8 +16,7 @@ final class ItemDetailViewModel: ObservableObject {
   @Published private(set) var item: Item = Item(id: "", vendorID: "", name: "", description: "", thumbnail: "", price: 0, bargainPrice: 0, discountedPrice: 0, stock: 0, images: nil, vendors: nil, createdAt: Date.now, issuedAt: Date.now)
   @Published private(set) var images: [ItemDetailImage] = []
   
-  let itemDeletionCompletion: () -> Void
-  
+  private let itemDeletionCompletion: () -> Void
   private let openMarketAPIService = OpenMarketAPIService()
   
   init(itemID: String, itemDeletionCompletion: @escaping () -> Void) {

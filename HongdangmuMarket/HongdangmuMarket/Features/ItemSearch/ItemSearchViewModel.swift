@@ -15,8 +15,8 @@ final class ItemSearchViewModel: ObservableObject {
   @Published var searchPhase: SearchPhase = .recentSearchWords
   @Published var error: HongdangmuError?
   
-  private var isRecentSearchWordTapped: Bool = false
   private let openMarketAPIService = OpenMarketAPIService()
+  private var isRecentSearchWordTapped: Bool = false
   
   var hasSearchBarText: Bool {
     searchBarText.isEmpty ? false : true

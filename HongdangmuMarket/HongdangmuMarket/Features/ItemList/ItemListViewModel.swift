@@ -9,13 +9,13 @@ import Foundation
 
 final class ItemListViewModel: ObservableObject {
   
-  let searchValue: String?
   @Published private(set) var items: [Item] = []
   @Published var error: HongdangmuError?
   
+  private let searchValue: String?
+  private let openMarketAPIService = OpenMarketAPIService()
   private(set) var hasMoreData = true
   private var currentPage = 1
-  private let openMarketAPIService = OpenMarketAPIService()
   
   init(searchValue: String? = nil) {
     self.searchValue = searchValue

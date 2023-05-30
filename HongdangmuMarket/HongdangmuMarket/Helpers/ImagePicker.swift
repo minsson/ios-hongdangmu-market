@@ -37,7 +37,7 @@ struct ImagePicker: UIViewControllerRepresentable {
 extension ImagePicker {
   
   final class Coordinator: NSObject, PHPickerViewControllerDelegate {
-    var parent: ImagePicker
+    private var parent: ImagePicker
     
     init(parent: ImagePicker) {
       self.parent = parent

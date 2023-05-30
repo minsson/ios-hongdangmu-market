@@ -17,8 +17,8 @@ final class ItemEditViewModel: ObservableObject, ItemAddEditViewModelProtocol {
   @Published var price: String = ""
   @Published var description: String = ""
   
-  let item: Item
-  let itemEditCompletion: () -> ()
+  private let item: Item
+  private let itemEditCompletion: () -> ()
   
   private let openMarketAPIService = OpenMarketAPIService()
   

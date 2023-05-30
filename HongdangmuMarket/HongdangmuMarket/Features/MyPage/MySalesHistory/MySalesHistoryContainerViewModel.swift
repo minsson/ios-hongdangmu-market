@@ -13,9 +13,6 @@ final class MySalesHistoryContainerViewModel: ObservableObject {
   @Published private(set) var items: [Item] = []
   @Published var error: HongdangmuError?
   
-  private(set) var hasMoreData = false
-  private let openMarketAPIService = OpenMarketAPIService()
-  
   var onSalesItems: [Item] {
     return items.filter { $0.stock > 0 }
   }
@@ -24,6 +21,8 @@ final class MySalesHistoryContainerViewModel: ObservableObject {
     return items.filter { $0.stock == 0 }
   }
   
+  private let openMarketAPIService = OpenMarketAPIService()
+  private(set) var hasMoreData = false
   private var currentPage = 1
   
 }
