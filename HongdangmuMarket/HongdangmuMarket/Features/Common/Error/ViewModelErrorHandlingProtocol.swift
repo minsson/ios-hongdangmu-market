@@ -20,6 +20,7 @@ extension ViewModelErrorHandlingProtocol {
       try await action()
     } catch {
       await assign(error)
+      ErrorLogger().log(error: self.error, file: file, function: function, line: line)
     }
   }
   
@@ -35,4 +36,3 @@ extension ViewModelErrorHandlingProtocol {
     }
   }
 }
-
