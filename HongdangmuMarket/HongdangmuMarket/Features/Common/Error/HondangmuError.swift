@@ -11,7 +11,7 @@ enum HongdangmuError: HongdangmuErrorProtocol {
   
   case openMarketAPIServiceError(OpenMarketAPIError)
   case businessLogicError(BusinessLogicError)
-  case customError(String)
+  case customError(failureReason: String)
   case unknownError
   
   var code: String {
@@ -20,8 +20,8 @@ enum HongdangmuError: HongdangmuErrorProtocol {
       return error.code
     case .businessLogicError(let error):
       return error.code
-    case .customError(let errorCodeString):
-      return errorCodeString
+    case .customError:
+      return "HE999"
     case .unknownError:
       return "HE000"
     }
