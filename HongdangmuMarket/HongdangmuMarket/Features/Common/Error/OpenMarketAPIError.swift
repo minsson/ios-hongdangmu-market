@@ -12,7 +12,7 @@ enum OpenMarketAPIError: HongdangmuErrorProtocol {
   case invalidURLRequest
   case invalidDataReceived
   case httpStatusCodeError(HTTPStatusCodeError)
-  case custom
+  case customError(failureReason: String)
   
   var code: String {
     switch self {
@@ -22,7 +22,7 @@ enum OpenMarketAPIError: HongdangmuErrorProtocol {
       return "OM200"
     case .httpStatusCodeError(let error):
       return error.code
-    case .custom:
+    case .customError:
       return "OM999"
     }
   }
