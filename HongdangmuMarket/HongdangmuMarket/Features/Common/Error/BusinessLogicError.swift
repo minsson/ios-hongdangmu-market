@@ -21,7 +21,7 @@ enum BusinessLogicError: HongdangmuErrorProtocol {
   var failureReason: String? {
       switch self {
       case .invalidParsing:
-          return "JSON 파싱 실패"
+          return "빈 Data를 받았거나 파싱 로직이 맞지 않아 JSON 파싱에 실패했습니다"
       }
   }
   
