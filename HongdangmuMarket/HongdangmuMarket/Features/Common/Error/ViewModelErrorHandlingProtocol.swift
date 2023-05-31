@@ -18,14 +18,21 @@ extension ViewModelErrorHandlingProtocol {
   func handleError(_ action: () async throws -> Void, file: String = #file, function: String = #function, line: Int = #line) async {
     do {
       try await action()
-    } catch let error as OpenMarketAPIError {
-      self.error = HongdangmuError.openMarketAPIServiceError(error)
-    } catch let error as BusinessLogicError {
-      self.error = HongdangmuError.businessLogicError(error)
     } catch {
-      self.error = HongdangmuError.unknownError
+      await assign(error)
     }
   }
   
+  private func assign(_ error: Error) async {
+    await MainActor.run {
+      if let error = error as? OpenMarketAPIError {
+        self.error = .openMarketAPIServiceError(error)
+      } else if let error = error as? BusinessLogicError {
+        self.error = .businessLogicError(error)
+      } else {
+        self.error = .unknownError
+      }
+    }
+  }
 }
 
