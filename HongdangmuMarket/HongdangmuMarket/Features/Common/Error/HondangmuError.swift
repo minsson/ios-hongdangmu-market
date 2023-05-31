@@ -27,5 +27,17 @@ enum HongdangmuError: HongdangmuErrorProtocol {
     }
   }
   
+  var failureReason: String? {
+    switch self {
+    case .openMarketAPIServiceError(let error):
+      return error.failureReason
+    case .businessLogicError(let error):
+      return error.failureReason
+    case .customError(let failureReasonString):
+      return failureReasonString
+    case .unknownError:
+      return "알 수 없는 에러입니다."
+    }
+  }
 }
 

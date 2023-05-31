@@ -27,4 +27,17 @@ enum OpenMarketAPIError: HongdangmuErrorProtocol {
     }
   }
   
+  var failureReason: String? {
+    switch self {
+    case .invalidURLRequest:
+      return "URL Request가 유효하지 않습니다."
+    case .invalidDataReceived:
+      return "서버로부터 유효하지 않은 데이터를 받아왔습니다."
+    case .httpStatusCodeError(let httpStatusCodeError):
+      return "서버로부터 \(httpStatusCodeError) 응답을 받았습니다."
+    case .customError(let failureReason):
+      return failureReason
+    }
+  }
+  
 }
