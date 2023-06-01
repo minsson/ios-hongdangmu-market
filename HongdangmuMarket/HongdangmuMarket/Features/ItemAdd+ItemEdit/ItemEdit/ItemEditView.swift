@@ -10,6 +10,7 @@ import SwiftUI
 struct ItemEditView: View, ItemAddEditViewProtocol {
   
   @Environment(\.dismiss) private var dismiss
+  @FocusState private var isKeyboardFocused: Bool
   @StateObject private var viewModel: ItemEditViewModel
   
   init(item: Item, selectedImages: [ItemDetailImage], itemEditCompletion: @escaping (() -> ())) {
@@ -17,45 +18,49 @@ struct ItemEditView: View, ItemAddEditViewProtocol {
   }
   
   var body: some View {
-    VStack {
-      headerView(
-        title: "중고거래 글 수정하기",
-        dismiss: dismiss,
-        finishAction: viewModel.finishButtonTapped
-      )
-      .padding()
-      
-      Divider()
-      
-      ScrollView {
-        ScrollView(.horizontal, showsIndicators: false) {
-          HStack(spacing: 20) {
-            selectedImagesView
+    NavigationView {
+      VStack {
+        headerView(
+          title: "중고거래 글 수정하기",
+          dismiss: dismiss,
+          finishAction: viewModel.finishButtonTapped
+        )
+        .padding()
+        
+        Divider()
+        
+        ScrollView {
+          ScrollView(.horizontal, showsIndicators: false) {
+            HStack(spacing: 20) {
+              selectedImagesView
+            }
+            .padding(.bottom, 16)
           }
-          .padding(.bottom, 16)
+          
+          Divider()
+            .padding(.bottom, 8)
+          
+          titleTextField($viewModel.title)
+            .padding(.vertical, 8)
+          
+          Divider()
+          
+          priceTextField($viewModel.price)
+            .padding(.vertical, 8)
+          
+          Divider()
+          
+          textEditorWithPlaceholder(for: $viewModel.description)
+            .frame(minHeight: 160)
+          
+          Divider()
         }
-        
-        Divider()
-          .padding(.bottom, 8)
-        
-        titleTextField($viewModel.title)
-          .padding(.vertical, 8)
-        
-        Divider()
-        
-        priceTextField($viewModel.price)
-          .padding(.vertical, 8)
-        
-        Divider()
-        
-        textEditorWithPlaceholder(for: $viewModel.description)
-          .frame(minHeight: 160)
-        
-        Divider()
+        .padding()
       }
-      .padding()
+      .focused($isKeyboardFocused)
+      .keyboardToolbar(focus: $isKeyboardFocused)
+      .errorAlert(error: $viewModel.error)
     }
-    .errorAlert(error: $viewModel.error)
   }
   
 }
