@@ -30,6 +30,7 @@ extension View {
               focus.wrappedValue = false
             } label: {
               Image(systemName: "keyboard.chevron.compact.down.fill")
+                .foregroundColor(.orange)
             }
         }
       }
