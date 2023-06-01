@@ -20,5 +20,19 @@ extension View {
     }
   }
   
-}
+  func keyboardToolbar(focus: FocusState<Bool>.Binding) -> some View {
+    self
+      .toolbar {
+        ToolbarItemGroup(placement: .keyboard) {
+            Spacer()
 
+            Button {
+              focus.wrappedValue = false
+            } label: {
+              Image(systemName: "keyboard.chevron.compact.down.fill")
+            }
+        }
+      }
+  }
+  
+}
