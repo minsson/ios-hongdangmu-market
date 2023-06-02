@@ -31,6 +31,7 @@ struct ItemListView: View {
           }
           
           progressView
+            .padding(.top, 300)
             .task {
               await viewModel.itemListNeedsMoreContents()
             }
@@ -50,8 +51,10 @@ private extension ItemListView {
   
   @ViewBuilder
   var progressView: some View {
-    if viewModel.hasMoreData {
+    if viewModel.isLoading {
       ProgressView()
+    } else if viewModel.isItemsEmpty {
+      Text("앗! '\(viewModel.searchKeyword)' 검색 결과가 없어요. 🥲")
     } else {
       Text("모든 상품을 다 둘러봤어요 🙃")
     }
