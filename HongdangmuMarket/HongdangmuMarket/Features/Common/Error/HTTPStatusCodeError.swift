@@ -16,18 +16,18 @@ enum HTTPStatusCodeError: HongdangmuErrorProtocol {
   case unknown(code: Int?)
   
   var code: String {
-      switch self {
-      case .informational:
-          return "SL100"
-      case .redirection:
-        return "SL300"
-      case .clientError(let code):
-        return String(code)
-      case .serverError(let code):
-        return String(code)
-      case .unknown(_):
-        return "SL900"
-      }
+    switch self {
+    case .informational:
+      return "SL100"
+    case .redirection:
+      return "SL300"
+    case .clientError(let code):
+      return String(code)
+    case .serverError(let code):
+      return String(code)
+    case .unknown(_):
+      return "SL900"
+    }
   }
   
   var failureReason: String? {

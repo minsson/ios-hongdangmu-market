@@ -25,18 +25,18 @@ extension ViewModelErrorHandlingProtocol {
   }
   
   private func assign(_ error: Error) async {
-      await MainActor.run {
-          switch error {
-          case let error as OpenMarketAPIError:
-              self.error = .openMarketAPIServiceError(error)
-          case let error as BusinessLogicError:
-              self.error = .businessLogicError(error)
-          case let error as HongdangmuError:
-              self.error = error
-          default:
-              self.error = .unknownError
-          }
+    await MainActor.run {
+      switch error {
+      case let error as OpenMarketAPIError:
+        self.error = .openMarketAPIServiceError(error)
+      case let error as BusinessLogicError:
+        self.error = .businessLogicError(error)
+      case let error as HongdangmuError:
+        self.error = error
+      default:
+        self.error = .unknownError
       }
+    }
   }
   
 }

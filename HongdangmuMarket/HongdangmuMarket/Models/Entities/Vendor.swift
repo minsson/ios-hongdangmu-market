@@ -6,8 +6,8 @@
 //
 
 struct Vendor: Decodable, Hashable {
-    
-    let id: Int
-    let name: String
-    
+  
+  let id: Int
+  let name: String
+  
 }
