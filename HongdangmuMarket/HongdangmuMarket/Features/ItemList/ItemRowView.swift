@@ -14,19 +14,11 @@ struct ItemRowView: View {
   
   var body: some View {
     HStack(alignment: .top, spacing: 16) {
-      AsyncImage(url: URL(string: item.thumbnail)) { image in
-        image
-          .resizable()
-          .scaledToFit()
-          .frame(width: 120, height: 120)
-          .background(Color(UIColor.systemGray4))
-          .cornerRadius(8)
-      } placeholder: {
-        Rectangle()
-          .fill(Color(UIColor.systemGray2))
-          .frame(width: 120, height: 120)
-          .cornerRadius(8)
-      }
+      CachedAsyncImage(imageURL: item.thumbnail)
+        .scaledToFit()
+        .frame(width: 120, height: 120)
+        .background(Color(UIColor.systemGray4))
+        .cornerRadius(8)
       
       VStack(alignment: .leading, spacing: 8) {
         HStack {
