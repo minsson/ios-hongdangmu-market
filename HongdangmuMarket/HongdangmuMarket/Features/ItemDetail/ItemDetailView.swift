@@ -145,9 +145,8 @@ private extension ItemDetailView {
       let deviceWidth = geometry.size.width
       
       TabView {
-        ForEach(viewModel.images, id: \.id) { image in
-          image.image
-            .resizable()
+        ForEach(viewModel.item.images) { imageData in
+          CachedAsyncImage(imageURL: imageData.url)
             .aspectRatio(contentMode: .fill)
             .overlay {
               gradientOnImage

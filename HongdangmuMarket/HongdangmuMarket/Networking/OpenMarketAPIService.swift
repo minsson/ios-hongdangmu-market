@@ -54,16 +54,6 @@ extension OpenMarketAPIService {
     return data
   }
   
-  func itemDetailImageData(for url: String) async throws -> Data {
-    guard let url = URL(string: url) else {
-      throw OpenMarketAPIError.invalidURLRequest
-    }
-    
-    let request = URLRequest(url: url)
-    let data = try await execute(request)
-    return data
-  }
-  
   func deleteItem(id: String) async throws -> Data {
     let uriData: Data = try await deletionItemURI(id: id)
     let uriString = String(data: uriData, encoding: .utf8)!

@@ -28,7 +28,6 @@ final class ItemDetailViewModel: ObservableObject {
     do {
       let data: Data = try await openMarketAPIService.itemDetailData(itemID: itemID)
       let item = try DataToEntityConverter().convert(data: data, to: ItemDTO.self)
-      await requestImages(for: item)
       
       await MainActor.run { [weak self] in
         self?.item = item
@@ -77,35 +76,6 @@ private extension ItemDetailViewModel {
   
   var shareMessage: String {
     return "홍당무 마켓에서는 \(item.name) 상품이 \(item.bargainPrice)원이에요!"
-  }
-  
-  func requestImages(for item: Item) async {
-    await MainActor.run { [weak self] in
-      self?.images.removeAll()
-    }
-    
-    await withThrowingTaskGroup(of: Void.self) { group in
-      item.images.forEach { itemImage in
-        group.addTask { [weak self] in
-          guard let data = try await self?.openMarketAPIService.itemDetailImageData(for: itemImage.url) else {
-            self?.error = HongdangmuError.openMarketAPIServiceError(.invalidDataReceived)
-            return
-          }
-          
-          guard let uiImage = UIImage(data: data) else {
-            self?.error = HongdangmuError.openMarketAPIServiceError(.invalidDataReceived)
-            return
-          }
-          
-          let image = Image(uiImage: uiImage)
-          let detailImage = ItemDetailImage(id: itemImage.id, image: image)
-          
-          await MainActor.run { [weak self] in
-            self?.images.append(detailImage)
-          }
-        }
-      }
-    }
   }
   
 }
