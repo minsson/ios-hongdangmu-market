@@ -17,6 +17,7 @@
 		FD3304792A25087A0053C9FF /* HongdangmuErrorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD3304782A25087A0053C9FF /* HongdangmuErrorProtocol.swift */; };
 		FD33047B2A26019C0053C9FF /* ViewModelErrorHandlingProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD33047A2A26019C0053C9FF /* ViewModelErrorHandlingProtocol.swift */; };
 		FD33047D2A2670060053C9FF /* ErrorLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD33047C2A2670060053C9FF /* ErrorLogger.swift */; };
+		FD427BEE2A2A478800FB0CA6 /* ImageCacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD427BED2A2A478800FB0CA6 /* ImageCacheManager.swift */; };
 		FD46E88829EACA6100A93D54 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD46E88729EACA6100A93D54 /* LoginView.swift */; };
 		FD46E88A29EADF3400A93D54 /* MyOnSalesItemsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD46E88929EADF3400A93D54 /* MyOnSalesItemsView.swift */; };
 		FD46E88C29EAF24B00A93D54 /* MySalesHistoryContainerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD46E88B29EAF24B00A93D54 /* MySalesHistoryContainerViewModel.swift */; };
@@ -91,6 +92,7 @@
 		FD3304782A25087A0053C9FF /* HongdangmuErrorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HongdangmuErrorProtocol.swift; sourceTree = "<group>"; };
 		FD33047A2A26019C0053C9FF /* ViewModelErrorHandlingProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelErrorHandlingProtocol.swift; sourceTree = "<group>"; };
 		FD33047C2A2670060053C9FF /* ErrorLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorLogger.swift; sourceTree = "<group>"; };
+		FD427BED2A2A478800FB0CA6 /* ImageCacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCacheManager.swift; sourceTree = "<group>"; };
 		FD46E88729EACA6100A93D54 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		FD46E88929EADF3400A93D54 /* MyOnSalesItemsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyOnSalesItemsView.swift; sourceTree = "<group>"; };
 		FD46E88B29EAF24B00A93D54 /* MySalesHistoryContainerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySalesHistoryContainerViewModel.swift; sourceTree = "<group>"; };
@@ -347,6 +349,7 @@
 				FD8BA9BE29E1A9F600F18661 /* NetworkManager.swift */,
 				FDDA46572A13F001003D279E /* LoginData.swift */,
 				FDAC09EF2A226BC300DBDDDF /* ImageManager.swift */,
+				FD427BED2A2A478800FB0CA6 /* ImageCacheManager.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -544,6 +547,7 @@
 				FD8BA9CC29E1B84000F18661 /* API.swift in Sources */,
 				FDA34D2129E2D16400CF96E3 /* API+AddItem.swift in Sources */,
 				FD8BA9BF29E1A9F600F18661 /* NetworkManager.swift in Sources */,
+				FD427BEE2A2A478800FB0CA6 /* ImageCacheManager.swift in Sources */,
 				FDDA46442A1224AF003D279E /* ItemDetailImage.swift in Sources */,
 				FDF1820C2A0CD979004EF3AF /* OpenMarketAPIRequestPatchProtocol.swift in Sources */,
 				FDF5B9562A1C496D001B78F6 /* ItemSearchResultView.swift in Sources */,
