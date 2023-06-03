@@ -13,7 +13,7 @@ final class ItemDetailViewModel: ObservableObject {
   @Published var shouldPresentConfirmationDialog = false
   @Published var shouldPresentItemEditView = false
   @Published var error: HongdangmuError?
-  @Published private(set) var item: Item = Item(id: "", vendorID: "", name: "", description: "", thumbnail: "", price: 0, bargainPrice: 0, discountedPrice: 0, stock: 0, images: nil, vendors: nil, createdAt: Date.now, issuedAt: Date.now)
+  @Published private(set) var item: Item = Item(id: "", vendorID: "", name: "", description: "", thumbnail: "", price: 0, bargainPrice: 0, discountedPrice: 0, stock: 0, images: [], vendors: Vendor(id: 0, name: ""), createdAt: Date.now, issuedAt: Date.now)
   @Published private(set) var images: [ItemDetailImage] = []
   
   private let itemDeletionCompletion: () -> Void
@@ -68,7 +68,7 @@ final class ItemDetailViewModel: ObservableObject {
   }
   
   func checkItemOwner() -> ItemOwner {
-    return item.vendors?.name == LoginData.shared.nickname ? .myItem : .otherUsersItem
+    return item.vendors.name == LoginData.shared.nickname ? .myItem : .otherUsersItem
   }
   
 }
@@ -85,7 +85,7 @@ private extension ItemDetailViewModel {
     }
     
     await withThrowingTaskGroup(of: Void.self) { group in
-      item.images?.forEach { itemImage in
+      item.images.forEach { itemImage in
         group.addTask { [weak self] in
           guard let data = try await self?.openMarketAPIService.itemDetailImageData(for: itemImage.url) else {
             self?.error = HongdangmuError.openMarketAPIServiceError(.invalidDataReceived)

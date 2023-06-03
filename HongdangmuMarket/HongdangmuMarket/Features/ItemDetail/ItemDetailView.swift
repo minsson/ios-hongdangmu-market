@@ -167,10 +167,10 @@ private extension ItemDetailView {
         .frame(width: 60)
       
       VStack(alignment: .leading, spacing: 8) {
-        Text(String(viewModel.item.vendors?.name ?? ""))
+        Text(String(viewModel.item.vendors.name))
           .font(.body.bold())
         
-        Text(String(viewModel.item.vendors?.id ?? 0))
+        Text(String(viewModel.item.vendors.id))
           .font(.subheadline)
           .foregroundColor(Color(UIColor.systemGray))
       }

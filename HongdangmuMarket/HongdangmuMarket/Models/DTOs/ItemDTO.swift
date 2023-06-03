@@ -53,8 +53,8 @@ extension ItemDTO {
       bargainPrice: lroundl(bargainPrice.rounded(.towardZero)),
       discountedPrice: lroundl(discountedPrice.rounded(.towardZero)),
       stock: stock,
-      images: images,
-      vendors: vendors,
+      images: images ?? [],
+      vendors: vendors ?? Vendor(id: 0, name: ""),
       createdAt: dateCalculator.stringToDate(createdAt, usingFormat: serverDateFormat),
       issuedAt: dateCalculator.stringToDate(issuedAt, usingFormat: serverDateFormat)
     )

@@ -19,8 +19,8 @@ let dummyItem: Item = Item(
   bargainPrice: 30000,
   discountedPrice: 20000,
   stock: 100,
-  images: nil,
-  vendors: nil,
+  images: [],
+  vendors: Vendor(id: 0, name: "vendorName"),
   createdAt: Date(timeIntervalSinceNow: -86400),
   issuedAt: Date.now
 )

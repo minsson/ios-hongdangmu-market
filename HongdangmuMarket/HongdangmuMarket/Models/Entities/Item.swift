@@ -15,8 +15,8 @@ struct Item: Hashable {
   let thumbnail: String
   let price, bargainPrice, discountedPrice: Int
   var stock: Int
-  let images: [ItemImageData]?
-  let vendors: Vendor?
+  let images: [ItemImageData]
+  let vendors: Vendor
   let createdAt, issuedAt: Date
   
   private var dateDifferenceFromCreatedDate: Int {
