@@ -51,7 +51,10 @@ private extension MySalesHistoryContainerViewModel {
   
   func retrieveItems() async throws {
     let data: Data = try await requestItemListPageData(pageNumber: currentPage)
-    let itemListPage = try DataToEntityConverter().convert(data: data, to: ItemListPageDTO.self)
+    guard let itemListPage = try? DataToEntityConverter().convert(data: data, to: ItemListPageDTO.self) else {
+      return
+    }
+    
     currentPage += 1
     
     await MainActor.run { [weak self] in
