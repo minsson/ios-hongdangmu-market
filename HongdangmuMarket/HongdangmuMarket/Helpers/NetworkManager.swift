@@ -16,6 +16,13 @@ struct NetworkManager {
     return data
   }
   
+  func data(from url: URL) async throws -> Data {
+    let (data, response) = try await URLSession.shared.data(from: url)
+    try validate(urlResponse: response)
+    
+    return data
+  }
+  
 }
 
 private extension NetworkManager {
