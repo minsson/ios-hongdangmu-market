@@ -10,21 +10,18 @@ import UIKit.UIImage
 final class ItemEditViewModel: ObservableObject, ItemAddEditViewModelProtocol, ViewModelErrorHandlingProtocol {
   
   @Published var shouldPresentImagePicker: Bool = false
-  @Published var error: HongdangmuError?
-  
-  @Published var selectedImages: [ItemDetailImage]
   @Published var title: String = ""
   @Published var price: String = ""
   @Published var description: String = ""
+  @Published var error: HongdangmuError?
   
-  private let item: Item
+  let item: Item
+
   private let itemEditCompletion: () -> ()
-  
   private let openMarketAPIService = OpenMarketAPIService()
   
-  init(item: Item, selectedImages: [ItemDetailImage], itemEditCompletion: @escaping () -> ()) {
+  init(item: Item, itemEditCompletion: @escaping () -> ()) {
     self.item = item
-    self.selectedImages = selectedImages
     self.itemEditCompletion = itemEditCompletion
     
     title = item.name

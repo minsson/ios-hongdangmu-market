@@ -14,7 +14,6 @@ final class ItemDetailViewModel: ObservableObject {
   @Published var shouldPresentItemEditView = false
   @Published var error: HongdangmuError?
   @Published private(set) var item: Item = Item(id: "", vendorID: "", name: "", description: "", thumbnail: "", price: 0, bargainPrice: 0, discountedPrice: 0, stock: 0, images: [], vendors: Vendor(id: 0, name: ""), createdAt: Date.now, issuedAt: Date.now)
-  @Published private(set) var images: [ItemDetailImage] = []
   
   private let itemDeletionCompletion: () -> Void
   private let openMarketAPIService = OpenMarketAPIService()

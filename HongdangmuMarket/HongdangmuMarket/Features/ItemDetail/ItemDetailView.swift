@@ -69,7 +69,7 @@ struct ItemDetailView: View {
       confirmationDialogButtons
     }
     .fullScreenCover(isPresented: $viewModel.shouldPresentItemEditView) {
-      ItemEditView(item: viewModel.item, selectedImages: viewModel.images) {
+      ItemEditView(item: viewModel.item) {
         Task {
           await viewModel.viewWillAppear()
         }

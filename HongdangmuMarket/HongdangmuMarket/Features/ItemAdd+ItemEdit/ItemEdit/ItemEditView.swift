@@ -13,8 +13,8 @@ struct ItemEditView: View, ItemAddEditViewProtocol {
   @FocusState private var isKeyboardFocused: Bool
   @StateObject private var viewModel: ItemEditViewModel
   
-  init(item: Item, selectedImages: [ItemDetailImage], itemEditCompletion: @escaping (() -> ())) {
-    _viewModel = StateObject(wrappedValue: ItemEditViewModel(item: item, selectedImages: selectedImages, itemEditCompletion: itemEditCompletion))
+  init(item: Item, itemEditCompletion: @escaping (() -> ())) {
+    _viewModel = StateObject(wrappedValue: ItemEditViewModel(item: item, itemEditCompletion: itemEditCompletion))
   }
   
   var body: some View {
@@ -68,9 +68,8 @@ struct ItemEditView: View, ItemAddEditViewProtocol {
 private extension ItemEditView {
   
   var selectedImagesView: some View {
-    ForEach(viewModel.selectedImages, id: \.id) { imageData in
-      imageData.image
-        .resizable()
+    ForEach(viewModel.item.images) { imageData in
+      CachedAsyncImage(imageURL: imageData.url)
         .aspectRatio(contentMode: .fill)
         .frame(width: 75, height: 75)
         .clipShape(RoundedRectangle(cornerRadius: 4))
@@ -84,7 +83,7 @@ struct ItemEditView_Previews: PreviewProvider {
   static let item = dummyItem
   
   static var previews: some View {
-    ItemEditView(item: item, selectedImages: []) {
+    ItemEditView(item: item) {
       
     }
   }
