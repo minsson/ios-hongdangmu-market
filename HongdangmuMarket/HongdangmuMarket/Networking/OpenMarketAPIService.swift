@@ -7,7 +7,7 @@
 
 import UIKit.UIImage
 
-struct OpenMarketAPIService {
+struct OpenMarketAPIService: OpenMarketAPIServiceProtocol {
   
   func execute(_ request: URLRequest) async throws -> Data {
     let data = try await NetworkManager().execute(request)
