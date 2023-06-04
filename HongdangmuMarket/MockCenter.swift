@@ -27,4 +27,15 @@ struct MockCenter {
     issuedAt: Date.now
   )
   
+  let dummyItemListPage: ItemListPage = ItemListPage(
+    pageNumber: 1,
+    itemsPerPage: 50,
+    totalCount: 100,
+    items: [
+      Item(id: "1", vendorID: "vendorID", name: "Name", description: "Description", thumbnail: "", price: 100, bargainPrice: 50, discountedPrice: 50, stock: 1, images: [], vendors: Vendor(id: 1, name: "VendorName"), createdAt: Date.now, issuedAt: Date.now),
+      Item(id: "2", vendorID: "vendorID", name: "Name 2", description: "Description", thumbnail: "", price: 100, bargainPrice: 50, discountedPrice: 50, stock: 1, images: [], vendors: Vendor(id: 1, name: "VendorName"), createdAt: Date.now, issuedAt: Date.now)
+    ],
+    hasNext: true
+  )
+  
 }
