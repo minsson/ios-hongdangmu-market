@@ -17,7 +17,7 @@ struct MyOnSalesItemsView: View {
         ForEach(viewModel.onSalesItems, id: \.id) { item in
           NavigationLink {
             ItemDetailView(itemID: item.id) {
-              
+              viewModel.itemDeletionCompletionExecuted(deletedItemID: item.id)
             }
           } label: {
             VStack(spacing: 0) {
