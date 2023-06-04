@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-final class ItemDetailViewModel: ObservableObject {
+final class ItemDetailViewModel: ObservableObject, ViewModelErrorHandlingProtocol {
   
   @Published var itemID: String
   @Published var shouldPresentConfirmationDialog = false
@@ -24,18 +24,12 @@ final class ItemDetailViewModel: ObservableObject {
   }
   
   func viewWillAppear() async {
-    do {
+    await handleError {
       let itemDetail: Item = try await openMarketAPIService.itemDetail(itemID: itemID)
       
       await MainActor.run { [weak self] in
         self?.item = itemDetail
       }
-    } catch let error as OpenMarketAPIError {
-      self.error = HongdangmuError.openMarketAPIServiceError(error)
-    } catch let error as BusinessLogicError {
-      self.error = HongdangmuError.businessLogicError(error)
-    } catch {
-      self.error = HongdangmuError.unknownError
     }
   }
   
