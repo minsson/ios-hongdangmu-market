@@ -23,6 +23,7 @@ struct ItemRowView: View {
       VStack(alignment: .leading, spacing: 8) {
         HStack {
           Text(item.name)
+            .multilineTextAlignment(.leading)
             .lineLimit(2)
             .font(.title3)
           
