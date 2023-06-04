@@ -25,11 +25,10 @@ final class ItemDetailViewModel: ObservableObject {
   
   func viewWillAppear() async {
     do {
-      let data: Data = try await openMarketAPIService.itemDetailData(itemID: itemID)
-      let item = try DataToEntityConverter().convert(data: data, to: ItemDTO.self)
+      let itemDetail: Item = try await openMarketAPIService.itemDetail(itemID: itemID)
       
       await MainActor.run { [weak self] in
-        self?.item = item
+        self?.item = itemDetail
       }
     } catch let error as OpenMarketAPIError {
       self.error = HongdangmuError.openMarketAPIServiceError(error)

@@ -50,13 +50,15 @@ extension OpenMarketAPIService {
 
 extension OpenMarketAPIService {
   
-  func itemDetailData(itemID: String) async throws -> Data {
+  func itemDetail(itemID: String) async throws -> Item {
     guard let request: URLRequest = API.LookUpItemDetail(itemID: String(itemID)).urlRequest else {
       throw OpenMarketAPIError.invalidURLRequest
     }
     
     let data = try await execute(request)
-    return data
+    
+    let item = try DataToEntityConverter().convert(data: data, to: ItemDTO.self)
+    return item
   }
   
   func deleteItem(id: String) async throws -> Data {
