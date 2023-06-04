@@ -17,8 +17,8 @@ final class MockOpenMarketAPIService: OpenMarketAPIServiceProtocol {
     
   }
   
-  func itemListPageData(pageNumber: Int, searchValue: String?) async throws -> Data {
-    return Data()
+  func itemListPage(pageNumber: Int, searchValue: String?) async throws -> ItemListPage {
+    return MockCenter().dummyItemListPage
   }
   
   func itemDetailData(itemID: String) async throws -> Data {

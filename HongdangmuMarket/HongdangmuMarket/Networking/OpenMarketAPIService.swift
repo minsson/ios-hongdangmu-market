@@ -30,13 +30,18 @@ extension OpenMarketAPIService {
 
 extension OpenMarketAPIService {
   
-  func itemListPageData(pageNumber: Int, searchValue: String?) async throws -> Data {
+  func itemListPage(pageNumber: Int, searchValue: String?) async throws -> ItemListPage {
     guard let request: URLRequest = API.LookUpItems(pageNumber: pageNumber, itemsPerPage: 100, searchValue: searchValue ?? nil).urlRequest else {
       throw OpenMarketAPIError.invalidURLRequest
     }
     
     let data = try await execute(request)
-    return data
+    
+    guard let itemListPage: ItemListPage = try? DataToEntityConverter().convert(data: data, to: ItemListPageDTO.self) else {
+      throw OpenMarketAPIError.invalidDataReceived
+    }
+    
+    return itemListPage
   }
   
 }

@@ -66,12 +66,7 @@ private extension ItemListViewModel {
     await handleError {
       await switchIsLoading(true)
       
-      guard let data: Data = try? await openMarketAPIService.itemListPageData(pageNumber: currentPage, searchValue: searchValue ?? "") else {
-        await switchIsLoading(false)
-        return
-      }
-      
-      guard let itemListPage: ItemListPage = try? DataToEntityConverter().convert(data: data, to: ItemListPageDTO.self) else {
+      guard let itemListPage: ItemListPage = try? await openMarketAPIService.itemListPage(pageNumber: currentPage, searchValue: searchValue ?? "") else {
         await switchIsLoading(false)
         return
       }

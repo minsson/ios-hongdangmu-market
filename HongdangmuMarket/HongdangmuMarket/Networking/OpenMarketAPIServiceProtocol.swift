@@ -11,8 +11,8 @@ protocol OpenMarketAPIServiceProtocol {
   
     func execute(_ request: URLRequest) async throws -> Data
     func login(nickname: String, password: String, identifier: String)
-    func itemListPageData(pageNumber: Int, searchValue: String?) async throws -> Data
     func itemDetailData(itemID: String) async throws -> Data
+    func itemListPage(pageNumber: Int, searchValue: String?) async throws -> ItemListPage
     func deleteItem(id: String) async throws -> Data
     func addItem(data: Data, images: [UIImage]) async throws
     func retrieveRecentlyAddedItem() async throws -> Data
