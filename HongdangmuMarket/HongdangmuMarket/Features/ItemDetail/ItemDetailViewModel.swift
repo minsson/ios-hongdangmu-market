@@ -45,7 +45,7 @@ final class ItemDetailViewModel: ObservableObject, ViewModelErrorHandlingProtoco
     Task { [weak self] in
       do {
         self?.itemDeletionCompletion()
-        let _ = try await self?.openMarketAPIService.deleteItem(id: self?.itemID ?? "")
+        try await self?.openMarketAPIService.deleteItem(id: self?.itemID ?? "")
       } catch let error as OpenMarketAPIError {
         self?.error = HongdangmuError.openMarketAPIServiceError(error)
       } catch {
