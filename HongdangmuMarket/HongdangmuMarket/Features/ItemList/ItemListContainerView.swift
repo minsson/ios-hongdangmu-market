@@ -42,7 +42,7 @@ private extension ItemListContainerView {
   func hiddenNavigationLinkToRecentlyAddedItem(for itemID: String) -> some View {
     NavigationLink(isActive: $viewModel.shouldPresentRecentlyAddedItem) {
       ItemDetailView(itemID: itemID) {
-        
+        itemListViewModel.itemDeletionCompletionExecuted(deletedItemID: itemID)
       }
     } label: {
       EmptyView()
