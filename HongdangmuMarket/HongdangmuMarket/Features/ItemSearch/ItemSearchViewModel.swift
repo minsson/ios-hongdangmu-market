@@ -94,14 +94,10 @@ private extension ItemSearchViewModel {
   }
   
   func retrieveSuggestionWords(for text: String) async throws {
-    let data = await openMarketAPIService.suggestionWords(for: text)
-    
-    guard let words = try? JSONDecoder().decode([String].self, from: data) else {
-      throw HongdangmuError.businessLogicError(.invalidParsing)
-    }
+    let suggestionWords: [String] = await openMarketAPIService.suggestionWords(for: text)
     
     await MainActor.run { [weak self] in
-      self?.suggestionWords = words
+      self?.suggestionWords = suggestionWords
     }
   }
   

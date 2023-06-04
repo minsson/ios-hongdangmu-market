@@ -17,7 +17,7 @@ protocol OpenMarketAPIServiceProtocol {
     func addItem(data: Data, images: [UIImage]) async throws
     func retrieveRecentlyAddedItem() async throws -> Item
     func editItem(id: String, with data: Data) async throws
-    func suggestionWords(for text: String) async -> Data
+    func suggestionWords(for text: String) async -> [String]
     func update(stock: Int, of item: Item) async throws
   
 }
