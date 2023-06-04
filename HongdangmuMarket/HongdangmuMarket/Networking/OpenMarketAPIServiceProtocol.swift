@@ -9,7 +9,6 @@ import UIKit.UIImage
 
 protocol OpenMarketAPIServiceProtocol {
   
-    func execute(_ request: URLRequest) async throws -> Data
     func login(nickname: String, password: String, identifier: String)
     func itemListPage(pageNumber: Int, searchValue: String?) async throws -> ItemListPage
     func itemDetail(itemID: String) async throws -> Item
