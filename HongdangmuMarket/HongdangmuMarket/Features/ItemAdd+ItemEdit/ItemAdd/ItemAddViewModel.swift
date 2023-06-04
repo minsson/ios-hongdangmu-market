@@ -43,14 +43,9 @@ private extension ItemAddViewModel {
   }
   
   func requestRecentlyAddedItemID() async throws {
-    let data: Data = try await openMarketAPIService.retrieveRecentlyAddedItem()
-    let itemListPage = try DataToEntityConverter().convert(data: data, to: ItemListPageDTO.self)
-    let items: [Item] = itemListPage.items
-    guard let item = items.first else {
-      throw HongdangmuError.openMarketAPIServiceError(.invalidDataReceived)
-    }
-        
-    itemAddCompletion?(item.id)
+    let recentlyAddedItem: Item = try await openMarketAPIService.retrieveRecentlyAddedItem()
+    
+    itemAddCompletion?(recentlyAddedItem.id)
   }
   
 }

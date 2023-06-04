@@ -99,13 +99,20 @@ extension OpenMarketAPIService {
     let _ = try await execute(request)
   }
   
-  func retrieveRecentlyAddedItem() async throws -> Data {
+  func retrieveRecentlyAddedItem() async throws -> Item {
     guard let request: URLRequest = API.LookUpItems(pageNumber: 1, itemsPerPage: 1, searchValue: LoginData.shared.nickname).urlRequest else {
       throw OpenMarketAPIError.invalidURLRequest
     }
     
     let data = try await execute(request)
-    return data
+    let itemListPage = try DataToEntityConverter().convert(data: data, to: ItemListPageDTO.self)
+    let items: [Item] = itemListPage.items
+    
+    guard let item = items.first else {
+      throw HongdangmuError.openMarketAPIServiceError(.invalidDataReceived)
+    }
+    
+    return item
   }
   
 }
