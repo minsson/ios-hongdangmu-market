@@ -243,7 +243,7 @@ private extension ItemDetailView {
 
 struct ItemDetailView_Previews: PreviewProvider {
   
-  static let item = dummyItem
+  static let item = MockCenter().dummyItem
   
   static var previews: some View {
     ItemDetailView(itemID: item.id) {

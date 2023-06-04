@@ -63,7 +63,7 @@ struct ItemRowView: View {
 
 struct ItemRowView_Previews: PreviewProvider {
   
-  static let item = dummyItem
+  static let item = MockCenter().dummyItem
   
   static var previews: some View {
     ItemRowView(item: item, isEditable: true)

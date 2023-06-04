@@ -80,7 +80,7 @@ private extension ItemEditView {
 
 struct ItemEditView_Previews: PreviewProvider {
   
-  static let item = dummyItem
+  static let item = MockCenter().dummyItem
   
   static var previews: some View {
     ItemEditView(item: item) {
