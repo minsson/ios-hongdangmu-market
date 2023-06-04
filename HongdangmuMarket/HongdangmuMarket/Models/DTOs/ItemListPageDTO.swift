@@ -46,12 +46,8 @@ extension ItemListPageDTO {
       pageNumber: pageNumber,
       itemsPerPage: itemsPerPage,
       totalCount: totalCount,
-      offset: offset,
-      limit: limit,
       items: itemEntities,
-      lastPage: lastPage,
-      hasNext: hasNext,
-      hasPrevious: hasPrevious
+      hasNext: hasNext
     )
   }
   
