@@ -29,6 +29,7 @@
 		FD7FA17D2A2E3CBF00BF9C72 /* CachedAsyncImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7FA17C2A2E3CBF00BF9C72 /* CachedAsyncImageViewModel.swift */; };
 		FD7FA17F2A2E3CD800BF9C72 /* CachedAsyncImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7FA17E2A2E3CD800BF9C72 /* CachedAsyncImage.swift */; };
 		FD7FA1812A2E3D1800BF9C72 /* OpenMarketAPIServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7FA1802A2E3D1800BF9C72 /* OpenMarketAPIServiceProtocol.swift */; };
+		FD7FA1892A2E3E4400BF9C72 /* HongdangmuMarket_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7FA1882A2E3E4400BF9C72 /* HongdangmuMarket_Tests.swift */; };
 		FD823DED29F2D3D3006A4685 /* MySoldOutItemsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD823DEC29F2D3D3006A4685 /* MySoldOutItemsView.swift */; };
 		FD8BA9A529E19CAA00F18661 /* HongdangmuMarketApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8BA9A429E19CAA00F18661 /* HongdangmuMarketApp.swift */; };
 		FD8BA9A929E19CAB00F18661 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FD8BA9A829E19CAB00F18661 /* Assets.xcassets */; };
@@ -83,6 +84,16 @@
 		FDF5B9562A1C496D001B78F6 /* ItemSearchResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF5B9552A1C496D001B78F6 /* ItemSearchResultView.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		FD7FA18A2A2E3E4400BF9C72 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FD8BA99929E19CAA00F18661 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FD8BA9A029E19CAA00F18661;
+			remoteInfo = HongdangmuMarket;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		FD0E3A252A1E0091007748C6 /* SearchPhase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPhase.swift; sourceTree = "<group>"; };
 		FD2CD5B429E7297E00C695A2 /* MyPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageView.swift; sourceTree = "<group>"; };
@@ -106,6 +117,8 @@
 		FD7FA17C2A2E3CBF00BF9C72 /* CachedAsyncImageViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CachedAsyncImageViewModel.swift; sourceTree = "<group>"; };
 		FD7FA17E2A2E3CD800BF9C72 /* CachedAsyncImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CachedAsyncImage.swift; sourceTree = "<group>"; };
 		FD7FA1802A2E3D1800BF9C72 /* OpenMarketAPIServiceProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenMarketAPIServiceProtocol.swift; sourceTree = "<group>"; };
+		FD7FA1862A2E3E4400BF9C72 /* HongdangmuMarket_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HongdangmuMarket_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FD7FA1882A2E3E4400BF9C72 /* HongdangmuMarket_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HongdangmuMarket_Tests.swift; sourceTree = "<group>"; };
 		FD823DEC29F2D3D3006A4685 /* MySoldOutItemsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySoldOutItemsView.swift; sourceTree = "<group>"; };
 		FD8BA9A129E19CAA00F18661 /* HongdangmuMarket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HongdangmuMarket.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD8BA9A429E19CAA00F18661 /* HongdangmuMarketApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HongdangmuMarketApp.swift; sourceTree = "<group>"; };
@@ -162,6 +175,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		FD7FA1832A2E3E4400BF9C72 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FD8BA99E29E19CAA00F18661 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -233,11 +253,20 @@
 			path = Enums;
 			sourceTree = "<group>";
 		};
+		FD7FA1872A2E3E4400BF9C72 /* HongdangmuMarket_Tests */ = {
+			isa = PBXGroup;
+			children = (
+				FD7FA1882A2E3E4400BF9C72 /* HongdangmuMarket_Tests.swift */,
+			);
+			path = HongdangmuMarket_Tests;
+			sourceTree = "<group>";
+		};
 		FD8BA99829E19CAA00F18661 = {
 			isa = PBXGroup;
 			children = (
 				FDDA463A2A1001CB003D279E /* MockCenter.swift */,
 				FD8BA9A329E19CAA00F18661 /* HongdangmuMarket */,
+				FD7FA1872A2E3E4400BF9C72 /* HongdangmuMarket_Tests */,
 				FD8BA9A229E19CAA00F18661 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -246,6 +275,7 @@
 			isa = PBXGroup;
 			children = (
 				FD8BA9A129E19CAA00F18661 /* HongdangmuMarket.app */,
+				FD7FA1862A2E3E4400BF9C72 /* HongdangmuMarket_Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -464,6 +494,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		FD7FA1852A2E3E4400BF9C72 /* HongdangmuMarket_Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FD7FA18C2A2E3E4400BF9C72 /* Build configuration list for PBXNativeTarget "HongdangmuMarket_Tests" */;
+			buildPhases = (
+				FD7FA1822A2E3E4400BF9C72 /* Sources */,
+				FD7FA1832A2E3E4400BF9C72 /* Frameworks */,
+				FD7FA1842A2E3E4400BF9C72 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FD7FA18B2A2E3E4400BF9C72 /* PBXTargetDependency */,
+			);
+			name = HongdangmuMarket_Tests;
+			productName = HongdangmuMarket_Tests;
+			productReference = FD7FA1862A2E3E4400BF9C72 /* HongdangmuMarket_Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		FD8BA9A029E19CAA00F18661 /* HongdangmuMarket */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = FD8BA9AF29E19CAB00F18661 /* Build configuration list for PBXNativeTarget "HongdangmuMarket" */;
@@ -491,6 +539,10 @@
 				LastSwiftUpdateCheck = 1430;
 				LastUpgradeCheck = 1430;
 				TargetAttributes = {
+					FD7FA1852A2E3E4400BF9C72 = {
+						CreatedOnToolsVersion = 14.3.1;
+						TestTargetID = FD8BA9A029E19CAA00F18661;
+					};
 					FD8BA9A029E19CAA00F18661 = {
 						CreatedOnToolsVersion = 14.3;
 					};
@@ -510,11 +562,19 @@
 			projectRoot = "";
 			targets = (
 				FD8BA9A029E19CAA00F18661 /* HongdangmuMarket */,
+				FD7FA1852A2E3E4400BF9C72 /* HongdangmuMarket_Tests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		FD7FA1842A2E3E4400BF9C72 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FD8BA99F29E19CAA00F18661 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -527,6 +587,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		FD7FA1822A2E3E4400BF9C72 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FD7FA1892A2E3E4400BF9C72 /* HongdangmuMarket_Tests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FD8BA99D29E19CAA00F18661 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -608,7 +676,59 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		FD7FA18B2A2E3E4400BF9C72 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FD8BA9A029E19CAA00F18661 /* HongdangmuMarket */;
+			targetProxy = FD7FA18A2A2E3E4400BF9C72 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		FD7FA18D2A2E3E4400BF9C72 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4K2FDLWHBL;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MACOSX_DEPLOYMENT_TARGET = 13.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "io.minsson.HongdangmuMarket-Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HongdangmuMarket.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/HongdangmuMarket";
+			};
+			name = Debug;
+		};
+		FD7FA18E2A2E3E4400BF9C72 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4K2FDLWHBL;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MACOSX_DEPLOYMENT_TARGET = 13.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "io.minsson.HongdangmuMarket-Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HongdangmuMarket.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/HongdangmuMarket";
+			};
+			name = Release;
+		};
 		FD8BA9AD29E19CAB00F18661 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -786,6 +906,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		FD7FA18C2A2E3E4400BF9C72 /* Build configuration list for PBXNativeTarget "HongdangmuMarket_Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FD7FA18D2A2E3E4400BF9C72 /* Debug */,
+				FD7FA18E2A2E3E4400BF9C72 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		FD8BA99C29E19CAA00F18661 /* Build configuration list for PBXProject "HongdangmuMarket" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
