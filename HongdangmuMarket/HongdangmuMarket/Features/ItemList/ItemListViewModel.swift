@@ -14,12 +14,13 @@ final class ItemListViewModel: ObservableObject, ViewModelErrorHandlingProtocol 
   @Published private(set) var isLoading = true
   
   private let searchValue: String?
-  private let openMarketAPIService = OpenMarketAPIService()
+  private let openMarketAPIService: OpenMarketAPIServiceProtocol
   private var hasMoreData = true
   private var currentPage = 1
   
-  init(searchValue: String? = nil) {
+  init(searchValue: String? = nil, openMarketAPIService: OpenMarketAPIServiceProtocol = OpenMarketAPIService()) {
     self.searchValue = searchValue
+    self.openMarketAPIService = openMarketAPIService
   }
   
 }
