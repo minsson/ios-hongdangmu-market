@@ -21,9 +21,13 @@ final class MySalesHistoryContainerViewModel: ObservableObject, ViewModelErrorHa
     return items.filter { $0.stock == 0 }
   }
   
-  private let openMarketAPIService = OpenMarketAPIService()
+  private let openMarketAPIService: OpenMarketAPIServiceProtocol
   private(set) var hasMoreData = false
   private var currentPage = 1
+  
+  init(openMarketAPIService: OpenMarketAPIServiceProtocol = OpenMarketAPIService()) {
+    self.openMarketAPIService = openMarketAPIService
+  }
   
 }
 
