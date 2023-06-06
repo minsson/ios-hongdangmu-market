@@ -9,7 +9,7 @@ import SwiftUI
 
 final class ItemDetailViewModel: ObservableObject, ViewModelErrorHandlingProtocol {
   
-  @Published var itemID: String
+  @Published private(set) var itemID: String
   @Published var shouldPresentConfirmationDialog = false
   @Published var shouldPresentItemEditView = false
   @Published var error: HongdangmuError?
