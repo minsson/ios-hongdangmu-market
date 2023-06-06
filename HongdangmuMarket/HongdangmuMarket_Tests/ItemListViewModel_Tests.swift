@@ -33,6 +33,7 @@ final class ItemListViewModel_Tests: XCTestCase {
 extension ItemListViewModel_Tests {
   
   // MARK: - isItemsEmpty
+  
   func test_isItemsEmpty_items_isEmpty() {
     // Given
     
@@ -43,6 +44,7 @@ extension ItemListViewModel_Tests {
   }
   
   // MARK: - searchKeyword
+  
   func test_isItemsEmpty_searchKeyword_equalsToInjectedSearchValue() {
     // Given
     let injectedSearchValue = "injectedSearchValue"
