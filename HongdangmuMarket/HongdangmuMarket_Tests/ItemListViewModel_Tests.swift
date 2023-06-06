@@ -58,13 +58,11 @@ extension ItemListViewModel_Tests {
   
   func test_itemListRefreshed_items_CountWillEqualToNewRetrievedItemsCount() async {
     // Given
-    let initialItemsCount = sut.items.count
-    
-    // When
     var itemsCountBeforeRefresh = 0
     let retrievedItemsCountPerOneExecution = mockCenter.dummyItemListPage.items.count
     let repetitionCount = 5
     
+    // When
     for _ in 1...repetitionCount {
       await sut.itemListNeedsMoreContents()
       itemsCountBeforeRefresh = sut.items.count
