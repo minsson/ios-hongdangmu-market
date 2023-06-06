@@ -10,20 +10,12 @@ import Foundation
 final class MySalesHistoryContainerViewModel: ObservableObject, ViewModelErrorHandlingProtocol {
   
   @Published var shouldPresentItemAddView: Bool = false
-  @Published private(set) var items: [Item] = []
   @Published var error: HongdangmuError?
-  
-  var onSalesItems: [Item] {
-    return items.filter { $0.stock > 0 }
-  }
-  
-  var soldOutItems: [Item] {
-    return items.filter { $0.stock == 0 }
-  }
+  @Published private(set) var items: [Item] = []
   
   private let openMarketAPIService: OpenMarketAPIServiceProtocol
-  private(set) var hasMoreData = false
   private var currentPage = 1
+  private(set) var hasMoreData = false
   
   init(openMarketAPIService: OpenMarketAPIServiceProtocol = OpenMarketAPIService()) {
     self.openMarketAPIService = openMarketAPIService
@@ -32,6 +24,14 @@ final class MySalesHistoryContainerViewModel: ObservableObject, ViewModelErrorHa
 }
 
 extension MySalesHistoryContainerViewModel {
+  
+  var onSalesItems: [Item] {
+    return items.filter { $0.stock > 0 }
+  }
+  
+  var soldOutItems: [Item] {
+    return items.filter { $0.stock == 0 }
+  }
   
   func viewNeedsMoreContents() async {
     await self.handleError {
