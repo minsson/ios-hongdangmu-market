@@ -10,10 +10,10 @@ import XCTest
 
 final class ItemDetailViewModel_Tests: XCTestCase {
   
-  var sut: ItemDetailViewModel!
-  var mockOpenMarketAPIService: MockOpenMarketAPIService!
-  var mockLoginData = MockLoginData.shared
-  var mockCenter: MockCenter!
+  private var sut: ItemDetailViewModel!
+  private var mockOpenMarketAPIService: MockOpenMarketAPIService!
+  private var mockLoginData = MockLoginData.shared
+  private var mockCenter: MockCenter!
   
   override func setUpWithError() throws {
     try super.setUpWithError()
