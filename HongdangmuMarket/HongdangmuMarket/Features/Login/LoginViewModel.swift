@@ -17,15 +17,16 @@ final class LoginViewModel: ObservableObject {
     회원가입은 사전에 서버 관리자에게 요청해야 해요. 별도의 회원 정보가 없다면 아래 로그인 버튼을 눌러 기본 ID와 비밀번호로 로그인해주세요.
     """
   
-  private let openmarketAPIService = OpenMarketAPIService()
+  private let openMarketAPIService: OpenMarketAPIServiceProtocol
   private let loginCompletion: () -> Void
   
-  init(loginCompletion: @escaping () -> Void) {
+  init(openMarketAPIService: OpenMarketAPIServiceProtocol = OpenMarketAPIService(), loginCompletion: @escaping () -> Void) {
+    self.openMarketAPIService = openMarketAPIService
     self.loginCompletion = loginCompletion
   }
   
   func loginButtonTapped() {
-    openmarketAPIService.login(nickname: nickname, password: password, identifier: identifier)
+    openMarketAPIService.login(nickname: nickname, password: password, identifier: identifier)
     
     loginCompletion()
   }
