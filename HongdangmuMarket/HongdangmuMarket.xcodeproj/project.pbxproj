@@ -265,14 +265,22 @@
 			path = Enums;
 			sourceTree = "<group>";
 		};
+		FD700A752A2F6EDE00BD8967 /* MockCenter */ = {
+			isa = PBXGroup;
+			children = (
+				FD7FA1972A2F0D3F00BF9C72 /* MockLoginData.swift */,
+				FD7FA1912A2E423100BF9C72 /* MockOpenMarketAPIService.swift */,
+			);
+			path = MockCenter;
+			sourceTree = "<group>";
+		};
 		FD7FA1872A2E3E4400BF9C72 /* HongdangmuMarket_Tests */ = {
 			isa = PBXGroup;
 			children = (
+				FD700A752A2F6EDE00BD8967 /* MockCenter */,
 				FD7FA1882A2E3E4400BF9C72 /* HongdangmuMarket_Tests.swift */,
-				FD7FA18F2A2E41CD00BF9C72 /* ItemListViewModel_Tests.swift */,
-				FD7FA1912A2E423100BF9C72 /* MockOpenMarketAPIService.swift */,
 				FD7FA1952A2F09E300BF9C72 /* LoginViewModel_Tests.swift */,
-				FD7FA1972A2F0D3F00BF9C72 /* MockLoginData.swift */,
+				FD7FA18F2A2E41CD00BF9C72 /* ItemListViewModel_Tests.swift */,
 				FD11CF2B2A2F3F40003C095B /* ItemDetailViewModel_Tests.swift */,
 			);
 			path = HongdangmuMarket_Tests;
