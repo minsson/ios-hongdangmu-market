@@ -10,9 +10,9 @@ import Foundation
 final class ItemSearchViewModel: ObservableObject, ViewModelErrorHandlingProtocol {
   
   @Published var searchBarText: String = ""
-  @Published var recentSearchWords: [String] = ["Temp  1", "Temp 2", "Temp 3", "Apple"]
-  @Published var suggestionWords: [String] = []
-  @Published var searchPhase: SearchPhase = .recentSearchWords
+  @Published private(set) var recentSearchWords: [String] = ["Temp  1", "Temp 2", "Temp 3", "Apple"]
+  @Published private(set) var suggestionWords: [String] = []
+  @Published private(set) var searchPhase: SearchPhase = .recentSearchWords
   @Published var error: HongdangmuError?
   
   private let openMarketAPIService: OpenMarketAPIServiceProtocol
