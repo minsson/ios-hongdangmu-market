@@ -10,9 +10,9 @@ import XCTest
 
 final class ItemListViewModel_Tests: XCTestCase {
   
-  var sut: ItemListViewModel!
-  var mockOpenMarketAPIService: OpenMarketAPIServiceProtocol!
-  var mockCenter: MockCenter!
+  private var sut: ItemListViewModel!
+  private var mockOpenMarketAPIService: OpenMarketAPIServiceProtocol!
+  private var mockCenter: MockCenter!
   
   override func setUpWithError() throws {
     try super.setUpWithError()
@@ -27,6 +27,10 @@ final class ItemListViewModel_Tests: XCTestCase {
     mockCenter = nil
     try super.tearDownWithError()
   }
+  
+}
+
+extension ItemListViewModel_Tests {
   
   // MARK: - isItemsEmpty
   func test_isItemsEmpty_items_isEmpty() {
