@@ -17,9 +17,11 @@ final class ItemDetailViewModel: ObservableObject, ViewModelErrorHandlingProtoco
   
   private let itemDeletionCompletion: () -> Void
   private let openMarketAPIService: OpenMarketAPIServiceProtocol
+  private let loginData: LoginDataProtocol
   
-  init(itemID: String, openMarketAPIService: OpenMarketAPIServiceProtocol = OpenMarketAPIService(), itemDeletionCompletion: @escaping () -> Void) {
+  init(itemID: String, loginData: LoginDataProtocol = LoginData.shared, openMarketAPIService: OpenMarketAPIServiceProtocol = OpenMarketAPIService(), itemDeletionCompletion: @escaping () -> Void) {
     self.itemID = itemID
+    self.loginData = loginData
     self.openMarketAPIService = openMarketAPIService
     self.itemDeletionCompletion = itemDeletionCompletion
   }
@@ -56,7 +58,7 @@ final class ItemDetailViewModel: ObservableObject, ViewModelErrorHandlingProtoco
   }
   
   func checkItemOwner() -> ItemOwner {
-    return item.vendors.name == LoginData.shared.nickname ? .myItem : .otherUsersItem
+    return item.vendors.name == loginData.nickname ? .myItem : .otherUsersItem
   }
   
 }
