@@ -15,8 +15,12 @@ final class ItemSearchViewModel: ObservableObject, ViewModelErrorHandlingProtoco
   @Published var searchPhase: SearchPhase = .recentSearchWords
   @Published var error: HongdangmuError?
   
-  private let openMarketAPIService = OpenMarketAPIService()
+  private let openMarketAPIService: OpenMarketAPIServiceProtocol
   private var isRecentSearchWordTapped: Bool = false
+  
+  init(openMarketAPIService: OpenMarketAPIServiceProtocol = OpenMarketAPIService()) {
+    self.openMarketAPIService = openMarketAPIService
+  }
   
   var hasSearchBarText: Bool {
     searchBarText.isEmpty ? false : true
