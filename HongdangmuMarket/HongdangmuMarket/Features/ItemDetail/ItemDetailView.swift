@@ -53,7 +53,7 @@ struct ItemDetailView: View {
     }
     .ignoresSafeArea(edges: .top)
     .task {
-      await viewModel.viewWillAppear()
+      await viewModel.viewOnAppearTask()
     }
     .navigationBarBackButtonHidden()
     .toolbar {
@@ -71,7 +71,7 @@ struct ItemDetailView: View {
     .fullScreenCover(isPresented: $viewModel.shouldPresentItemEditView) {
       ItemEditView(item: viewModel.item) {
         Task {
-          await viewModel.viewWillAppear()
+          await viewModel.viewOnAppearTask()
         }
       }
     }

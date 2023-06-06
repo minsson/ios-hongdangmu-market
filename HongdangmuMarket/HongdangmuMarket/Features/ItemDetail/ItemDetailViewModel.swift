@@ -24,7 +24,7 @@ final class ItemDetailViewModel: ObservableObject, ViewModelErrorHandlingProtoco
     self.itemDeletionCompletion = itemDeletionCompletion
   }
   
-  func viewWillAppear() async {
+  func viewOnAppearTask() async {
     await handleError {
       let itemDetail: Item = try await openMarketAPIService.itemDetail(itemID: itemID)
       
