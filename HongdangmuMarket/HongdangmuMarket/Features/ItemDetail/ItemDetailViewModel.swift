@@ -16,10 +16,11 @@ final class ItemDetailViewModel: ObservableObject, ViewModelErrorHandlingProtoco
   @Published private(set) var item: Item = Item(id: "", vendorID: "", name: "", description: "", thumbnail: "", price: 0, bargainPrice: 0, discountedPrice: 0, stock: 0, images: [], vendors: Vendor(id: 0, name: ""), createdAt: Date.now, issuedAt: Date.now)
   
   private let itemDeletionCompletion: () -> Void
-  private let openMarketAPIService = OpenMarketAPIService()
+  private let openMarketAPIService: OpenMarketAPIServiceProtocol
   
-  init(itemID: String, itemDeletionCompletion: @escaping () -> Void) {
+  init(itemID: String, openMarketAPIService: OpenMarketAPIServiceProtocol = OpenMarketAPIService(), itemDeletionCompletion: @escaping () -> Void) {
     self.itemID = itemID
+    self.openMarketAPIService = openMarketAPIService
     self.itemDeletionCompletion = itemDeletionCompletion
   }
   
