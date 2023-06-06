@@ -11,7 +11,11 @@ import UIKit.UIImage
 final class MockOpenMarketAPIService: OpenMarketAPIServiceProtocol {
   
   private let mockCenter = MockCenter()
+  private let mockLoginData: LoginDataProtocol
   
+  init(mockLoginData: LoginDataProtocol = MockLoginData.shared) {
+    self.mockLoginData = mockLoginData
+  }
 }
 
 extension MockOpenMarketAPIService {
