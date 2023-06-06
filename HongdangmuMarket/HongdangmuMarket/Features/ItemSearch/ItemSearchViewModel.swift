@@ -22,13 +22,13 @@ final class ItemSearchViewModel: ObservableObject, ViewModelErrorHandlingProtoco
     self.openMarketAPIService = openMarketAPIService
   }
   
-  var hasSearchBarText: Bool {
-    searchBarText.isEmpty ? false : true
-  }
-  
 }
 
 extension ItemSearchViewModel {
+  
+  var hasSearchBarText: Bool {
+    searchBarText.isEmpty ? false : true
+  }
   
   func textDeletionButtonTapped() {
     searchBarText = ""
