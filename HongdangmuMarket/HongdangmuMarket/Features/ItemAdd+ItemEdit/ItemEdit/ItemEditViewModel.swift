@@ -16,12 +16,13 @@ final class ItemEditViewModel: ObservableObject, ItemAddEditViewModelProtocol, V
   @Published var error: HongdangmuError?
   
   let item: Item
-
-  private let itemEditCompletion: () -> ()
-  private let openMarketAPIService = OpenMarketAPIService()
   
-  init(item: Item, itemEditCompletion: @escaping () -> ()) {
+  private let itemEditCompletion: () -> ()
+  private let openMarketAPIService: OpenMarketAPIServiceProtocol
+  
+  init(item: Item, openMarketAPIService: OpenMarketAPIServiceProtocol = OpenMarketAPIService(), itemEditCompletion: @escaping () -> ()) {
     self.item = item
+    self.openMarketAPIService = openMarketAPIService
     self.itemEditCompletion = itemEditCompletion
     
     title = item.name
