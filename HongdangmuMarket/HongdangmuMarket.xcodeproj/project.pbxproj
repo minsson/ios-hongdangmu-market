@@ -31,6 +31,7 @@
 		FD7FA1812A2E3D1800BF9C72 /* OpenMarketAPIServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7FA1802A2E3D1800BF9C72 /* OpenMarketAPIServiceProtocol.swift */; };
 		FD7FA1892A2E3E4400BF9C72 /* HongdangmuMarket_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7FA1882A2E3E4400BF9C72 /* HongdangmuMarket_Tests.swift */; };
 		FD7FA1902A2E41CD00BF9C72 /* ItemListViewModel_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7FA18F2A2E41CD00BF9C72 /* ItemListViewModel_Tests.swift */; };
+		FD7FA1922A2E423100BF9C72 /* MockOpenMarketAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7FA1912A2E423100BF9C72 /* MockOpenMarketAPIService.swift */; };
 		FD823DED29F2D3D3006A4685 /* MySoldOutItemsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD823DEC29F2D3D3006A4685 /* MySoldOutItemsView.swift */; };
 		FD8BA9A529E19CAA00F18661 /* HongdangmuMarketApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8BA9A429E19CAA00F18661 /* HongdangmuMarketApp.swift */; };
 		FD8BA9A929E19CAB00F18661 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FD8BA9A829E19CAB00F18661 /* Assets.xcassets */; };
@@ -121,6 +122,7 @@
 		FD7FA1862A2E3E4400BF9C72 /* HongdangmuMarket_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HongdangmuMarket_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD7FA1882A2E3E4400BF9C72 /* HongdangmuMarket_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HongdangmuMarket_Tests.swift; sourceTree = "<group>"; };
 		FD7FA18F2A2E41CD00BF9C72 /* ItemListViewModel_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemListViewModel_Tests.swift; sourceTree = "<group>"; };
+		FD7FA1912A2E423100BF9C72 /* MockOpenMarketAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockOpenMarketAPIService.swift; sourceTree = "<group>"; };
 		FD823DEC29F2D3D3006A4685 /* MySoldOutItemsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySoldOutItemsView.swift; sourceTree = "<group>"; };
 		FD8BA9A129E19CAA00F18661 /* HongdangmuMarket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HongdangmuMarket.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD8BA9A429E19CAA00F18661 /* HongdangmuMarketApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HongdangmuMarketApp.swift; sourceTree = "<group>"; };
@@ -260,6 +262,7 @@
 			children = (
 				FD7FA1882A2E3E4400BF9C72 /* HongdangmuMarket_Tests.swift */,
 				FD7FA18F2A2E41CD00BF9C72 /* ItemListViewModel_Tests.swift */,
+				FD7FA1912A2E423100BF9C72 /* MockOpenMarketAPIService.swift */,
 			);
 			path = HongdangmuMarket_Tests;
 			sourceTree = "<group>";
@@ -594,6 +597,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FD7FA1922A2E423100BF9C72 /* MockOpenMarketAPIService.swift in Sources */,
 				FD7FA1892A2E3E4400BF9C72 /* HongdangmuMarket_Tests.swift in Sources */,
 				FD7FA1902A2E41CD00BF9C72 /* ItemListViewModel_Tests.swift in Sources */,
 			);
