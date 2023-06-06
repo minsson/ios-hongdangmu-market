@@ -9,6 +9,12 @@ import UIKit.UIImage
 
 struct OpenMarketAPIService: OpenMarketAPIServiceProtocol {
   
+  private let loginData: LoginDataProtocol
+  
+  init(loginData: LoginDataProtocol = LoginData.shared) {
+    self.loginData = loginData
+  }
+  
   private func execute(_ request: URLRequest) async throws -> Data {
     let data = try await NetworkManager().execute(request)
     return data

@@ -5,7 +5,7 @@
 //  Created by minsson on 2023/05/17.
 //
 
-final class LoginData {
+final class LoginData: LoginDataProtocol {
   
   static let shared = LoginData()
   
