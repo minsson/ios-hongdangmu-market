@@ -21,7 +21,7 @@ final class MockOpenMarketAPIService: OpenMarketAPIServiceProtocol {
 extension MockOpenMarketAPIService {
   
   func login(nickname: String, password: String, identifier: String) {
-    return
+    mockLoginData.save(nickname: nickname, password: password, identifier: identifier)
   }
   
   func itemListPage(pageNumber: Int, searchValue: String?) async throws -> HongdangmuMarket.ItemListPage {
