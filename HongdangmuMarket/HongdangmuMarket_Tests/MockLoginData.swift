@@ -10,7 +10,7 @@ import Foundation
 
 final class MockLoginData: LoginDataProtocol {
   
-  static var shared: LoginDataProtocol = MockLoginData()
+  static var shared = MockLoginData()
   
   private(set) var nickname: String = ""
   private(set) var password: String = ""
