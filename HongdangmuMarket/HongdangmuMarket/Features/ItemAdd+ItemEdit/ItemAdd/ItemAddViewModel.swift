@@ -27,8 +27,8 @@ final class ItemAddViewModel: ObservableObject, ItemAddEditViewModelProtocol, Vi
   func finishButtonTapped() {
     Task { [weak self] in
       await self?.handleError { [weak self] in
-        try await self?.requestPostToServer()
-        try await self?.requestRecentlyAddedItemID()
+        try await self?.requestToAddItem()
+        try await self?.retrieveRecentlyAddedItemID()
       }
     }
   }
@@ -37,12 +37,12 @@ final class ItemAddViewModel: ObservableObject, ItemAddEditViewModelProtocol, Vi
 
 private extension ItemAddViewModel {
   
-  func requestPostToServer() async throws {
+  func requestToAddItem() async throws {
     let itemData = processInputToData()
     try await openMarketAPIService.addItem(data: itemData, images: selectedImages)
   }
   
-  func requestRecentlyAddedItemID() async throws {
+  func retrieveRecentlyAddedItemID() async throws {
     let recentlyAddedItem: Item = try await openMarketAPIService.retrieveRecentlyAddedItem()
     
     itemAddCompletion?(recentlyAddedItem.id)
