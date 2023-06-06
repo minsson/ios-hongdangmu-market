@@ -44,13 +44,9 @@ final class ItemDetailViewModel: ObservableObject, ViewModelErrorHandlingProtoco
   
   func deleteButtonTapped() {
     Task { [weak self] in
-      do {
+      await self?.handleError { [weak self] in
         self?.itemDeletionCompletion()
         try await self?.openMarketAPIService.deleteItem(id: self?.itemID ?? "")
-      } catch let error as OpenMarketAPIError {
-        self?.error = HongdangmuError.openMarketAPIServiceError(error)
-      } catch {
-        self?.error = HongdangmuError.unknownError
       }
     }
   }
