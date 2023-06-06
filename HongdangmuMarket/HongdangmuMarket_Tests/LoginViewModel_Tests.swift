@@ -30,18 +30,18 @@ final class LoginViewModel_Tests: XCTestCase {
 
 extension LoginViewModel_Tests {
   
-  func test_LoginViewModel_init_LoginCompletionIsExecuted() {
+  func test_LoginViewModel_init_LoginCompletionIsExecuted() async {
     // Given
-    var isCompletionExecuted = false
-    let loginCompletion = { isCompletionExecuted.toggle() }
+    let loginCompletionExpectation = expectation(description: "loginCompletion is called")
+    sut = LoginViewModel(loginCompletion: {
+      loginCompletionExpectation.fulfill()
+    })
     
     // When
-    sut = LoginViewModel(loginCompletion: {
-      loginCompletion()
-      
-      // Then
-      XCTAssertTrue(isCompletionExecuted)
-    })
+    sut.loginButtonTapped()
+    
+    // Then
+    await fulfillment(of: [loginCompletionExpectation], timeout: 3)
   }
   
   func test_LoginViewModel_loginButtonTapped_SavesLoginData() {
