@@ -62,8 +62,8 @@ extension OpenMarketAPIService {
     }
     
     let data = try await execute(request)
-    
     let item = try DataToEntityConverter().convert(data: data, to: ItemDTO.self)
+    
     return item
   }
   
@@ -76,7 +76,6 @@ extension OpenMarketAPIService {
     }
     
     let _ = try await execute(request)
-    
   }
   
   private func deletionItemURI(id: String) async throws -> Data {
@@ -85,6 +84,7 @@ extension OpenMarketAPIService {
     }
     
     let data: Data = try await execute(request)
+    
     return data
   }
   
