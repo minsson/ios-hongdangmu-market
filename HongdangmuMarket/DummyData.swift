@@ -1,5 +1,5 @@
 //
-//  MockCenter.swift
+//  DummyData.swift
 //  HongdangmuMarket
 //
 //  Created by minsson on 2023/05/14.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct MockCenter {
+struct DummyData {
   
   let dummyItem: Item = Item(
     id: "1",

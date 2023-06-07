@@ -12,13 +12,13 @@ final class ItemListViewModel_Tests: XCTestCase {
   
   private var sut: ItemListViewModel!
   private var mockOpenMarketAPIService: OpenMarketAPIServiceProtocol!
-  private var mockCenter: MockCenter!
+  private var mockCenter: DummyData!
   
   override func setUpWithError() throws {
     try super.setUpWithError()
     mockOpenMarketAPIService = MockOpenMarketAPIService()
     sut = ItemListViewModel(openMarketAPIService: mockOpenMarketAPIService)
-    mockCenter = MockCenter()
+    mockCenter = DummyData()
   }
   
   override func tearDownWithError() throws {

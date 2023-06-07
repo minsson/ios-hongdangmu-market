@@ -12,12 +12,12 @@ final class MySalesHistoryContainerViewModel_Tests: XCTestCase {
   
   private var sut: MySalesHistoryContainerViewModel!
   private var mockOpenMarketAPIService: MockOpenMarketAPIService!
-  private var mockCenter: MockCenter!
+  private var mockCenter: DummyData!
   
   override func setUpWithError() throws {
     try super.setUpWithError()
     mockOpenMarketAPIService = MockOpenMarketAPIService()
-    mockCenter = MockCenter()
+    mockCenter = DummyData()
     sut = MySalesHistoryContainerViewModel(openMarketAPIService: mockOpenMarketAPIService)
   }
   

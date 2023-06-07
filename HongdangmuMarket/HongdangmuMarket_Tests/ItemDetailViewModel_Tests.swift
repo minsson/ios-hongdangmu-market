@@ -13,12 +13,12 @@ final class ItemDetailViewModel_Tests: XCTestCase {
   private var sut: ItemDetailViewModel!
   private var mockOpenMarketAPIService: MockOpenMarketAPIService!
   private var mockLoginData = MockLoginData.shared
-  private var mockCenter: MockCenter!
+  private var mockCenter: DummyData!
   
   override func setUpWithError() throws {
     try super.setUpWithError()
     mockOpenMarketAPIService = MockOpenMarketAPIService()
-    mockCenter = MockCenter()
+    mockCenter = DummyData()
     sut = ItemDetailViewModel(itemID: mockCenter.dummyItem.id, openMarketAPIService: mockOpenMarketAPIService, itemDeletionCompletion: { })
     mockLoginData.save(nickname: "vendorName", password: "password", identifier: "identifier")
   }

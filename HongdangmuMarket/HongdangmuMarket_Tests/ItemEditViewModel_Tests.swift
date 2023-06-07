@@ -12,12 +12,12 @@ final class ItemEditViewModel_Tests: XCTestCase {
   
   private var sut: ItemEditViewModel!
   private var mockOpenMarketAPIService: MockOpenMarketAPIService!
-  private var mockCenter: MockCenter!
+  private var mockCenter: DummyData!
   private var dummyItem: Item!
   
   override func setUpWithError() throws {
     mockOpenMarketAPIService = MockOpenMarketAPIService()
-    mockCenter = MockCenter()
+    mockCenter = DummyData()
     dummyItem = mockCenter.dummyItem
     try super.setUpWithError()
   }
