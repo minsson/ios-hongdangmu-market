@@ -11,10 +11,6 @@ protocol ItemAddEditViewProtocol { }
 
 extension ItemAddEditViewProtocol {
   
-  func imagePickerButton(shouldPresentImagePicker: Binding<Bool>) -> some View {
-    ImagePickerButton (shouldPresentImagePicker: shouldPresentImagePicker)
-  }
-  
   func headerView(title: String, dismiss: DismissAction, finishAction: @escaping () -> ()) -> some View {
     HStack() {
       Button {
@@ -70,35 +66,3 @@ extension ItemAddEditViewProtocol {
   
 }
 
-fileprivate struct ImagePickerButton: View {
-  
-  @Binding var shouldPresentImagePicker: Bool
-  
-  private let width: CGFloat = 75
-  private let cornerRadius: CGFloat = 4
-  
-  var body: some View {
-    imageAddButton
-  }
-  
-}
-
-private extension ImagePickerButton {
-  
-  var imageAddButton: some View {
-    Button {
-      shouldPresentImagePicker = true
-    } label: {
-      ZStack {
-        RoundedRectangle(cornerRadius: cornerRadius)
-          .stroke(Color(UIColor.systemGray4))
-          .frame(width: width, height: width)
-        
-        Image(systemName: "camera.fill")
-          .foregroundColor(Color(UIColor.systemGray))
-          .font(.title3)
-      }
-    }
-  }
-  
-}

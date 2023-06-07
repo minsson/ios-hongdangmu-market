@@ -74,6 +74,10 @@ struct ItemAddView: View, ItemAddEditViewProtocol {
 
 private extension ItemAddView {
   
+  func imagePickerButton(shouldPresentImagePicker: Binding<Bool>) -> some View {
+    ImagePickerButton (shouldPresentImagePicker: shouldPresentImagePicker, selectedImagesCount: $viewModel.selectedImages.count)
+  }
+  
   func selectedImagesView(images: [UIImage], size: CGFloat = 75, cornerRadius: CGFloat = 4) -> some View {
     ForEach(images, id: \.self) { image in
       Image(uiImage: image)
@@ -81,6 +85,45 @@ private extension ItemAddView {
         .aspectRatio(contentMode: .fill)
         .frame(width: size, height: size)
         .clipShape(RoundedRectangle(cornerRadius: cornerRadius))
+    }
+  }
+  
+}
+
+fileprivate struct ImagePickerButton: View {
+  
+  @Binding var shouldPresentImagePicker: Bool
+  var selectedImagesCount: Int
+  
+  private let width: CGFloat = 75
+  private let cornerRadius: CGFloat = 4
+  
+  var body: some View {
+    imageAddButton
+  }
+  
+}
+
+private extension ImagePickerButton {
+  
+  var imageAddButton: some View {
+    Button {
+      shouldPresentImagePicker = true
+    } label: {
+      ZStack {
+        RoundedRectangle(cornerRadius: cornerRadius)
+          .stroke(Color(UIColor.systemGray4))
+          .frame(width: width, height: width)
+        
+        VStack {
+          Image(systemName: "camera.fill")
+            .foregroundColor(Color(UIColor.systemGray))
+            .font(.title3)
+          
+          Text("\(selectedImagesCount) / 5")
+            .foregroundColor(.secondary)
+        }
+      }
     }
   }
   
