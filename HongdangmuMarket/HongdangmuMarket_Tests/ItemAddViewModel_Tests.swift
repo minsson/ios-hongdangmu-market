@@ -68,4 +68,24 @@ extension ItemAddViewModel_Tests {
     XCTAssertEqual(dummyRecentlyAddedItem.id, recentlyAddedItemID)
   }
   
+  // MARK: - imageDeletionButtonTapped()
+  
+  func test_ItemAddViewModel_imageDeletionButtonTapped_RemovesImageFromSelectedImages() {
+    // Given
+    sut = ItemAddViewModel(openMarketAPIService: mockOpenMarketAPIService, itemAddCompletion: { _ in })
+    let imageToDelete = UIImage(systemName: "star")!
+    let images: [UIImage] = [
+      UIImage(systemName: "heart")!,
+      imageToDelete,
+      UIImage(systemName: "diamond")!
+    ]
+    sut.selectedImages.append(contentsOf: images)
+    
+    // When
+    sut.imageDeletionButtonTapped(of: imageToDelete)
+    
+    // Then
+    XCTAssertNil(sut.selectedImages.firstIndex(of: imageToDelete))
+  }
+  
 }
