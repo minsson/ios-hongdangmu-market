@@ -35,7 +35,8 @@ struct ItemAddView: View, ItemAddEditViewProtocol {
               imagePickerButton(shouldPresentImagePicker: $viewModel.shouldPresentImagePicker)
               selectedImagesView(images: viewModel.selectedImages)
             }
-            .padding(.bottom, 16)
+            .padding(.trailing, 16)
+            .padding(.vertical, 16)
           }
           
           Divider()
@@ -85,6 +86,27 @@ private extension ItemAddView {
         .aspectRatio(contentMode: .fill)
         .frame(width: size, height: size)
         .clipShape(RoundedRectangle(cornerRadius: cornerRadius))
+        .overlay(alignment: .topTrailing) {
+          imageDeleteButton(for: image)
+        }
+    }
+  }
+  
+  func imageDeleteButton(for image: UIImage) -> some View {
+    Button {
+      viewModel.imageDeletionButtonTapped(of: image)
+    } label: {
+      ZStack {
+        Image(systemName: "xmark")
+          .font(.caption)
+          .foregroundColor(Color(UIColor.systemGray6))
+          .padding(.all, 4)
+          .background {
+            Circle()
+              .foregroundColor(.primary)
+          }
+      }
+      .offset(x: 5, y: -5)
     }
   }
   
