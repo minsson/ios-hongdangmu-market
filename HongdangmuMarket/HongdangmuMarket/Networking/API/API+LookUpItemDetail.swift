@@ -12,10 +12,6 @@ extension API {
     var itemID: String?
     var queryItems: [String: String?]? = nil
     
-    init(itemID: String) {
-      self.itemID = itemID
-    }
-    
   }
   
 }
