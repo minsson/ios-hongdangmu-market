@@ -8,10 +8,10 @@
 extension API {
   
   struct LookUpItems: OpenMarketAPIRequestGetProtocol {
-    
     let pageNumber: Int
     let itemsPerPage: Int
     let searchValue: String?
+    let httpMethod: HTTPMethod = .get
     
     var itemID: String?
     var queryItems: [String: String?]? {

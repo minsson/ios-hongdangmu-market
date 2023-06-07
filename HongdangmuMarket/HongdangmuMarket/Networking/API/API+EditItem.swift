@@ -14,7 +14,7 @@ extension API {
     var itemID: String?
     var jsonData: Data?
     
-    let httpMethod: String = HTTPMethod.patch.rawValue
+    let httpMethod: HTTPMethod = .patch
     
     init(itemID: String, with jsonData: Data?) {
       self.itemID = itemID

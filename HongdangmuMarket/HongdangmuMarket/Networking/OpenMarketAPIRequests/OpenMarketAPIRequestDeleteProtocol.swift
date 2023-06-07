@@ -10,7 +10,7 @@ import Foundation
 protocol OpenMarketAPIRequestDeleteProtocol: OpenMarketAPIRequestProtocol {
   
   var itemID: String { get }
-  var uriSearchHTTPMethod: String { get }
+  var uriSearchHTTPMethod: HTTPMethod { get }
   var deletionItemURI: String { get }
   
 }
@@ -33,7 +33,7 @@ extension OpenMarketAPIRequestDeleteProtocol {
     }
     
     var request = URLRequest(url: url)
-    request.httpMethod = uriSearchHTTPMethod
+    request.httpMethod = uriSearchHTTPMethod.rawValue
     request.setValue(LoginData.shared.identifier, forHTTPHeaderField: "identifier")
     request.setValue("application/json", forHTTPHeaderField: "Content-type")
     
@@ -58,7 +58,7 @@ extension OpenMarketAPIRequestDeleteProtocol {
     }
     
     var request = URLRequest(url: url)
-    request.httpMethod = httpMethod
+    request.httpMethod = httpMethod.rawValue
     request.setValue(LoginData.shared.identifier, forHTTPHeaderField: "identifier")
     
     return request

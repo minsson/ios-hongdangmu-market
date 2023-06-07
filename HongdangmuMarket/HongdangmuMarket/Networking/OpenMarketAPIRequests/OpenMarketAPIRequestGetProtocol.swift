@@ -16,10 +16,6 @@ protocol OpenMarketAPIRequestGetProtocol: OpenMarketAPIRequestProtocol {
 
 extension OpenMarketAPIRequestGetProtocol {
   
-  var httpMethod: String {
-    return HTTPMethod.get.rawValue
-  }
-  
   var url: URL? {
     var urlComponents = URLComponents(string: urlHost + urlPath)
     

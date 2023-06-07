@@ -9,7 +9,7 @@ protocol OpenMarketAPIRequestProtocol {
   
   var urlHost: String { get }
   var urlPath: String { get }
-  var httpMethod: String { get }
+  var httpMethod: HTTPMethod { get }
   
 }
 

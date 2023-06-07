@@ -15,7 +15,7 @@ extension API {
     var images: [UIImage]
     
     let boundary: String = UUID().uuidString
-    let httpMethod: String = HTTPMethod.post.rawValue
+    let httpMethod: HTTPMethod = .post
     
   }
   

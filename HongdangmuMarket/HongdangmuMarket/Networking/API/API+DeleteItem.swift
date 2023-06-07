@@ -11,8 +11,8 @@ extension API {
     
     var itemID: String
     var deletionItemURI: String
-    var uriSearchHTTPMethod = HTTPMethod.post.rawValue
-    let httpMethod: String = HTTPMethod.delete.rawValue
+    var uriSearchHTTPMethod: HTTPMethod = .post
+    let httpMethod: HTTPMethod = .delete
     
   }
   

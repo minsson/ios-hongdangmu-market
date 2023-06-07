@@ -23,7 +23,7 @@ extension OpenMarketAPIRequestPostProtocol {
     }
     
     var request = URLRequest(url: url)
-    request.httpMethod = httpMethod
+    request.httpMethod = httpMethod.rawValue
     request.setValue(LoginData.shared.identifier, forHTTPHeaderField: "identifier")
     request.setValue("multipart/form-data; boundary=" + boundary, forHTTPHeaderField: "Content-type")
     request.httpBody = multipartFormBody

@@ -12,6 +12,7 @@ extension API {
     var itemID: String?
     var queryItems: [String: String?]? = nil
     
+    let httpMethod: HTTPMethod = .get
   }
   
 }
