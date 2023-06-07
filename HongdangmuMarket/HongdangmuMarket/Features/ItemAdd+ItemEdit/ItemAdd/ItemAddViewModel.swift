@@ -34,6 +34,13 @@ final class ItemAddViewModel: ObservableObject, ItemAddEditViewModelProtocol, Vi
     }
   }
   
+  func imageDeletionButtonTapped(of image: UIImage) {
+    guard let index = selectedImages.firstIndex(of: image) else {
+      return
+    }
+    selectedImages.remove(at: index)
+  }
+  
 }
 
 private extension ItemAddViewModel {
