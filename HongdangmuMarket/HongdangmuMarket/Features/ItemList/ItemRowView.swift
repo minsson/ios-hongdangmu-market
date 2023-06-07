@@ -64,10 +64,26 @@ struct ItemRowView: View {
 
 struct ItemRowView_Previews: PreviewProvider {
   
-  static let item = MockCenter().dummyItem
+  static let dummyItem: Item = Item(
+    id: "1",
+    vendorID: "1",
+    name: "상품 이름",
+    description: """
+          iPhone 7 Plus 이후 모델을 보상 판매하고 ₩40,000-₩780,000 상당의 크레딧을 받으세요.
+          """,
+    thumbnail: "photo",
+    price: 50000,
+    bargainPrice: 30000,
+    discountedPrice: 20000,
+    stock: 100,
+    images: [],
+    vendors: Vendor(id: 0, name: "vendorName"),
+    createdAt: Date(timeIntervalSinceNow: -86400),
+    issuedAt: Date.now
+  )
   
   static var previews: some View {
-    ItemRowView(item: item, isEditable: true)
+    ItemRowView(item: dummyItem, isEditable: true)
   }
   
 }
