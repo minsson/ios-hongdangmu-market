@@ -276,6 +276,7 @@
 		FD700A752A2F6EDE00BD8967 /* MockCenter */ = {
 			isa = PBXGroup;
 			children = (
+				FDDA463A2A1001CB003D279E /* DummyData.swift */,
 				FD7FA1972A2F0D3F00BF9C72 /* MockLoginData.swift */,
 				FD7FA1912A2E423100BF9C72 /* MockOpenMarketAPIService.swift */,
 			);
@@ -301,7 +302,6 @@
 		FD8BA99829E19CAA00F18661 = {
 			isa = PBXGroup;
 			children = (
-				FDDA463A2A1001CB003D279E /* DummyData.swift */,
 				FD8BA9A329E19CAA00F18661 /* HongdangmuMarket */,
 				FD7FA1872A2E3E4400BF9C72 /* HongdangmuMarket_Tests */,
 				FD8BA9A229E19CAA00F18661 /* Products */,
