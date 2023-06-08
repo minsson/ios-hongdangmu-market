@@ -22,7 +22,7 @@ struct CurrencyTextField: View {
   
   var body: some View {
     HStack {
-      if !text.isEmpty {
+      if text.isNotEmpty {
         Text(currency.symbol)
       }
       
