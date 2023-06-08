@@ -1,5 +1,5 @@
 //
-//  ItemRowView.swift
+//  ItemRow.swift
 //  HongdangmuMarket
 //
 //  Created by minsson on 2023/04/08.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ItemRowView: View {
+struct ItemRow: View {
   
   let item: Item
   let isEditable: Bool
@@ -83,7 +83,7 @@ struct ItemRowView_Previews: PreviewProvider {
   )
   
   static var previews: some View {
-    ItemRowView(item: dummyItem, isEditable: true)
+    ItemRow(item: dummyItem, isEditable: true)
   }
   
 }

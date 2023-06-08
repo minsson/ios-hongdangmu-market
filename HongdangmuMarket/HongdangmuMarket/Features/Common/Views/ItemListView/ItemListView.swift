@@ -22,7 +22,7 @@ struct ItemListView: View {
               }
             } label: {
               VStack(spacing: 16) {
-                ItemRowView(item: item, isEditable: false)
+                ItemRow(item: item, isEditable: false)
                   .foregroundColor(.primary)
                 
                 Divider()

@@ -21,7 +21,7 @@ struct MyOnSalesItemsView: View {
             }
           } label: {
             VStack(spacing: 0) {
-              ItemRowView(item: item, isEditable: false)
+              ItemRow(item: item, isEditable: false)
                 .foregroundColor(.primary)
                 .padding(.bottom, 16)
                 .padding(.horizontal)
