@@ -31,7 +31,7 @@ struct ItemListView: View {
           }
           
           progressView
-            .padding(.top, 300)
+            .padding(.vertical, 40)
             .task {
               await viewModel.itemListNeedsMoreContents()
             }
