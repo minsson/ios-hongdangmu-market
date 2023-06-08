@@ -64,7 +64,7 @@ private extension MySalesHistoryContainerView {
       
       Spacer()
       
-      CircleImageView(imageName: "defaultProfileImage")
+      CircleImage(imageName: "defaultProfileImage")
         .frame(width: 90)
     }
   }
