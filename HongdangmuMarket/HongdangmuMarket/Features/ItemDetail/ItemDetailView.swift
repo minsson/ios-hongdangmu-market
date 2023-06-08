@@ -146,7 +146,7 @@ private extension ItemDetailView {
       
       TabView {
         ForEach(viewModel.item.images) { imageData in
-          CachedAsyncImage(imageURL: imageData.url)
+          CachedAsyncImageView(imageURL: imageData.url)
             .aspectRatio(contentMode: .fill)
             .overlay {
               gradientOnImage

@@ -35,7 +35,7 @@
 		FD7E69982A30090800204FA9 /* DummyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDDA463A2A1001CB003D279E /* DummyData.swift */; };
 		FD7FA17B2A2E3C7000BF9C72 /* ImageCacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7FA17A2A2E3C7000BF9C72 /* ImageCacheManager.swift */; };
 		FD7FA17D2A2E3CBF00BF9C72 /* CachedAsyncImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7FA17C2A2E3CBF00BF9C72 /* CachedAsyncImageViewModel.swift */; };
-		FD7FA17F2A2E3CD800BF9C72 /* CachedAsyncImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7FA17E2A2E3CD800BF9C72 /* CachedAsyncImage.swift */; };
+		FD7FA17F2A2E3CD800BF9C72 /* CachedAsyncImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7FA17E2A2E3CD800BF9C72 /* CachedAsyncImageView.swift */; };
 		FD7FA1812A2E3D1800BF9C72 /* OpenMarketAPIServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7FA1802A2E3D1800BF9C72 /* OpenMarketAPIServiceProtocol.swift */; };
 		FD7FA1892A2E3E4400BF9C72 /* HongdangmuMarket_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7FA1882A2E3E4400BF9C72 /* HongdangmuMarket_Tests.swift */; };
 		FD7FA1902A2E41CD00BF9C72 /* ItemListViewModel_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7FA18F2A2E41CD00BF9C72 /* ItemListViewModel_Tests.swift */; };
@@ -134,7 +134,7 @@
 		FD7E69962A2F96CD00204FA9 /* MySalesHistoryContainerViewModel_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySalesHistoryContainerViewModel_Tests.swift; sourceTree = "<group>"; };
 		FD7FA17A2A2E3C7000BF9C72 /* ImageCacheManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCacheManager.swift; sourceTree = "<group>"; };
 		FD7FA17C2A2E3CBF00BF9C72 /* CachedAsyncImageViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CachedAsyncImageViewModel.swift; sourceTree = "<group>"; };
-		FD7FA17E2A2E3CD800BF9C72 /* CachedAsyncImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CachedAsyncImage.swift; sourceTree = "<group>"; };
+		FD7FA17E2A2E3CD800BF9C72 /* CachedAsyncImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CachedAsyncImageView.swift; sourceTree = "<group>"; };
 		FD7FA1802A2E3D1800BF9C72 /* OpenMarketAPIServiceProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenMarketAPIServiceProtocol.swift; sourceTree = "<group>"; };
 		FD7FA1862A2E3E4400BF9C72 /* HongdangmuMarket_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HongdangmuMarket_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD7FA1882A2E3E4400BF9C72 /* HongdangmuMarket_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HongdangmuMarket_Tests.swift; sourceTree = "<group>"; };
@@ -286,7 +286,7 @@
 		FD55839B2A3163D60019CD5A /* CachedAsyncImageView */ = {
 			isa = PBXGroup;
 			children = (
-				FD7FA17E2A2E3CD800BF9C72 /* CachedAsyncImage.swift */,
+				FD7FA17E2A2E3CD800BF9C72 /* CachedAsyncImageView.swift */,
 				FD7FA17C2A2E3CBF00BF9C72 /* CachedAsyncImageViewModel.swift */,
 			);
 			path = CachedAsyncImageView;
@@ -701,7 +701,7 @@
 				FD7FA19A2A2F0EF600BF9C72 /* LoginDataProtocol.swift in Sources */,
 				FD3304732A24FAD20053C9FF /* OpenMarketAPIError.swift in Sources */,
 				FD8BA9BD29E1A13000F18661 /* ItemListPageDTO.swift in Sources */,
-				FD7FA17F2A2E3CD800BF9C72 /* CachedAsyncImage.swift in Sources */,
+				FD7FA17F2A2E3CD800BF9C72 /* CachedAsyncImageView.swift in Sources */,
 				FDA34D1829E2AFEF00CF96E3 /* ItemAddViewModel.swift in Sources */,
 				FD8BA9DC29E1D10100F18661 /* ItemListPage.swift in Sources */,
 				FD50B9012A0972B90058BE3D /* OpenMarketAPIRequestDeleteProtocol.swift in Sources */,

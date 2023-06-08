@@ -1,5 +1,5 @@
 //
-//  CachedAsyncImage.swift
+//  CachedAsyncImageView.swift
 //  HongdangmuMarket
 //
 //  Created by minsson on 2023/06/03.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct CachedAsyncImage: View {
+struct CachedAsyncImageView: View {
   
   @StateObject private var viewModel: CachedAsyncImageViewModel
   
@@ -31,7 +31,7 @@ struct CachedAsyncImage: View {
   
 }
 
-private extension CachedAsyncImage {
+private extension CachedAsyncImageView {
   
   var imagePlaceholder: some View {
     Rectangle()
