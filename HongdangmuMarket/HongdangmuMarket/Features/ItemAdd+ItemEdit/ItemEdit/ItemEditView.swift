@@ -69,7 +69,7 @@ private extension ItemEditView {
   
   var selectedImages: some View {
     ForEach(viewModel.item.images) { imageData in
-      CachedAsyncImageView(imageURL: imageData.url)
+      CachedAsyncImageView(imageURL: imageData.url, withWidth: 400)
         .aspectRatio(contentMode: .fill)
         .frame(width: 75, height: 75)
         .clipShape(RoundedRectangle(cornerRadius: 4))

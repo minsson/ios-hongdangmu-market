@@ -13,10 +13,13 @@ final class CachedAsyncImageViewModel: ObservableObject {
   @Published private(set) var isImageReady: Bool = false
   
   let imageURL: String
+  let downsamplingWidth: CGFloat
   private let networkManager = NetworkManager()
+  private let imageDownsamplingManager = ImageDownsamplingManager()
   private let imageCacheManager = ImageCacheManager.shared
   
-  init(imageURL: String) {
+  init(imageURL: String, withWidth downsamplingWidth: CGFloat) {
+    self.downsamplingWidth = downsamplingWidth
     self.imageURL = imageURL
   }
   
@@ -32,8 +35,10 @@ private extension CachedAsyncImageViewModel {
   
   func updateImage(from urlString: String) async {
     let loadedImage: UIImage = await loadImage(from: urlString)
+    let downsampledImage: UIImage = imageDownsamplingManager.downsample(image: loadedImage, withNewWidth: downsamplingWidth)
+    
     await MainActor.run { [weak self] in
-      self?.image = Image(uiImage: loadedImage)
+      self?.image = Image(uiImage: downsampledImage)
       self?.isImageReady = true
     }
   }
