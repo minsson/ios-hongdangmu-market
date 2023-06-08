@@ -38,7 +38,7 @@ struct MyOnSalesItemsView: View {
           }
         }
         
-        progressView
+        endSymbol
           .task {
             await viewModel.viewNeedsMoreContents()
           }
@@ -52,7 +52,7 @@ struct MyOnSalesItemsView: View {
 private extension MyOnSalesItemsView {
   
   @ViewBuilder
-  var progressView: some View {
+  var endSymbol: some View {
     if viewModel.hasMoreData {
       ProgressView()
     } else {

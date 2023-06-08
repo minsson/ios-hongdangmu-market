@@ -16,7 +16,7 @@ struct ItemListContainerView: View {
     VStack {
       hiddenNavigationLinkToRecentlyAddedItem(for: viewModel.recentlyAddedItem)
       
-      headerView
+      headerBar
         .padding(.bottom, 16)
       
       ItemListView(viewModel: itemListViewModel)
@@ -49,7 +49,7 @@ private extension ItemListContainerView {
     }
   }
   
-  var headerView: some View {
+  var headerBar: some View {
     VStack {
       searchButton
       

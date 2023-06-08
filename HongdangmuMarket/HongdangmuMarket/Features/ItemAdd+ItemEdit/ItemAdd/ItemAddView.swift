@@ -33,7 +33,7 @@ struct ItemAddView: View, ItemAddEditViewProtocol {
           ScrollView(.horizontal, showsIndicators: false) {
             HStack(spacing: 20) {
               imagePickerButton(shouldPresentImagePicker: $viewModel.shouldPresentImagePicker)
-              selectedImagesView(images: viewModel.selectedImages)
+              selectedImages(images: viewModel.selectedImages)
             }
             .padding(.trailing, 16)
             .padding(.vertical, 16)
@@ -79,7 +79,7 @@ private extension ItemAddView {
     ImagePickerButton (shouldPresentImagePicker: shouldPresentImagePicker, selectedImagesCount: $viewModel.selectedImages.count)
   }
   
-  func selectedImagesView(images: [UIImage], size: CGFloat = 75, cornerRadius: CGFloat = 4) -> some View {
+  func selectedImages(images: [UIImage], size: CGFloat = 75, cornerRadius: CGFloat = 4) -> some View {
     ForEach(images, id: \.self) { image in
       Image(uiImage: image)
         .resizable()

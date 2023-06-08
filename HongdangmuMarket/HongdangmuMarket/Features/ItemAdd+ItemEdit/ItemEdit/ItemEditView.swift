@@ -32,7 +32,7 @@ struct ItemEditView: View, ItemAddEditViewProtocol {
         ScrollView {
           ScrollView(.horizontal, showsIndicators: false) {
             HStack(spacing: 20) {
-              selectedImagesView
+              selectedImages
             }
             .padding(.bottom, 16)
           }
@@ -67,7 +67,7 @@ struct ItemEditView: View, ItemAddEditViewProtocol {
 
 private extension ItemEditView {
   
-  var selectedImagesView: some View {
+  var selectedImages: some View {
     ForEach(viewModel.item.images) { imageData in
       CachedAsyncImageView(imageURL: imageData.url)
         .aspectRatio(contentMode: .fill)

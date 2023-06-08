@@ -34,21 +34,21 @@ struct ItemDetailView: View {
           .frame(height: deviceWidth)
           .padding(.bottom, 6)
         
-        profileView
+        profile
           .padding(.horizontal)
           .padding(.bottom, 6)
         
         Divider()
           .padding(.horizontal)
         
-        itemInformationView
+        itemInformation
           .padding()
       }
       
       Divider()
         .padding(.top, -7)
       
-      purchaseView
+      purchaseBar
         .padding(.horizontal)
     }
     .ignoresSafeArea(edges: .top)
@@ -160,7 +160,7 @@ private extension ItemDetailView {
     }
   }
   
-  var profileView: some View {
+  var profile: some View {
     HStack(spacing: 16) {
       CircleImage(imageName: "defaultProfileImage")
         .frame(width: 60)
@@ -177,7 +177,7 @@ private extension ItemDetailView {
     }
   }
   
-  var itemInformationView: some View {
+  var itemInformation: some View {
     VStack() {
       HStack(spacing: 0) {
         Text(viewModel.item.stock == 0 ? "거래완료 " : "")
@@ -200,7 +200,7 @@ private extension ItemDetailView {
     }
   }
   
-  var purchaseView: some View {
+  var purchaseBar: some View {
     HStack {
       Image(systemName: "heart.fill")
         .font(.title2)

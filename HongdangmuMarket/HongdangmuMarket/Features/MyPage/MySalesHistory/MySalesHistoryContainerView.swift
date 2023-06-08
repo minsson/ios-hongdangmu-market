@@ -14,7 +14,7 @@ struct MySalesHistoryContainerView: View {
   
   var body: some View {
     ScrollView {
-      profileView
+      profile
         .padding()
       
       MySalesStatusTabBarView(selectedTab: $selectedSalesStatus)
@@ -41,7 +41,7 @@ struct MySalesHistoryContainerView: View {
 
 private extension MySalesHistoryContainerView {
   
-  var profileView: some View {
+  var profile: some View {
     HStack {
       VStack(alignment: .leading) {
         Text("나의 판매내역")
