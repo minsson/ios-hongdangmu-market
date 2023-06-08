@@ -259,6 +259,9 @@
 		FD5583942A30EA790019CD5A /* ViewComponents */ = {
 			isa = PBXGroup;
 			children = (
+				FD62C44729E857EB001B83ED /* CircleImageView.swift */,
+				FD7FA17E2A2E3CD800BF9C72 /* CachedAsyncImage.swift */,
+				FD7FA17C2A2E3CBF00BF9C72 /* CachedAsyncImageViewModel.swift */,
 			);
 			path = ViewComponents;
 			sourceTree = "<group>";
@@ -374,9 +377,6 @@
 				FD5583942A30EA790019CD5A /* ViewComponents */,
 				FD33045E2A249FEB0053C9FF /* Error */,
 				FD3304592A249E420053C9FF /* Extension */,
-				FD62C44729E857EB001B83ED /* CircleImageView.swift */,
-				FD7FA17E2A2E3CD800BF9C72 /* CachedAsyncImage.swift */,
-				FD7FA17C2A2E3CBF00BF9C72 /* CachedAsyncImageViewModel.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
