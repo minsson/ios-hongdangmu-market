@@ -96,7 +96,7 @@ extension OpenMarketAPIService {
 extension OpenMarketAPIService {
   
   func addItem(data: Data, images: [UIImage]) async throws {
-    let resizedImages = ImageManager().resize(images: images)
+    let resizedImages = ImageDownsamplingManager().downsample(images: images, withNewWidth: 400)
     
     guard let request: URLRequest = API.AddItem(jsonData: data, images: resizedImages).urlRequest else {
       throw OpenMarketAPIError.invalidURLRequest

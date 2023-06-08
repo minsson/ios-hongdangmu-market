@@ -9,11 +9,11 @@ import UIKit.UIImage
 
 struct ImageDownsamplingManager {
   
-  func downsample(images: [UIImage]) -> [UIImage] {
+  func downsample(images: [UIImage], withNewWidth newWidth: CGFloat) -> [UIImage] {
     var resizedImages: [UIImage] = []
     
     images.forEach { image in
-      let resizedImage = image.resized(withNewWidth: 400)
+      let resizedImage = image.resized(withNewWidth: newWidth)
       resizedImages.append(resizedImage)
     }
     
