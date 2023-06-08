@@ -22,6 +22,7 @@
 		FD46E88A29EADF3400A93D54 /* MyOnSalesItemsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD46E88929EADF3400A93D54 /* MyOnSalesItemsView.swift */; };
 		FD46E88C29EAF24B00A93D54 /* MySalesHistoryContainerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD46E88B29EAF24B00A93D54 /* MySalesHistoryContainerViewModel.swift */; };
 		FD50B9012A0972B90058BE3D /* OpenMarketAPIRequestDeleteProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD50B9002A0972B90058BE3D /* OpenMarketAPIRequestDeleteProtocol.swift */; };
+		FD5583982A3160540019CD5A /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD5583972A3160540019CD5A /* Currency.swift */; };
 		FD62C44629E84AE3001B83ED /* MySalesHistoryContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD62C44529E84AE3001B83ED /* MySalesHistoryContainerView.swift */; };
 		FD62C44829E857EB001B83ED /* CircleImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD62C44729E857EB001B83ED /* CircleImageView.swift */; };
 		FD62C44A29E862DE001B83ED /* MySalesStatusTabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD62C44929E862DE001B83ED /* MySalesStatusTabBarView.swift */; };
@@ -120,6 +121,7 @@
 		FD46E88929EADF3400A93D54 /* MyOnSalesItemsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyOnSalesItemsView.swift; sourceTree = "<group>"; };
 		FD46E88B29EAF24B00A93D54 /* MySalesHistoryContainerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySalesHistoryContainerViewModel.swift; sourceTree = "<group>"; };
 		FD50B9002A0972B90058BE3D /* OpenMarketAPIRequestDeleteProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenMarketAPIRequestDeleteProtocol.swift; sourceTree = "<group>"; };
+		FD5583972A3160540019CD5A /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
 		FD62C44529E84AE3001B83ED /* MySalesHistoryContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySalesHistoryContainerView.swift; sourceTree = "<group>"; };
 		FD62C44729E857EB001B83ED /* CircleImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleImageView.swift; sourceTree = "<group>"; };
 		FD62C44929E862DE001B83ED /* MySalesStatusTabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySalesStatusTabBarView.swift; sourceTree = "<group>"; };
@@ -269,6 +271,7 @@
 			children = (
 				FDF182092A0C11CB004EF3AF /* ItemOwner.swift */,
 				FD62C44C29E864EC001B83ED /* SalesStatus.swift */,
+				FD5583972A3160540019CD5A /* Currency.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -669,6 +672,7 @@
 				FD50B9012A0972B90058BE3D /* OpenMarketAPIRequestDeleteProtocol.swift in Sources */,
 				FD46E88A29EADF3400A93D54 /* MyOnSalesItemsView.swift in Sources */,
 				FD8BA9CC29E1B84000F18661 /* API.swift in Sources */,
+				FD5583982A3160540019CD5A /* Currency.swift in Sources */,
 				FDA34D2129E2D16400CF96E3 /* API+AddItem.swift in Sources */,
 				FD8BA9BF29E1A9F600F18661 /* NetworkManager.swift in Sources */,
 				FDF1820C2A0CD979004EF3AF /* OpenMarketAPIRequestPatchProtocol.swift in Sources */,
