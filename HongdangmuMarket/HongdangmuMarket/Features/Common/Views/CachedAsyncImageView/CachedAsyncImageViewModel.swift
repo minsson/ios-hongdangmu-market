@@ -31,32 +31,32 @@ final class CachedAsyncImageViewModel: ObservableObject {
 private extension CachedAsyncImageViewModel {
   
   func updateImage(from urlString: String) async {
-    let loadedUIImage = await loadImage(from: urlString)
+    let loadedImage: UIImage = await loadImage(from: urlString)
     await MainActor.run { [weak self] in
-      self?.image = Image(uiImage: loadedUIImage)
+      self?.image = Image(uiImage: loadedImage)
       self?.isImageReady = true
     }
   }
   
   func loadImage(from urlString: String) async -> UIImage {
-    if let cachedUIImage: UIImage = imageCacheManager.image(forKey: urlString) {
-      return cachedUIImage
+    if let cachedImage: UIImage = imageCacheManager.image(forKey: urlString) {
+      return cachedImage
     } else {
-      let downloadedUIImage = await uiImage(from: urlString)
-      imageCacheManager.save(image: downloadedUIImage, forKey: urlString)
+      let downloadedImage: UIImage = await uiImage(from: urlString)
+      imageCacheManager.save(image: downloadedImage, forKey: urlString)
       
-      return downloadedUIImage
+      return downloadedImage
     }
   }
   
   func uiImage(from urlString: String) async -> UIImage {
     guard let url = URL(string: urlString),
           let imageData: Data = try? await NetworkManager().data(from: url),
-          let uiImage = UIImage(data: imageData) else {
+          let image = UIImage(data: imageData) else {
       return UIImage()
     }
     
-    return uiImage
+    return image
   }
   
 }
