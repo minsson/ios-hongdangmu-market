@@ -1,5 +1,5 @@
 //
-//  ImageManager.swift
+//  ImageDownsamplingManager.swift
 //  HongdangmuMarket
 //
 //  Created by minsson on 2023/05/28.
@@ -7,9 +7,9 @@
 
 import UIKit.UIImage
 
-struct ImageManager {
+struct ImageDownsamplingManager {
   
-  func resize(images: [UIImage]) -> [UIImage] {
+  func downsample(images: [UIImage]) -> [UIImage] {
     var resizedImages: [UIImage] = []
     
     images.forEach { image in
