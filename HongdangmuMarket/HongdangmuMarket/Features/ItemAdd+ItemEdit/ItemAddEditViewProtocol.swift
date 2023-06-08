@@ -45,10 +45,8 @@ extension ItemAddEditViewProtocol {
   }
   
   func priceTextField(_ price: Binding<String>) -> some View {
-    TextField(text: price) {
-      Text("₩ 가격 (선택사항)")
-    }
-    .keyboardType(.numberPad)
+    CurrencyTextField(placeholder: "₩ 가격 (선택사항)", currency: .krw, text: price)
+        .keyboardType(.numberPad)
   }
   
   func textEditorWithPlaceholder(for description: Binding<String>) -> some View {

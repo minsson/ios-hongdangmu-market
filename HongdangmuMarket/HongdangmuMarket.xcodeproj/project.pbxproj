@@ -22,6 +22,7 @@
 		FD46E88A29EADF3400A93D54 /* MyOnSalesItemsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD46E88929EADF3400A93D54 /* MyOnSalesItemsView.swift */; };
 		FD46E88C29EAF24B00A93D54 /* MySalesHistoryContainerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD46E88B29EAF24B00A93D54 /* MySalesHistoryContainerViewModel.swift */; };
 		FD50B9012A0972B90058BE3D /* OpenMarketAPIRequestDeleteProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD50B9002A0972B90058BE3D /* OpenMarketAPIRequestDeleteProtocol.swift */; };
+		FD5583962A30EA950019CD5A /* CurrencyTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD5583952A30EA950019CD5A /* CurrencyTextField.swift */; };
 		FD5583982A3160540019CD5A /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD5583972A3160540019CD5A /* Currency.swift */; };
 		FD62C44629E84AE3001B83ED /* MySalesHistoryContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD62C44529E84AE3001B83ED /* MySalesHistoryContainerView.swift */; };
 		FD62C44829E857EB001B83ED /* CircleImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD62C44729E857EB001B83ED /* CircleImageView.swift */; };
@@ -121,6 +122,7 @@
 		FD46E88929EADF3400A93D54 /* MyOnSalesItemsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyOnSalesItemsView.swift; sourceTree = "<group>"; };
 		FD46E88B29EAF24B00A93D54 /* MySalesHistoryContainerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySalesHistoryContainerViewModel.swift; sourceTree = "<group>"; };
 		FD50B9002A0972B90058BE3D /* OpenMarketAPIRequestDeleteProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenMarketAPIRequestDeleteProtocol.swift; sourceTree = "<group>"; };
+		FD5583952A30EA950019CD5A /* CurrencyTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyTextField.swift; sourceTree = "<group>"; };
 		FD5583972A3160540019CD5A /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
 		FD62C44529E84AE3001B83ED /* MySalesHistoryContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySalesHistoryContainerView.swift; sourceTree = "<group>"; };
 		FD62C44729E857EB001B83ED /* CircleImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleImageView.swift; sourceTree = "<group>"; };
@@ -254,6 +256,13 @@
 			path = Error;
 			sourceTree = "<group>";
 		};
+		FD5583942A30EA790019CD5A /* ViewComponents */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewComponents;
+			sourceTree = "<group>";
+		};
 		FD62C44029E846D4001B83ED /* MySalesHistory */ = {
 			isa = PBXGroup;
 			children = (
@@ -362,6 +371,7 @@
 		FD8BA9C029E1AE2400F18661 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				FD5583942A30EA790019CD5A /* ViewComponents */,
 				FD33045E2A249FEB0053C9FF /* Error */,
 				FD3304592A249E420053C9FF /* Extension */,
 				FD62C44729E857EB001B83ED /* CircleImageView.swift */,
@@ -481,6 +491,7 @@
 			children = (
 				FDF182152A0E4C78004EF3AF /* ItemAddEditViewProtocol.swift */,
 				FDF1821B2A0EBEEB004EF3AF /* ItemAddEditViewModelProtocol.swift */,
+				FD5583952A30EA950019CD5A /* CurrencyTextField.swift */,
 				FDDA46452A127967003D279E /* ItemAdd */,
 				FDDA46462A127974003D279E /* ItemEdit */,
 			);
@@ -686,6 +697,7 @@
 				FD8BA9DE29E1F2D100F18661 /* DTOProtocol.swift in Sources */,
 				FD33045D2A249FE60053C9FF /* HTTPStatusCodeError.swift in Sources */,
 				FD3304772A25064A0053C9FF /* BusinessLogicError.swift in Sources */,
+				FD5583962A30EA950019CD5A /* CurrencyTextField.swift in Sources */,
 				FD62C44A29E862DE001B83ED /* MySalesStatusTabBarView.swift in Sources */,
 				FDA34D1C29E2CF1500CF96E3 /* MultipartFormDataHandlingProtocol.swift in Sources */,
 				FDDA46582A13F001003D279E /* LoginData.swift in Sources */,
