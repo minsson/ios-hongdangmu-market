@@ -10,7 +10,12 @@ import UIKit.UIImage
 final class ImageCacheManager: ObservableObject {
   
   static let shared = ImageCacheManager()
-  private let cache = NSCache<NSString, UIImage>()
+  private let cache: NSCache<NSString, UIImage> = {
+    let cache = NSCache<NSString, UIImage>()
+    cache.countLimit = 100
+    cache.totalCostLimit = 1024 * 1024 * 100
+    return cache
+  }()
   
   private init() { }
   
