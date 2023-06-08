@@ -20,6 +20,12 @@ struct ImageDownsamplingManager {
     return resizedImages
   }
 
+  func downsample(image: UIImage, withNewWidth newWidth: CGFloat) -> UIImage {
+    let resizedImage = image.resized(withNewWidth: newWidth)
+    
+    return resizedImage
+  }
+  
 }
 
 fileprivate extension UIImage {
