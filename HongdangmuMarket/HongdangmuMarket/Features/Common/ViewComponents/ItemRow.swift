@@ -14,7 +14,7 @@ struct ItemRow: View {
   
   var body: some View {
     HStack(alignment: .top, spacing: 16) {
-      CachedAsyncImageView(imageURL: item.thumbnail, withWidth: 120)
+      CachedAsyncImageView(imageURL: item.thumbnail, withSize: CGSize(width: 120, height: 120))
         .scaledToFit()
         .frame(width: 120, height: 120)
         .background(Color(UIColor.systemGray4))

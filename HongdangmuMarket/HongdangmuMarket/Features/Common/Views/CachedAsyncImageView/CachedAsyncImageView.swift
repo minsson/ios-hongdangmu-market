@@ -11,8 +11,8 @@ struct CachedAsyncImageView: View {
   
   @StateObject private var viewModel: CachedAsyncImageViewModel
   
-  init(imageURL: String, withWidth downsamplingWidth: CGFloat) {
-    _viewModel = StateObject(wrappedValue: CachedAsyncImageViewModel(imageURL: imageURL, withWidth: downsamplingWidth))
+  init(imageURL: String, withSize downsamplingSize: CGSize) {
+    _viewModel = StateObject(wrappedValue: CachedAsyncImageViewModel(imageURL: imageURL, withSize: downsamplingSize))
   }
   
   var body: some View {

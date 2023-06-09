@@ -13,13 +13,13 @@ final class CachedAsyncImageViewModel: ObservableObject {
   @Published private(set) var isImageReady: Bool = false
   
   let imageURL: String
-  let downsamplingWidth: CGFloat
+  let downsamplingSize: CGSize
   private let networkManager = NetworkManager()
   private let imageDownsamplingManager = ImageDownsamplingManager()
   private let imageCacheManager = ImageCacheManager.shared
   
-  init(imageURL: String, withWidth downsamplingWidth: CGFloat) {
-    self.downsamplingWidth = downsamplingWidth
+  init(imageURL: String, withSize downsamplingSize: CGSize) {
+    self.downsamplingSize = downsamplingSize
     self.imageURL = imageURL
   }
   
@@ -60,7 +60,7 @@ private extension CachedAsyncImageViewModel {
   func cgImage(from urlString: String) async -> CGImage? {
     guard let url = URL(string: urlString),
           let imageData: Data = try? await NetworkManager().data(from: url),
-          let image: CGImage = imageDownsamplingManager.downsample(imageData: imageData, for: CGSize(width: 120, height: 120), scale: 3.0) else {
+          let image: CGImage = imageDownsamplingManager.downsample(imageData: imageData, for: downsamplingSize, scale: 3.0) else {
       return nil
     }
     
