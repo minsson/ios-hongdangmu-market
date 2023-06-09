@@ -85,6 +85,7 @@
 		FDDA46582A13F001003D279E /* LoginData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDDA46572A13F001003D279E /* LoginData.swift */; };
 		FDDA465A2A154574003D279E /* OpenMarketAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDDA46592A154574003D279E /* OpenMarketAPIService.swift */; };
 		FDDA465E2A16362F003D279E /* API+DeleteItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDDA465D2A16362F003D279E /* API+DeleteItem.swift */; };
+		FDE976752A32F74300A098FB /* UINavigationController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE976742A32F74300A098FB /* UINavigationController+Extension.swift */; };
 		FDEFB4372A1792B30051BBF1 /* ItemSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDEFB4362A1792B30051BBF1 /* ItemSearchView.swift */; };
 		FDEFB4392A18CD230051BBF1 /* ItemSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDEFB4382A18CD230051BBF1 /* ItemSearchViewModel.swift */; };
 		FDF1820A2A0C11CB004EF3AF /* ItemOwner.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF182092A0C11CB004EF3AF /* ItemOwner.swift */; };
@@ -188,6 +189,7 @@
 		FDDA46572A13F001003D279E /* LoginData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginData.swift; sourceTree = "<group>"; };
 		FDDA46592A154574003D279E /* OpenMarketAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenMarketAPIService.swift; sourceTree = "<group>"; };
 		FDDA465D2A16362F003D279E /* API+DeleteItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "API+DeleteItem.swift"; sourceTree = "<group>"; };
+		FDE976742A32F74300A098FB /* UINavigationController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Extension.swift"; sourceTree = "<group>"; };
 		FDEFB4362A1792B30051BBF1 /* ItemSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemSearchView.swift; sourceTree = "<group>"; };
 		FDEFB4382A18CD230051BBF1 /* ItemSearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemSearchViewModel.swift; sourceTree = "<group>"; };
 		FDF182092A0C11CB004EF3AF /* ItemOwner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemOwner.swift; sourceTree = "<group>"; };
@@ -241,6 +243,7 @@
 			children = (
 				FD33045A2A249E530053C9FF /* View+Extension.swift */,
 				FD55839C2A3167290019CD5A /* String+Extension.swift */,
+				FDE976742A32F74300A098FB /* UINavigationController+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -759,6 +762,7 @@
 				FD8BA9E229E2135C00F18661 /* DateCalculator.swift in Sources */,
 				FDAC09F02A226BC300DBDDDF /* ImageDownsamplingManager.swift in Sources */,
 				FD62C44D29E864EC001B83ED /* SalesStatus.swift in Sources */,
+				FDE976752A32F74300A098FB /* UINavigationController+Extension.swift in Sources */,
 				FD62C44629E84AE3001B83ED /* MySalesHistoryContainerView.swift in Sources */,
 				FD33045B2A249E530053C9FF /* View+Extension.swift in Sources */,
 				FD8BA9F229E299FE00F18661 /* ItemAddView.swift in Sources */,
