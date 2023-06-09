@@ -10,8 +10,8 @@ import UIKit.UIImage
 final class ImageCacheManager: ObservableObject {
   
   static let shared = ImageCacheManager()
-  private let cache: NSCache<NSString, UIImage> = {
-    let cache = NSCache<NSString, UIImage>()
+  private let cache: NSCache<NSString, CGImage> = {
+    let cache = NSCache<NSString, CGImage>()
     cache.countLimit = 50
     cache.totalCostLimit = 1024 * 1024 * 100
     return cache
@@ -23,11 +23,11 @@ final class ImageCacheManager: ObservableObject {
 
 extension ImageCacheManager {
   
-  func save(image: UIImage, forKey key: String) {
+  func save(image: CGImage, forKey key: String) {
     cache.setObject(image, forKey: key as NSString)
   }
   
-  func image(forKey key: String) -> UIImage? {
+  func image(forKey key: String) -> CGImage? {
     cache.object(forKey: key as NSString)
   }
   

@@ -34,24 +34,37 @@ final class CachedAsyncImageViewModel: ObservableObject {
 private extension CachedAsyncImageViewModel {
   
   func updateImage(from urlString: String) async {
-    let loadedImage: UIImage = await loadImage(from: urlString)
-    let downsampledImage: UIImage = imageDownsamplingManager.downsample(image: loadedImage, withNewWidth: downsamplingWidth)
+    guard let loadedImage: CGImage = await loadImage(from: urlString) else {
+      return
+    }
     
     await MainActor.run { [weak self] in
-      self?.image = Image(uiImage: downsampledImage)
+      self?.image = Image(loadedImage, scale: 1.0, label: Text("Item Image"))
       self?.isImageReady = true
     }
   }
   
-  func loadImage(from urlString: String) async -> UIImage {
-    if let cachedImage: UIImage = imageCacheManager.image(forKey: urlString) {
+  func loadImage(from urlString: String) async -> CGImage? {
+    if let cachedImage: CGImage = imageCacheManager.image(forKey: urlString) {
       return cachedImage
     } else {
-      let downloadedImage: UIImage = await uiImage(from: urlString)
+      guard let downloadedImage: CGImage = await cgImage(from: urlString) else {
+        return nil
+      }
       imageCacheManager.save(image: downloadedImage, forKey: urlString)
       
       return downloadedImage
     }
+  }
+  
+  func cgImage(from urlString: String) async -> CGImage? {
+    guard let url = URL(string: urlString),
+          let imageData: Data = try? await NetworkManager().data(from: url),
+          let image: CGImage = imageDownsamplingManager.downsample(imageData: imageData, for: CGSize(width: 120, height: 120), scale: 3.0) else {
+      return nil
+    }
+    
+    return image
   }
   
   func uiImage(from urlString: String) async -> UIImage {

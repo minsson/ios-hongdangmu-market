@@ -6,6 +6,7 @@
 //
 
 import UIKit.UIImage
+import ImageIO
 
 struct ImageDownsamplingManager {
   
@@ -19,11 +20,26 @@ struct ImageDownsamplingManager {
     
     return resizedImages
   }
-
-  func downsample(image: UIImage, withNewWidth newWidth: CGFloat) -> UIImage {
-    let resizedImage = image.resized(withNewWidth: newWidth)
+  
+  func downsample(imageData: Data, for size: CGSize, scale: CGFloat) -> CGImage? {
+    let imageSourceOptions = [kCGImageSourceShouldCache: false] as CFDictionary
+    guard let imageSource = CGImageSourceCreateWithData(imageData as CFData, imageSourceOptions) else {
+      return nil
+    }
     
-    return resizedImage
+    let maxDimensionInPixels = max(size.width, size.height) * scale
+    let downsampleOptions = [
+      kCGImageSourceCreateThumbnailFromImageAlways: true,
+      kCGImageSourceShouldCacheImmediately: true,
+      kCGImageSourceCreateThumbnailWithTransform: true,
+      kCGImageSourceThumbnailMaxPixelSize: maxDimensionInPixels
+    ] as [CFString : Any] as CFDictionary
+
+    guard let downsampledImage = CGImageSourceCreateThumbnailAtIndex(imageSource, 0, downsampleOptions) else {
+      return nil
+    }
+
+    return downsampledImage
   }
   
 }
