@@ -202,9 +202,13 @@ private extension ItemDetailView {
   
   var purchaseBar: some View {
     HStack {
-      Image(systemName: "heart.fill")
-        .font(.title2)
-        .foregroundColor(.orange)
+      Button {
+      // TODO: 눌러서 관심 목록에 추가하는 기능 구현
+      } label: {
+        Image(systemName: "heart")
+          .font(.title2)
+          .foregroundColor(.orange)
+      }
       
       Rectangle()
         .foregroundColor(Color(UIColor.systemGray5))
