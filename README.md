@@ -78,7 +78,7 @@
 - NSCache를 이용해 이미지를 메모리 캐싱했습니다.
 - 처음에는 캐시 용량을 설정하지 않은 상태로 간단하게 성능 테스트를 진행해봤습니다. 서버에 있는 모든 상품을 Task Cancel 없이 훑은 결과, 3.15GB의 메모리를 차지합니다.
 
-<img width="1422" alt="1_NSCache 제한 전_다운샘플링 전_RAM" src="https://github.com/minsson/ios-hongdangmu-market/assets/96630194/44050ab8-8f05-4cbf-88f3-1b01b09d68c1">
+<img width="100%" alt="1_NSCache 제한 전_다운샘플링 전_RAM" src="https://github.com/minsson/ios-hongdangmu-market/assets/96630194/44050ab8-8f05-4cbf-88f3-1b01b09d68c1">
 
 - 몇 년 전 아이폰 11 프로에서 카메라 앱이 램 1GB 정도를 차지해, 사진을 찍으면 기존에 사용 중이던 앱이 종료되거나 리프레시 되는 이슈가 있었습니다. 
 - 홍당무 마켓 프로젝트에서 사용하는 OpenMarketAPI의 총 상품 수는 현재 기준 1336개에 불과합니다. 그런데도 이 정도의 성능이니, 당연히 조치가 필요합니다.
@@ -90,7 +90,7 @@
 - 자주 사용하는 앱의 메모리 점유율을 벤치마킹 하고 싶어 Instruments로 여러 앱을 시도해봤지만, 아래와 같은 에러가 발생했습니다.
   - 대부분의 경우 자신이 개발 중인 앱으로 검사하기 때문에, 구글링 해봐도 정확한 에러 원인은 찾지 못했습니다. 하지만 Permission 이야기가 나온 것으로 보아 아마 해당 앱의 개발자들만 검사할 수 있는 것으로 보였습니다.
   - 당근마켓
-    <img width="974" alt="당근마켓 Instruments로 메모리 점유율 검사 시도" src="https://github.com/minsson/ios-hongdangmu-market/assets/96630194/4f57930f-8b1b-4143-ad0c-e681db7efc67">
+    <img width="100%" alt="당근마켓 Instruments로 메모리 점유율 검사 시도" src="https://github.com/minsson/ios-hongdangmu-market/assets/96630194/4f57930f-8b1b-4143-ad0c-e681db7efc67">
   - Instagram
    ![Pasted image 20230608210741](https://github.com/minsson/ios-hongdangmu-market/assets/96630194/d8c78139-318a-4adf-a225-d5b473e8f58b)
 
@@ -158,7 +158,7 @@ final class ImageCacheManager: ObservableObject {
 - 제한을 적용한 후 다시 살펴봤습니다. 
 - 캐시가 가득찬 후에는 아래와 같이 평균적으로 150MB - 230MB 사이를 오갔으며, 최대 248.7MB를 기록했습니다.
 
-<img width="1422" alt="2_NSCache 제한 후_다운샘플링 전_RAM" src="https://github.com/minsson/ios-hongdangmu-market/assets/96630194/a07f495e-1fc9-447d-8948-d473bc6a1e7a">
+<img width="100%" alt="2_NSCache 제한 후_다운샘플링 전_RAM" src="https://github.com/minsson/ios-hongdangmu-market/assets/96630194/a07f495e-1fc9-447d-8948-d473bc6a1e7a">
 
 - totalCostLimit을 100MB로 설정했음에도 불구하고 그 이상의 메모리를 점유하고 있습니다.
 - totalCostLimit과 countLimit 모두 엄격한 제한이 아니기 때문입니다.
@@ -200,12 +200,12 @@ fileprivate extension UIImage {
 
 - 기존의 `countLimit`은 50, `totalCostLimit`은 100MB인 상태를 유지하고 측정한 결과입니다. 
 
-<img width="1422" alt="3_NSCache 제한 후_UIImage로 다운샘플링 후_RAM" src="https://github.com/minsson/ios-hongdangmu-market/assets/96630194/03e1a6d8-8fce-4379-985f-62d292a2e8b6">
+<img width="100%" alt="3_NSCache 제한 후_UIImage로 다운샘플링 후_RAM" src="https://github.com/minsson/ios-hongdangmu-market/assets/96630194/03e1a6d8-8fce-4379-985f-62d292a2e8b6">
 
 - 다운샘플링 전과 용량을 비교해야 하므로 NSCache의 countLimit과 totalCostLimit은 제거하고 다시 측정했습니다.
 - 다운샘플링 전 3.15GB였던 메모리 점유용량이 1.49GB가 되어, 약 52.7% 개선되었습니다.
 
-<img width="1422" alt="3_1_NSCache 제한 풀고_UIImage로 다운샘플링_RAM" src="https://github.com/minsson/ios-hongdangmu-market/assets/96630194/6bb15ce0-528a-4bbd-ab0a-e42d59d5b5b2">
+<img width="100%" alt="3_1_NSCache 제한 풀고_UIImage로 다운샘플링_RAM" src="https://github.com/minsson/ios-hongdangmu-market/assets/96630194/6bb15ce0-528a-4bbd-ab0a-e42d59d5b5b2">
 
 - 이미지 하나는 1.14MB의 메모리를 차지하는 것으로 추정할 수 있습니다.
 - 즉, 100MB 용량의 캐시에 약 87개의 이미지가 들어간다고 볼 수 있습니다. 41개에서 87개가 되었습니다.
@@ -214,13 +214,14 @@ fileprivate extension UIImage {
 
 - 위 코드를 더 개선할 방법을 찾던 중 [iOS Memory Deep Dive - WWDC18 - Videos - Apple Developer](https://developer.apple.com/videos/play/wwdc2018/416/)을 보게 되었습니다.
 - 아래 이미지들은 해당 세션의 발표자료를 캡처한 것입니다. 중간의 Images 파트에서 제가 사용했던 방법이 비효율적임을 알게 되었습니다.
-<img width="1483" alt="Pasted image 20230609013944" src="https://github.com/minsson/ios-hongdangmu-market/assets/96630194/6ca47cc5-2a9c-4074-b39e-28fcf407035c">
+<img width="70%" alt="Pasted image 20230609013944" src="https://github.com/minsson/ios-hongdangmu-market/assets/96630194/6ca47cc5-2a9c-4074-b39e-28fcf407035c">
 
 - 아래는 제가 기존에 선택했던 방법입니다. 비효율적이라는 것을 알게 되었습니다.
-<img width="1386" alt="Pasted image 20230609014031" src="https://github.com/minsson/ios-hongdangmu-market/assets/96630194/c7f82a2d-2aef-474b-841e-a6b67c23c448">
+<img width="70%" alt="Pasted image 20230609014031" src="https://github.com/minsson/ios-hongdangmu-market/assets/96630194/c7f82a2d-2aef-474b-841e-a6b67c23c448">
 
 - 아래는 ImageIO를 활용해 더 효율적으로 다운샘플링 하는 방법입니다.
-<img width="1387" alt="Pasted image 20230609014103" src="https://github.com/minsson/ios-hongdangmu-market/assets/96630194/d7fc2524-ca64-418e-91f5-f718086d587b">
+<img width="70%" alt="Pasted image 20230609014103" src="https://github.com/minsson/ios-hongdangmu-market/assets/96630194/d7fc2524-ca64-418e-91f5-f718086d587b">
+
 
 
 
