@@ -1,5 +1,6 @@
 # 🥕 홍당무 마켓
-> 당근마켓 스타일의 중고거래 앱 토이 프로젝트입니다.
+> 실제 서버와 REST API를 통한 통신이 가능한 중고거래 앱 토이 프로젝트입니다. 
+> UI 및 기능은 당근마켓을 참고했습니다.
 
 <br>
 
@@ -7,15 +8,18 @@
 - SwiftUI (iOS 15.0) + MVVM
 - 프로토콜 지향 네트워크 레이어
 - NSCache + 이미지 다운샘플링
+  - 다운샘플링 X -> UIImage를 이용한 다운샘플링 -> ImageIO, CGImage를 이용한 다운샘플링
 - Swift Concurrency (async-await)
 - Unit Test
+  - 의존성 주입 및 의존성 역전 원칙을 통해 뷰모델 및 네트워킹 레이어 테스트
 - Pagination
+  - 무한 스크롤
 
 <br>
 
 # 🏗️ 구조
 
-## SwiftUI + MVVM
+## 🏰 SwiftUI + MVVM
 
 <br>
 <img src="https://github.com/minsson/ios-hongdangmu-market/assets/96630194/7935498d-8a44-4290-9f5e-33824f5b0287" width="80%">
@@ -237,7 +241,7 @@ fileprivate extension UIImage {
 - 이미지 하나는 1.14MB의 메모리를 차지하는 것으로 추정할 수 있습니다.
 - 즉, 100MB 용량의 캐시에 약 87개의 이미지가 들어간다고 볼 수 있습니다. 41개에서 87개가 되었습니다.
 
-#### ImageIO
+#### ImageIO, CGImage를 사용하는 방법
 
 - 위 코드를 더 개선할 방법을 찾던 중 [iOS Memory Deep Dive - WWDC18 - Videos - Apple Developer](https://developer.apple.com/videos/play/wwdc2018/416/)을 보게 되었습니다.
 - 아래 이미지들은 해당 세션의 발표자료를 캡처한 것입니다. 중간의 Images 파트에서 제가 사용했던 방법이 비효율적임을 알게 되었습니다.
