@@ -59,7 +59,7 @@ private extension ItemListContainerView {
   
   var searchButton: some View {
     NavigationLink {
-      ItemSearchView()
+      ItemSearchContainerView()
     } label: {
       Image(systemName: "magnifyingglass")
         .font(.title2)

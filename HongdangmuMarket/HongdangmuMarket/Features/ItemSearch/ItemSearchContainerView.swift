@@ -1,5 +1,5 @@
 //
-//  ItemSearchView.swift
+//  ItemSearchContainerView.swift
 //  HongdangmuMarket
 //
 //  Created by minsson on 2023/05/19.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ItemSearchView: View {
+struct ItemSearchContainerView: View {
   
   @Environment(\.dismiss) private var dismiss
   @FocusState private var isKeyboardFocused: Bool
@@ -43,7 +43,7 @@ struct ItemSearchView: View {
   
 }
 
-private extension ItemSearchView {
+private extension ItemSearchContainerView {
   
   var navigationBar: some View {
     HStack {
@@ -175,7 +175,7 @@ private extension ItemSearchView {
 struct ItemSearchView_Previews: PreviewProvider {
   
   static var previews: some View {
-    ItemSearchView()
+    ItemSearchContainerView()
   }
   
 }
