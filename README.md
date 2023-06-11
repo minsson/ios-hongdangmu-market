@@ -75,12 +75,13 @@
 
 #### 시도 2: 아이폰의 메모리 사용량을 봐주는 앱을 통해 간접적으로 추측하기
 - 직접 측정이 어려워보여 아래처럼 아이폰에 성능모니터 앱을 설치해 메모리 점유율을 측정해봤습니다.
-- 왼쪽이 당근마켓을 연 상태이고, 오른쪽이 상
-품 목록에서 1분 동안 빠르게 스크롤 다운한 결과입니다.
+- 아래는 당근마켓 앱을 기준으로 실험해본 결과입니다.
 
-![471AE22E-4287-4FF6-9837-B4D0E25D0162_1_102_o](https://github.com/minsson/ios-hongdangmu-market/assets/96630194/650f1719-bfc0-4efc-b433-a9c55de27a5e)
-![EE0FD2D5-1FC2-4E62-B7E8-E1A504A3BF0E_1_102_o](https://github.com/minsson/ios-hongdangmu-market/assets/96630194/4164b029-4a74-4eba-97d6-7ced15744d21)
-- Active Memory가 883 MB에서 985MB로 변했습니다. 
+| 상품 목록에 진입했을 때 | 1분 동안 빠르게 스크롤 다운했을 때 |
+| :-: | :-: |
+| <img src="https://github.com/minsson/ios-hongdangmu-market/assets/96630194/650f1719-bfc0-4efc-b433-a9c55de27a5e" width="250"> | <img src="https://github.com/minsson/ios-hongdangmu-market/assets/96630194/4164b029-4a74-4eba-97d6-7ced15744d21" width="250"> |
+
+- Active Memory가 883 MB에서 985MB로 변했습니다. 
 - 하지만 유의미한 차이라고 보기 어려웠습니다. 메모리 사용량은 다양한 조건에 의해 변할 수 있는데, 이런 방식으로 검증하는 것이 신뢰할 수 있는 방법이라고 보기 어려웠습니다.
 - 또, 당근마켓이 온디스크 캐싱을 할 수도 있기 때문에 더더욱 신뢰하기 어려웠습니다.
 #### 결론
