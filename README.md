@@ -14,8 +14,15 @@
 
 <br>
 
-# SwiftUI + MVVM
-![Pasted image 20230607224445](https://github.com/minsson/ios-hongdangmu-market/assets/96630194/7935498d-8a44-4290-9f5e-33824f5b0287)
+# 🏗️ 구조
+
+## SwiftUI + MVVM
+
+<br>
+<img src="https://github.com/minsson/ios-hongdangmu-market/assets/96630194/7935498d-8a44-4290-9f5e-33824f5b0287" width="80%">
+<br>
+<br>
+
 - SwiftUI에 일반적으로 가장 적합한 아키텍처가 무엇인지는 아직도 논의가 진행되고 있습니다.
   - 특히 SwiftUI 초기 당연스레 도입됐던 MVVM 구조에 대한 의문이 많이 제기되고 있습니다.
 - 다만 저의 경우 SwiftUI + MVVM을 직접 경험하고 장단점을 생각해보고 싶어 MVVM 구조를 채택했습니다.
@@ -23,10 +30,13 @@
 
 <br>
 
+## 📡 네트워크 레이어 구조 (클래스 다이어그램)
 
-# 📡 네트워크 레이어 구조 (클래스 다이어그램)
+<br>
 
 ![Pasted image 20230607221131](https://github.com/minsson/ios-hongdangmu-market/assets/96630194/1804e04e-36d8-419e-890c-958d63f27dcb)
+
+<br>
 
 # 📱 시연 영상
 
