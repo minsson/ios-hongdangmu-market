@@ -12,7 +12,7 @@ final class ImageCacheManager: ObservableObject {
   static let shared = ImageCacheManager()
   private let cache: NSCache<NSString, CGImage> = {
     let cache = NSCache<NSString, CGImage>()
-    cache.countLimit = 50
+    cache.countLimit = 1100
     cache.totalCostLimit = 1024 * 1024 * 100
     return cache
   }()
