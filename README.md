@@ -222,7 +222,49 @@ fileprivate extension UIImage {
 - 아래는 ImageIO를 활용해 더 효율적으로 다운샘플링 하는 방법입니다.
 <img width="70%" alt="Pasted image 20230609014103" src="https://github.com/minsson/ios-hongdangmu-market/assets/96630194/d7fc2524-ca64-418e-91f5-f718086d587b">
 
+- 기존 UIImage로 다운샘플링했던 코드를 아래의 코드로 대체했습니다.
+```swift
+struct ImageDownsamplingManager {
+  func downsample(imageData: Data, for size: CGSize, scale: CGFloat) -> CGImage? {
+    let imageSourceOptions = [kCGImageSourceShouldCache: false] as CFDictionary
+    guard let imageSource = CGImageSourceCreateWithData(imageData as CFData, imageSourceOptions) else {
+      return nil
+    }
+    
+    let maxDimensionInPixels = max(size.width, size.height) * scale
+    let downsampleOptions = downsampleOptions(with: maxDimensionInPixels)
 
+    guard let downsampledImage = CGImageSourceCreateThumbnailAtIndex(imageSource, 0, downsampleOptions) else {
+      return nil
+    }
 
+    return downsampledImage
+  }
+}
+
+private extension {
+  func downsampleOptions(with maxDimensionInPixels: CGFloat) -> CFDictionary {
+    let downsampleOptions = [
+      kCGImageSourceCreateThumbnailFromImageAlways: true,
+      kCGImageSourceShouldCacheImmediately: true,
+      kCGImageSourceCreateThumbnailWithTransform: true,
+      kCGImageSourceThumbnailMaxPixelSize: maxDimensionInPixels
+    ] as [CFString : Any] as CFDictionary
+    
+    return downsampleOptions
+  }
+}
+```
+- 다운샘플링 전과 용량을 비교해야 하므로 NSCache의 countLimit과 totalCostLimit은 제거하고 다시 측정했습니다.
+- 정말 놀랍게도 아래와 같은 결과가 나왔습니다. 
+
+<img width="70%" alt="4_1_NSCache 제한 풀고_CGImage로 다운 샘플링_RAM" src="https://github.com/minsson/ios-hongdangmu-market/assets/96630194/47352d06-2866-49f1-9957-ccbeff247509">
+
+- 이미지 한 장당 평균 약 99KB의 메모리를 점유합니다. 100MB에 1034장이 들어갑니다.
+  - 129 * 1024 / 1336 = 98.87
+- 다운샘플링 전 대비 개선율이 2,422%이며, UIImage로 다운샘플링 후 대비 개선율이 1,088% 입니다.
+- 2-3배 정도는 좋아질 수 있을 거라고 생각했지만, 이렇게까지 큰 차이가 나니 당황스러울 정도였습니다.
+- 좀 더 깊게 공부하지 않았다면 UIImage로 다운샘플링한 상태로 프로젝트를 마무리했을지도 모릅니다.
+- 이 트러블 슈팅을 통해 늘 깊게 공부하는 습관을 유지하고, WWDC 등 여러 학습자료를 통해 역량을 강화해야 한다는 생각을 다시 한번 하게 됐습니다. 
 
 
