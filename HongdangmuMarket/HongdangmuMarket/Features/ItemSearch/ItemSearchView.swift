@@ -10,6 +10,7 @@ import SwiftUI
 struct ItemSearchView: View {
   
   @Environment(\.dismiss) private var dismiss
+  @FocusState private var isKeyboardFocused: Bool
   @StateObject private var viewModel = ItemSearchViewModel()
   
   private let gridColumns: [GridItem] = [
@@ -36,6 +37,8 @@ struct ItemSearchView: View {
     .padding()
     .navigationBarBackButtonHidden()
     .errorAlert(error: $viewModel.error)
+    .focused($isKeyboardFocused)
+    .keyboardToolbar(focus: $isKeyboardFocused)
   }
   
 }
