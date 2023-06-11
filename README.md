@@ -88,8 +88,8 @@
 
 |                                     |   다운샘플링 전   |   UIImage로 다운샘플링   |   CGImage로 다운 샘플링   |
 |:-----------------------------------:|:---------------:|:--------------------:|:---------------------:|
-|   총 메모리캐시 점유 용량 (이미지 1336장)   | 3,225MB(3.15GB) | 1,526MB (1.49GB) |    129MB (0.12GB)     |
-|     이미지 한 장당 평균 메모리 점유 용량     |     2.41MB     |      1.14MB      |         0.1MB         |
+|   총 메모리캐시 사용량 (이미지 1336장)   | 3,225MB(3.15GB) | 1,526MB (1.49GB) |    129MB (0.12GB)     |
+|     이미지 한 장당 평균 메모리 사용량     |     2.41MB     |      1.14MB      |         0.1MB         |
 | 100MB의 메모리 캐시에 넣을 수 있는 이미지 수 |      41장       |        87장       |        1,034장        |
 |         다운샘플링 전 대비 개선율         |        -        |       112%       |         2,422%        |
 
@@ -106,16 +106,16 @@
   - 아이폰 11 프로의 램이 4GB, 그리고 현재 아이폰 14 프로의 램이 6GB 입니다.
 ### 적정량의 totalCostLimit과 countLimit 찾기
 - NSCache의 용량 조절이 필요한 것은 자명했습니다. 그런데 NSCache의 용량을 너무 줄이면 캐시를 사용하는 이유가 없어집니다. 적절한 용량이 어느 정도인지 궁금했습니다.
-#### 시도 1: 다른 앱의 메모리 점유율을 Instruments로 살펴보기 - 실패
-- 자주 사용하는 앱의 메모리 점유율을 벤치마킹 하고 싶어 Instruments로 여러 앱을 시도해봤지만, 아래와 같은 에러가 발생했습니다.
+#### 시도 1: 다른 앱의 메모리 사용량을 Instruments로 살펴보기 - 실패
+- 자주 사용하는 앱의 메모리 사용량을 벤치마킹 하고 싶어 Instruments로 여러 앱을 시도해봤지만, 아래와 같은 에러가 발생했습니다.
   - 대부분의 경우 자신이 개발 중인 앱으로 검사하기 때문에, 구글링 해봐도 정확한 에러 원인은 찾지 못했습니다. 하지만 Permission 이야기가 나온 것으로 보아 아마 해당 앱의 개발자들만 검사할 수 있는 것으로 보였습니다.
   - 당근마켓
-    <img width="100%" alt="당근마켓 Instruments로 메모리 점유율 검사 시도" src="https://github.com/minsson/ios-hongdangmu-market/assets/96630194/4f57930f-8b1b-4143-ad0c-e681db7efc67">
+    <img width="100%" alt="당근마켓 Instruments로 메모리 사용량 검사 시도" src="https://github.com/minsson/ios-hongdangmu-market/assets/96630194/4f57930f-8b1b-4143-ad0c-e681db7efc67">
   - Instagram
    ![Pasted image 20230608210741](https://github.com/minsson/ios-hongdangmu-market/assets/96630194/d8c78139-318a-4adf-a225-d5b473e8f58b)
 
 #### 시도 2: 아이폰의 메모리 사용량을 봐주는 앱을 통해 간접적으로 추측하기
-- 직접 측정이 어려워보여 아래처럼 아이폰에 성능모니터 앱을 설치해 메모리 점유율을 측정해봤습니다.
+- 직접 측정이 어려워보여 아래처럼 아이폰에 성능모니터 앱을 설치해 메모리 사용량을 측정해봤습니다.
 - 아래는 당근마켓 앱을 기준으로 실험해본 결과입니다.
 
 | 상품 목록에 진입했을 때 | 1분 동안 빠르게 스크롤 다운했을 때 |
@@ -173,14 +173,14 @@ final class ImageCacheManager: ObservableObject {
 }
 ```
 
-### totalCostLimit과 countLimit을 적용한 후 메모리 점유율 살펴보기
+### totalCostLimit과 countLimit을 적용한 후 메모리 사용량 살펴보기
 
 - 제한을 적용한 후 다시 살펴봤습니다. 
 - 캐시가 가득찬 후에는 아래와 같이 평균적으로 150MB - 230MB 사이를 오갔으며, 최대 248.7MB를 기록했습니다.
 
 <img width="100%" alt="2_NSCache 제한 후_다운샘플링 전_RAM" src="https://github.com/minsson/ios-hongdangmu-market/assets/96630194/a07f495e-1fc9-447d-8948-d473bc6a1e7a">
 
-- totalCostLimit을 100MB로 설정했음에도 불구하고 그 이상의 메모리를 점유하고 있습니다.
+- totalCostLimit을 100MB로 설정했음에도 불구하고 그 이상의 메모리를 사용하고 있습니다.
 - totalCostLimit과 countLimit 모두 엄격한 제한이 아니기 때문입니다.
   - 근거는 공식문서에서 찾아볼 수 있습니다.
     - [countLimit | Apple Developer Documentation](https://developer.apple.com/documentation/foundation/nscache/1416355-countlimit)
@@ -223,7 +223,7 @@ fileprivate extension UIImage {
 <img width="100%" alt="3_NSCache 제한 후_UIImage로 다운샘플링 후_RAM" src="https://github.com/minsson/ios-hongdangmu-market/assets/96630194/03e1a6d8-8fce-4379-985f-62d292a2e8b6">
 
 - 다운샘플링 전과 용량을 비교해야 하므로 NSCache의 countLimit과 totalCostLimit은 제거하고 다시 측정했습니다.
-- 다운샘플링 전 3.15GB였던 메모리 점유용량이 1.49GB가 되어, 약 52.7% 개선되었습니다.
+- 다운샘플링 전 3.15GB였던 메모리 사용량이 1.49GB가 되어, 약 52.7% 개선되었습니다.
 
 <img width="100%" alt="3_1_NSCache 제한 풀고_UIImage로 다운샘플링_RAM" src="https://github.com/minsson/ios-hongdangmu-market/assets/96630194/6bb15ce0-528a-4bbd-ab0a-e42d59d5b5b2">
 
@@ -280,7 +280,7 @@ private extension {
 
 <img width="70%" alt="4_1_NSCache 제한 풀고_CGImage로 다운 샘플링_RAM" src="https://github.com/minsson/ios-hongdangmu-market/assets/96630194/47352d06-2866-49f1-9957-ccbeff247509">
 
-- 이미지 한 장당 평균 약 99KB의 메모리를 점유합니다. 100MB에 1034장이 들어갑니다.
+- 이미지 한 장당 평균 약 99KB의 메모리를 사용합니다. 100MB에 1034장이 들어갑니다.
   - 129 * 1024 / 1336 = 98.87
 - 다운샘플링 전 대비 개선율이 2,422%이며, UIImage로 다운샘플링 후 대비 개선율이 1,088% 입니다.
 - 2-3배 정도는 좋아질 수 있을 거라고 생각했지만, 이렇게까지 큰 차이가 나니 당황스러울 정도였습니다.
