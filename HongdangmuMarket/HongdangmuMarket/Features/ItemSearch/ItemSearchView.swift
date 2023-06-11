@@ -100,6 +100,7 @@ private extension ItemSearchView {
         
         Button("모두 지우기") {
           viewModel.deleteRecentSearchWordsButtonTapped()
+          isKeyboardFocused = false
         }
         .foregroundColor(Color(UIColor.secondaryLabel))
       }
@@ -118,16 +119,18 @@ private extension ItemSearchView {
       HStack {
         Button {
           viewModel.recentSearchWordTapped(word: word)
+          isKeyboardFocused = false
         } label: {
           Text(word)
             .foregroundColor(.primary)
             .lineLimit(1)
         }
-
+        
         Spacer()
         
         Button {
           viewModel.deleteOneSearchWordButtonTapped(word)
+          isKeyboardFocused = false
         } label: {
           Image(systemName: "xmark")
             .foregroundColor(.secondary)
@@ -152,7 +155,8 @@ private extension ItemSearchView {
   
   func suggestionWord(_ word: String) -> some View {
     Button {
-      viewModel.suggestionWordTapped()      
+      viewModel.suggestionWordTapped()
+      isKeyboardFocused = false
     } label: {
       HStack {
         Image(systemName: "magnifyingglass")
