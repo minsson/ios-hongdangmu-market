@@ -28,18 +28,28 @@ struct ImageDownsamplingManager {
     }
     
     let maxDimensionInPixels = max(size.width, size.height) * scale
-    let downsampleOptions = [
-      kCGImageSourceCreateThumbnailFromImageAlways: true,
-      kCGImageSourceShouldCacheImmediately: true,
-      kCGImageSourceCreateThumbnailWithTransform: true,
-      kCGImageSourceThumbnailMaxPixelSize: maxDimensionInPixels
-    ] as [CFString : Any] as CFDictionary
+    let downsampleOptions = downsampleOptions(with: maxDimensionInPixels)
 
     guard let downsampledImage = CGImageSourceCreateThumbnailAtIndex(imageSource, 0, downsampleOptions) else {
       return nil
     }
 
     return downsampledImage
+  }
+  
+}
+
+private extension ImageDownsamplingManager {
+  
+  func downsampleOptions(with maxDimensionInPixels: CGFloat) -> CFDictionary {
+    let downsampleOptions = [
+      kCGImageSourceCreateThumbnailFromImageAlways: true,
+      kCGImageSourceShouldCacheImmediately: true,
+      kCGImageSourceCreateThumbnailWithTransform: true,
+      kCGImageSourceThumbnailMaxPixelSize: maxDimensionInPixels
+    ] as [CFString : Any] as CFDictionary
+    
+    return downsampleOptions
   }
   
 }
