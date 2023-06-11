@@ -39,6 +39,7 @@
 - Pagination
   - 무한 스크롤
 
+[⤴️ 목차로 돌아가기](#-목차-link)
 <br>
 
 # 🏗️ 구조
@@ -55,6 +56,7 @@
 - 다만 저의 경우 SwiftUI + MVVM을 직접 경험하고 장단점을 생각해보고 싶어 MVVM 구조를 채택했습니다.
 - 또한 현업에서는 여전히 MVVM 구조가 많이 쓰인다는 점도 고려했습니다.
 
+[⤴️ 목차로 돌아가기](#-목차-link)
 <br>
 
 ## 📡 네트워크 레이어 구조 (클래스 다이어그램)
@@ -72,6 +74,7 @@
 ### API 서비스 계층
   - API 요청을 처리하는 OpenMarketAPIService라는 이름의 서비스 계층을 정의하였습니다. 이 객체에서는 API의 extension을 통해 Netsted Struct로 정의된 각 구조체를 일종의 UseCase처럼 활용해, 클라이언트 코드에서 필요한 타입으로 반환해줍니다.
 
+[⤴️ 목차로 돌아가기](#-목차-link)
 <br>
 
 # 🧑‍🏫 시연 영상
@@ -108,6 +111,7 @@
 | :---------------------: | :-----------: | :-----------------: |
 | <img src="https://github.com/minsson/ios-hongdangmu-market/assets/96630194/b7273fba-7325-4932-9494-cf07f8575d0b" height="100%"> | <img src="https://github.com/minsson/ios-hongdangmu-market/assets/96630194/460eb02f-9442-4d36-bcd0-28bf2267c509" height="100%"> | <img src="https://github.com/minsson/ios-hongdangmu-market/assets/96630194/0c659b0e-06ed-4648-af67-be80792219ea" height="100%"> |
 
+[⤴️ 목차로 돌아가기](#-목차-link)
 <br>
 
 # 🔫 트러블 슈팅 (메모리 성능 이슈)
@@ -123,6 +127,7 @@
 | 100MB의 메모리 캐시에 넣을 수 있는 이미지 수 |      41장       |        87장       |        1,034장        |
 |         다운샘플링 전 대비 개선율         |        -        |       112%       |         2,422%        |
 
+[⤴️ 목차로 돌아가기](#-목차-link)
 <br>
 
 ## ☔️ 문제 해결 과정
@@ -206,6 +211,8 @@ final class ImageCacheManager: ObservableObject {
 }
 ```
 
+[⤴️ 목차로 돌아가기](#-목차-link)
+
 #### totalCostLimit과 countLimit을 적용한 후 메모리 사용량 살펴보기
 
 - 제한을 적용한 후 다시 살펴봤습니다. 
@@ -221,12 +228,16 @@ final class ImageCacheManager: ObservableObject {
 - 재미있게도 두 문서 모두 Discussion의 하단에 같은 글을 넣어놨습니다.
 > 이것은 엄격한 제한이 아닙니다. 캐시가 제한을 초과하면 캐시의 구현 세부 사항에 따라 캐시의 개체가 즉시 또는 나중에 제거되거나 전혀 제거되지 않을 수 있습니다.
 
+[⤴️ 목차로 돌아가기](#-목차-link)
+
 <br>
 
 ### 🌧️ 이미지 다운샘플링
 
 - 캐싱 용량을 제한하여 성능을 개선하면서도, 최대한 많은 이미지를 캐싱하여 UX를 개선해야 하는 딜레마가 있습니다.
 - totalCostLimit을 100MB로 제한하면서도 최대한 많은 이미지를 캐싱하기 위해 다운샘플링을 진행했습니다.
+
+[⤴️ 목차로 돌아가기](#-목차-link)
 
 #### UIImage, UIGraphicsImageRenderer를 사용하는 방법
 
@@ -264,6 +275,8 @@ fileprivate extension UIImage {
 
 - 이미지 하나는 1.14MB의 메모리를 차지하는 것으로 추정할 수 있습니다.
 - 즉, 100MB 용량의 캐시에 약 87개의 이미지가 들어간다고 볼 수 있습니다. 41개에서 87개가 되었습니다.
+
+[⤴️ 목차로 돌아가기](#-목차-link)
 
 #### ImageIO, CGImage를 사용하는 방법
 
