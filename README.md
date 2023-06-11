@@ -81,8 +81,8 @@
 | <img src="https://github.com/minsson/ios-hongdangmu-market/assets/96630194/b7273fba-7325-4932-9494-cf07f8575d0b" height="100%"> | <img src="https://github.com/minsson/ios-hongdangmu-market/assets/96630194/460eb02f-9442-4d36-bcd0-28bf2267c509" height="100%"> | <img src="https://github.com/minsson/ios-hongdangmu-market/assets/96630194/0c659b0e-06ed-4648-af67-be80792219ea" height="100%"> |
 
 
-# 메모리 성능 이슈 해결 과정
-## 선 결론
+# 🔫 트러블 슈팅 (메모리 성능 이슈)
+## 🌈 메모리 성능 이슈 해결 및 결론 정리
 - 메모리 성능 이슈가 있어 NSCache 용량 조절 및 다운샘플링으로 해결했습니다.
 - 특히 이미지 다운 샘플링을 통해 성능을 비약적으로 상승시킬 수 있었습니다.
 
@@ -93,8 +93,8 @@
 | 100MB의 메모리 캐시에 넣을 수 있는 이미지 수 |      41장       |        87장       |        1,034장        |
 |         다운샘플링 전 대비 개선율         |        -        |       112%       |         2,422%        |
 
-## 문제 해결 과정
-## NSCache
+## ☔️ 문제 해결 과정
+## 🌧️ NSCache
 - NSCache를 이용해 이미지를 메모리 캐싱했습니다.
 - 처음에는 캐시 용량을 설정하지 않은 상태로 간단하게 성능 테스트를 진행해봤습니다. 서버에 있는 모든 상품을 Task Cancel 없이 훑은 결과, 3.15GB의 메모리를 차지합니다.
 
@@ -188,7 +188,7 @@ final class ImageCacheManager: ObservableObject {
 - 재미있게도 두 문서 모두 Discussion의 하단에 같은 글을 넣어놨습니다.
 > 이것은 엄격한 제한이 아닙니다. 캐시가 제한을 초과하면 캐시의 구현 세부 사항에 따라 캐시의 개체가 즉시 또는 나중에 제거되거나 전혀 제거되지 않을 수 있습니다.
 
-## 다운샘플링
+## 🌧️ 이미지 다운샘플링
 
 - 캐싱 용량을 제한하여 성능을 개선하면서도, 최대한 많은 이미지를 캐싱하여 UX를 개선해야 하는 딜레마가 있습니다.
 - totalCostLimit을 100MB로 제한하면서도 최대한 많은 이미지를 캐싱하기 위해 다운샘플링을 진행했습니다.
