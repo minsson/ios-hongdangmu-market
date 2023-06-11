@@ -11,6 +11,12 @@ struct ItemListView: View {
   
   @ObservedObject var viewModel: ItemListViewModel
   
+  init(viewModel: ItemListViewModel) {
+    self.viewModel = viewModel
+    
+    UIRefreshControl.appearance().tintColor = .orange
+  }
+  
   var body: some View {
     VStack {
       ScrollView {
