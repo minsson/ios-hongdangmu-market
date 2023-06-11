@@ -49,7 +49,7 @@ extension ImagePicker {
       
       results.forEach { image in
         if image.itemProvider.canLoadObject(ofClass: UIImage.self) {
-          image.itemProvider.loadObject(ofClass: UIImage.self) { image, error in
+          image.itemProvider.loadObject(ofClass: UIImage.self) { [weak self] image, error in
             guard error == nil else {
               return
             }
@@ -59,7 +59,7 @@ extension ImagePicker {
             }
             
             DispatchQueue.main.async {
-              self.parent.selectedImages.append(image)
+              self?.parent.selectedImages.append(image)
             }
           }
         } else {
