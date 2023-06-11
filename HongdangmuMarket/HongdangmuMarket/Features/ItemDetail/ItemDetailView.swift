@@ -148,6 +148,8 @@ private extension ItemDetailView {
         ForEach(viewModel.item.images) { imageData in
           CachedAsyncImageView(imageURL: imageData.url, withSize: CGSize(width: deviceWidth, height: deviceWidth))
             .aspectRatio(contentMode: .fill)
+            .frame(width: deviceWidth)
+            .clipped()
             .overlay {
               gradientOnImage
             }
