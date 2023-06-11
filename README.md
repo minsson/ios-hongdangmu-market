@@ -35,6 +35,15 @@
 
 ![Pasted image 20230607221131](https://github.com/minsson/ios-hongdangmu-market/assets/96630194/1804e04e-36d8-419e-890c-958d63f27dcb)
 
+- API Endpoint 정의
+  - 여러 API endpoint를 enum과 struct를 통해 정의하였습니다. 유연성과 확장성을 높이고 의존성은 낮추기 위함입니다. 각 API endpoint 관련 요청에 필요한 파라미터 및 경로는 구조체 내에 있습니다. 이는 URLRequest를 생성하고 실행하는 데 사용됩니다.
+    
+- 프로토콜 지향 네트워크 레이어
+  - 프로토콜 지향 프로그래밍을 사용해 API 요청의 각 종류(GET, POST, PATCH, DELETE)를 나타내는 프로토콜을 정의했습니다. 이를 통해 API 요청 유형에 따라 공통된 작업을 캡슐화하고 코드의 재사용성을 높였습니다.
+        
+- API 서비스 계층
+  - API 요청을 처리하는 OpenMarketAPIService라는 이름의 서비스 계층을 정의하였습니다. 이 객체에서는 API의 extension을 통해 Netsted Struct로 정의된 각 구조체를 일종의 UseCase처럼 활용해, 클라이언트 코드에서 필요한 타입으로 반환해줍니다.
+
 <br>
 
 # 🧑‍🏫 시연 영상
