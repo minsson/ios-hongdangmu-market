@@ -11,7 +11,6 @@
 - Unit Test
 - Pagination
 
-
 <br>
 
 # 🏗️ 구조
@@ -38,18 +37,40 @@
 
 <br>
 
-# 📱 시연 영상
+# 🧑‍🏫 시연 영상
 
-|상품 목록 화면 | 상품 상세 조회 화면|
-|:-:|:-:|
-|<img src="https://github.com/minsson/ios-hongdangmu-market/assets/96630194/d5199c25-b803-4cd5-8d55-f593153dce2b" width="300">|<img src="https://github.com/minsson/ios-hongdangmu-market/assets/96630194/928a2814-f140-4547-b48f-52b49939adf8" width="300">|
-|- 버벅임 없는 무한 스크롤<br>- 이미지 캐싱 적용<br> - 스크롤 상단에서 Swipe로 Refresh|- Sticky Header 구현<br>- TabView를 활용해 이미지 Carousel 구현<br>- Custom Navigation Bar 구현|
+## 📱 상품 목록 화면
 
+| 무한 스크롤 | 이미지 캐싱 | 당겨서 Refresh |
+| :------: | :--------: | :-------: |
+| <img src="https://github.com/minsson/ios-hongdangmu-market/assets/96630194/7fc1b2d3-f54c-440e-896f-3b45030c0d5e" height="100%"> | <img src="https://github.com/minsson/ios-hongdangmu-market/assets/96630194/91cf995d-0214-4e6e-a9c4-f9c5da206249" height="100%"> | <img src="https://github.com/minsson/ios-hongdangmu-market/assets/96630194/2af713d2-84ea-4b61-88d7-1cbab9af05ea" height="100%"> |
 
-|상품 등록 작성 화면| 자동으로 등록한 상품의 조회 화면으로 이동 |
-|:-:|:-:|
-|<img src="https://github.com/minsson/ios-hongdangmu-market/assets/96630194/5555a703-116d-4d30-9793-29d6915a1c37" width="300">|<img src="https://github.com/minsson/ios-hongdangmu-market/assets/96630194/4fcedecf-065b-46ae-874d-d04ca0ac15d4" width="300">|
-|- 상품 사진 선택<br>- 선택한 사진 삭제 <br>- 사진은 최대 5개까지 선택 가능<br> - 숫자 입력시 세 자리 단위로 쉼표 자동 입력<br>- 키보드 내리기|- 완료 버튼 탭하면 상품 목록으로 이동<br>-방금 등록한 상품의 조회 화면으로 자동 이동<br>- 뒤로 이동하면 상품 목록에 해당 상품 포함|
+## 📱 상품 상세 조회 화면
+
+| 상품 이미지 Carousel | Sticky Header | 상품공유 Activity Sheet |
+| :--------------: | :------------: | :-------------------: |
+| <img src="https://github.com/minsson/ios-hongdangmu-market/assets/96630194/66fb5b97-cc00-451f-9a5e-e41001a3dcb2" height="100%"> | <img src="https://github.com/minsson/ios-hongdangmu-market/assets/96630194/47e9bb80-dc2a-42f8-8200-4974a8ab3391" height="100%"> | <img src="https://github.com/minsson/ios-hongdangmu-market/assets/96630194/269c13db-94f6-4f37-b2d4-fb60fceed49d" height="100%"> |
+
+## 📱 상품 등록 화면
+| 이미지 선택(최대 5장) 및 삭제 | 불러온 이미지 삭제 | 등록한 상품으로 자동 이동 |
+| :---------------------: | :-----------: | :-----------------: |
+| <img src="https://github.com/minsson/ios-hongdangmu-market/assets/96630194/44dafce8-c2ae-40f9-8bb4-56d0436e49c1" height="100%"> | <img src="https://github.com/minsson/ios-hongdangmu-market/assets/96630194/b88963aa-3307-459c-9317-d5d49f8d99b4" height="100%"> | <img src="https://github.com/minsson/ios-hongdangmu-market/assets/96630194/33d9785e-8087-4bda-bd9d-a48a6d3e3b65" height="100%"> |
+
+## 📱 상품 수정 화면 / 상품 삭제 화면
+| 자신이 올린 상품만 수정 및 삭제 가능 | 자신의 상품 수정 | 자신의 상품 삭제 및 상품 목록으로 자동 이동 |
+| :---------------------: | :-----------: | :-----------------: |
+| <img src="https://github.com/minsson/ios-hongdangmu-market/assets/96630194/c2c20312-1884-4517-99bc-8fb78f4e287f" height="100%"> | <img src="https://github.com/minsson/ios-hongdangmu-market/assets/96630194/ea7dc173-e86c-4696-8b0b-7e6b89a87201" height="100%"> | <img src="https://github.com/minsson/ios-hongdangmu-market/assets/96630194/42df6c89-b69a-4cdf-8800-c00df7c4a3a8" height="100%"> |
+
+## 📱 상품 검색 화면
+| 특정 키워드로 검색 | 검색어 자동완성<br>(API 미제공 -> Mock 데이터 네트워킹) | 최근 검색어<br>(탭하여 검색 결과 보기 / 기록 개별 및 전체 삭제)  |
+| :---------------------: | :-----------: | :-----------------: |
+| <img src="https://github.com/minsson/ios-hongdangmu-market/assets/96630194/f5ea312c-240e-47db-9714-6737ed9cc4b6" height="100%"> | <img src="https://github.com/minsson/ios-hongdangmu-market/assets/96630194/ea7dc173-e86c-4696-8b0b-7e6b89a87201" height="100%"> | <img src="https://github.com/minsson/ios-hongdangmu-market/assets/96630194/3dd2ab6b-92bd-4856-90b9-9377e088f2cb" height="100%"> |
+
+## 📱 나의 홍당무 (MyPage) -> 나의 판매내역
+| 나의 판매내역 화면 진입 | 판매중, 거래완료 탭 간 전환 | 글쓰기 화면 진입 |
+| :---------------------: | :-----------: | :-----------------: |
+| <img src="https://github.com/minsson/ios-hongdangmu-market/assets/96630194/b7273fba-7325-4932-9494-cf07f8575d0b" height="100%"> | <img src="https://github.com/minsson/ios-hongdangmu-market/assets/96630194/460eb02f-9442-4d36-bcd0-28bf2267c509" height="100%"> | <img src="https://github.com/minsson/ios-hongdangmu-market/assets/96630194/0c659b0e-06ed-4648-af67-be80792219ea" height="100%"> |
+
 
 # 메모리 성능 이슈 해결 과정
 - 메모리 성능 이슈가 있어 NSCache 용량 조절 및 다운샘플링으로 해결했습니다.
