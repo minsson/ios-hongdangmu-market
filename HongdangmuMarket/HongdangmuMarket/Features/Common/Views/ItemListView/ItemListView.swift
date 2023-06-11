@@ -18,35 +18,33 @@ struct ItemListView: View {
   }
   
   var body: some View {
-    VStack {
-      ScrollView {
-        LazyVStack(spacing: 16) {
-          ForEach(viewModel.items, id: \.id) { item in
-            NavigationLink {
-              ItemDetailView(itemID: item.id) {
-                viewModel.itemDeletionCompletionExecuted(deletedItemID: item.id)
-              }
-            } label: {
-              VStack(spacing: 16) {
-                ItemRow(item: item, isEditable: false)
-                  .foregroundColor(.primary)
-                
-                Divider()
-              }
+    ScrollView {
+      LazyVStack(spacing: 16) {
+        ForEach(viewModel.items, id: \.id) { item in
+          NavigationLink {
+            ItemDetailView(itemID: item.id) {
+              viewModel.itemDeletionCompletionExecuted(deletedItemID: item.id)
+            }
+          } label: {
+            VStack(spacing: 16) {
+              ItemRow(item: item, isEditable: false)
+                .foregroundColor(.primary)
+              
+              Divider()
             }
           }
-          
-          progressView
-            .padding(.vertical, 40)
-            .task {
-              await viewModel.itemListNeedsMoreContents()
-            }
         }
+        
+        progressView
+          .padding(.vertical, 40)
+          .task {
+            await viewModel.itemListNeedsMoreContents()
+          }
       }
-      .padding(.horizontal)
-      .refreshable {
-        await viewModel.itemListRefreshed()
-      }
+    }
+    .padding(.horizontal)
+    .refreshable {
+      await viewModel.itemListRefreshed()
     }
     .errorAlert(error: $viewModel.error)
   }
