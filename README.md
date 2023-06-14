@@ -269,7 +269,7 @@ fileprivate extension UIImage {
 <img width="100%" alt="3_NSCache 제한 후_UIImage로 다운샘플링 후_RAM" src="https://github.com/minsson/ios-hongdangmu-market/assets/96630194/03e1a6d8-8fce-4379-985f-62d292a2e8b6">
 
 - 다운샘플링 전과 용량을 비교해야 하므로 NSCache의 countLimit과 totalCostLimit은 제거하고 다시 측정했습니다.
-- 다운샘플링 전 3.15GB였던 메모리 사용량이 1.49GB가 되어, 약 52.7% 개선되었습니다.
+- 다운샘플링 전 3.15GB였던 메모리 사용량이 1.49GB가 되어, 약 112% 개선되었습니다.
 
 <img width="100%" alt="3_1_NSCache 제한 풀고_UIImage로 다운샘플링_RAM" src="https://github.com/minsson/ios-hongdangmu-market/assets/96630194/6bb15ce0-528a-4bbd-ab0a-e42d59d5b5b2">
 
@@ -333,5 +333,6 @@ private extension {
 - 다운샘플링 전 대비 개선율이 2,422%이며, UIImage로 다운샘플링 후 대비 개선율이 1,088% 입니다.
 - 2-3배 정도는 좋아질 수 있을 거라고 생각했지만, 이렇게까지 큰 차이가 나니 당황스러울 정도였습니다.
 - 좀 더 깊게 공부하지 않았다면 UIImage로 다운샘플링한 상태로 프로젝트를 마무리했을지도 모릅니다.
-- 이 트러블 슈팅을 통해 늘 깊게 공부하는 습관을 유지하고, WWDC 등 여러 학습자료를 통해 역량을 강화해야 한다는 생각을 다시 한번 하게 됐습니다. 
+- 이 트러블 슈팅을 통해 늘 깊게 공부하는 습관을 유지하고, WWDC 등 여러 학습자료를 통해 역량을 강화해야 한다는 생각을 다시 한번 하게 됐습니다.
+
 [⤴️ 목차로 돌아가기](#-목차-link)
